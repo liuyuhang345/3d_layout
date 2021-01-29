@@ -23,14 +23,14 @@
 .container{
 	position: absolute;
 	transform-style: preserve-3d;
-	width: 60%;
-	height: 60%;
+	width: 100%;
+	height: 100%;
 	/* animation: go 5s infinite linear; */
 	background-image: url(./img/bk4.jpeg) ;
 }
 
 @keyframes go{
-	from{transform: rotateY(0deg);}
+	from{transform: rotateY(0deg) ;}
 	to{transform: rotateY(360deg);}
 }
 .surface{
@@ -51,6 +51,16 @@
 	transform: rotateZ(35deg)  translateZ(10vw);
 }
 .face2{
-	background-image: url(./img/bk5.jpeg);
-	transform: rotateZ(0deg) translateZ(-10vw);
+	background-image: url(./img/paibian.PNG);
+	transform: rotateZ(0deg) translateZ(-10vw) rotateX(180deg);
+	
+	display: -webkit-box;
+	  -webkit-box-orient: horizontal;
+	  -webkit-box-pack: center;
+	  -webkit-box-align: center;
+	text-shadow:  2px 2px 2px rgba(255,255,255,0.1);
+	color:rgba(20,20,20,1);
+	font-size: 2rem;
+	font-family: "隶书";
+
 }

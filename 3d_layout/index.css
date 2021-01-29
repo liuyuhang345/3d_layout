@@ -1,0 +1,56 @@
+
+/* 全屏 vw vh 视口宽高分别为100vw\100vh*/
+.world{
+	margin: 0px;
+	padding: 0px;
+	width: 100vw;
+	height: 100vh;
+	background-color: transparent;
+}
+
+.world{
+	position: absolute;
+	left: 0px;
+	top:0px;
+	
+	perspective: 200vw;
+	transform-style: preserve-3d;
+	
+}
+*{
+	background-size: 100% 100%;
+}
+.container{
+	position: absolute;
+	transform-style: preserve-3d;
+	width: 60%;
+	height: 60%;
+	/* animation: go 5s infinite linear; */
+	background-image: url(./img/bk4.jpeg) ;
+}
+
+@keyframes go{
+	from{transform: rotateY(0deg);}
+	to{transform: rotateY(360deg);}
+}
+.surface{
+	position: absolute;
+	left: 40%;
+	top:40%;
+	width: 20%;
+	height: 20%;
+	
+	box-shadow: 1px 1px 0px 1px #0000E1;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+}
+
+.face1{
+	background-image: url(./img/bk2.jpg);
+	transform: rotateZ(35deg)  translateZ(10vw);
+}
+.face2{
+	background-image: url(./img/bk5.jpeg);
+	transform: rotateZ(0deg) translateZ(-10vw);
+}

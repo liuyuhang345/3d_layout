@@ -5,8 +5,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="./index.css"/>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body>
-	
+	<div class="world">
+		<div class = "container">
+			<div class="surface face1"></div>
+			<div class="surface face2"></div>
+		</div>
+		
+	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+	var ydeg = 0;
+	var xdeg = 0;
+	var y = -1 ;
+	var x = -1 ;
+	var mouseIsDown = false;
+	$(function(e){
+		$(".world").on("mousemove",function(e){
+			if(y>-1 && x>-1 && mouseIsDown){
+				xdeg = ydeg + (e.pageY - y) ;
+				ydeg = xdeg + (e.pageX - x) ;
+				$(".container").css("transform","rotateY("+ydeg+"deg) rotateX("+xdeg+"deg)")
+			}
+			y = e.pageY;
+			x = e.pageX;
+		}).on("mousedown",function(){mouseIsDown=true}).on("mouseup",function(){mouseIsDown=false})
+	})
+	
+</script>

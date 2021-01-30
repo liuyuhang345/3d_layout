@@ -1,3 +1,9 @@
+// rotate 3d-object component for jQuery . help learning .
+// @copy yuhang.liu 刘宇航
+// qq:578384498
+// date 1-28-2021
+// email:liuyuhang345@163.com
+
 var ydeg = 0;
 	var xdeg = 0;
 	var y = -1 ;

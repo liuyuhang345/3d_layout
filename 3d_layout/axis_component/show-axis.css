@@ -1,0 +1,32 @@
+.axis{
+	position: absolute;
+	
+	width: 100%;
+	height: 100%;
+	
+	top:0px;
+	left: 0px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.x-axis{
+	
+	
+	background-image: url(x-axis.PNG);
+	
+}
+
+.y-axis{
+	
+	
+	background-image: url(y-axis.PNG);
+	transform: rotateZ(90deg);
+}
+
+.z-axis{
+	
+	background-image: url(z-axis.PNG);
+	transform: rotateY(-90deg);
+	
+}

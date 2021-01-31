@@ -11,7 +11,7 @@ var ydeg = 0;
 	var mouseIsDown = false;
 	
 	
-function $monitor(selectorMain,selectorObject,flag){
+function $watch(selectorMain,selectorObject,flag){
 	$(selectorMain).on("mousemove",function(e){
 		if(y>-1 && x>-1 && mouseIsDown){
 			xdeg = ydeg + (e.pageY - y) ;

@@ -18,6 +18,9 @@ var act = "rotate"; //动作
 var unit = "deg"; //3d变换的单位
 var preTansform = ''; //上一次的3D变换属性值
 var flag = 'xy'; //默认依赖x和y两个轴变换
+var bh_tr = ''; //当前的3D变换暂存变量
+var bh_tr_state = '' ;
+var bh_tr_add = false; //true标记需要累加新的3D变换
 
 // 设置平移或旋转
 function setAction(action, selectorObject) {
@@ -30,6 +33,22 @@ function setAction(action, selectorObject) {
 // 设置变换依赖的坐标轴
 function setAxis(axis) {
 	flag = axis;
+}
+
+function resertState() {
+
+	ydeg = 0;
+	xdeg = 0;
+	zdeg = 0;
+	ypx = 0;
+	xpx = 0;
+	zpx = 0;
+}
+
+// 做瞬态保持保存，后续3D变换将在此基础上进行
+function saveState() {
+	bh_tr_state = bh_tr ;//保存当前3D状态
+	resertState();
 }
 
 // 开启3d变换的鼠标联动
@@ -55,39 +74,45 @@ function $watch(selectorMain, selectorObject, axis, action) {
 					if (act == 'rotate') {
 						ydeg = ydeg + (e.pageX - x);
 					} else {
-						ypx = ypx + (e.pageY-y);
+						ypx = ypx + (e.pageY - y);
 					}
-					
+
 				} else if (flag == 'z') {
-					if (act == 'rotate'){
+					if (act == 'rotate') {
 						zdeg = zdeg + (e.pageY - y);
-					}else{
-						zpx = zpx + (e.pageY - y);
+					} else {
+						zpx = zpx + (e.pageY - y)+(e.pageX - x);
 					}
-					
+
 				} else {
-					if (act == 'rotate'){
+					if (act == 'rotate') {
 						xdeg = xdeg + (e.pageY - y);
 						xdeg = xdeg + (e.pageY - y);
-					}else{
+					} else {
 						xpx = xpx + (e.pageX - x);
-						ypx = ypx + (e.pageY-y);
+						ypx = ypx + (e.pageY - y);
 					}
-					
+
 				}
-				
-				
+
+
 				// bh_rotate = act + "Y(" + ydeg + unit + ") " + act + "X(" + xdeg + unit + ")" + act + "Z(" +
 				// 	zdeg + unit + ")";
-				bh_tr = "rotateX("+xdeg+"deg) "
-						+"rotateY("+ydeg+"deg) "
-						+"rotateZ("+zdeg+"deg) "
-						+"translateX("+xpx+"px) "
-						+"translateY("+ypx+"px) "
-						+"translateZ("+zpx+"px) ";
+
+
+
+				
+					bh_tr = bh_tr_state + " rotateX(" + xdeg + "deg) " +
+						"rotateY(" + ydeg + "deg) " +
+						"rotateZ(" + zdeg + "deg) " +
+						"translateX(" + xpx + "px) " +
+						"translateY(" + ypx + "px) " +
+						"translateZ(" + zpx + "px) ";
+					
+				
 				$(selectorObject).css("transform", bh_tr);
-					
-					
+
+
 				console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit + "");
 				console.log($(selectorObject).css("transform"));
 			}
@@ -116,6 +141,8 @@ function $watch(selectorMain, selectorObject, axis, action) {
 				case 'p':
 					setAxis('xy');
 					break;
+				case 's':
+					saveState();
 				default:
 					break;
 			}

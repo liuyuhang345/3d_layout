@@ -5,50 +5,113 @@
 // email:liuyuhang345@163.com
 
 var ydeg = 0;
-	var xdeg = 0;
-	var y = -1 ;
-	var x = -1 ;
-	var mouseIsDown = false;
-	var act = "rotate";//动作
-	var unit= "deg";//3d变换的单位
+var xdeg = 0;
+var zdeg = 0;
+var ypx = 0;
+var xpx = 0;
+var zpx = 0;
+
+var y = -1;
+var x = -1;
+var mouseIsDown = false;
+var act = "rotate"; //动作
+var unit = "deg"; //3d变换的单位
+var preTansform = ''; //上一次的3D变换属性值
+var flag = 'xy'; //默认依赖x和y两个轴变换
 
 // 设置平移或旋转
-function setAction(action){
-	act = action?action:'rotate';
-	unit = (action=='translate'?'px':'deg');
-}	
+function setAction(action, selectorObject) {
+	act = action ? action : 'rotate';
+	unit = (action == 'translate' ? 'px' : 'deg');
+	// preTansform = $(selectorObject).css("transform");
+	// console.log(preTansform);
+}
+
+// 设置变换依赖的坐标轴
+function setAxis(axis) {
+	flag = axis;
+}
 
 // 开启3d变换的鼠标联动
-function $watch(selectorMain,selectorObject,flag,action){
-	
-	setAction(action);
-	
-	$(selectorMain)
-	.on("mousemove",function(e){
-		if(y>-1 && x>-1 && mouseIsDown){
-			xdeg = ydeg + (e.pageY - y) ;
-			ydeg = xdeg + (e.pageX - x) ;
-			
-			if(flag && flag=='x'){
-				$(selectorObject).css("transform",act+"Y("+0+unit+") "+act+"X("+xdeg+unit+")");
-			}else if(flag && flag=='y'){
-				$(selectorObject).css("transform",act+"Y("+ydeg+unit+") "+act+"X("+0+unit+")")
-			}else if(flag && flag=='z'){
-				$(selectorObject).css("transform",act+"Z("+ydeg+unit+")")
-			}
-			else{
-				if(Math.abs(e.pageY - y) > Math.abs(e.pageX - x)){
-					$(selectorObject).css("transform",act+"Y("+(ydeg-(e.pageY-y))+unit+") "+act+"X("+xdeg+unit+")");
-				}else{
-					$(selectorObject).css("transform",act+"Y("+ydeg+unit+") "+act+"X("+(xdeg-(e.pageX - x))+unit+")")
+function $watch(selectorMain, selectorObject, axis, action) {
+
+	setAction(action, selectorObject);
+	setAxis(axis);
+
+	$(selectorMain).attr("tabindex", "0")
+		.on("mousemove", function(e) {
+			if (y > -1 && x > -1 && mouseIsDown) {
+
+
+
+				if (flag == 'x') { //旋转
+					if (act == 'rotate') {
+						xdeg = xdeg + (e.pageY - y);
+					} else { //平移
+						xpx = xpx + (e.pageX - x);
+					}
+
+				} else if (flag == 'y') {
+					if (act == 'rotate') {
+						ydeg = ydeg + (e.pageX - x);
+					} else {
+						ypx = ypx + (e.pageY-y);
+					}
+					
+				} else if (flag == 'z') {
+					if (act == 'rotate'){
+						zdeg = zdeg + (e.pageY - y);
+					}else{
+						zpx = zpx + (e.pageY - y);
+					}
+					
+				} else {
+					if (act == 'rotate'){
+						xdeg = xdeg + (e.pageY - y);
+						xdeg = xdeg + (e.pageY - y);
+					}else{
+						xpx = xpx + (e.pageX - x);
+						ypx = ypx + (e.pageY-y);
+					}
+					
 				}
-				// $(selectorObject).css("transform",act+"Y("+ydeg+unit+") "+act+"X("+xdeg+unit+")")
+				
+				
+				bh_rotate = act + "Y(" + ydeg + unit + ") " + act + "X(" + xdeg + unit + ")" + act + "Z(" +
+					zdeg + unit + ")";
+				$(selectorObject).css("transform", );
+					
+					
+				console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit + "");
+				console.log($(selectorObject).css("transform"));
 			}
-		console.log("x:"+xdeg+unit+";"+"y:"+ydeg+unit+";"+"z:"+ydeg+unit+"");
-		}
-		y = e.pageY;
-		x = e.pageX;
-	})
-	.on("mousedown",function(){mouseIsDown=true})
-	.on("mouseup",function(){mouseIsDown=false})
+			y = e.pageY;
+			x = e.pageX;
+		})
+		.on("mousedown", function() {
+			mouseIsDown = true
+		})
+		.on("mouseup", function() {
+			mouseIsDown = false
+		})
+		.on("keyup", function(e) {
+			switch (e.key) {
+				case 't':
+					setAction("translate", "selectorObject");
+					break;
+				case 'r':
+					setAction("rotate", "selectorObject");
+					break;
+				case 'x':
+				case 'y':
+				case 'z':
+					setAxis(e.key);
+					break;
+				case 'p':
+					setAxis('xy');
+					break;
+				default:
+					break;
+			}
+		})
 }

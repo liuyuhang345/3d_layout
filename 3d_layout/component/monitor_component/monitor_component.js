@@ -77,9 +77,15 @@ function $watch(selectorMain, selectorObject, axis, action) {
 				}
 				
 				
-				bh_rotate = act + "Y(" + ydeg + unit + ") " + act + "X(" + xdeg + unit + ")" + act + "Z(" +
-					zdeg + unit + ")";
-				$(selectorObject).css("transform", );
+				// bh_rotate = act + "Y(" + ydeg + unit + ") " + act + "X(" + xdeg + unit + ")" + act + "Z(" +
+				// 	zdeg + unit + ")";
+				bh_tr = "rotateX("+xdeg+"deg) "
+						+"rotateY("+ydeg+"deg) "
+						+"rotateZ("+zdeg+"deg) "
+						+"translateX("+xpx+"px) "
+						+"translateY("+ypx+"px) "
+						+"translateZ("+zpx+"px) ";
+				$(selectorObject).css("transform", bh_tr);
 					
 					
 				console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit + "");

@@ -9,13 +9,22 @@ var ydeg = 0;
 	var y = -1 ;
 	var x = -1 ;
 	var mouseIsDown = false;
-	
-	
+	var act = "rotate";//动作
+	var unit= "deg";//3d变换的单位
+
+// 设置平移或旋转
+function setAction(action){
+	act = action?action:'rotate';
+	unit = (action=='translate'?'px':'deg');
+}	
+
+// 开启3d变换的鼠标联动
 function $watch(selectorMain,selectorObject,flag,action){
-	var act = action?action:'rotate';
-	var unit = (action=='translate'?'px':'deg');
 	
-	$(selectorMain).on("mousemove",function(e){
+	setAction(action);
+	
+	$(selectorMain)
+	.on("mousemove",function(e){
 		if(y>-1 && x>-1 && mouseIsDown){
 			xdeg = ydeg + (e.pageY - y) ;
 			ydeg = xdeg + (e.pageX - x) ;
@@ -39,5 +48,7 @@ function $watch(selectorMain,selectorObject,flag,action){
 		}
 		y = e.pageY;
 		x = e.pageX;
-	}).on("mousedown",function(){mouseIsDown=true}).on("mouseup",function(){mouseIsDown=false})
+	})
+	.on("mousedown",function(){mouseIsDown=true})
+	.on("mouseup",function(){mouseIsDown=false})
 }

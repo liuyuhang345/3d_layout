@@ -2,33 +2,32 @@
 <html lang="zh">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="./index.css"/>
-	<!-- <link rel="stylesheet" type="text/css" href="./axis_component/show-axis.css"/> -->
+	
+	
+	<link rel="stylesheet" type="text/css" href="css/world.css"/>
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<!-- 永远不要用无良的百度 -->
+	<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> -->
 	<script src="../component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
+
 	
-	
-	</head>
+<script type="text/javascript">
+	$(function(){
+		$show_axis(".menu");
+	})
+</script>
+</head>
 <body>
 	<div class="world">
-		<div class = "container">
-			<div class="surface face1"></div>
-			<div class="surface face2">中国画</div>
+				
+		<div class="menu">
+			<iframe src="page/menu.html"></iframe>
 		</div>
-		
+	
 	</div>
 </body>
 </html>
-
-<script type="text/javascript">
-
-	$(function(e){
-		$watch(".world",".face2",'xy');
-	})
-	
-	$show_axis(".face2");
-</script>

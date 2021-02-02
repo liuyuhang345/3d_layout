@@ -1,0 +1,28 @@
+ul:nth-child(0){
+	width: 100vw;
+}
+ul,li{
+	margin: 1vw;
+}
+
+li{
+	list-style-type: none;
+	width: 25vw;
+	height: auto;
+	margin-top: 0px;
+}
+
+ul>li{
+	float: left;
+}
+
+li>ul{
+	display: none;
+}
+
+ul>li:hover>ul{
+	color:red;
+	display: block;
+}
+
+

@@ -57,11 +57,9 @@ function $watch(selectorMain, selectorObject, axis, action) {
 	setAction(action, selectorObject);
 	setAxis(axis);
 
-	$(selectorMain).attr("tabindex", "0")
+	$(selectorMain).attr("tabindex", "0").focus()
 		.on("mousemove", function(e) {
 			if (y > -1 && x > -1 && mouseIsDown) {
-
-
 
 				if (flag == 'x') { //旋转
 					if (act == 'rotate') {

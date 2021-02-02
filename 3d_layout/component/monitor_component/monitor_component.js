@@ -10,6 +10,9 @@ var zdeg = 0;
 var ypx = 0;
 var xpx = 0;
 var zpx = 0;
+var sx = 1;
+var sy = 1;
+var sz = 1;
 
 var y = -1;
 var x = -1;
@@ -19,7 +22,7 @@ var unit = "deg"; //3d变换的单位
 var preTansform = ''; //上一次的3D变换属性值
 var flag = 'xy'; //默认依赖x和y两个轴变换
 var bh_tr = ''; //当前的3D变换暂存变量
-var bh_tr_state = '' ;
+var bh_tr_state = '';
 var bh_tr_add = false; //true标记需要累加新的3D变换
 
 // 设置平移或旋转
@@ -43,11 +46,14 @@ function resertState() {
 	ypx = 0;
 	xpx = 0;
 	zpx = 0;
+	sx = 1;
+	sy = 1;
+	sz = 1;
 }
 
 // 做瞬态保持保存，后续3D变换将在此基础上进行
 function saveState() {
-	bh_tr_state = bh_tr ;//保存当前3D状态
+	bh_tr_state = bh_tr; //保存当前3D状态
 	resertState();
 }
 
@@ -60,32 +66,38 @@ function $watch(selectorMain, selectorObject, axis, action) {
 	$(selectorMain).attr("tabindex", "0").focus()
 		.on("mousemove", function(e) {
 			if (y > -1 && x > -1 && mouseIsDown) {
-
+				dlt = (e.pageY - y) + (e.pageX - x);
 				if (flag == 'x') { //旋转
 					if (act == 'rotate') {
-						xdeg = xdeg + (e.pageY - y);
-					} else { //平移
-						xpx = xpx + (e.pageX - x);
+						xdeg = xdeg + dlt;
+					} else if (act == 'translate') { //平移
+						xpx = xpx + dlt;
+					} else {
+						sx = sx - dlt / 10;
 					}
 
 				} else if (flag == 'y') {
 					if (act == 'rotate') {
-						ydeg = ydeg + (e.pageX - x);
+						ydeg = ydeg + dlt;
+					} else if (act == 'translate') {
+						ypx = ypx + dlt;
 					} else {
-						ypx = ypx + (e.pageY - y);
+						sy = sy - dlt / 10;
 					}
 
 				} else if (flag == 'z') {
 					if (act == 'rotate') {
-						zdeg = zdeg + (e.pageY - y);
+						zdeg = zdeg + dlt;
+					} else if (act == 'translate') {
+						zpx = zpx + dlt;
 					} else {
-						zpx = zpx + (e.pageY - y)+(e.pageX - x);
+						sz = sz - dlt / 10;
 					}
 
 				} else {
 					if (act == 'rotate') {
 						xdeg = xdeg + (e.pageY - y);
-						xdeg = xdeg + (e.pageY - y);
+						ydeg = ydeg + (e.pageX - x);
 					} else {
 						xpx = xpx + (e.pageX - x);
 						ypx = ypx + (e.pageY - y);
@@ -99,15 +111,16 @@ function $watch(selectorMain, selectorObject, axis, action) {
 
 
 
-				
-					bh_tr = bh_tr_state + " rotateX(" + xdeg + "deg) " +
-						"rotateY(" + ydeg + "deg) " +
-						"rotateZ(" + zdeg + "deg) " +
-						"translateX(" + xpx + "px) " +
-						"translateY(" + ypx + "px) " +
-						"translateZ(" + zpx + "px) ";
-					
-				
+
+				bh_tr = bh_tr_state + " rotateX(" + xdeg + "deg) " +
+					"rotateY(" + ydeg + "deg) " +
+					"rotateZ(" + zdeg + "deg) " +
+					"translateX(" + xpx + "px) " +
+					"translateY(" + ypx + "px) " +
+					"translateZ(" + zpx + "px) " +
+					"scale3d("+sx+","+sy+","+sz+")";
+
+
 				$(selectorObject).css("transform", bh_tr);
 
 
@@ -131,6 +144,10 @@ function $watch(selectorMain, selectorObject, axis, action) {
 				case 'r':
 					setAction("rotate", "selectorObject");
 					break;
+				case 's':
+					setAction("scale", "selectorObject");
+					break;
+
 				case 'x':
 				case 'y':
 				case 'z':
@@ -139,7 +156,7 @@ function $watch(selectorMain, selectorObject, axis, action) {
 				case 'p':
 					setAxis('xy');
 					break;
-				case 's':
+				case 'k':
 					saveState();
 				default:
 					break;

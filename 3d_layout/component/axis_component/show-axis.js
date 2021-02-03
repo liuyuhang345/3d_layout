@@ -13,22 +13,18 @@ $(function(){
 	})
 	.appendTo("head");
 })
-
+//为元素追加3D坐标轴，传入选择器
 function $show_axis(selector){
-	$(selector).css("transform-style","preserve-3d");
-	$(selector).append($("<div class='axis x-axis'></div>"));
-	$(selector).append($("<div class='axis y-axis'></div>"));
-	$(selector).append($("<div class='axis z-axis'></div>"));
 	
-	// 引入css
-	// var head = document.getElementsByTagName('head')[0];
-	// var link = document.createElement('link');
-	// link.href = getRootPath()+'show-axis.css';
-	// link.rel = 'stylesheet';
-	// link.type = 'text/css';
-	// head.appendChild(link);
-	
-	
+	$show_axis_Ex($(selector));
+}
+
+//为元素追加3D坐标轴，传入jquery对象
+function $show_axis_Ex(selector_JQuery){
+	selector_JQuery.css("transform-style","preserve-3d");
+	selector_JQuery.append($("<div class='axis x-axis'></div>"));
+	selector_JQuery.append($("<div class='axis y-axis'></div>"));
+	selector_JQuery.append($("<div class='axis z-axis'></div>"));
 }
 
 // 以下方法专用于做js插件。求得当前js（show-axis.js）所在路径

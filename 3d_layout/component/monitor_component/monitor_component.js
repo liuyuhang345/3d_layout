@@ -24,13 +24,11 @@ var flag = 'xy'; //默认依赖x和y两个轴变换
 var bh_tr = ''; //当前的3D变换暂存变量
 var bh_tr_state = '';
 var bh_tr_add = false; //true标记需要累加新的3D变换
-
+var selectedObject_JQuery=null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
 // 设置平移或旋转
-function setAction(action, selectorObject) {
+function setAction(action) {
 	act = action ? action : 'rotate';
 	unit = (action == 'translate' ? 'px' : 'deg');
-	// preTansform = $(selectorObject).css("transform");
-	// console.log(preTansform);
 }
 
 // 设置变换依赖的坐标轴
@@ -58,11 +56,17 @@ function saveState() {
 }
 
 // 开启3d变换的鼠标联动
-function $watch(selectorMain, selectorObject, axis, action) {
-
-	setAction(action, selectorObject);
+function $watch(selectorMain, transformObject, axis, action) {
+	selectedObject_JQuery = $(transformObject);
+	setAction(action, transformObject);
 	setAxis(axis);
-
+	$("body>div div").on("dblclick",function(){
+		$(">.axis",selectedObject_JQuery).remove();
+		selectedObject_JQuery = $(this);
+		$show_axis_Ex(selectedObject_JQuery);
+		resertState();
+	});
+	
 	$(selectorMain).attr("tabindex", "0").focus()
 		.on("mousemove", function(e) {
 			if (y > -1 && x > -1 && mouseIsDown) {
@@ -121,11 +125,11 @@ function $watch(selectorMain, selectorObject, axis, action) {
 					"scale3d("+sx+","+sy+","+sz+")";
 
 
-				$(selectorObject).css("transform", bh_tr);
+				selectedObject_JQuery.css("transform", bh_tr);
 
 
-				console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit + "");
-				console.log($(selectorObject).css("transform"));
+				console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit +"scale:"+ sx+","+sy+","+sz);
+				console.log(selectedObject_JQuery.css("transform"));
 			}
 			y = e.pageY;
 			x = e.pageX;
@@ -139,13 +143,13 @@ function $watch(selectorMain, selectorObject, axis, action) {
 		.on("keyup", function(e) {
 			switch (e.key) {
 				case 't':
-					setAction("translate", "selectorObject");
+					setAction("translate");
 					break;
 				case 'r':
-					setAction("rotate", "selectorObject");
+					setAction("rotate");
 					break;
 				case 's':
-					setAction("scale", "selectorObject");
+					setAction("scale");
 					break;
 
 				case 'x':

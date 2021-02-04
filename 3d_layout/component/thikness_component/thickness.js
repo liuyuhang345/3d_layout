@@ -1,7 +1,7 @@
 // css的3D环境下，给容器元素（典型是div元素）增加厚度
 // selector是选择器，px是厚度（单位px）
 // 此为
-function $thikness(selector,px){
+function $thickness(selector,px){
 	var newE = $("<div></div>");
 	newE.css({
 		"position":"absolute",

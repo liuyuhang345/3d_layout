@@ -7,11 +7,7 @@ function $thikness(selector,px){
 		"position":"absolute",
 		"width":$(selector).css("width"),
 		"height":$(selector).css("height"),
-		// "background-color":$(selector).css("background-color"),
-		// "background-image":$(selector).css("background-image"),
-		// "background-size":$(selector).css("background-size"),
 		"background":$(selector).css("background")
-		
 		});
 
 	
@@ -20,7 +16,7 @@ function $thikness(selector,px){
 	
 	for(var i = 0 ;i<parseInt(px);i++){
 		e = newE.clone();
-		e.css("transform","translateZ("+i+"px)");
+		e.css("transform","translateZ("+(0-i)+"px)");
 		$(selector).append(e);
 	}
 }

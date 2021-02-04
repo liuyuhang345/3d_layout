@@ -57,12 +57,12 @@ function saveState() {
 }
 
 // 开启3d变换的鼠标联动
-function $watch(selectorMain, transformObject, axis, action) {
+function $watch(selectorMain, transformObject, axis, action,objectSets) {
 	selectedObject_JQuery = $(transformObject);
 	setAction(action, transformObject);
 	setAxis(axis);
-	$("body>div div").on("dblclick",function(){
-		$(">.axis",selectedObject_JQuery).remove();
+	$(objectSets).on("dblclick",function(){
+		$(".axis",selectedObject_JQuery).remove();
 		selectedObject_JQuery = $(this);
 		$show_axis_Ex(selectedObject_JQuery);
 		resertState();

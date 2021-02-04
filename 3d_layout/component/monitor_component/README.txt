@@ -4,7 +4,7 @@ $monitor(selectorMain,selectorObject,axis,isRotate) ，
 第二个是被控制旋转的元素。两个参数都是jquery选择器;
 第三个参数，可以取如下四个值：'x'、'y'、'z'、其它值或省略此参数，分别代表允许的旋转或平移的方向：x、y、z和xy轴旋转。
 第四个参数，rotate表示旋转，translate表示平移	，其它值表示rotate	
-
+第四个参数，objectSets是鼠标双击的时候，可以切换过去的3D变换元素的选择器
 
 快捷键：
 x,y,z切换变换的坐标轴；p切换到同时按照x、y轴进行变换

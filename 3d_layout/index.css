@@ -27,6 +27,7 @@
 	height: 100%;
 	/* animation: go 5s infinite linear; */
 	/* background-image: url(./img/bk4.jpeg) ; */
+	background-color: transparent;
 }
 
 @keyframes go{
@@ -44,11 +45,13 @@
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	
+	border: 1px red solid;
+	
 }
 
 .face1{
 	background-image: url(./img/bk2.jpg);
-	opacity: 0.7;
+	/* opacity: 0.7; */
 }
 .face2{
 	

@@ -7,9 +7,13 @@ function $thikness(selector,px){
 		"position":"absolute",
 		"width":$(selector).css("width"),
 		"height":$(selector).css("height"),
-		"background-color":$(selector).css("background-color"),
-		"background-image":$(selector).css("background-image")
+		// "background-color":$(selector).css("background-color"),
+		// "background-image":$(selector).css("background-image"),
+		// "background-size":$(selector).css("background-size"),
+		"background":$(selector).css("background")
+		
 		});
+
 	
 	newE.html($(selector).clone().html());
 	$(selector).html('').css("transform-style","preserve-3d");

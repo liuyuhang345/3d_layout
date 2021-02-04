@@ -56,6 +56,14 @@ function saveState() {
 	resertState();
 }
 
+// 隐藏坐标轴,传入jquery对象
+function switchAxis(jobj){
+	if($(".axis",jobj)){
+		$(".axis",jobj).remove();
+	}else{
+		
+	}
+}
 // 开启3d变换的鼠标联动
 function $watch(selectorMain, transformObject, axis, action,objectSets) {
 	selectedObject_JQuery = $(transformObject);
@@ -163,6 +171,10 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 					break;
 				case 'k':
 					saveState();
+					break;
+				case 'a':
+					switchAxis($(this));
+					break;
 				default:
 					break;
 			}

@@ -25,45 +25,44 @@ var bh_tr = ''; //当前的3D变换暂存变量
 var bh_tr_state = '';
 var bh_tr_add = false; //true标记需要累加新的3D变换
 var selectedObject_JQuery=null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
-var old_transform_data = [];//存放历史变换数据的字典，key为选择器
+var old_transform_data = {};//存放历史变换数据的字典，key为选择器
 
 function put_transform_data(old_sel_JQuery){
+	saveState();//将所有历史状态保存在bh_tr_state中
 	key = old_sel_JQuery.attr("class");
-	alert(old_transform_data[key]);
-	if(old_transform_data[key]){
-		// alert(old_transform_data[key]);
-		delete old_transform_data[key];
-	}
-	old_transform_data.push(key,
+	
+	old_transform_data[key] =
 	{
-    "ydeg":	ydeg ,
-    "xdeg":	xdeg ,
-    "zdeg":	zdeg ,
-    "ypx ":	ypx  ,
-    "xpx ":	xpx  ,
-    "zpx ":	zpx  ,
-    "sx  ":	sx   ,
-    "sy  ":	sy   ,
-    "sz  ":	sz   ,
-	}
-	);
-	console.log(old_transform_data);
+    // "ydeg":	ydeg ,
+    // "xdeg":	xdeg ,
+    // "zdeg":	zdeg ,
+    // "ypx ":	ypx  ,
+    // "xpx ":	xpx  ,
+    // "zpx ":	zpx  ,
+    // "sx  ":	sx   ,
+    // "sy  ":	sy   ,
+    // "sz  ":	sz   ,
+	// 上次的变换
+	"bh_tr_state":bh_tr_state
+	};
+	
+	console.log("save:"+key+","+old_transform_data[key].bh_tr_state);
 	
 }
 
 //
 function restore_transform_data(sel_JQuery){
-	ydeg = 0;
-	xdeg = 0;
-	zdeg = 0;
-	ypx = 0;
-	xpx = 0;
-	zpx = 0;
-	sx = 1;
-	sy = 1;
-	sz = 1;
+	key = sel_JQuery.attr("class");
+	if(old_transform_data[key]){
+		bh_tr_state = old_transform_data[key].bh_tr_state;
+		bh_tr = "";
+		console.log(("restore:"+key+","+bh_tr_state));
+	}else{
+		resertState();
+		bh_tr_state="";
+	}
 	
-	resertState();
+	
 }
 
 // 设置平移或旋转或缩放
@@ -118,7 +117,7 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 		selectedObject_JQuery = $(this);//改变变换对象为鼠标双击的元素
 		
 		$show_axis_Ex(selectedObject_JQuery);//显示坐标轴
-		restore_transform_data();//恢复现场变换数据
+		restore_transform_data(selectedObject_JQuery);//恢复现场变换数据
 	});
 	
 	$(selectorMain).attr("tabindex", "0").focus()

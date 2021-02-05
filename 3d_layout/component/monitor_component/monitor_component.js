@@ -25,11 +25,53 @@ var bh_tr = ''; //当前的3D变换暂存变量
 var bh_tr_state = '';
 var bh_tr_add = false; //true标记需要累加新的3D变换
 var selectedObject_JQuery=null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
-// 设置平移或旋转
+var old_transform_data = [];//存放历史变换数据的字典，key为选择器
+
+function put_transform_data(old_sel_JQuery){
+	key = old_sel_JQuery.attr("class");
+	alert(old_transform_data[key]);
+	if(old_transform_data[key]){
+		// alert(old_transform_data[key]);
+		delete old_transform_data[key];
+	}
+	old_transform_data.push(key,
+	{
+    "ydeg":	ydeg ,
+    "xdeg":	xdeg ,
+    "zdeg":	zdeg ,
+    "ypx ":	ypx  ,
+    "xpx ":	xpx  ,
+    "zpx ":	zpx  ,
+    "sx  ":	sx   ,
+    "sy  ":	sy   ,
+    "sz  ":	sz   ,
+	}
+	);
+	console.log(old_transform_data);
+	
+}
+
+//
+function restore_transform_data(sel_JQuery){
+	ydeg = 0;
+	xdeg = 0;
+	zdeg = 0;
+	ypx = 0;
+	xpx = 0;
+	zpx = 0;
+	sx = 1;
+	sy = 1;
+	sz = 1;
+	
+	resertState();
+}
+
+// 设置平移或旋转或缩放
 function setAction(action) {
 	act = action ? action : 'rotate';
 	unit = (action == 'translate' ? 'px' : 'deg');
 }
+
 
 // 设置变换依赖的坐标轴
 function setAxis(axis) {
@@ -52,7 +94,7 @@ function resertState() {
 
 // 做瞬态保持保存，后续3D变换将在此基础上进行
 function saveState() {
-	bh_tr_state = bh_tr; //保存当前3D状态
+	bh_tr_state = bh_tr; //保存对象的本次3D状态，便于累加新的变换
 	resertState();
 }
 
@@ -70,10 +112,13 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 	setAction(action, transformObject);
 	setAxis(axis);
 	$(objectSets).on("dblclick",function(){
-		$(".axis",selectedObject_JQuery).remove();
-		selectedObject_JQuery = $(this);
-		$show_axis_Ex(selectedObject_JQuery);
-		resertState();
+		$(".axis",selectedObject_JQuery).remove();//移走原来变换对象的坐标轴
+		put_transform_data(selectedObject_JQuery);//保存现场
+		
+		selectedObject_JQuery = $(this);//改变变换对象为鼠标双击的元素
+		
+		$show_axis_Ex(selectedObject_JQuery);//显示坐标轴
+		restore_transform_data();//恢复现场变换数据
 	});
 	
 	$(selectorMain).attr("tabindex", "0").focus()
@@ -137,8 +182,9 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 				selectedObject_JQuery.css("transform", bh_tr);
 
 
-				console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit +"scale:"+ sx+","+sy+","+sz);
-				console.log(selectedObject_JQuery.css("transform"));
+				// console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit +"scale:"+ sx+","+sy+","+sz);
+				// console.log(selectedObject_JQuery.css("transform"));
+				console.log(bh_tr);
 			}
 			y = e.pageY;
 			x = e.pageX;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,10 +19,13 @@
 	<div class="world">
 		<div class="container">
 			<div class="window-a">
-				<iframe  src="index.html" ></iframe>
+				<script type="text/javascript">
+					$(".window-a").load("index.html");
+				</script>
+				<!-- <iframe  src="index.html" ></iframe> -->
 			</div>
 			<div class="window-b">
-				<iframe  src="e.html" ></iframe>
+				<!-- <iframe  src="e.html" ></iframe> -->
 			</div>
 			
 			

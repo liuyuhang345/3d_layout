@@ -14,10 +14,10 @@
 	<script type="text/javascript">
 		$(function(){
 			$show_axis(".surface");
-			$watch(".world",".surface","y","rotate",".surface,.two");
+			$watch(".world,body",".surface","y","rotate",".surface,.two");
 			$thickness(".two",10);
 			$thickness(".surface",10);
-			$("video")[0].play();
+			// $("video")[0].play();
 		})
 	</script>
 </head>
@@ -28,7 +28,7 @@
 			
 			中国书画
 			<!-- <iframe src="" width="" height=""></iframe> -->
-			<video loop="-1">
+			<video loop="-1" >
 				<source src="mp4/kk%202021-02-05%2012-32-54.mp4" type="video/mp4"></source>
 	
 			</video>
@@ -54,18 +54,7 @@
 					<td>Inventore!</td>
 					<td>Esse.</td>
 				</tr>
-				<tr>
-					<td>Lorem.</td>
-					<td>Modi!</td>
-					<td>Pariatur.</td>
-					<td>Consectetur.</td>
-				</tr>
-				<tr>
-					<td>Lorem.</td>
-					<td>Accusamus.</td>
-					<td>Ullam?</td>
-					<td>Ipsam.</td>
-				</tr>
+				
 			</table>
 		</div>
 
@@ -133,6 +122,7 @@
 
 	.two{
 		background-image: url(img/heiban.PNG);
+		
 	}
 
 @keyframes go{
@@ -168,6 +158,7 @@
 		height: 80%;
 		top:10%;
 		left: 10%;
+		overflow: hidden;
 	}
 	
 	

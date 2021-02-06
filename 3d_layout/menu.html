@@ -5,17 +5,53 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title></title>
+	
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="./component/axis_component/show-axis.js"  charset="utf-8"></script>
+	<script src="./component/monitor_component/monitor_component.js"  charset="utf-8"></script>
+	<script src="component/thikness_component/thickness.js"  charset="utf-8"></script>
+	<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
+	
 </head>
 <body>
-	<iframe src="index.html" frameborder="0"></iframe>
+	<!-- div[class="world"]>div[class="container"] -->
+	<div class="world">
+		<div class="container">
+			<iframe class="window-a" src="index.html" ></iframe>
+			<iframe class="window-b" src="e.html" ></iframe>
+		</div>
+	</div>
 	
-	<iframe src="e.html" frameborder="0"></iframe>
 </body>
 </html>
 
 <style>
-	iframe{
-		width:80vw;
-		height: 40vh;
+	html,body{
+		margin: 0px;
+		padding: 0px;
 	}
+	.world,.container{
+		width: 100vw;
+		height: 100vh;
+		perspective: 100cm;
+		transform-style: preserve-3d;
+	}
+	
+	iframe{
+		--w:20cm;
+		--h:10cm;
+		width:var(--w);
+		height: var(--h);
+		border: 0px;
+		padding: 1cm;
+		position: absolute;
+		left: calc(50% - var(--w)/2);
+		top: calc(50% - var(--h)/2);
+		
+	}
+	
 </style>
+
+<script type="text/javascript">
+	$monitor(".world","iframe","x","translate","iframe")
+</script>

@@ -1,9 +1,25 @@
-// "+act+" 3d-object component for jQuery . help learning .
+// "+act+" 3d-object component . helper for learning .
 // @copy yuhang.liu 刘宇航
 // qq:578384498
 // date 1-28-2021
 // email:liuyuhang345@163.com
 
+// js组件，用于提供手动旋转元素的方法。使用格式如下：
+// $monitor(selectorMain,selectorObject,axis,isRotate) ，
+// 第一个参数是用于捕获鼠标坐标的元素；
+// 第二个是被控制旋转的元素。两个参数都是jquery选择器;
+// 第三个参数，可以取如下四个值：'x'、'y'、'z'、其它值或省略此参数，分别代表允许的旋转或平移的方向：x、y、z和xy轴旋转。
+// 第四个参数，rotate表示旋转，translate表示平移	，其它值表示rotate	
+// 第四个参数，objectSets是鼠标双击的时候，可以切换过去的3D变换元素的选择器
+
+// 快捷键：
+// x,y,z切换变换的坐标轴；p切换到同时按照x、y轴进行变换
+// t（transform）进行平移变换
+// r（rotate）进行旋转变换
+// s（scale）进行缩放变换
+// k（keep）保持当前变换，进入新的变换
+// a (axis) 隐藏坐标轴
+// 鼠标双击某元素，选中变换的元素
 var ydeg = 0;
 var xdeg = 0;
 var zdeg = 0;
@@ -27,6 +43,10 @@ var bh_tr_add = false; //true标记需要累加新的3D变换
 var selectedObject_JQuery=null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
 var old_transform_data = {};//存放历史变换数据的字典，key为选择器
 
+// 此控件的API，参数见README
+function $monitor(selectorMain, transformObject, axis, action,objectSets){
+	return  $watch(selectorMain, transformObject, axis, action,objectSets);
+}
 function put_transform_data(old_sel_JQuery){
 	saveState();//将所有历史状态保存在bh_tr_state中
 	key = old_sel_JQuery.attr("class");
@@ -130,7 +150,7 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 					} else if (act == 'translate') { //平移
 						xpx = xpx + dlt;
 					} else {
-						sx = sx - dlt / 10;
+						sx = sx - dlt / 100;
 					}
 
 				} else if (flag == 'y') {
@@ -139,7 +159,7 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 					} else if (act == 'translate') {
 						ypx = ypx + dlt;
 					} else {
-						sy = sy - dlt / 10;
+						sy = sy - dlt / 100;
 					}
 
 				} else if (flag == 'z') {
@@ -148,7 +168,7 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 					} else if (act == 'translate') {
 						zpx = zpx + dlt;
 					} else {
-						sz = sz - dlt / 10;
+						sz = sz - dlt / 100;
 					}
 
 				} else {

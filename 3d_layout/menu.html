@@ -17,8 +17,14 @@
 	<!-- div[class="world"]>div[class="container"] -->
 	<div class="world">
 		<div class="container">
-			<iframe class="window-a" src="index.html" ></iframe>
-			<iframe class="window-b" src="e.html" ></iframe>
+			<div class="window-a">
+				<iframe  src="index.html" ></iframe>
+			</div>
+			<div class="window-b">
+				<iframe  src="e.html" ></iframe>
+			</div>
+			
+			
 		</div>
 	</div>
 	
@@ -37,7 +43,7 @@
 		transform-style: preserve-3d;
 	}
 	
-	iframe{
+	.container>div {
 		--w:20cm;
 		--h:10cm;
 		width:var(--w);
@@ -47,11 +53,16 @@
 		position: absolute;
 		left: calc(50% - var(--w)/2);
 		top: calc(50% - var(--h)/2);
-		
+		padding: 3mm;
+		background-color: aqua;
+	}
+	iframe{
+		width: 100%;
+		height: 100%;
 	}
 	
 </style>
 
 <script type="text/javascript">
-	$monitor(".world","iframe","x","translate","iframe")
+	$monitor(".world",".window-b","x","translate",".container>div")
 </script>

@@ -23,29 +23,29 @@
 
 
 // 引入css
-$(function(){
+$(function() {
 	// 引入css
 	$("<link>")
-	.attr({ rel: "stylesheet",
-	type: "text/css",
-	href: getRootPath()+'monitor_component.css'
-	})
-	.appendTo("head");
+		.attr({
+			rel: "stylesheet",
+			type: "text/css",
+			href: get_monitor_component_RootPath() + 'monitor_component.css'
+		})
+		.appendTo("head");
 })
 
-// 以下方法专用于做js插件。求得当前js（show-axis.js）所在路径
+// 以下方法专用于做js插件。求得当前js（monitor_component.js）所在路径
 // 来自https://www.cnblogs.com/blosaa/archive/2011/10/17/2215606.html
 // 感谢昵称为“云中雀”的博主
-function get_monitor_component_RootPath()
-{
+function get_monitor_component_RootPath() {
 	var js = document.scripts || document.getElementsByTagName("script");
-	    var jsPath;
-	    for (var i = js.length; i > 0; i--) {
-	        if (js[i - 1].src.indexOf("monitor_component.css") > -1) {
-	            jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
-	        }
-	    }
-	    return jsPath;
+	var jsPath;
+	for (var i = js.length; i > 0; i--) {
+		if (js[i - 1].src.indexOf("monitor_component.js") > -1) {
+			jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
+		}
+	}
+	return jsPath;
 }
 
 
@@ -70,50 +70,50 @@ var flag = 'xy'; //默认依赖x和y两个轴变换
 var bh_tr = ''; //当前的3D变换暂存变量
 var bh_tr_state = '';
 var bh_tr_add = false; //true标记需要累加新的3D变换
-var selectedObject_JQuery=null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
-var old_transform_data = {};//存放历史变换数据的字典，key为选择器
-var global_objectSets = '' ;//可选择的选择器集合,用于双击鼠标选择3D变换对象
+var selectedObject_JQuery = null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
+var old_transform_data = {}; //存放历史变换数据的字典，key为选择器
+var global_objectSets = ''; //可选择的选择器集合,用于双击鼠标选择3D变换对象
 
 // 此控件的API，参数见README
-function $monitor(selectorMain, transformObject, axis, action,objectSets){
-	return  $watch(selectorMain, transformObject, axis, action,objectSets);
+function $monitor(selectorMain, transformObject, axis, action, objectSets) {
+	return $watch(selectorMain, transformObject, axis, action, objectSets);
 }
-function put_transform_data(old_sel_JQuery){
-	saveState();//将所有历史状态保存在bh_tr_state中
+
+function put_transform_data(old_sel_JQuery) {
+	saveState(); //将所有历史状态保存在bh_tr_state中
 	key = old_sel_JQuery.attr("class");
-	
-	old_transform_data[key] =
-	{
-    // "ydeg":	ydeg ,
-    // "xdeg":	xdeg ,
-    // "zdeg":	zdeg ,
-    // "ypx ":	ypx  ,
-    // "xpx ":	xpx  ,
-    // "zpx ":	zpx  ,
-    // "sx  ":	sx   ,
-    // "sy  ":	sy   ,
-    // "sz  ":	sz   ,
-	// 上次的变换
-	"bh_tr_state":bh_tr_state
+
+	old_transform_data[key] = {
+		// "ydeg":	ydeg ,
+		// "xdeg":	xdeg ,
+		// "zdeg":	zdeg ,
+		// "ypx ":	ypx  ,
+		// "xpx ":	xpx  ,
+		// "zpx ":	zpx  ,
+		// "sx  ":	sx   ,
+		// "sy  ":	sy   ,
+		// "sz  ":	sz   ,
+		// 上次的变换
+		"bh_tr_state": bh_tr_state
 	};
-	
-	console.log("save:"+key+","+old_transform_data[key].bh_tr_state);
-	
+
+	console.log("save:" + key + "," + old_transform_data[key].bh_tr_state);
+
 }
 
 //
-function restore_transform_data(sel_JQuery){
+function restore_transform_data(sel_JQuery) {
 	key = sel_JQuery.attr("class");
-	if(old_transform_data[key]){
+	if (old_transform_data[key]) {
 		bh_tr_state = old_transform_data[key].bh_tr_state;
 		bh_tr = "";
-		console.log(("restore:"+key+","+bh_tr_state));
-	}else{
+		console.log(("restore:" + key + "," + bh_tr_state));
+	} else {
 		resertState();
-		bh_tr_state="";
+		bh_tr_state = "";
 	}
-	
-	
+
+
 }
 
 // 设置平移或旋转或缩放
@@ -149,42 +149,42 @@ function saveState() {
 }
 
 // 隐藏坐标轴,传入jquery对象
-function switchAxis(jobj){
-	if($(".axis",jobj)){
-		$(".axis",jobj).remove();
-	}else{
-		
+function switchAxis(jobj) {
+	if ($(".axis", jobj)) {
+		$(".axis", jobj).remove();
+	} else {
+
 	}
 }
 
 // 给可被选择的3D对象，加上双击事件
-function set_3d_transform_Object(objectSets){
-	
-	$(objectSets).on("dblclick",function(){
-		$(".axis",selectedObject_JQuery).remove();//移走原来变换对象的坐标轴
-		put_transform_data(selectedObject_JQuery);//保存现场
-		
-		selectedObject_JQuery = $(this);//改变变换对象为鼠标双击的元素
-		
-		$show_axis_Ex(selectedObject_JQuery);//显示坐标轴
-		restore_transform_data(selectedObject_JQuery);//恢复现场变换数据
+function set_3d_transform_Object(objectSets) {
+
+	$(objectSets).on("dblclick", function() {
+		$(".axis", selectedObject_JQuery).remove(); //移走原来变换对象的坐标轴
+		put_transform_data(selectedObject_JQuery); //保存现场
+
+		selectedObject_JQuery = $(this); //改变变换对象为鼠标双击的元素
+
+		$show_axis_Ex(selectedObject_JQuery); //显示坐标轴
+		restore_transform_data(selectedObject_JQuery); //恢复现场变换数据
 	});
-	
+
 	$(global_objectSets).unbind("dblclick");
 	global_objectSets = objectSets;
 }
 
 // 开启3d变换的鼠标联动
-function $watch(selectorMain, transformObject, axis, action,objectSets) {
-	
+function $watch(selectorMain, transformObject, axis, action, objectSets) {
+
 	selectedObject_JQuery = $(transformObject);
 	set_3d_transform_Object(objectSets);
-	
+
 	setAction(action, transformObject);
 	setAxis(axis);
-	
-	
-	
+
+
+
 	$(selectorMain).attr("tabindex", "0").focus()
 		.on("mousemove", function(e) {
 			if (y > -1 && x > -1 && mouseIsDown) {
@@ -240,7 +240,7 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 					"translateX(" + xpx + "px) " +
 					"translateY(" + ypx + "px) " +
 					"translateZ(" + zpx + "px) " +
-					"scale3d("+sx+","+sy+","+sz+")";
+					"scale3d(" + sx + "," + sy + "," + sz + ")";
 
 
 				selectedObject_JQuery.css("transform", bh_tr);
@@ -285,18 +285,29 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 				case 'a':
 					switchAxis($(this));
 					break;
-				case 'l'://重新设定可被选择的变换对象
+				case 'l': //重新设定可被选择的变换对象
 					input = prompt("请输入变换对象的选择器");
-					if(input){
+					if (input) {
 						set_3d_transform_Object(input);
 					}
 					break;
-				case 'g'://go的缩写，实现动画
-					// $(selectedObject_JQuery).removeClass(".runAnimation");
-					$(selectedObject_JQuery).addClass(".runAnimation");
+				case 'g': //go的缩写，实现动画
+
+					restartAnimation();
+					
+					break;
+
 				default:
 					break;
 			}
-		return false;//终止事件冒泡，快捷键处理一次即可。如果冒泡，则可能处理多次。
+			return false; //终止事件冒泡，快捷键处理一次即可。如果冒泡，则可能处理多次。
 		})
+}
+
+function restartAnimation(){
+	selectedObject_JQuery.removeClass("animation");
+	setTimeout(function(){
+		selectedObject_JQuery.addClass("animation");
+	},1);
+	//这里的稍加延迟，是重新播放动画的关键步骤；另外的办法是移除class之后clone它，再次加上动画样式。
 }

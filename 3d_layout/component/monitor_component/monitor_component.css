@@ -1,14 +1,50 @@
 
-.animation,.animation2{
-	animation:go 3s;
+.animationx{
+	animation:gox 3s linear;
 }
 
+.animationy{
+	animation:goy 3s;
+}
 
-@keyframes go{
+.animationxy{
+	animation:goxy 3s;
+}
+
+.animationz{
+	animation:goz 3s;
+}
+
+@keyframes gox{
 	from{
 		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 	}
 	to{
-		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+		transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+	}
+}
+@keyframes goy{
+	from{
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	}
+	to{
+		transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg);
+	}
+}
+@keyframes goxy{
+	from{
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	}
+	to{
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+	}
+}
+
+@keyframes goz{
+	from{
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	}
+	to{
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
 	}
 }

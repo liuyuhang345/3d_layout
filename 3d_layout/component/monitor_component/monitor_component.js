@@ -162,6 +162,7 @@ function set_3d_transform_Object(objectSets) {
 
 	$(objectSets).on("dblclick", function() {
 		$(".axis", selectedObject_JQuery).remove(); //移走原来变换对象的坐标轴
+		selectedObject_JQuery.removeClass("animation"+flag);//移走原来对象的动画
 		put_transform_data(selectedObject_JQuery); //保存现场
 
 		selectedObject_JQuery = $(this); //改变变换对象为鼠标双击的元素
@@ -172,6 +173,7 @@ function set_3d_transform_Object(objectSets) {
 
 	$(global_objectSets).unbind("dblclick");
 	global_objectSets = objectSets;
+	return false;//false终止事件处理
 }
 
 // 开启3d变换的鼠标联动
@@ -274,7 +276,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'x':
 				case 'y':
 				case 'z':
+					selectedObject_JQuery.removeClass("animation"+flag);//移走原来的动画
 					setAxis(e.key);
+					
 					break;
 				case 'p':
 					setAxis('xy');
@@ -307,9 +311,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 }
 
 function restartAnimation(){
-	selectedObject_JQuery.removeClass("animation");
+	selectedObject_JQuery.removeClass("animation"+flag);
 	setTimeout(function(){
-		selectedObject_JQuery.addClass("animation");
+		selectedObject_JQuery.addClass("animation"+flag);
 	},1);
 	//这里的稍加延迟，是重新播放动画的关键步骤；另外的办法是移除class之后clone它，再次加上动画样式。
 }

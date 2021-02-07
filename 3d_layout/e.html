@@ -16,8 +16,8 @@
 	<script type="text/javascript">
 		$(function(){
 			$show_axis(".two");
-			$watch(".world,body",".two","y","translate",".surface,.two");
-			$thickness(".two",10);
+			$watch(".world,body",".two","y","translate",".world>div");
+			$thickness(".two",0);
 			$thickness(".surface",10);
 			// $("video")[0].play();
 		})
@@ -27,6 +27,11 @@
 	
 	<div class="world">
 
+		<div class="bk">
+			<video loop="-1" >
+				<source src="mp4/jinxiuheshan.mp4" type="video/mp4"></source>
+			</video>
+		</div>
 		<div class="surface">
 			
 			中国书画
@@ -88,7 +93,7 @@
 		transform-style: preserve-3d;
 	}
 	
-	.surface,.two{
+	.surface,.two,.bk{
 		width: 40%;
 		height: 40%;
 		

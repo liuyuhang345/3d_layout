@@ -12,7 +12,10 @@ function $thickness(selector,px){
 
 	
 	newE.html($(selector).clone().html());
-	$(selector).html('').css("transform-style","preserve-3d");
+	if(parseInt(i)>0){//防止误删除容器内容、而没有为其增加原来的内容
+		$(selector).html('').css("transform-style","preserve-3d");
+	}
+	
 	
 	for(var i = 0 ;i<parseInt(px);i++){
 		e = newE.clone();

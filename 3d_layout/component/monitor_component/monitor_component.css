@@ -1,5 +1,9 @@
 
-@keyframes go{
+.runAnimation{
+	animation: go-0393879287 3s  ;
+}
+
+@keyframes go-0393879287{
 	from{
 		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 	}

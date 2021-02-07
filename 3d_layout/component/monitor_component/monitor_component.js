@@ -23,20 +23,20 @@
 
 
 // 引入css
-// $(function(){
-// 	// 引入css
-// 	$("<link>")
-// 	.attr({ rel: "stylesheet",
-// 	type: "text/css",
-// 	href: getRootPath()+'monitor_component.css'
-// 	})
-// 	.appendTo("head");
-// })
+$(function(){
+	// 引入css
+	$("<link>")
+	.attr({ rel: "stylesheet",
+	type: "text/css",
+	href: getRootPath()+'monitor_component.css'
+	})
+	.appendTo("head");
+})
 
 // 以下方法专用于做js插件。求得当前js（show-axis.js）所在路径
 // 来自https://www.cnblogs.com/blosaa/archive/2011/10/17/2215606.html
 // 感谢昵称为“云中雀”的博主
-function getRootPath()
+function get_monitor_component_RootPath()
 {
 	var js = document.scripts || document.getElementsByTagName("script");
 	    var jsPath;
@@ -72,7 +72,7 @@ var bh_tr_state = '';
 var bh_tr_add = false; //true标记需要累加新的3D变换
 var selectedObject_JQuery=null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
 var old_transform_data = {};//存放历史变换数据的字典，key为选择器
-var global_objectSets = '' ; //可选择的选择器集合,用于双击鼠标选择3D变换对象
+var global_objectSets = '' ;//可选择的选择器集合,用于双击鼠标选择3D变换对象
 
 // 此控件的API，参数见README
 function $monitor(selectorMain, transformObject, axis, action,objectSets){
@@ -177,12 +177,12 @@ function set_3d_transform_Object(objectSets){
 // 开启3d变换的鼠标联动
 function $watch(selectorMain, transformObject, axis, action,objectSets) {
 	
-	
+	selectedObject_JQuery = $(transformObject);
+	set_3d_transform_Object(objectSets);
 	
 	setAction(action, transformObject);
 	setAxis(axis);
-	selectedObject_JQuery = $(transformObject);
-	set_3d_transform_Object(objectSets);
+	
 	
 	
 	$(selectorMain).attr("tabindex", "0").focus()
@@ -292,8 +292,8 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 					}
 					break;
 				case 'g'://go的缩写，实现动画
-					selectedObject_JQuery.css("animation","go 3s");
-					break;
+					// $(selectedObject_JQuery).removeClass(".runAnimation");
+					$(selectedObject_JQuery).addClass(".runAnimation");
 				default:
 					break;
 			}

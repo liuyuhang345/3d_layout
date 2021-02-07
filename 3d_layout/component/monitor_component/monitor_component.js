@@ -80,24 +80,22 @@ function $monitor(selectorMain, transformObject, axis, action, objectSets) {
 }
 
 function put_transform_data(old_sel_JQuery) {
-	saveState(); //将所有历史状态保存在bh_tr_state中
-	key = old_sel_JQuery.attr("class");
+	if(bh_tr && bh_tr.length>1){//说明进行过3D变换，bh_tr中包含bh_tr_state
+		saveState();
+		key = old_sel_JQuery.attr("class");
+		
+		old_transform_data[key] = {
+			// 上次的变换
+			"bh_tr_state": bh_tr_state
+		};
+		console.log("save:" + key + "," + old_transform_data[key].bh_tr_state);
+	}else{
+		//没有进行3D变换，不需要保存新的变换
+	}
+	  //将所有历史状态保存在bh_tr_state中
+	
 
-	old_transform_data[key] = {
-		// "ydeg":	ydeg ,
-		// "xdeg":	xdeg ,
-		// "zdeg":	zdeg ,
-		// "ypx ":	ypx  ,
-		// "xpx ":	xpx  ,
-		// "zpx ":	zpx  ,
-		// "sx  ":	sx   ,
-		// "sy  ":	sy   ,
-		// "sz  ":	sz   ,
-		// 上次的变换
-		"bh_tr_state": bh_tr_state
-	};
-
-	console.log("save:" + key + "," + old_transform_data[key].bh_tr_state);
+	
 
 }
 
@@ -112,7 +110,6 @@ function restore_transform_data(sel_JQuery) {
 		resertState();
 		bh_tr_state = "";
 	}
-
 
 }
 
@@ -303,6 +300,8 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'h':
 					window.open(get_monitor_component_RootPath()+"README.txt");
 					break;
+				case 'c':
+					alert(bh_tr_state);
 				default:
 					break;
 			}

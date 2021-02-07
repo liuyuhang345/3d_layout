@@ -301,7 +301,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					window.open(get_monitor_component_RootPath()+"README.txt");
 					break;
 				case 'c':
-					alert(bh_tr_state);
+					alert(bh_tr_state+"<-+->"+bh_tr);
 				default:
 					break;
 			}

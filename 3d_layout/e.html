@@ -15,11 +15,12 @@
 	
 	<script type="text/javascript">
 		$(function(){
-			$show_axis(".two");
+			// $show_axis(".two");
 			$watch(".world,body",".two","xy","translate",".world>div");
-			$thickness(".two",0);
-			$thickness(".surface",10);
-			$("video")[0].play();
+			// $thickness(".two",2);
+			// $thickness(".surface",10);
+			// $thickness(".bk",2);
+			// $("video")[0].play();
 		})
 	</script>
 </head>
@@ -27,11 +28,7 @@
 	
 	<div class="world">
 
-		<div class="bk">
-			<video loop="-1" >
-				<source src="mp4/jinxiuheshan.mp4" type="video/mp4"></source>
-			</video>
-		</div>
+		
 		<div class="surface">
 			
 			中国书画
@@ -39,6 +36,13 @@
 				<source src="mp4/jiangdianlaoge3.mp4" type="video/mp4"></source>
 			</video>
 			
+		</div>
+		
+		<div class="bk">
+		
+			<video loop="-1" >
+				<source src="mp4/jinxiuheshan.mp4" type="video/mp4"></source>
+			</video>
 		</div>
 		
 		<div class="two">
@@ -104,7 +108,7 @@
 	
 	.world{
 		perspective: 100vw;
-		transform-style: preserve-3d;
+		transform-style:  preserve-3d;
 	}
 	
 	.surface,.two,.bk{
@@ -115,12 +119,11 @@
 		left:30%;
 		top:30%;
 		/* background-color: green; */
-		background-image: url(./img/heiban2.PNG);
-		background-size: 100% 100%;
+	/* 	background-image: url(./img/heiban2.PNG);
+		background-size: 100% 100%; */
 		
 	}
 	.bk>video{
-		border-radius: 1cm;
 	}
 	.surface{
 		

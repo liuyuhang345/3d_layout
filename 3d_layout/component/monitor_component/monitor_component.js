@@ -296,7 +296,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					restartAnimation();
 					
 					break;
-
+				case 'h':
+					window.open(get_monitor_component_RootPath()+"README.txt");
+					break;
 				default:
 					break;
 			}

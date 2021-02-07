@@ -42,6 +42,7 @@ var bh_tr_state = '';
 var bh_tr_add = false; //true标记需要累加新的3D变换
 var selectedObject_JQuery=null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
 var old_transform_data = {};//存放历史变换数据的字典，key为选择器
+var global_objectSets = '' ;可选择的选择器集合,用于双击鼠标选择3D变换对象
 
 // 此控件的API，参数见README
 function $monitor(selectorMain, transformObject, axis, action,objectSets){
@@ -125,11 +126,10 @@ function switchAxis(jobj){
 		
 	}
 }
-// 开启3d变换的鼠标联动
-function $watch(selectorMain, transformObject, axis, action,objectSets) {
-	selectedObject_JQuery = $(transformObject);
-	setAction(action, transformObject);
-	setAxis(axis);
+
+// 给可被选择的3D对象，加上双击事件
+function set_3d_transform_Object(objectSets){
+	
 	$(objectSets).on("dblclick",function(){
 		$(".axis",selectedObject_JQuery).remove();//移走原来变换对象的坐标轴
 		put_transform_data(selectedObject_JQuery);//保存现场
@@ -139,6 +139,21 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 		$show_axis_Ex(selectedObject_JQuery);//显示坐标轴
 		restore_transform_data(selectedObject_JQuery);//恢复现场变换数据
 	});
+	
+	$(global_objectSets).unbind("dblclick");
+	global_objectSets = objectSets;
+}
+
+// 开启3d变换的鼠标联动
+function $watch(selectorMain, transformObject, axis, action,objectSets) {
+	
+	selectedObject_JQuery = $(transformObject);
+	set_3d_transform_Object(objectSets);
+	
+	setAction(action, transformObject);
+	setAxis(axis);
+	
+	
 	
 	$(selectorMain).attr("tabindex", "0").focus()
 		.on("mousemove", function(e) {
@@ -240,8 +255,15 @@ function $watch(selectorMain, transformObject, axis, action,objectSets) {
 				case 'a':
 					switchAxis($(this));
 					break;
+				case 'l'://重新设定可被选择的变换对象
+					input = prompt("请输入变换对象的选择器");
+					if(input){
+						set_3d_transform_Object(input);
+					}
+					break;
 				default:
 					break;
 			}
+		return false;//终止事件冒泡，快捷键处理一次即可。如果冒泡，则可能处理多次。
 		})
 }

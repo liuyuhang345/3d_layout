@@ -21,6 +21,8 @@
 // a (axis) 隐藏坐标轴
 // 鼠标双击某元素，选中变换的元素
 
+sc = '<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>';
+document.writeln(sc);
 
 // 引入css
 $(function() {
@@ -32,6 +34,10 @@ $(function() {
 			href: get_monitor_component_RootPath() + 'monitor_component.css'
 		})
 		.appendTo("head");
+		
+	
+	
+	
 })
 
 // 以下方法专用于做js插件。求得当前js（monitor_component.js）所在路径
@@ -169,8 +175,8 @@ function set_3d_transform_Object(objectSets) {
 		return false;//false终止事件处理,防止冒泡选择
 	});
 
-	$(global_objectSets).unbind("dblclick");
-	global_objectSets = objectSets;
+	$(global_objectSets).unbind("dblclick"); //取消原来的绑定事件
+	global_objectSets = objectSets; //设置新的可选对象
 	
 }
 
@@ -244,6 +250,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 
 				selectedObject_JQuery.css("transform", bh_tr);
+				selectedObject_JQuery.css("-webkit-transform", bh_tr);
 
 
 				// console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit +"scale:"+ sx+","+sy+","+sz);
@@ -302,7 +309,14 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					window.open(get_monitor_component_RootPath()+"README.txt");
 					break;
 				case 'c':
-					alert("基础命令：\r\n"+bh_tr_state+"\r\n新命令：\r\n"+bh_tr);
+					cmd = "<h3>上轮变换</h3>"+bh_tr_state+"<h3>本轮变换</h3>"+bh_tr;
+					$("<div>"+cmd+"<div>").appendTo("body").dialog(
+					{
+						"dialogClass":"monitor_dialog",
+						"width":"600",
+						"height":"400"
+					});
+					// alert();
 				default:
 					break;
 			}

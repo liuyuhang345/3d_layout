@@ -8,6 +8,7 @@
 	<title></title>
 
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	
 	<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
 	<script src="component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
@@ -28,8 +29,9 @@
 	<div class="world">
 
 		<div class = "renwujianjie">
+			<p>人物简介</p>
 			<div class="dianluban">
-				<p>人物简介</p>
+				
 				
 			</div>
 		</div>
@@ -74,7 +76,7 @@
 				<tr>
 					<td>Lorem.</td>
 					<td>
-						<button class="btn">飞控</button>
+						<!-- <button class="btn">飞控</button> -->
 					</td>
 					<td>Laudantium.</td>
 					<td>Dolorum!</td>
@@ -98,9 +100,11 @@
 		padding: 0px;
 		width:100vw;
 		height:100vh;
-		background-image:url(img/CRT.jpeg);
+		/* background-image:url(img/CRT.jpeg); */
+		background-image: url(img/bk6.jpeg);
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
+		background-color: white;
 	}
 	.world{
 		width:100vw;
@@ -126,7 +130,7 @@
 		/* background-color: green; */
 	/* 	background-image: url(./img/heiban2.PNG);
 		background-size: 100% 100%; */
-		
+		transform: translateZ(1px) rotateY(1deg);
 	}
 	.bk>video{
 	}
@@ -191,11 +195,23 @@
 	
 	.dianluban{
 		position: absolute;
-		background-image: url(img/dianluban.jpeg);
-		
-		opacity: 0.8;
+		background-color: limegreen;
+		/* opacity: 0.3; */
 		width: 100%;
 		height: 100%;
+		left: 0;
+		top:0;
+		border-radius: 5%;
 	}
+	
+	.renwujianjie{
+		left:3cm;
+	}
+	p{
+		color:white;
+		font-size: 2rem;
+		
+	}
+		
 </style>
 

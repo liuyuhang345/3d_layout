@@ -20,9 +20,11 @@ function $show_axis(selector){
 }
 
 //为元素追加3D坐标轴，传入jquery对象
-function $show_axis_Ex(selector_JQuery){
+function $show_axis_Ex(selector_JQuery,is3d){
+	if (is3d==true){
+		selector_JQuery.css("-webkit-transform-style","preserve-3d"); 
+	}
 	
-	selector_JQuery.css("-webkit-transform-style","preserve-3d"); 
 	// selector_JQuery.css("-webkit-perspective","100vw");
 	
 	// selector_JQuery.css("transform-style","preserve-3d");

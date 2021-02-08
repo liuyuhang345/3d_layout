@@ -48,3 +48,12 @@
 		transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
 	}
 }
+
+.monitor_dialog{
+	
+	width: 20cm;
+	height: 60cm;
+	border: aqua 1px double;
+	background-color: #FFFFFF;
+	overflow: scroll;
+}

@@ -4,15 +4,15 @@
 }
 
 .animationy{
-	animation:goy 3s;
+	animation:goy 3s linear;
 }
 
 .animationxy{
-	animation:goxy 3s;
+	animation:goxy 3s linear;
 }
 
 .animationz{
-	animation:goz 3s;
+	animation:goz 3s linear;
 }
 
 @keyframes gox{

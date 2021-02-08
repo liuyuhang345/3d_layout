@@ -309,14 +309,13 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					window.open(get_monitor_component_RootPath()+"README.txt");
 					break;
 				case 'c':
-					cmd = "<h3>上轮变换</h3>"+bh_tr_state+"<h3>本轮变换</h3>"+bh_tr;
+					cmd = "<h3>选中的3D对象的class属性："+selectedObject_JQuery.attr("class")+"</h3><h3>上轮变换</h3>"+bh_tr_state+"<h3>本轮变换</h3>"+bh_tr;
 					$("<div>"+cmd+"<div>").appendTo("body").dialog(
 					{
 						"dialogClass":"monitor_dialog",
 						"width":"600",
 						"height":"400"
 					});
-					// alert();
 				default:
 					break;
 			}

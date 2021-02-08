@@ -19,7 +19,7 @@
 			// $show_axis(".two");
 			$watch(".world,body",".world","xy","translate",".world>div,.world");
 			$thickness(".two",2);
-			$thickness(".surface",10);
+			$thickness(".surface",30);
 			$thickness(".bk",2);
 		})
 	</script>
@@ -39,9 +39,10 @@
 		
 		<div class="surface">
 			<!-- 中国书画 -->
-			<video loop="-1" >
+		<!-- 	<video loop="-1" >
 				<source src="mp4/jiangdianlaoge3.mp4" type="video/mp4"></source>
-			</video>
+			</video> -->
+			<img src="img/dahai.jpg" alt="">
 			
 		</div>
 		
@@ -127,10 +128,13 @@
 		position: absolute;
 		left:30%;
 		top:30%;
+		
+		/* perspective: 100vw; */
+		/* transform-style:  preserve-3d; */
 		/* background-color: green; */
 	/* 	background-image: url(./img/heiban2.PNG);
 		background-size: 100% 100%; */
-		transform: translateZ(1px) rotateY(1deg);
+		/* transform: translateZ(1px) rotateY(1deg); */
 	}
 	.bk>video{
 	}
@@ -152,7 +156,13 @@
 		text-shadow: 1px 1px 0vw  rgba(255,255,255,0.5);
 	}
 	
-	.surface{
+	img{
+		width:100%;
+		height: 100%;
+		position: absolute;
+		left: 0px;
+		top:0px;
+		
 	}
 
 	.two{
@@ -196,7 +206,7 @@
 	.dianluban{
 		position: absolute;
 		background-color: limegreen;
-		/* opacity: 0.3; */
+		opacity: 0.3;
 		width: 100%;
 		height: 100%;
 		left: 0;
@@ -205,7 +215,6 @@
 	}
 	
 	.renwujianjie{
-		left:3cm;
 	}
 	p{
 		color:white;

@@ -301,7 +301,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					window.open(get_monitor_component_RootPath()+"README.txt");
 					break;
 				case 'c':
-					alert(bh_tr_state+"<-+->"+bh_tr);
+					alert("基础命令：\r\n"+bh_tr_state+"\r\n新命令：\r\n"+bh_tr);
 				default:
 					break;
 			}

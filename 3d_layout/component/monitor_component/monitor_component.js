@@ -166,11 +166,12 @@ function set_3d_transform_Object(objectSets) {
 
 		$show_axis_Ex(selectedObject_JQuery); //显示坐标轴
 		restore_transform_data(selectedObject_JQuery); //恢复现场变换数据
+		return false;//false终止事件处理,防止冒泡选择
 	});
 
 	$(global_objectSets).unbind("dblclick");
 	global_objectSets = objectSets;
-	return false;//false终止事件处理
+	
 }
 
 // 开启3d变换的鼠标联动

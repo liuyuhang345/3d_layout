@@ -306,6 +306,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					
 					break;
 				case 'h':
+					alert(selectedObject_JQuery.css("transform-origin"));
 					window.open(get_monitor_component_RootPath()+"README.txt");
 					break;
 				case 'c':

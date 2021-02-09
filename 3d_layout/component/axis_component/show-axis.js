@@ -4,46 +4,55 @@
 // date 1-28-2021
 // email:liuyuhang345@163.com
 
-$(function(){
+$(function() {
 	// 引入css
 	$("<link>")
-	.attr({ rel: "stylesheet",
-	type: "text/css",
-	href: getRootPath()+'show-axis.css'
-	})
-	.appendTo("head");
+		.attr({
+			rel: "stylesheet",
+			type: "text/css",
+			href: getRootPath() + 'show-axis.css'
+		})
+		.appendTo("head");
 })
 //为元素追加3D坐标轴，传入选择器
-function $show_axis(selector){
-	
+function $show_axis(selector) {
+
 	$show_axis_Ex($(selector));
 }
 
 //为元素追加3D坐标轴，传入jquery对象
-function $show_axis_Ex(selector_JQuery,is3d){
-	if (is3d==true){
-		selector_JQuery.css("-webkit-transform-style","preserve-3d"); 
-	}
+function $show_axis_Ex(selector_JQuery) {
+	to = selector_JQuery.css("transform-origin").split(" ");
+	x0 = to[0] ;
+	y0 = to[1] ;
 	
-	// selector_JQuery.css("-webkit-perspective","100vw");
+	x = $("<div class='axis x-axis'></div>");
+	y = $("<div class='axis y-axis'></div>");
+	z = $("<div class='axis z-axis'></div>");
 	
-	// selector_JQuery.css("transform-style","preserve-3d");
-	selector_JQuery.append($("<div class='axis x-axis'></div>"));
-	selector_JQuery.append($("<div class='axis y-axis'></div>"));
-	selector_JQuery.append($("<div class='axis z-axis'></div>"));
+	m_left = "calc(" + x0 + " - 3cm)";
+	m_top =  "calc(" + y0 + " - 0.5cm)";//此处的0.5cm/3cm是坐标轴高度/宽度的一半。其高度在show-axis.css被设定
+
+	x.css("left", m_left).css("top",m_top);
+	y.css("left", m_left).css("top",m_top);
+	z.css("left", m_left).css("top",m_top);
+	
+	selector_JQuery.append(x);
+	selector_JQuery.append(y);
+	selector_JQuery.append(z);
+	
 }
 
 // 以下方法专用于做js插件。求得当前js（show-axis.js）所在路径
 // 来自https://www.cnblogs.com/blosaa/archive/2011/10/17/2215606.html
 // 感谢昵称为“云中雀”的博主
-function getRootPath()
-{
+function getRootPath() {
 	var js = document.scripts || document.getElementsByTagName("script");
-	    var jsPath;
-	    for (var i = js.length; i > 0; i--) {
-	        if (js[i - 1].src.indexOf("show-axis.js") > -1) {
-	            jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
-	        }
-	    }
-	    return jsPath;
+	var jsPath;
+	for (var i = js.length; i > 0; i--) {
+		if (js[i - 1].src.indexOf("show-axis.js") > -1) {
+			jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
+		}
+	}
+	return jsPath;
 }

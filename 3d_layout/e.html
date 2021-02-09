@@ -17,7 +17,7 @@
 		<script type="text/javascript">
 			$(function() {
 				// $show_axis(".two");
-				$watch(".world,body", ".two", "xy", "translate", ".world>div,.world");
+				$watch(".world,body", ".two", "y", "rotate", ".world>div,.world");
 				$thickness(".two", 1);
 				$thickness(".surface", 1);
 				$thickness(".bk", 1);
@@ -40,10 +40,11 @@
 
 			<div class="surface">
 				<!-- 中国书画 -->
-				<!-- 	<video loop="-1" >
-				<source src="mp4/jiangdianlaoge3.mp4" type="video/mp4"></source>
-			</video> -->
-				<img src="img/dahai.jpg" alt="">
+				<video loop="-1" autoplay="autoplay">
+					<source src="./mp4/20210208_172530.mp4" type="video/mp4">
+					</source>
+				</video>
+				<!-- <img src="img/dahai.jpg" alt=""> -->
 
 			</div>
 
@@ -115,7 +116,7 @@
 		top: 0px;
 	}
 
-	.world {
+	.world,body {
 		perspective: 100vw;
 		transform-style: preserve-3d;
 	}
@@ -130,19 +131,17 @@
 		position: absolute;
 		left: 30%;
 		top: 30%;
-		/* perspective: 100vw; */
-		/* transform-style:  preserve-3d; */
-		/* background-color: green; */
-		/* 	background-image: url(./img/heiban2.PNG);*/
+
 		background-size: 100% 100%;
-		/* transform: translateZ(1px) rotateY(1deg); */
-		display: none;
+
+		/* display: none; */
 	}
-	
-	.two{
+
+	.two {
 		display: block;
+		transform-origin: 0px 0px ;
 	}
-	
+
 	.bk {
 		background-image: url(img/mucai.jpeg);
 	}
@@ -204,7 +203,7 @@
 		height: 60%;
 		top: 0%;
 		left: 5%;
-		
+
 		margin-top: 1%;
 	}
 
@@ -214,7 +213,8 @@
 		text-align: center;
 		padding: 0px;
 	}
-	caption{
+
+	caption {
 		margin-bottom: 1%;
 	}
 
@@ -222,10 +222,10 @@
 		background-color: rgba(0, 255, 0, 0.07);
 	}
 
-	tr:nth-child(1){
+	tr:nth-child(1) {
 		background-color: rgba(0, 0, 255, 0.07);
 	}
-	
+
 	.dianluban {
 		position: absolute;
 		background-color: limegreen;

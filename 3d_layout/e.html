@@ -17,11 +17,11 @@
 		<script type="text/javascript">
 			$(function() {
 				// $show_axis(".two");
-				$watch(".world,body", ".world", "xy", "translate", ".world>div,.world");
-				$thickness(".two", 10);
-				$thickness(".surface", 10);
-				$thickness(".bk", 10);
-				$thickness("renwujianjie", 10);
+				$watch(".world,body", ".two", "xy", "translate", ".world>div,.world");
+				$thickness(".two", 1);
+				$thickness(".surface", 1);
+				$thickness(".bk", 1);
+				$thickness("renwujianjie", 1);
 			});
 		</script>
 	</head>
@@ -136,9 +136,16 @@
 		/* 	background-image: url(./img/heiban2.PNG);*/
 		background-size: 100% 100%;
 		/* transform: translateZ(1px) rotateY(1deg); */
+		display: none;
 	}
-
-	.bk>video {}
+	
+	.two{
+		display: block;
+	}
+	
+	.bk {
+		background-image: url(img/mucai.jpeg);
+	}
 
 	.surface {
 
@@ -147,10 +154,10 @@
 		-webkit-box-align: center;
 		-webkit-box-pack: center */
 
-		display: flex;
+		/* display: flex;
 		flex-direction: column;
 		justify-content: center;
-		text-align: center;
+		text-align: center; */
 
 		color: white;
 		font-family: 隶书;

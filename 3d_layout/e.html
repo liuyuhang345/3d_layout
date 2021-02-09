@@ -1,227 +1,243 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta http-equiv="Access-Control-Allow-Origin" content="*">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title></title>
+	<head>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
 
-	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-	
-	<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
-	<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
-	<script src="component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
-	<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
-	
-	<script type="text/javascript">
-		$(function(){
-			// $show_axis(".two");
-			$watch(".world,body",".world","xy","translate",".world>div,.world");
-			$thickness(".two",2);
-			$thickness(".surface",30);
-			$thickness(".bk",2);
-			$thickness("renwujianjie",1);
-		})
-	</script>
-</head>
-<body>
-	
-	<div class="world">
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
-		<div class = "renwujianjie">
-			<p>人物简介</p>
-			<div class="dianluban">
-				
-				
+		<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
+		<script src="component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				// $show_axis(".two");
+				$watch(".world,body", ".world", "xy", "translate", ".world>div,.world");
+				$thickness(".two", 10);
+				$thickness(".surface", 10);
+				$thickness(".bk", 10);
+				$thickness("renwujianjie", 10);
+			});
+		</script>
+	</head>
+	<body>
+
+		<div class="world">
+
+			<div class="renwujianjie">
+				<!-- <p>人物简介</p> -->
+				<!-- <div class="dianluban">	
+			</div> -->
+
+				<img src="./img/denglong.PNG" alt="">
 			</div>
-		</div>
-		
-		
-		<div class="surface">
-			<!-- 中国书画 -->
-		<!-- 	<video loop="-1" >
+
+
+			<div class="surface">
+				<!-- 中国书画 -->
+				<!-- 	<video loop="-1" >
 				<source src="mp4/jiangdianlaoge3.mp4" type="video/mp4"></source>
 			</video> -->
-			<img src="img/dahai.jpg" alt="">
-			
-		</div>
-		
-		<div class="bk">
-		
-			<video loop="-1" >
-				<source src="mp4/jinxiuheshan.mp4" type="video/mp4"></source>
-			</video>
-		</div>
-		
-		<div class="two">
-			
-			<table>
-				<tr>
-					<td>Lorem.</td>
-					<td>Perspiciatis.</td>
-					<td>Officiis.</td>
-					<td>Alias!</td>
-				</tr>
-				<tr>
-					<td>Lorem.</td>
-					<td>Libero.</td>
-					<td>Dolor.</td>
-					<td>Repellendus.</td>
-				</tr>
-				<tr>
-					<td>Lorem.</td>
-					<td>Quisquam!</td>
-					<td>Inventore!</td>
-					<td>Esse.</td>
-				</tr>
-				<tr>
-					<td>Lorem.</td>
-					<td>
-						<!-- <button class="btn">飞控</button> -->
-					</td>
-					<td>Laudantium.</td>
-					<td>Dolorum!</td>
-				</tr>
-				<tr>
-					<td>Lorem.</td>
-					<td>Odio?</td>
-					<td>Minus.</td>
-					<td>Illo.</td>
-				</tr>
-			</table>
-		</div>
+				<img src="img/dahai.jpg" alt="">
 
-	</div>
-</body>
+			</div>
+
+			<div class="bk">
+
+				<video loop="-1">
+					<source src="mp4/jinxiuheshan.mp4" type="video/mp4">
+					</source>
+				</video>
+			</div>
+
+			<div class="two">
+
+				<table>
+					<caption>85-614班学生信息表</caption>
+					<tr>
+						<td>姓名</td>
+						<td>籍贯</td>
+						<td>性别</td>
+						<td>年龄</td>
+
+					</tr>
+					<tr>
+						<td>张晓华</td>
+						<td>广东</td>
+						<td>男</td>
+						<td>21</td>
+					</tr>
+					<tr>
+						<td>李梅</td>
+						<td>黑龙江</td>
+						<td>女</td>
+						<td>18</td>
+					</tr>
+					<link rel="stylesheet" href="css/switchbutton.css">
+					<div class="switch">
+						<input type="checkbox" name="toggle">
+						<label for="toggle"><i></i></label>
+						<span></span>
+					</div>
+					<!-- <button class="btn">飞控</button> -->
+					</td>
+				</table>
+			</div>
+
+		</div>
+	</body>
 </html>
 
 <style>
-	body{		
+	body {
 		margin: 0px;
 		padding: 0px;
-		width:100vw;
-		height:100vh;
+		width: 100vw;
+		height: 100vh;
 		/* background-image:url(img/CRT.jpeg); */
 		background-image: url(img/xingkong2.jpeg);
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 		background-color: white;
 	}
-	.world{
-		width:100vw;
-		height:100vh;
-		
+
+	.world {
+		width: 100vw;
+		height: 100vh;
+
 		position: absolute;
 		left: 0px;
-		top:0px;
+		top: 0px;
 	}
-	
-	.world{
+
+	.world {
 		perspective: 100vw;
-		transform-style:  preserve-3d;
+		transform-style: preserve-3d;
 	}
-	
-	.surface,.two,.bk,.renwujianjie{
+
+	.surface,
+	.two,
+	.bk,
+	.renwujianjie {
 		width: 40%;
 		height: 40%;
-		
+
 		position: absolute;
-		left:30%;
-		top:30%;
-		
+		left: 30%;
+		top: 30%;
 		/* perspective: 100vw; */
 		/* transform-style:  preserve-3d; */
 		/* background-color: green; */
-	/* 	background-image: url(./img/heiban2.PNG);
-		background-size: 100% 100%; */
+		/* 	background-image: url(./img/heiban2.PNG);*/
+		background-size: 100% 100%;
 		/* transform: translateZ(1px) rotateY(1deg); */
 	}
-	.bk>video{
-	}
-	.surface{
-		
+
+	.bk>video {}
+
+	.surface {
+
 		/* display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-box-align: center;
 		-webkit-box-pack: center */
-		
+
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		text-align: center;
-		
-		color:white;
+
+		color: white;
 		font-family: 隶书;
 		font-size: 3rem;
-		text-shadow: 1px 1px 0vw  rgba(255,255,255,0.5);
+		text-shadow: 1px 1px 0vw rgba(255, 255, 255, 0.5);
 	}
-	
-	img{
-		width:100%;
+
+	img {
+		width: 100%;
 		height: 100%;
 		position: absolute;
 		left: 0px;
-		top:0px;
-		
+		top: 0px;
+
 	}
 
-	.two{
+	.two {
 		background-image: url(img/heiban.PNG);
-		
+
 	}
 
-@keyframes go{
-	from{
-		transform: rotateY(30deg) rotateZ(0deg);
+	@keyframes go {
+		from {
+			transform: rotateY(30deg) rotateZ(0deg);
+		}
+
+		to {
+			transform: rotateY(30deg) rotateZ(360deg);
+		}
 	}
-	to{
-		transform: rotateY(30deg) rotateZ(360deg);
-	}
-}
 
 
-	video{
+	video {
 		width: 100%;
 		height: 100%;
 		object-fit: fill;
 		position: absolute;
 		left: 0px;
 	}
-	
-	table{
+
+	table {
 		position: absolute;
-		width: 80%;
-		height: 80%;
-		top:10%;
-		left: 10%;
-		overflow: hidden;
-		font-size: 0.4rem;
+		width: 90%;
+		height: 60%;
+		top: 0%;
+		left: 5%;
+		
+		margin-top: 1%;
+	}
+
+	td {
+		font-size: 0.7rem;
+		color: rgba(255, 255, 20, 0.3);
+		text-align: center;
+		padding: 0px;
+	}
+	caption{
+		margin-bottom: 1%;
+	}
+
+	tr:hover {
+		background-color: rgba(0, 255, 0, 0.07);
+	}
+
+	tr:nth-child(1){
+		background-color: rgba(0, 0, 255, 0.07);
 	}
 	
-	.btn{
-		background-color:#DB5705;border-radius:8px 8px 8px 8px;box-shadow:0 2px 0 #aa5,0 2px 25px rgba(0,0,0,0.7);color:#FFFFFF;font-family:'隶书';margin:1px auto;padding:4px;text-align:center;text-decoration:none;transition:all 0.1s ease 0s;
-	}
-	
-	
-	.dianluban{
+	.dianluban {
 		position: absolute;
 		background-color: limegreen;
 		opacity: 0.3;
 		width: 100%;
 		height: 100%;
 		left: 0;
-		top:0;
+		top: 0;
 		border-radius: 5%;
 	}
-	
-	.renwujianjie{
-	}
-	p{
-		color:white;
-		font-size: 2rem;
-		
-	}
-		
-</style>
 
+	.renwujianjie {}
+
+	p {
+		color: white;
+		color: white;
+		font-family: 隶书;
+		font-size: 3rem;
+		text-shadow: 1px 1px 0vw rgba(255, 255, 255, 0.5);
+
+	}
+</style>

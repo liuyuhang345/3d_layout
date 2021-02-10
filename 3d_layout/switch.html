@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title></title>
-		
+		<script src="" type="text/javascript" charset="utf-8"></script>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		
 		<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
 		<script src="component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
@@ -28,15 +28,15 @@
 		<div class = "world">
 			
 			<div class = "container-a">
-				<div class="qiang"></div>
-				<div class="qiang"></div>
-				<div class="qiang"></div>
+				<div class="qiang qiang1"></div>
+				<div class="qiang qiang2"></div>
+				<div class="qiang qiang3"></div>
 			</div>
 			
 			
 			<div class = "container-b">
-				<div class="qiang"></div>
-				<div class="qiang"></div>
+				<div class="qiang qiang4"></div>
+				<div class="qiang qiang5"></div>
 			</div>
 			
 			
@@ -83,7 +83,7 @@
 		right: 10%;
 		
 	}
-	.container-a>div,.container-b>div{
+	.qiang{
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -94,7 +94,7 @@
 	
 	.container-a>div:nth-child(1){
 		background-image: url(img/heiban.PNG);
-		
+		transform-origin: 3cm 2cm;
 	}
 	.container-a>div:nth-child(2){
 		background-image: url(img/mucai.jpeg);

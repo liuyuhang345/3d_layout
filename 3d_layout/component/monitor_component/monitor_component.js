@@ -21,9 +21,9 @@
 // a (axis) 隐藏坐标轴
 // 鼠标双击某元素，选中变换的元素
 
-// $('<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>').appendTo("head");
+sc='<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>';
 
-
+document.writeln(sc);
 
 // 引入css
 $(function() {

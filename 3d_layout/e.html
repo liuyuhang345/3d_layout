@@ -18,7 +18,7 @@
 			$(function() {
 				// $show_axis(".two");
 				$watch(".world,body", ".two", "y", "rotate", ".world>div,.world");
-				$thickness(".two", 1);
+				$thickness(".two", 0);
 				$thickness(".surface", 1);
 				$thickness(".bk", 1);
 				$thickness("renwujianjie", 1);
@@ -139,11 +139,12 @@
 
 	.two {
 		display: block;
-		transform-origin: 0px 0px ;
+		
 	}
 
 	.bk {
 		background-image: url(img/mucai.jpeg);
+		transform-origin: 1cm 2cm  ;
 	}
 
 	.surface {
@@ -235,9 +236,12 @@
 		left: 0;
 		top: 0;
 		border-radius: 5%;
+		
 	}
 
-	.renwujianjie {}
+	.renwujianjie {
+		transform: rotateZ(30deg);
+	}
 
 	p {
 		color: white;

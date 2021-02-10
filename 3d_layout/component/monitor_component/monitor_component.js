@@ -310,9 +310,17 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					window.open(get_monitor_component_RootPath()+"README.txt");
 					break;
 				case 'c':
+					if(e.ctrlKey){
+						break;
+					}
 					cmd = "<h3>选中的3D对象的class属性："+selectedObject_JQuery.attr("class")+"</h3><h3>上轮变换</h3>"+bh_tr_state+"<h3>本轮变换</h3>"+bh_tr;
-					$("<div>"+cmd+"<div>")
-					.on("mousemove",function(){return false})
+					$("<div>"+
+					cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)/ig,'')
+					+"</div>")
+					.on("mousemove",function(){
+						selectText($(this));
+						return false;
+						})
 					.appendTo("body")
 					.dialog(
 					{
@@ -334,3 +342,24 @@ function restartAnimation(){
 	},1);
 	//这里的稍加延迟，是重新播放动画的关键步骤；另外的办法是移除class之后clone它，再次加上动画样式。
 }
+
+// 模拟手动选中元素的文本
+function selectText(element) {
+        var text = $(element)[0];
+        if (document.body.createTextRange) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(text);
+            range.select();
+        } else if (window.getSelection) {
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(text);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            /*if(selection.setBaseAndExtent){
+                selection.setBaseAndExtent(text, 0, text, 1);
+            }*/
+        } else {
+            alert("none");
+        }
+    }

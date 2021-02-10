@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="./index.css"/>
-	<!-- <link rel="stylesheet" type="text/css" href="./axis_component/show-axis.css"/> -->
+	<link rel="stylesheet" type="text/css" href="./css/index.css"/>
+	
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
@@ -53,16 +53,17 @@
 	var dict = [];
 	
 	$(function(e){
-		$watch(".world",".face2",'xy',"rotate",".surface");
 		$show_axis(".face2");
-		dict.push($(".face1").attr("class"),{"x":"2","y":'3'});
-		dict.push($(".face2").attr("class"),{"x":"20","y":'30'});
+		$watch(".world",".face2",'xy',"rotate",".surface");
 		
-		$(".world").on("dblclick",function(){
-			if (dict[$(".face2").attr("class")]){
-				alert(dict[$(".face2").attr("class")]);
-			}
-		})
+		// dict.push($(".face1").attr("class"),{"x":"2","y":'3'});
+		// dict.push($(".face2").attr("class"),{"x":"20","y":'30'});
+		
+		// $(".world").on("dblclick",function(){
+		// 	if (dict[$(".face2").attr("class")]){
+		// 		alert(dict[$(".face2").attr("class")]);
+		// 	}
+		// })
 		
 		$thickness(".face1",20);
 		$thickness(".face2",3);

@@ -22,13 +22,16 @@ function $show_axis(selector) {
 
 //为元素追加3D坐标轴，传入jquery对象
 function $show_axis_Ex(selector_JQuery) {
-	to = selector_JQuery.css("transform-origin").split(" ");
+	to = selector_JQuery.css("transform-style","preserve-3d").css("transform-origin").split(" ");
 	x0 = to[0] ;
 	y0 = to[1] ;
 	
-	x = $("<div class='axis x-axis'></div>");
-	y = $("<div class='axis y-axis'></div>");
-	z = $("<div class='axis z-axis'></div>");
+	// 把坐标轴的外部样式改成行内样式，用于防止用户无意的设置干扰。
+	axis = 'position: absolute;	width: 6cm;	height: 1cm;background-repeat: no-repeat;background-size: 100% 100%;'
+	
+	x = $("<div class='axis x-axis' style='"+axis+"background-image: url("+getRootPath()+"x-axis.PNG);'></div>");
+	y = $("<div class='axis y-axis' style='"+axis+"background-image: url("+getRootPath()+"y-axis.PNG);transform: rotateZ(90deg);'></div>");
+	z = $("<div class='axis z-axis' style='"+axis+"background-image: url("+getRootPath()+"z-axis.PNG);transform: rotateY(-90deg);'></div>");
 	
 	m_left = "calc(" + x0 + " - 3cm)";
 	m_top =  "calc(" + y0 + " - 0.5cm)";//此处的0.5cm/3cm是坐标轴高度/宽度的一半。其高度在show-axis.css被设定

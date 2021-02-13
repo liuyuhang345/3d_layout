@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ss</title>
+    <style>.sb{width: 100%;height: 200px;background-color: red}</style>
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div style="height: 3000px">
+    <div class="sb" ></div>
+</div>
+    <script>
+           //touchmove  手指不放发生
+        $('body').on('touchmove',function(){
+            $('.sb').css({'display':'none'})  //隐藏div
+        })
+               //touchend   手指放开发生
+        $('body').on('touchend',function(){
+            $('.sb').css({'display':'initial','position':'fixed'})  //显示，固定div
+        })
+    </script>
+</body>
+</html>   

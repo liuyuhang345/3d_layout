@@ -10,6 +10,7 @@ function $thickness(selector,px){
 		"background":$(selector).css("background"),
 		"border-radius":$(selector).css("border-radius"),
 		"border":$(selector).css("border")
+		// "background-color":$(selector).css("background-color")
 		// "left":$(selector).css("left"),
 		// "top":$(selector).css("border"),
 		});
@@ -26,10 +27,10 @@ function $thickness(selector,px){
 	
 	for(var i = 0 ;i<parseInt(px);i++){
 		e = newE.clone();
-		e.css("transform","translateZ("+(0-i*3)+"px)");
+		e.css("transform","translateZ("+(-1-i)+"px)");
 		$(selector).append(e);
 	}
 	
-	$(selector).css("border","green 0px solid");//去掉它自身的边
+	// $(selector).css("border","green 0px solid");//去掉它自身的边
 	
 }

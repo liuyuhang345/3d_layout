@@ -310,8 +310,14 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					
 					break;
 				case 'h':
-					alert(selectedObject_JQuery.css("transform-origin"));
-					window.open(get_monitor_component_RootPath()+"README.txt");
+					// window.open(get_monitor_component_RootPath()+"README.html");
+					
+					$("<div title='帮助'></div>").load(get_monitor_component_RootPath()+"README.txt").dialog(
+					{
+						"dialogClass":"monitor_dialog",
+						"width":"100%",
+						"height":"auto"
+					});
 					break;
 				case 'c':
 					if(e.ctrlKey){

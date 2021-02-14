@@ -24,6 +24,9 @@
 </html>
 
 <style type="text/css">
+	body{
+		background-color: #6666aa;
+	}
 	.world {
 		position: absolute;
 		width: 100vw;
@@ -32,6 +35,7 @@
 		transform-style: preserve-3d;
 		left: 0px;
 		top: 0px;
+		
 	}
 	
 	.ocean{
@@ -49,10 +53,9 @@
 
 		left: calc(50% - 2.5cm);
 		top: calc(50% - 1.5cm);
-		/* background-color: green; */
-
+		background-color: green;
+		
 		background-image: url(./img/bk3.jpg);
-		border: red 3px solid;
 		border-radius: 20%;
 		
 	}
@@ -60,7 +63,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$monitor("body", ".surface", "y", "rotate", ".surface");
-		$thickness(".surface",30);
+		$monitor("body", ".surface", "y", "rotate", ".surface,.ocean");
+		// $thickness(".surface",1);
 	})
 </script>

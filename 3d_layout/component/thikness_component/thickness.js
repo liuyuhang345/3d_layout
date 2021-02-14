@@ -7,9 +7,10 @@ function $thickness(selector,px){
 		"position":"absolute",
 		"width":$(selector).css("width"),
 		"height":$(selector).css("height"),
-		"background":$(selector).css("background")
+		"background":$(selector).css("background"),
+		"border-radius":$(selector).css("$(selector).css("background")")
 		});
-
+	// newE.attr("class",$(selector).attr("class"));
 	newE.html($(selector).clone().html());
 	if(parseInt(px)>0){//防止误删除容器内容、而没有为其增加原来的内容
 		$(selector).html('').css("transform-style","preserve-3d");

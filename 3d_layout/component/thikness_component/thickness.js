@@ -8,10 +8,15 @@ function $thickness(selector,px){
 		"width":$(selector).css("width"),
 		"height":$(selector).css("height"),
 		"background":$(selector).css("background"),
-		"border-radius":$(selector).css("$(selector).css("background")")
+		"border-radius":$(selector).css("border-radius"),
+		"border":$(selector).css("border")
+		// "left":$(selector).css("left"),
+		// "top":$(selector).css("border"),
 		});
+		
 	// newE.attr("class",$(selector).attr("class"));
 	newE.html($(selector).clone().html());
+	
 	if(parseInt(px)>0){//防止误删除容器内容、而没有为其增加原来的内容
 		$(selector).html('').css("transform-style","preserve-3d");
 	}else{
@@ -21,7 +26,10 @@ function $thickness(selector,px){
 	
 	for(var i = 0 ;i<parseInt(px);i++){
 		e = newE.clone();
-		e.css("transform","translateZ("+(0-i)+"px)");
+		e.css("transform","translateZ("+(0-i*3)+"px)");
 		$(selector).append(e);
 	}
+	
+	$(selector).css("border","green 0px solid");//去掉它自身的边
+	
 }

@@ -21,8 +21,11 @@
 // a (axis) 隐藏坐标轴
 // 鼠标双击某元素，选中变换的元素
 
-sc='<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>';
+// sc='<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>';
 
+cc = '<link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">';
+document.writeln(cc);
+sc = '<script src="http://libs.baidu.com/jqueryui/1.10.1/jquery-ui.min.js"></script>';
 document.writeln(sc);
 
 // 引入css
@@ -314,20 +317,20 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					if(e.ctrlKey){
 						break;
 					}
-					cmd = "<h3>选中的3D对象的class属性："+selectedObject_JQuery.attr("class")+"</h3><h3>上轮变换</h3>"+bh_tr_state+"<h3>本轮变换</h3>"+bh_tr;
-					$("<div>"+
+					cmd = "<h3>3D对象class属性值："+selectedObject_JQuery.attr("class")+"<hr></h3><h3>上轮变换</h3><hr>"+bh_tr_state+"<h3>本轮变换</h3><hr>"+bh_tr;
+					$("<div title='变换语法'>"+
 					cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)/ig,'')
 					+"</div>")
 					.on("mousemove",function(){
 						selectText($(this));
 						return false;
 						})
-					.appendTo("body")
+					.appendTo("body>div:first")
 					.dialog(
 					{
 						"dialogClass":"monitor_dialog",
-						"width":"600",
-						"height":"400"
+						"width":"100%",
+						"height":"auto"
 					});
 				default:
 					break;

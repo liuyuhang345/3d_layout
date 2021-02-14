@@ -1,18 +1,12 @@
 var root_path = get_RootPath();
 
 
-var sc ='
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		
-		<script src="{.}/component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
-		<script src="{.}/component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
-		<script src="{.}component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
-		<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
-
-' ;
+var sc ='<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>	<script src="{.}/component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script><script src="{.}/component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script><script src="{.}component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script><script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>' ;
 
 
 sc = sc.replace(/\{.\}/g,root_path);
+
+
 document.write(sc);
 
 

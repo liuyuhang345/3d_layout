@@ -167,7 +167,10 @@ function switchAxis(jobj) {
 // 给可被选择的3D对象，加上双击事件
 function set_3d_transform_Object(objectSets) {
 
-	$(objectSets).on("dblclick", function() {
+	$(global_objectSets).unbind("dblclick"); //取消原来的绑定事件,此条语句必须放在on语句之前，若放在之后：有可能解绑新的可选择对象：修复此bug
+	global_objectSets = objectSets; //设置新的可选对象
+	
+	$(global_objectSets).on("dblclick", function() {
 		$(".axis", selectedObject_JQuery).remove(); //移走原来变换对象的坐标轴
 		selectedObject_JQuery.removeClass("animation"+flag);//移走原来对象的动画
 		put_transform_data(selectedObject_JQuery); //保存现场
@@ -179,8 +182,7 @@ function set_3d_transform_Object(objectSets) {
 		return false;//false终止事件处理,防止冒泡选择
 	});
 
-	$(global_objectSets).unbind("dblclick"); //取消原来的绑定事件
-	global_objectSets = objectSets; //设置新的可选对象
+	
 	
 }
 

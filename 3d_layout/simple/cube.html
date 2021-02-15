@@ -45,10 +45,10 @@
 	.cubeA{
 		width:10cm;
 		height: 6cm;
-		/* background-image: url(../img/mucai.jpeg); */
+		background-image: url(../img/mucai.jpeg);
 		left: calc(50% - 5cm);
 		top:calc(50% - 3cm);
-		
+		transform-origin: 20% 20%;
 		
 	}
 	
@@ -61,6 +61,7 @@
 <script type="text/javascript">
 	$(function(){
 		$cube(".cubeA","8cm",["/3d_layout/img/window2.PNG","/3d_layout/img/heiban.PNG","/3d_layout/img/mucai.jpeg"]);
+		// $cube(".cubeA","8cm");
 		$monitor("body",".cubeA","xy","rotate",".cubeA");
 	})
 </script>

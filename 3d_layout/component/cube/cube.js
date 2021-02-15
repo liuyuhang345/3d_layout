@@ -46,12 +46,25 @@ function $cube(selectorMe,height,imgs){
 	$(faces[0]).html(lost_context);
 	
 	// 设置各个面的宽高
-	$(faces[0]).css("width",l).css("height",w).css("background-image","url("+(imgs[0]||'')+")");
-	$(faces[1]).css("width",l).css("height",w).css("background-image","url("+(imgs[1]||imgs[0]||'')+")");
-	$(faces[2]).css("width",l).css("height",h).css("background-image","url("+(imgs[2]||imgs[0]||'')+")");
-	$(faces[3]).css("width",l).css("height",h).css("background-image","url("+(imgs[3]||imgs[2]||imgs[0]||'')+")");
-	$(faces[4]).css("width",w).css("height",h).css("background-image","url("+(imgs[4]||imgs[2]||imgs[0]||'')+")");
-	$(faces[5]).css("width",w).css("height",h).css("background-image","url("+(imgs[5]||imgs[2]||imgs[0]||'')+")");
+	$(faces[0]).css("width",l).css("height",w);
+	$(faces[1]).css("width",l).css("height",w);
+	$(faces[2]).css("width",l).css("height",h);
+	$(faces[3]).css("width",l).css("height",h);
+	$(faces[4]).css("width",w).css("height",h);
+	$(faces[5]).css("width",w).css("height",h);
+	
+	
+	//设置背景图片
+	if(imgs){
+		$(faces[0]).css("background-image","url("+(imgs[0]||'')+")");
+		$(faces[1]).css("background-image","url("+(imgs[1]||imgs[0]||'')+")");
+		$(faces[2]).css("background-image","url("+(imgs[2]||imgs[0]||'')+")");
+		$(faces[3]).css("background-image","url("+(imgs[3]||imgs[2]||imgs[0]||'')+")");
+		$(faces[4]).css("background-image","url("+(imgs[4]||imgs[2]||imgs[0]||'')+")");
+		$(faces[5]).css("background-image","url("+(imgs[5]||imgs[2]||imgs[0]||'')+")");
+	}
+	
+	
 	
 	//让各个面居中
 	for(i = 0 ;i<6;i++){

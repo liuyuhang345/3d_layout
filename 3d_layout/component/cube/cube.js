@@ -29,6 +29,7 @@ function $cube(selectorMe,height,imgs){
 	$(selectorMe).html('');//原div充当容器，不再需要内容
 	e.css("backgound-image",'');
 	// clone 6个面,追加到selectorMe元素中
+	var id_part = (Math.random()+"").replace(/0./g,"_");
 	for(i =0 ;i<6;i++ ){
 		faces[i] = face.clone();
 		e.append(faces[i]);
@@ -39,7 +40,7 @@ function $cube(selectorMe,height,imgs){
 			"border":e.css("border"),
 			"background-size":"100% 100%",
 			"opacity":"1"
-		})
+		}).addClass("cubeface_"+id_part+i);
 	}
 	// 老内容放入第一个面
 	$(faces[0]).html(lost_context);

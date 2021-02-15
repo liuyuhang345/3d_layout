@@ -5,8 +5,8 @@
 // email:liuyuhang345@163.com
 
 
-// 将selectorMe打造成一个长方体，其长宽与selectorMe相等、高度为参数height 。
-function $cube(selectorMe,height,imgs){
+// 在selectorMe里面打造一个长方体，其长宽高度为参数lenght,width,height，六个面得图像列表为imgs数组，绝对路径（即"/"开头得路径） 。
+function $cube(selectorMe,lenght,width,height,imgs){
 	var e = $(selectorMe);
 	e.css("transform-style","preserve-3d");
 	
@@ -18,8 +18,8 @@ function $cube(selectorMe,height,imgs){
 	var faces=[];
 	
 	// 立方体的长宽高
-	var l = e.css("width");
-	var w = e.css("height");
+	var l = lenght;
+	var w = width;
 	var h = height;
 	
 	
@@ -54,6 +54,8 @@ function $cube(selectorMe,height,imgs){
 	$(faces[5]).css("width",w).css("height",h);
 	
 	
+	
+	
 	//设置背景图片
 	if(imgs){
 		$(faces[0]).css("background-image","url("+(imgs[0]||'')+")");
@@ -62,6 +64,14 @@ function $cube(selectorMe,height,imgs){
 		$(faces[3]).css("background-image","url("+(imgs[3]||imgs[2]||imgs[0]||'')+")");
 		$(faces[4]).css("background-image","url("+(imgs[4]||imgs[2]||imgs[0]||'')+")");
 		$(faces[5]).css("background-image","url("+(imgs[5]||imgs[2]||imgs[0]||'')+")");
+	}else{
+		// 设置面的默认颜色
+		$(faces[0]).css("background-color","red");
+		$(faces[1]).css("background-color","orange");
+		$(faces[2]).css("background-color","yellow");
+		$(faces[3]).css("background-color","green");
+		$(faces[4]).css("background-color","black");
+		$(faces[5]).css("background-color","blue");
 	}
 	
 	

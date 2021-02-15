@@ -37,13 +37,13 @@ function $cube(selectorMe,height,imgs){
 			"position":"absolute",
 			"background":e.css("background"),
 			"border":e.css("border"),
-			"backgroud-size":"100% 100%",
+			"background-size":"100% 100%",
 			"opacity":"1"
 		})
 	}
 	// 老内容放入第一个面
 	$(faces[0]).html(lost_context);
-
+	
 	// 设置各个面的宽高
 	$(faces[0]).css("width",l).css("height",w).css("background-image","url("+(imgs[0]||'')+")");
 	$(faces[1]).css("width",l).css("height",w).css("background-image","url("+(imgs[1]||imgs[0]||'')+")");

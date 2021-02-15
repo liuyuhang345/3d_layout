@@ -5,19 +5,22 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<base href="../" />
 		<title></title>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		
 		<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
-		<script src="component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
 		
 		<script type="text/javascript">
 			$(function(){
 				
-				$watch(".world,body",".qiang1","x","rotate",".world,.world>div,.qiang,.button");
+				$watch(".world,body",".button","z","translate",".qiang,.container-b,.button");
 				$thickness(".container-a",0);
+				$thickness(".button",30);
+				$thickness(".socket",10);
 				
 			})
 		</script>
@@ -35,8 +38,9 @@
 			
 			
 			<div class = "container-b">
-				<div class="socket"></div>
+				
 				<div class="button"></div>
+				<div class="socket"></div>
 			</div>
 			
 			
@@ -49,7 +53,7 @@
 
 <style>
 	body{
-		background-image: url(img/bk4.jpeg);
+		background-image: url(./img/xingkong1.jpeg);
 	}
 	.world,body{
 		
@@ -94,6 +98,7 @@
 		left: 0px;
 		top:0px;
 		background-image: url(img/bk3.jpg);
+		background-size: 100% 100%;
 	}
 	
 	.container-a>div:nth-child(1){
@@ -117,18 +122,19 @@
 	}
 	
 	.socket,.button{
-		width: 3cm;
-		height: 3cm;
+		width: 10cm;
+		height: 10cm;
+		border-radius: 50%;		/* 去掉一个小白点，无实际意义 */
 		
 	}
 	.socket{
 		background-image: url(img/rotate_button/socket3.PNG);
+		/* animation: rt 1s infinite linear; */
 	}
 	
 	.button{
-		background-image: url(img/rotate_button/button3.PNG);
-		/* animation: rt 5s linear; */
-		/* transform: rotateZ(60deg) rotateZ(60deg); */
+		background-image: url(./img/rotate_button/button3.PNG);
+		animation: rt 10s infinite linear;
 	}
 	
 	@keyframes rt{

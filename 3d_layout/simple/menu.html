@@ -17,8 +17,21 @@
 	<body>
 		<div class="world">
 
-			<div class="surface"></div>
+			
 			<div class="ocean"></div>
+			
+			<div class="surface">
+				<div class="caidai"></div>
+				
+				<div class="menubar">冯婉容</div>
+				<div class="menubar">李兰兰</div>
+				<div class="menubar">雅菲</div>
+				<div class="menubar">张妃</div>
+				<div class="menubar">叶氏娜拉</div>
+				
+				
+				
+			</div>
 		</div>
 	</body>
 </html>
@@ -44,21 +57,61 @@
 		height: 100%;
 		background-size: 100% 100%;
 		background-image: url(./img/dongtu/bk8_d_2.GIF);
-		opacity: 0.5;
 	}
 	.surface {
 		position: absolute;
-		width: 5cm;
-		height: 3cm;
+		width: 60%;
+		height: 60%;
 
 		left: calc(50% - 2.5cm);
 		top: calc(50% - 1.5cm);
-		background-color: green;
+		/* background-color: green; */
+		transform: scale3d(1,1,1) translateX(-229px) translateY(-22px) scale3d(1,1,1) rotateY(31deg) translateX(-480px) translateY(-42px) scale3d(1,1,1);
+		transform-style: preserve-3d;
+	}
+	
+	.menubar{
+		transform-origin: 50% 0px;
+		width: 2cm;
+		height: 5cm;
+		background-image: url(./img/label3.PNG);
+		background-size: 100% 100%;
+		float: left;
 		
-		background-image: url(./img/bk3.jpg);
-		border-radius: 20%;
+		/* animation: go 3s infinite alternate linear; */
+		
+		 writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/
+		 writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+		 text-align: center;
+		 font-size: 1.5rem;
+		 padding-left: 3.5rem;
+		 padding-top:2rem;
+		 font-family: 隶书;
+		 color:coral;
+		 text-shadow: 2px 2px 0px red;
+	}
+	
+	@keyframes go{
+		from{
+			transform:    rotateX(30deg) rotateY(-13deg);
+		}
+		to{
+			transform:   rotateX(-30deg) rotateY(13deg);
+		}
+	}
+	
+	
+	.caidai{
+		top:-1cm;
+		position: absolute;
+		width: 100%;
+		height: 3cm;
+		background-image: url(./img/caidai.PNG);
+		background-size: 100% 100%;
 		
 	}
+	
+	
 </style>
 
 <script type="text/javascript">

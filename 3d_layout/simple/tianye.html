@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>田野或庄稼地</title>
+		
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../component/cube/cube.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../component/d3d.css"/>
+		
+		
+	</head>
+	<body class="full3d">
+		
+		<div class="full3d world ">
+			<div class="miao">
+				<img class="full_parent" src="../img/flowers/h9.PNG" alt="">
+			</div>
+		</div>
+		
+	</body>
+	
+</html>
+
+<style>
+	.miao{
+		width: 2cm;
+		height: 5cm;
+		position: absolute;
+		left: 0px;
+		top:0px;
+		/* background-image: url(../img/flowers/h1.PNG);
+		background-size: 100% 100%; */
+	}
+	
+	.world{
+		width: 60%;
+		height: 60%;
+		background-image: url(../img/dimian/dimian4.jpeg);
+		background-size: 100% 100%;
+		left:20%;
+		top:20%;
+		
+	}
+</style>
+
+<script type="text/javascript">
+
+	$(function(){
+		$watch("body",".world","xy","rotate",".world,.miao");
+		$show_axis(".world");
+		
+		var e = $(".miao").clone();
+		$(".world").html('');//此条很重要，否则world里面每次页面刷新都会追加一批元素，瞬间就会使得浏览器崩溃。
+		for(i=0;i<6;i++){
+			for(j=0;j<14;j++){
+				e = e.clone();
+				e.css({
+					"transform":"translateX("+j*2+"cm) translateY("+i*2+"cm) rotateX(90deg) translateY(-2.5cm) "
+				}).appendTo($(".world"));
+			}
+		}
+	
+		$(".world").css("transform","rotateX(-125deg) rotateY(24deg)");
+		
+	})
+	
+</script>
+
+

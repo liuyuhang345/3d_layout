@@ -23,8 +23,8 @@
 
 // sc='<script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>';
 
-cc = '<link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">';
-document.writeln(cc);
+// cc = '<link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">';
+// document.writeln(cc);
 sc = '<script src="http://libs.baidu.com/jqueryui/1.10.1/jquery-ui.min.js"></script>';
 document.writeln(sc);
 

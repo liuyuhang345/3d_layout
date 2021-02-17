@@ -18,12 +18,24 @@
 			$(function(){
 				
 				$watch(".world,body",".button","z","translate",".qiang,.container-b,.button");
-				$thickness(".container-a",0);
-				$thickness(".button",30);
-				$thickness(".socket",10);
+				// $thickness(".container-a",0);
+				$thickness(".button",6);
+				$thickness(".socket",6);
 				
 				$cube(".qiang3","3cm","3cm","3cm");
 				
+				var move_dida = 0;
+				var startAngle=0;
+				$(".qiang2").on("mousemove",function(e){
+					startAngle = (startAngle + 60 ) % 360 ;
+					move_dida = (move_dida+1) % 10 ;
+					if(!e.mouseIsDown && move_dida == 0){
+						$(".button").css({
+							"transform":"rotateZ("+startAngle+"deg)"
+						})
+					}
+					
+				})
 			})
 		</script>
 		
@@ -35,7 +47,7 @@
 			<div class = "container-a">
 				<div class="qiang qiang1"></div>
 				<div class="qiang qiang2"></div>
-				<div class="qiang qiang3"></div>
+				<!-- <div class="qiang qiang3"></div> -->
 			</div>
 			
 			
@@ -72,26 +84,23 @@
 	}
 	
 	
-	.world>div{
+	.container-a,.container-b{
 		width: 30%;
 		height: 50%;
 		
 		position: absolute;
 		top:25%;
-		
+		left:35%;
 		
 		transform-style: preserve-3d;
-		
-		/* border: 1px red solid; */
 	}
 
 	.container-a{
-		left: 10%;
+		/* left: 10%; */
 	}
 	
 	.container-b{
-		right: 10%;
-		
+		/* right: 10%; */
 	}
 	.qiang{
 		position: absolute;
@@ -114,37 +123,40 @@
 	
 	
 	.socket,.button{
-		width: 100%;
-		height: 100%;
+		width: 300px;
+		height: 300px;
 		position: absolute;
-		left: 0px;
-		top:0px;
-		
+		left: calc(50% - 150px);
+		top:calc(50% - 150px);
+		border-radius: 50%;/* 去掉一个小白点，无实际意义 */
 		background-size: 100% 100%;
+		
 	}
 	
 	.socket,.button{
-		width: 10cm;
+		/* width: 10cm;
 		height: 10cm;
-		border-radius: 50%;		/* 去掉一个小白点，无实际意义 */
-		
-	}
+		 border-radius: 50%;	 */	
+		/*去掉一个小白点，无实际意义 */
+	} 
+	
+	
 	.socket{
-		background-image: url(img/rotate_button/socket3.PNG);
-		/* animation: rt 1s infinite linear; */
+		background-image: url(./img/rotate_button/socket2.PNG);
+		/* animation: rt 1s infinite linear;*/
 	}
 	
 	.button{
-		background-image: url(./img/rotate_button/button3.PNG);
-		animation: rt 10s infinite linear;
+		background-image: url(./img/rotate_button/button2_1.PNG);
+		/* animation: rt 10s infinite linear; */
 	}
 	
 	@keyframes rt{
 		from{
-			transform: rotateZ(0deg);
+			transform: translateZ(0mm) ;
 		}
 		to{
-			transform: rotateZ(360deg);
+			transform: translateZ(5mm);
 		}
 	}
 	

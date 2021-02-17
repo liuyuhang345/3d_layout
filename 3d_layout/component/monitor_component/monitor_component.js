@@ -40,7 +40,7 @@ $(function() {
 		.appendTo("head");
 		
 	//启动监视，用户可以通过按下L热键，手动控制某些元素进行3D变换
-	$watch("body","","z","rotate","");
+	$watch("body,body>div","","z","rotate","");
 	
 	
 })
@@ -65,14 +65,14 @@ var ydeg = 0;
 var xdeg = 0;
 var zdeg = 0;
 var ypx = 0;
-var xpx = 0;
-var zpx = 0;
+var xpx_62882242 = 0;
+var zpx_87687 = 0;
 var sx = 1;
 var sy = 1;
 var sz = 1;
 
-var y = -1;
-var x = -1;
+var y_8756875687 = -1;
+var x_87687686 = -1;
 var mouseIsDown = false;
 var act = "rotate"; //动作
 var unit = "deg"; //3d变换的单位
@@ -142,8 +142,8 @@ function resertState() {
 	xdeg = 0;
 	zdeg = 0;
 	ypx = 0;
-	xpx = 0;
-	zpx = 0;
+	xpx_62882242 = 0;
+	zpx_87687 = 0;
 	sx = 1;
 	sy = 1;
 	sz = 1;
@@ -168,7 +168,8 @@ function switchAxis(jobj) {
 // 给可被选择的3D对象，加上双击事件
 function set_3d_transform_Object(objectSets) {
 
-	$(global_objectSets).unbind("dblclick"); //取消原来的绑定事件,此条语句必须放在on语句之前，若放在之后：有可能解绑新的可选择对象：修复此bug
+	$(global_objectSets).off("dblclick"); //取消原来的绑定事件,此条语句必须放在on语句之前，若放在之后：有可能解绑新的可选择对象：修复此bug
+	
 	global_objectSets = objectSets; //设置新的可选对象
 	
 	$(global_objectSets).on("dblclick", function() {
@@ -200,13 +201,13 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 	$(selectorMain).attr("tabindex", "0").focus()
 		.on("mousemove", function(e) {
-			if (y > -1 && x > -1 && mouseIsDown) {
-				dlt = (e.pageY - y) + (e.pageX - x);
+			if (y_8756875687 > -1 && x_87687686 > -1 && mouseIsDown) {
+				dlt = (e.pageY - y_8756875687) + (e.pageX - x_87687686);
 				if (flag == 'x') { //旋转
 					if (act == 'rotate') {
 						xdeg = xdeg + dlt;
 					} else if (act == 'translate') { //平移
-						xpx = xpx + dlt;
+						xpx_62882242 = xpx_62882242 + dlt;
 					} else {
 						sx = sx - dlt / 100;
 					}
@@ -224,18 +225,18 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					if (act == 'rotate') {
 						zdeg = zdeg + dlt;
 					} else if (act == 'translate') {
-						zpx = zpx + dlt;
+						zpx_87687 = zpx_87687 + dlt;
 					} else {
 						sz = sz - dlt / 100;
 					}
 
 				} else {
 					if (act == 'rotate') {
-						xdeg = xdeg + (e.pageY - y);
-						ydeg = ydeg + (e.pageX - x);
+						xdeg = xdeg + (e.pageY - y_8756875687);
+						ydeg = ydeg + (e.pageX - x_87687686);
 					} else {
-						xpx = xpx + (e.pageX - x);
-						ypx = ypx + (e.pageY - y);
+						xpx_62882242 = xpx_62882242 + (e.pageX - x_87687686);
+						ypx = ypx + (e.pageY - y_8756875687);
 					}
 
 				}
@@ -250,9 +251,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				bh_tr = bh_tr_state + " rotateX(" + xdeg + "deg) " +
 					"rotateY(" + ydeg + "deg) " +
 					"rotateZ(" + zdeg + "deg) " +
-					"translateX(" + xpx + "px) " +
+					"translateX(" + xpx_62882242 + "px) " +
 					"translateY(" + ypx + "px) " +
-					"translateZ(" + zpx + "px) " +
+					"translateZ(" + zpx_87687 + "px) " +
 					"scale3d(" + sx + "," + sy + "," + sz + ")";
 
 
@@ -264,14 +265,17 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				// console.log(selectedObject_JQuery.css("transform"));
 				console.log(bh_tr);
 			}
-			y = e.pageY;
-			x = e.pageX;
+			y_8756875687 = e.pageY;
+			x_87687686 = e.pageX;
+			return false;
 		})
 		.on("mousedown", function() {
-			mouseIsDown = true
+			mouseIsDown = true;
+			return false;
 		})
 		.on("mouseup", function() {
-			mouseIsDown = false
+			mouseIsDown = false;
+			return false;
 		})
 		.on("keyup", function(e) {
 			switch (e.key) {

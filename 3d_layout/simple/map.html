@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>立体地图</title>
+	
+	
+	<link rel="stylesheet" type="text/css" href="../component/d3d.css"/>
+	
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../component/axis_component/show-axis.js" charset="utf-8"></script>
+	<script src="../component/monitor_component/monitor_component.js" charset="utf-8"></script>
+	<script src="../component/thikness_component/thickness.js" charset="utf-8"></script>
+	<script src="../component/cube/cube.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
+	
+	
+</head>
+<body>
+	
+	<div class="world full3d ">
+		<div class="map333">
+			<div></div>
+			<!-- <img class="imga" src="../img/map/map2.jpeg" > -->
+		</div>
+		
+		<div class="maplarge">
+			<div></div>
+			<!-- <img class="img2" src="../img/map/map2.jpeg" alt=""> -->
+		</div>
+	</div>
+	
+</body>
+
+
+</html>
+
+<style>
+	.map333,.maplarge{
+		position: absolute;
+		width: 60%;
+		height: 60%;
+		overflow: hidden;
+		left: 20%;
+		top:20%;
+		border: 1px red solid;
+	}
+	.map333>div,.maplarge>div{
+		position: absolute;
+		background-size: 100% 100%;
+	}
+	
+	.map333{
+		
+	}
+	
+	.map333>div{
+		width: calc(2520px/5);
+		height: calc(1751px/5);
+		left: calc(50% - 2520px/5/2);
+		top:calc(50% - 1751px/5/2);
+		background-image: url(../img/map/map2.jpeg);
+	}
+	.maplarge>div{
+		width: 2520px;
+		height: 1751px;
+		left: calc(50% - 2520px/2);
+		top:calc(50% - 1751px/2);
+		background-image: url(../img/map/map2_bak.jpeg);
+	}
+</style>
+
+<script type="text/javascript">
+	$(function(){
+		$watch(".world",".map","xy","translate",".world>div");
+		
+		$(".map333>div").on("mousemove",function(e){
+			x = e.offsetX;
+			y = e.offsetY;
+			
+			xlate = "calc(50% - " + x*5 +"px)";
+			ylate = "calc(50% - " + y*5 +"px)";
+			console.log(xlate+","+ylate);
+			$(".maplarge>div").css({
+				"transform":"translateX(" + xlate +") translateY("+ylate+")" 
+			})
+			
+		})
+	})
+</script>

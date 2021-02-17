@@ -19,22 +19,21 @@
 				
 				$watch(".world,body",".button","z","translate",".qiang,.container-b,.button");
 				// $thickness(".container-a",0);
-				$thickness(".button",6);
-				$thickness(".socket",6);
+				// $thickness(".button",6);
+				// $thickness(".socket",6);
 				
 				$cube(".qiang3","3cm","3cm","3cm");
 				
 				var move_dida = 0;
 				var startAngle=0;
-				$(".qiang2").on("mousemove",function(e){
+				$("*").on("touchstart",function(e){
+					
 					startAngle = (startAngle + 60 ) % 360 ;
-					move_dida = (move_dida+1) % 10 ;
-					if(!e.mouseIsDown && move_dida == 0){
 						$(".button").css({
 							"transform":"rotateZ("+startAngle+"deg)"
 						})
-					}
 					
+					return false;
 				})
 			})
 		</script>
@@ -45,16 +44,23 @@
 		<div class = "world">
 			
 			<div class = "container-a">
-				<div class="qiang qiang1"></div>
-				<div class="qiang qiang2"></div>
+				<div class="qiang qiang1">
+					
+					<p>
+						使用touch控制按钮
+					</p>
+					
+					</div>
+				<!-- <div class="qiang qiang2"></div> -->
 				<!-- <div class="qiang qiang3"></div> -->
 			</div>
 			
 			
 			<div class = "container-b">
 				
-				<div class="button"></div>
+				
 				<div class="socket"></div>
+				<div class="button"></div>
 			</div>
 			
 			
@@ -112,9 +118,28 @@
 		background-size: 100% 100%;
 	}
 	
-	.container-a>div:nth-child(1){
+	.qiang1{
 		background-image: url(img/heiban.PNG);
 		transform-origin: 3cm 2cm;
+		width: 160%;
+		height: 160%;
+		left:-30%;
+		top:-30%;
+		
+		font-size: 3em;
+		font-family: 隶书;
+		color:blue;
+		
+	}
+	
+	p{
+		font-size: 3rem;
+		font-family: 隶书;
+		color:blue;
+		transform: translateZ(3cm);
+		position: absolute;
+		text-align: center;
+		width: 100%;
 	}
 	.container-a>div:nth-child(2){
 		background-image: url(img/mucai.jpeg);
@@ -142,12 +167,20 @@
 	
 	
 	.socket{
-		background-image: url(./img/rotate_button/socket2.PNG);
+		background-image: url(./img/rotate_button/socket3.PNG);
+		/* background-image: url(./img/rotate_button/socket2.PNG); */
+		/* background-image: url(./img/rotate_button/clock_socket.PNG); */
+		
+		
 		/* animation: rt 1s infinite linear;*/
 	}
 	
 	.button{
-		background-image: url(./img/rotate_button/button2_1.PNG);
+		background-image: url(./img/rotate_button/button3.PNG);
+		/* background-image: url(./img/rotate_button/button2_1.PNG); */
+		/* background-image: url(./img/rotate_button/clock_point1.PNG); */
+		
+		
 		/* animation: rt 10s infinite linear; */
 	}
 	

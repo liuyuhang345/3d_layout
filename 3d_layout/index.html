@@ -20,7 +20,10 @@
 	<div class="world">
 		<div class = "container">
 			<div class="surface face1 "><div class="text">中国画</div></div>
-			<div class="surface face2 "> <div class="text">中国画</div></div>
+			<div class="surface face2 "> <div class="text">
+			<video src="mp4/zlx.mp4" Control></video>
+			
+			</div></div>
 			<div class="surface face3 ">
 				<ol>
 					<li>Lorem.
@@ -53,8 +56,8 @@
 	var dict = [];
 	
 	$(function(e){
-		// $show_axis(".face2");
-		// $watch(".world",".face2",'xy',"rotate",".surface");
+		$show_axis(".face2");
+		$watch(".world",".face2",'xy',"rotate",".surface");
 		
 		$thickness(".face1",20);
 		$thickness(".face2",3);

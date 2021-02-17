@@ -315,11 +315,16 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'h':
 					// window.open(get_monitor_component_RootPath()+"README.html");
 					
-					$("<div title='帮助'></div>").load(get_monitor_component_RootPath()+"README.txt").dialog(
+					$("<div style='' title='帮助'></div>").load(get_monitor_component_RootPath()+"README.txt")
+					.appendTo("body>div:first")
+					.dialog(
 					{
 						"dialogClass":"monitor_dialog",
-						"width":"100%",
-						"height":"auto"
+						"width":"80%",
+						"height":"800",
+						"top":"1cm",
+						"position":"absolute",
+						"transform":"translateZ(1cm)"
 					});
 					break;
 				case 'c':
@@ -338,11 +343,11 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					.dialog(
 					{
 						"dialogClass":"monitor_dialog",
-						"width":"100%",
+						"width":"80%",
 						"height":"auto",
 						"top":"1cm",
 						"position":"absolute",
-						"transform":"translateZ(10cm)"
+						"transform":"translateZ(1cm)"
 					});
 				default:
 					break;

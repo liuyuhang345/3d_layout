@@ -78,10 +78,10 @@ body{
 	top:calc((100% - 2rem)/2);
 }
 .face3{
-	width: 80%;
-	height: 60%;
-	left:10%;
-	top:20%;
+	width: 40%;
+	height: 20%;
+	left:30%;
+	top:40%;
 	background-color: #AAAAAA;
 }
 

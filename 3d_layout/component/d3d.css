@@ -11,7 +11,7 @@
 	position: absolute;
 	
 	transform-style: preserve-3d;
-	perspective: 30cm;
+	perspective: 100cm;
 }
 
 /* 充满父容器3d元素 */

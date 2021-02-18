@@ -1,8 +1,10 @@
 .axis{
 	position: absolute;
 	
-	width: 6cm;
+	width: 20cm;
 	height: 1cm;
+	left:calc(50% - 10cm);
+	top:calc(50% - 0.5cm);
 	
 	background-repeat: no-repeat;
 	background-size: 100% 100%;

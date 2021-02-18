@@ -27,14 +27,14 @@ function $show_axis_Ex(selector_JQuery) {
 	y0 = to[1] ;
 	
 	// 把坐标轴的外部样式改成行内样式，用于防止用户无意的设置干扰。
-	axis = 'position: absolute;	width: 6cm;	height: 1cm;background-repeat: no-repeat;background-size: 100% 100%;'
+	axis = 'position: absolute;	width: 20cm; height: 2cm;background-repeat: no-repeat;background-size: 100% 100%;'
 	
 	x = $("<div class='axis x-axis' style='"+axis+"background-image: url("+getRootPath()+"x-axis.PNG);'></div>");
 	y = $("<div class='axis y-axis' style='"+axis+"background-image: url("+getRootPath()+"y-axis.PNG);transform: rotateZ(90deg);'></div>");
 	z = $("<div class='axis z-axis' style='"+axis+"background-image: url("+getRootPath()+"z-axis.PNG);transform: rotateY(-90deg);'></div>");
 	
-	m_left = "calc(" + x0 + " - 3cm)";
-	m_top =  "calc(" + y0 + " - 0.5cm)";//此处的0.5cm/3cm是坐标轴高度/宽度的一半。其高度在show-axis.css被设定
+	m_left = "calc(" + x0 + " - 10cm)";
+	m_top =  "calc(" + y0 + " - 1cm)";//此处的0.5cm/3cm是坐标轴高度/宽度的一半。其高度在show-axis.css被设定
 
 	x.css("left", m_left).css("top",m_top);
 	y.css("left", m_left).css("top",m_top);

@@ -16,23 +16,39 @@
 		<script src="./component/cube/cube.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function(){
-				
-				$watch(".world,body",".button","z","translate",".qiang,.container-b,.button");
-				// $thickness(".container-a",0);
-				// $thickness(".button",6);
-				// $thickness(".socket",6);
-				
+				$watch(".world,body",".button","z","rotate",".qiang,.container-b,.button");
 				$cube(".qiang3","3cm","3cm","3cm");
-				
-				var move_dida = 0;
-				var startAngle=0;
+				var startAngle_sec=0;//秒
+				var startAngle_min=0;//分钟
+				var startAngle_hours=0;//小时
+				// 每秒自动转6度
+				window.setInterval(function(){
+					startAngle_sec+=6;startAngle_sec %= 360;
+						$(".button1").css({
+							"transform":"rotateZ("+startAngle_sec+"deg)"
+						});
+					},1000);
+					
+				window.setInterval(function(){
+					startAngle_min+=6;startAngle_min %= 360;
+						$(".button1").css({
+							"transform":"rotateZ("+startAngle_sec+"deg)"
+						});
+					},60000);
+					
+				window.setInterval(function(){
+					startAngle_hours+=6;startAngle_hours %= 360;
+						$(".button1").css({
+							"transform":"rotateZ("+startAngle_sec+"deg)"
+						});
+					},3600000);
+					
+				// touch点击转60度
 				$("*").on("touchstart",function(e){
-					
-					startAngle = (startAngle + 60 ) % 360 ;
+					startAngle_sec = (startAngle_sec + 60 ) % 360 ;
 						$(".button").css({
-							"transform":"rotateZ("+startAngle+"deg)"
+							"transform":"rotateZ("+startAngle_sec+"deg)"
 						})
-					
 					return false;
 				})
 			})
@@ -60,7 +76,9 @@
 				
 				
 				<div class="socket"></div>
-				<div class="button"></div>
+				<div class="button1"></div>
+				<div class="button2"></div>
+				<div class="button3"></div>
 			</div>
 			
 			
@@ -147,7 +165,7 @@
 	}
 	
 	
-	.socket,.button{
+	.socket,.button1,.button2,.button3{
 		width: 300px;
 		height: 300px;
 		position: absolute;
@@ -158,32 +176,43 @@
 		
 	}
 	
-	.socket,.button{
-		/* width: 10cm;
-		height: 10cm;
-		 border-radius: 50%;	 */	
-		/*去掉一个小白点，无实际意义 */
-	} 
 	
 	
 	.socket{
-		background-image: url(./img/rotate_button/socket3.PNG);
+		/* background-image: url(./img/rotate_button/socket3.PNG); */
 		/* background-image: url(./img/rotate_button/socket2.PNG); */
-		/* background-image: url(./img/rotate_button/clock_socket.PNG); */
+		background-image: url(./img/rotate_button/clock_socket.PNG);
 		
 		
 		/* animation: rt 1s infinite linear;*/
 	}
 	
-	.button{
-		background-image: url(./img/rotate_button/button3.PNG);
+	.button1{
+		/* background-image: url(./img/rotate_button/button3.PNG); */
 		/* background-image: url(./img/rotate_button/button2_1.PNG); */
-		/* background-image: url(./img/rotate_button/clock_point1.PNG); */
+		background-image: url(./img/rotate_button/clock_point1.PNG);
 		
 		
 		/* animation: rt 10s infinite linear; */
 	}
 	
+	.button2{
+		/* background-image: url(./img/rotate_button/button3.PNG); */
+		/* background-image: url(./img/rotate_button/button2_1.PNG); */
+		background-image: url(./img/rotate_button/clock_point2.PNG);
+		
+		
+		/* animation: rt 10s infinite linear; */
+	}
+	
+	.button3{
+		/* background-image: url(./img/rotate_button/button3.PNG); */
+		/* background-image: url(./img/rotate_button/button2_1.PNG); */
+		background-image: url(./img/rotate_button/clock_point3.PNG);
+		
+		
+		/* animation: rt 10s infinite linear; */
+	}
 	@keyframes rt{
 		from{
 			transform: translateZ(0mm) ;

@@ -109,18 +109,14 @@
 <script type="text/javascript">
 	$(function(){
 		$watch(".world",".map","xy","translate",".world>div");
-		
 		$(".map>div").on("mousemove",function(e){
-			x = e.offsetX;
-			y = e.offsetY;
-			
+			x = e.offsetX;y = e.offsetY;
 			xlate = "calc(50% - " + x*10 +"px)";
 			ylate = "calc(50% - " + y*10 +"px)";
 			console.log(xlate+","+ylate);
 			$(".maplarge>div").css({
 				"transform":"translateX(" + xlate +") translateY("+ylate+")" 
 			})
-			
 		})
 	})
 </script>

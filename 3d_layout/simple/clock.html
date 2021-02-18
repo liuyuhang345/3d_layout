@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<base href="../" />
-		<title>开关按钮</title>
+		<title>机械表</title>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		
 		<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
@@ -21,11 +21,32 @@
 				var startAngle_sec=0;//秒
 				var startAngle_min=0;//分钟
 				var startAngle_hours=0;//小时
-				
+				// 每秒自动转6度
+				window.setInterval(function(){
+					startAngle_sec+=6;startAngle_sec %= 360;
+						$(".button1").css({
+							"transform":"rotateZ("+startAngle_sec+"deg)"
+						});
+					},10);
+					
+				window.setInterval(function(){
+					startAngle_min+=6;startAngle_min %= 360;
+						$(".button2").css({
+							"transform":"rotateZ("+startAngle_min+"deg)"
+						});
+					},600);
+					
+				window.setInterval(function(){
+					startAngle_hours+=6;startAngle_hours %= 360;
+						$(".button3").css({
+							"transform":"rotateZ("+startAngle_hours+"deg)"
+						});
+					},36000);
+					
 				// touch点击转60度
 				$("*").on("touchstart",function(e){
 					startAngle_sec = (startAngle_sec + 60 ) % 360 ;
-						$(".button1").css({
+						$(".button").css({
 							"transform":"rotateZ("+startAngle_sec+"deg)"
 						})
 					return false;
@@ -42,7 +63,7 @@
 				<div class="qiang qiang1">
 					
 					<p>
-						点击touch控制按钮
+						<!-- 快100倍的机械表 -->
 					</p>
 					
 					</div>
@@ -116,7 +137,7 @@
 	}
 	
 	.qiang1{
-		background-image: url(./img/mucai/m21.jpeg);
+		background-image: url(./img/mucai/m13.jpeg);
 		transform-origin: 3cm 2cm;
 		width: 160%;
 		height: 160%;
@@ -139,7 +160,7 @@
 		width: 100%;
 	}
 	.container-a>div:nth-child(2){
-		background-image: url(./img/mucai/m1.jpeg);
+		background-image: url(img/mucai.jpeg);
 		
 	}
 	
@@ -159,8 +180,8 @@
 	
 	.socket{
 		/* background-image: url(./img/rotate_button/socket3.PNG); */
-		background-image: url(./img/rotate_button/socket2.PNG);
-		/* background-image: url(./img/rotate_button/clock_socket.PNG); */
+		/* background-image: url(./img/rotate_button/socket2.PNG); */
+		background-image: url(./img/rotate_button/clock_socket.PNG);
 		
 		
 		/* animation: rt 1s infinite linear;*/
@@ -168,8 +189,8 @@
 	
 	.button1{
 		/* background-image: url(./img/rotate_button/button3.PNG); */
-		background-image: url(./img/rotate_button/button2_1.PNG);
-		/* background-image: url(./img/rotate_button/clock_point1.PNG); */
+		/* background-image: url(./img/rotate_button/button2_1.PNG); */
+		background-image: url(./img/rotate_button/clock_point1.PNG);
 		
 		
 		/* animation: rt 10s infinite linear; */
@@ -178,7 +199,7 @@
 	.button2{
 		/* background-image: url(./img/rotate_button/button3.PNG); */
 		/* background-image: url(./img/rotate_button/button2_1.PNG); */
-		/* background-image: url(./img/rotate_button/clock_point2.PNG); */
+		background-image: url(./img/rotate_button/clock_point2.PNG);
 		
 		
 		/* animation: rt 10s infinite linear; */
@@ -187,7 +208,7 @@
 	.button3{
 		/* background-image: url(./img/rotate_button/button3.PNG); */
 		/* background-image: url(./img/rotate_button/button2_1.PNG); */
-		/* background-image: url(./img/rotate_button/clock_point3.PNG); */
+		background-image: url(./img/rotate_button/clock_point3.PNG);
 		
 		
 		/* animation: rt 10s infinite linear; */

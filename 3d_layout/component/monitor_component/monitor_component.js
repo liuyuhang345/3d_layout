@@ -319,7 +319,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'h':
 					// window.open(get_monitor_component_RootPath()+"README.html");
 					
-					$("<div style='' title='帮助'></div>").load(get_monitor_component_RootPath()+"README.txt")
+					$("<div style='position:static;' title='帮助'></div>").load(get_monitor_component_RootPath()+"README.txt")
 					.appendTo("body>div:first")
 					.dialog(
 					{
@@ -336,7 +336,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 						break;
 					}
 					cmd = "<h3>3D对象class属性值："+selectedObject_JQuery.attr("class")+"<hr></h3><h3>上轮变换</h3><hr>"+bh_tr_state+"<h3>本轮变换</h3><hr>"+bh_tr;
-					$("<div title='变换语法'>"+
+					$("<div style='position:static;' title='变换语法'>"+
 					cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig,'')
 					+"</div>")
 					.on("mousemove",function(){

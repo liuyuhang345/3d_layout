@@ -21,7 +21,7 @@
 <body>
 	
 	<div class="world full3d ">
-		<div class="map333">
+		<div class="map">
 			<div></div>
 			<!-- <img class="imga" src="../img/map/map2.jpeg" > -->
 		</div>
@@ -38,37 +38,71 @@
 </html>
 
 <style>
-	.map333,.maplarge{
+	
+	body{
+		width: 100vw;
+		height: 100vh;
+		background-image: url(../img/heiban.PNG);
+		background-size: 100% 100%;
+		padding: 1cm;
+	}
+	.map,.maplarge{
+		
+		background-image: url(../img/bk3.jpg);
+		background-size: 100% 100%;
+		padding: 1cm;
 		position: absolute;
 		width: 60%;
 		height: 60%;
 		overflow: hidden;
 		left: 20%;
 		top:20%;
-		border: 1px red solid;
+		
+		border-radius: 10%;
+		
+		/* box-sizing: border-box; */
 	}
-	.map333>div,.maplarge>div{
+	.map>div,.maplarge>div{
 		position: absolute;
 		background-size: 100% 100%;
+		background-image: url(../img/map/map.jfif);
 	}
 	
-	.map333{
+	.map{
 		
 	}
 	
-	.map333>div{
-		width: calc(2520px/5);
-		height: calc(1751px/5);
-		left: calc(50% - 2520px/5/2);
-		top:calc(50% - 1751px/5/2);
-		background-image: url(../img/map/map2.jpeg);
+	
+	:root{
+		--w:5208px;
+		--h:3593px;
+		
+		/* 缩小的倍数 */
+		--s:10;
 	}
+	
+	/* 小图 */
+	.map,.map>div{
+		
+		width: calc(var(--w)/var(--s));
+		height: calc(var(--h)/var(--s));
+		left: calc(50% - var(--w)/var(--s)/2);
+		top:calc(50% - var(--h)/var(--s)/2);
+		
+	}
+	
+	/* 大图 */
 	.maplarge>div{
-		width: 2520px;
-		height: 1751px;
-		left: calc(50% - 2520px/2);
-		top:calc(50% - 1751px/2);
-		background-image: url(../img/map/map2_bak.jpeg);
+		/* 设置宽高 */
+		width: var(--w);
+		height: var(--h);
+		
+		/* 居中 */
+		left: calc(50% - var(--w)/2);
+		top:calc(50% - var(--h)/2);
+		
+		
+		
 	}
 </style>
 
@@ -76,12 +110,12 @@
 	$(function(){
 		$watch(".world",".map","xy","translate",".world>div");
 		
-		$(".map333>div").on("mousemove",function(e){
+		$(".map>div").on("mousemove",function(e){
 			x = e.offsetX;
 			y = e.offsetY;
 			
-			xlate = "calc(50% - " + x*5 +"px)";
-			ylate = "calc(50% - " + y*5 +"px)";
+			xlate = "calc(50% - " + x*10 +"px)";
+			ylate = "calc(50% - " + y*10 +"px)";
 			console.log(xlate+","+ylate);
 			$(".maplarge>div").css({
 				"transform":"translateX(" + xlate +") translateY("+ylate+")" 

@@ -11,7 +11,8 @@
 
 		<script src="./component/axis_component/show-axis.js" charset="utf-8"></script>
 		<script src="./component/monitor_component/monitor_component.js" charset="utf-8"></script>
-		<script src="component/thikness_component/thickness.js" charset="utf-8"></script>
+		<script src="./component/thikness_component/thickness.js" charset="utf-8"></script>
+		<script src="./component/cube/cube.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
 	</head>
 	<body>
@@ -23,11 +24,11 @@
 			<div class="surface">
 				<div class="caidai"></div>
 				
-				<div class="menubar">冯婉容</div>
-				<div class="menubar">李兰兰</div>
-				<div class="menubar">雅菲</div>
-				<div class="menubar">张妃</div>
-				<div class="menubar">叶氏娜拉</div>
+				<div class="menubar menu1"><p>冯婉容</p></div>
+				<div class="menubar menu2"><p>李兰兰</p></div>
+				<div class="menubar menu3"><p>雅菲</p></div>
+				<div class="menubar menu4"><p>张妃</p></div>
+				<div class="menubar menu5"><p>叶赫娜拉</p></div>
 				
 				
 				
@@ -74,7 +75,7 @@
 		transform-origin: 50% 0px;
 		width: 2cm;
 		height: 5cm;
-		background-image: url(./img/label3.PNG);
+		/* background-image: url(./img/label2.PNG); */
 		background-size: 100% 100%;
 		float: left;
 		
@@ -88,21 +89,21 @@
 		 padding-top:2rem;
 		 font-family: 隶书;
 		 color:coral;
-		 text-shadow: 2px 2px 0px red;
+		 text-shadow: 2px 2px 2px #000000;
 	}
 	
 	@keyframes go{
 		from{
-			transform:    rotateX(30deg) rotateY(-13deg);
+			transform:    rotateX(30deg) rotateY(0deg);
 		}
 		to{
-			transform:   rotateX(-30deg) rotateY(13deg);
+			transform:   rotateX(-30deg) rotateY(360deg);
 		}
 	}
 	
 	
 	.caidai{
-		top:-1cm;
+		top:-3cm;
 		position: absolute;
 		width: 100%;
 		height: 3cm;
@@ -118,5 +119,12 @@
 	$(function() {
 		$monitor("body", ".surface", "y", "rotate", ".surface,.ocean");
 		// $thickness(".surface",1);
+		$cube(".menu1","2cm","3mm","5cm",["./img/bk4.jpeg","./img/mucai/m11.jpg","./img/mucai/m23.jpeg"]);
+		$cube(".menu2","2cm","3mm","5cm",["./img/mucai/m5.jpeg","./img/mucai/m7.jpeg","./img/mucai/m14.jpeg"]);
+		$cube(".menu3","2cm","3mm","5cm",["./img/mucai/m13.jpeg","./img/mucai/m4.jpeg","./img/mucai/m3.jpeg","./img/meinv.PNG","./img/mucai/m22.jpeg","./img/m7.jpeg"]);
+		$cube(".menu4","2cm","3mm","5cm",[""]);
+		$cube(".menu5","2cm","10mm","5cm",["./img/mucai/m4.jpeg","./img/mucai/m3.jpeg","./img/window.PNG","./img/mucai/m3.jpeg","./img/mucai/m22.jpeg","./img/mucai/m7.jpeg"]);
 	})
+	
+
 </script>

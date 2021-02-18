@@ -42,8 +42,10 @@ function $cube(selectorMe,lenght,width,height,imgs){
 			"opacity":"1"
 		}).addClass("cubeface_"+id_part+i);
 	}
-	// 老内容放入第一个面
-	$(faces[0]).html(lost_context);
+	
+	
+	// 老内容放入立方体的正前方面
+	$(faces[2]).html(lost_context).css('text-align','center').css("inli-height",w);
 	
 	// 设置各个面的宽高
 	$(faces[0]).css("width",l).css("height",w);
@@ -57,7 +59,8 @@ function $cube(selectorMe,lenght,width,height,imgs){
 	
 	
 	//设置背景图片
-	if(imgs){
+	if(imgs && imgs.join("-").replace(/-/g,'').length>4){
+	// if(imgs && imgs[0] && imgs[0].length>0){
 		$(faces[0]).css("background-image","url("+(imgs[0]||'')+")");
 		$(faces[1]).css("background-image","url("+(imgs[1]||imgs[0]||'')+")");
 		$(faces[2]).css("background-image","url("+(imgs[2]||imgs[0]||'')+")");

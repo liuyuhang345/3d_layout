@@ -9,20 +9,18 @@
 		<title>平面变换</title>
 
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		
+
 		<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
 		<script src="component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
 
+		<link rel="stylesheet" href="css/switchbutton.css">
 		<script type="text/javascript">
 			$(function() {
 				$show_axis(".two");
 				$watch(".world,body", ".two", "xy", "translate", ".world>div,.world");
-				// $thickness(".two", 0);
-				// $thickness(".surface", 1);
-				// $thickness(".bk", 1);
-				// $thickness("renwujianjie", 1);
+			
 			});
 		</script>
 	</head>
@@ -30,31 +28,20 @@
 
 		<div class="world">
 
-			<div class="renwujianjie">
-				
-			</div>
-
-
-			<div class="surface">
-				中国书画
-				<video loop="-1" autoplay="autoplay">
-					<source src="./mp4/20210208_172530.mp4" type="video/mp4">
-					</source>
-				</video>
-				<img src="img/dahai.jpg" alt="">
-
-			</div>
+			
 
 			<div class="bk">
 
-				<video loop="-1">
-					<source src="mp4/jinxiuheshan.mp4" type="video/mp4">
+				<video loop="-1" >
+					<source src="./mp4/jiangdianlaoge3.mp4" type="video/mp4">
 					</source>
 				</video>
 			</div>
 
-			<div class="two">
+			<div class = "f3"></div>
 
+			<div class="two">
+<!-- 
 				<table>
 					<caption>85-614班学生信息表</caption>
 					<tr>
@@ -76,7 +63,7 @@
 						<td>女</td>
 						<td>18</td>
 					</tr>
-					<link rel="stylesheet" href="css/switchbutton.css">
+
 					<div class="switch">
 						<input type="checkbox" name="toggle">
 						<label for="toggle"><i></i></label>
@@ -84,7 +71,7 @@
 					</div>
 					<!-- <button class="btn">飞控</button> -->
 					</td>
-				</table>
+				</table> -->
 			</div>
 
 		</div>
@@ -97,7 +84,6 @@
 		padding: 0px;
 		width: 100vw;
 		height: 100vh;
-		/* background-image:url(img/CRT.jpeg); */
 		background-image: url(img/xingkong2.jpeg);
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -111,17 +97,15 @@
 		position: absolute;
 		left: 0px;
 		top: 0px;
-	}
-
-	.world,body {
-		perspective: 100vw;
+	
+		perspective: 200vw;
 		transform-style: preserve-3d;
 	}
 
-	.surface,
+	
 	.two,
 	.bk,
-	.renwujianjie {
+	.f3 {
 		width: 40%;
 		height: 40%;
 
@@ -130,25 +114,17 @@
 		top: 30%;
 
 		background-size: 100% 100%;
-
-		/* display: none; */
 	}
 
-	.two {
-		display: block;
-		
-	}
 
 	.bk {
 		background-image: url(img/mucai.jpeg);
-		transform-origin: 1cm 2cm  ;
+		transform-origin: 1cm 2cm;
 	}
 
-	.surface {
-		color: white;
-		font-family: 隶书;
-		font-size: 3rem;
-		text-shadow: 1px 1px 0vw rgba(255, 255, 255, 0.5);
+	.f3 {
+		
+		background-image: url(./img/dianluban.jpeg);
 	}
 
 	img {
@@ -165,21 +141,12 @@
 
 	}
 
-	@keyframes go {
-		from {
-			transform: rotateY(30deg) rotateZ(0deg);
-		}
-
-		to {
-			transform: rotateY(30deg) rotateZ(360deg);
-		}
-	}
 
 
 	video {
-		width: 100%;
-		height: 100%;
-		object-fit: fill;
+		width: 20%;
+		
+		/* object-fit: fill; */
 		position: absolute;
 		left: 0px;
 	}
@@ -205,32 +172,17 @@
 		margin-bottom: 1%;
 	}
 
-	tr{
+	tr {
 		border: 1px #DAD55E solid;
 	}
+
 	tr:hover {
 		background-color: rgba(0, 255, 0, 0.07);
-		
+
 	}
 
 	tr:nth-child(1) {
 		background-color: rgba(0, 0, 255, 0.07);
-	}
-
-	.dianluban {
-		position: absolute;
-		background-color: limegreen;
-		opacity: 0.3;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		border-radius: 5%;
-		
-	}
-
-	.renwujianjie {
-		transform: rotateZ(30deg);
 	}
 
 	p {

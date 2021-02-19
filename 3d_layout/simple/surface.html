@@ -18,11 +18,11 @@
 		<script type="text/javascript">
 			$(function() {
 				$show_axis(".two");
-				$watch(".world,body", ".two", "y", "rotate", ".world>div,.world");
-				$thickness(".two", 0);
-				$thickness(".surface", 1);
-				$thickness(".bk", 1);
-				$thickness("renwujianjie", 1);
+				$watch(".world,body", ".two", "xy", "translate", ".world>div,.world");
+				// $thickness(".two", 0);
+				// $thickness(".surface", 1);
+				// $thickness(".bk", 1);
+				// $thickness("renwujianjie", 1);
 			});
 		</script>
 	</head>
@@ -31,21 +31,17 @@
 		<div class="world">
 
 			<div class="renwujianjie">
-				<!-- <p>人物简介</p> -->
-				<!-- <div class="dianluban">	
-			</div> -->
-
-				<!-- <img src="./img/denglong.PNG" alt=""> -->
+				
 			</div>
 
 
 			<div class="surface">
-				<!-- 中国书画 -->
+				中国书画
 				<video loop="-1" autoplay="autoplay">
 					<source src="./mp4/20210208_172530.mp4" type="video/mp4">
 					</source>
 				</video>
-				<!-- <img src="img/dahai.jpg" alt=""> -->
+				<img src="img/dahai.jpg" alt="">
 
 			</div>
 
@@ -149,17 +145,6 @@
 	}
 
 	.surface {
-
-		/* display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-box-align: center;
-		-webkit-box-pack: center */
-
-		/* display: flex;
-		flex-direction: column;
-		justify-content: center;
-		text-align: center; */
-
 		color: white;
 		font-family: 隶书;
 		font-size: 3rem;
@@ -220,8 +205,12 @@
 		margin-bottom: 1%;
 	}
 
+	tr{
+		border: 1px #DAD55E solid;
+	}
 	tr:hover {
 		background-color: rgba(0, 255, 0, 0.07);
+		
 	}
 
 	tr:nth-child(1) {

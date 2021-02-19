@@ -1,4 +1,4 @@
-// "+act+" 3d-object component . helper for learning .
+// 3d-object component . helper for learning .
 // @copy yuhang.liu 刘宇航
 // qq:578384498
 // date 1-28-2021
@@ -38,11 +38,11 @@ $(function() {
 			href: get_monitor_component_RootPath() + 'monitor_component.css'
 		})
 		.appendTo("head");
-		
+
 	//启动监视，用户可以通过按下L热键，手动控制某些元素进行3D变换
-	$watch("body,body>div","","z","rotate","");
-	
-	
+	$watch("body,body>div", "", "z", "rotate", "");
+
+
 })
 
 // 以下方法专用于做js插件。求得当前js（monitor_component.js）所在路径
@@ -91,22 +91,22 @@ function $monitor(selectorMain, transformObject, axis, action, objectSets) {
 }
 
 function put_transform_data(old_sel_JQuery) {
-	if(bh_tr && bh_tr.length>1){//说明进行过3D变换，bh_tr中包含bh_tr_state
+	if (bh_tr && bh_tr.length > 1) { //说明进行过3D变换，bh_tr中包含bh_tr_state
 		saveState();
 		key = old_sel_JQuery.attr("class");
-		
+
 		old_transform_data[key] = {
 			// 上次的变换
 			"bh_tr_state": bh_tr_state
 		};
 		console.log("save:" + key + "," + old_transform_data[key].bh_tr_state);
-	}else{
+	} else {
 		//没有进行3D变换，不需要保存新的变换
 	}
-	  //将所有历史状态保存在bh_tr_state中
-	
+	//将所有历史状态保存在bh_tr_state中
 
-	
+
+
 
 }
 
@@ -169,23 +169,23 @@ function switchAxis(jobj) {
 function set_3d_transform_Object(objectSets) {
 
 	$(global_objectSets).off("dblclick"); //取消原来的绑定事件,此条语句必须放在on语句之前，若放在之后：有可能解绑新的可选择对象：修复此bug
-	
+
 	global_objectSets = objectSets; //设置新的可选对象
-	
+
 	$(global_objectSets).on("dblclick", function() {
 		$(".axis", selectedObject_JQuery).remove(); //移走原来变换对象的坐标轴
-		selectedObject_JQuery.removeClass("animation"+flag);//移走原来对象的动画
+		selectedObject_JQuery.removeClass("animation" + flag); //移走原来对象的动画
 		put_transform_data(selectedObject_JQuery); //保存现场
 
 		selectedObject_JQuery = $(this); //改变变换对象为鼠标双击的元素
 
 		$show_axis_Ex(selectedObject_JQuery); //显示坐标轴
 		restore_transform_data(selectedObject_JQuery); //恢复现场变换数据
-		return false;//false终止事件处理,防止冒泡选择
+		return false; //false终止事件处理,防止冒泡选择
 	});
 
-	
-	
+
+
 }
 
 // 开启3d变换的鼠标联动
@@ -292,9 +292,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'x':
 				case 'y':
 				case 'z':
-					selectedObject_JQuery.removeClass("animation"+flag);//移走原来的动画
+					selectedObject_JQuery.removeClass("animation" + flag); //移走原来的动画
 					setAxis(e.key);
-					
+
 					break;
 				case 'p':
 					setAxis('xy');
@@ -314,45 +314,44 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'g': //go的缩写，实现动画
 
 					restartAnimation();
-					
+
 					break;
 				case 'h':
 					// window.open(get_monitor_component_RootPath()+"README.html");
-					
-					$("<div style='position:static;' title='帮助'></div>").load(get_monitor_component_RootPath()+"README.txt")
-					.appendTo("body>div:first")
-					.dialog(
-					{
-						"dialogClass":"monitor_dialog",
-						"width":"80%",
-						"height":"800",
-						"top":"1cm",
-						"position":"absolute",
-						"transform":"translateZ(1cm)"
-					});
+
+					$("<div style='position:static;' title='帮助'></div>").load(get_monitor_component_RootPath() + "README.txt")
+						.appendTo("body>div:first")
+						.dialog({
+							"dialogClass": "monitor_dialog",
+							"width": "80%",
+							"height": "800",
+							"top": "1cm",
+							"position": "absolute",
+							"transform": "translateZ(1cm)"
+						});
 					break;
 				case 'c':
-					if(e.ctrlKey){
+					if (e.ctrlKey) {
 						break;
 					}
-					cmd = "<h3>3D对象class属性值："+selectedObject_JQuery.attr("class")+"<hr></h3><h3>上轮变换</h3><hr>"+bh_tr_state+"<h3>本轮变换</h3><hr>"+bh_tr;
-					$("<div style='position:static;' title='变换语法'>"+
-					cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig,'')
-					+"</div>")
-					.on("mousemove",function(){
-						selectText($(this));
-						return false;
+					cmd = "<h3>3D对象class属性值：" + selectedObject_JQuery.attr("class") + "<hr></h3><h3>上轮变换</h3><hr>" + bh_tr_state +
+						"<h3>本轮变换</h3><hr>" + bh_tr;
+					$("<div style='position:static;' title='变换语法'>" +
+							cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig, '') +
+							"</div>")
+						.on("mousemove", function() {
+							selectText($(this));
+							return false;
 						})
-					.appendTo("body>div:first")
-					.dialog(
-					{
-						"dialogClass":"monitor_dialog",
-						"width":"80%",
-						"height":"auto",
-						"top":"1cm",
-						"position":"absolute",
-						"transform":"translateZ(1cm)"
-					});
+						.appendTo("body>div:first")
+						.dialog({
+							"dialogClass": "monitor_dialog",
+							"width": "80%",
+							"height": "auto",
+							"top": "1cm",
+							"position": "absolute",
+							"transform": "translateZ(1cm)"
+						});
 				default:
 					break;
 			}
@@ -360,33 +359,31 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 		})
 }
 
-function restartAnimation(){
-	selectedObject_JQuery.removeClass("animation"+flag);
-	setTimeout(function(){
-		selectedObject_JQuery.addClass("animation"+flag);
-	},1);
+function restartAnimation() {
+	selectedObject_JQuery.removeClass("animation" + flag);
+	setTimeout(function() {
+		selectedObject_JQuery.addClass("animation" + flag);
+	}, 1);
 	//这里的稍加延迟，是重新播放动画的关键步骤；另外的办法是移除class之后clone它，再次加上动画样式。
 }
 
 // 模拟手动选中元素的文本
 function selectText(element) {
-        var text = $(element)[0];
-        if (document.body.createTextRange) {
-            var range = document.body.createTextRange();
-            range.moveToElementText(text);
-            range.select();
-        } else if (window.getSelection) {
-            var selection = window.getSelection();
-            var range = document.createRange();
-            range.selectNodeContents(text);
-            selection.removeAllRanges();
-            selection.addRange(range);
-            /*if(selection.setBaseAndExtent){
-                selection.setBaseAndExtent(text, 0, text, 1);
-            }*/
-        } else {
-            alert("none");
-        }
-    }
-	
-	
+	var text = $(element)[0];
+	if (document.body.createTextRange) {
+		var range = document.body.createTextRange();
+		range.moveToElementText(text);
+		range.select();
+	} else if (window.getSelection) {
+		var selection = window.getSelection();
+		var range = document.createRange();
+		range.selectNodeContents(text);
+		selection.removeAllRanges();
+		selection.addRange(range);
+		/*if(selection.setBaseAndExtent){
+		    selection.setBaseAndExtent(text, 0, text, 1);
+		}*/
+	} else {
+		alert("none");
+	}
+}

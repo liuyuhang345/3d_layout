@@ -19,10 +19,12 @@
 	</head>
 	<body>
 		<div class="world">
-			<div class="container">
-
+			<div class="desktop">
+				<div class = "icon"><a href="./simple/surface.html" target="window">平面变换</a></div>
+				<div class = "icon">立方体</div>
 			</div>
 
+			<iframe src="" width="" height="" .class="window" name="window"></iframe>
 		</div>
 	</body>
 </html>
@@ -30,25 +32,10 @@
 <script src="component/tools.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">
-	
-	var width = 100;
-	var height = width * 0.666;
-	
-	var style_me = 
-		StringTools.New("style = ")
-		.append('"')
-		.append("width:").append(width).append("cm ;")
-		.append("height:").append(height).append("cm ;")
-		.append('"');
-		
-	console.log(style_me);
-	
-	var dict = [];
-
 	$(function(e) {
-		$show_axis(".face2");
+		
 		$watch(".world", ".face2", 'xy', "rotate", ".surface");
-
+			
 		$cube("li li", "3cm", "3cm", "5cm");
 	})
 </script>

@@ -40,7 +40,7 @@ $(function() {
 		.appendTo("head");
 
 	//启动监视，用户可以通过按下L热键，手动控制某些元素进行3D变换
-	$watch("body,body>div", "", "z", "rotate", "");
+	$watch("body,div:nth-child(1)", "", "z", "rotate", "");
 
 
 })
@@ -199,7 +199,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 
 
-	$(selectorMain).attr("tabindex", "0").focus()
+	$(selectorMain).attr("tabindex", "0").focus().unbind()
 		.on("mousemove", function(e) {
 			if (y_8756875687 > -1 && x_87687686 > -1 && mouseIsDown) {
 				dlt = (e.pageY - y_8756875687) + (e.pageX - x_87687686);

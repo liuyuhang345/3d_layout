@@ -13,6 +13,10 @@ body {
 
 	perspective: 200cm;
 	transform-style: preserve-3d;
+	-webkit-transform-style: ;
+	-moz-transform-style: ;
+	-ms-transform-style:  ;
+	transform-style: ;
 }
 
 * {

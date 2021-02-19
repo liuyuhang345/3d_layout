@@ -18,7 +18,7 @@ var StringTools = {
 			strObject.str = strObject.str + str;
 			return strObject;
 		};
-		
+
 		return strObject;
 	}
 

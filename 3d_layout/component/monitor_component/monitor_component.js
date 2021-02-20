@@ -200,6 +200,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 
 	$(selectorMain).attr("tabindex", "0").focus().unbind()
+		.css("outline","0px")
 		.on("mousemove", function(e) {
 			if (y_8756875687 > -1 && x_87687686 > -1 && mouseIsDown) {
 				dlt = (e.pageY - y_8756875687) + (e.pageX - x_87687686);

@@ -19,6 +19,7 @@ body {
 	perspective: 200cm;
 	transform-style: preserve-3d;
 
+	outline: 0px;
 }
 
 * {
@@ -37,7 +38,7 @@ body {
 
 .frame{
 	position: absolute;
-	width: 90%;
+	width: 85%;
 	height: 100%;
 	right: 0%;
 	top: 0%;
@@ -51,12 +52,30 @@ body {
 .icon{
 	background-image: url(../img/mucai/zhujian.JPG);
 	background-size: 100% 100%;
-	width: 15vh;
-	height: 6vh;
-	margin: 2vh;
-	
-	line-height: 6vh;
+	width: 16vh;
+	height: 5vh;
+	margin: 3vh;
+	margin: 3vh;
+	line-height: 5vh;
 	text-align: center;
+	
+	font-size: 1.5vw;
+	font-family: 隶书;
+	color:black;
+	text-shadow: 1px 1px 0px #888;
+	transform: rotateY(15deg) skewX(35deg);
+}
+.icon:hover a:visited,a:link,a:active{
+	color:white;
+	
+}
+.icon:hover{
+	transform: rotateY(15deg) skewX(35deg) translateX(2vh);
+	}
+
+a:link,a:active,a:visited{
+	color:black;
+	text-decoration: none;
 }
 
 .text {

@@ -18,9 +18,9 @@
 
 
 	</head>
-	<body onload="document.all.show.innerHTML=''" style="background-color: #003EFF;">
+	<body onload="document.all.show.innerHTML=''">
 		<div id="show">
-			<p>加载中......</p>
+			<p style="color:#0000FF;font-size:1cm;">加载中......</p>
 		</div>
 
 		<div class="world full3d ">
@@ -45,10 +45,11 @@
 	body{
 		width: 100vw;
 		height: 100vh;
-		
-		background-image: url(../img/heiban.PNG);
+		background-color: black;
+	}
+	.world{
 		background-size: 100% 100%;
-		padding: 1cm;
+		outline: 0px;
 	}
 	.map,.maplarge{
 		

@@ -34,7 +34,6 @@
 		width: 100vw;
 		height: 100vh;
 		
-		background-color: red;
 		background-image: url(../img/bk6.jpeg);
 		background-size:100% 100%;
 		background-position: 0% 0%;
@@ -72,7 +71,7 @@
 		var e = $(".miao").clone();
 		$(".room").html('');//此条很重要，否则world里面每次页面刷新都会追加一批元素，瞬间就会使得浏览器崩溃。
 		for(i=0;i<6;i++){
-			for(j=0;j<14;j++){
+			for(j=0;j<10;j++){
 				e = e.clone();
 				e.css({
 					"transform":"translateX("+j*2+"cm) translateY("+i*2+"cm) rotateX(90deg) translateY(-2.5cm) "

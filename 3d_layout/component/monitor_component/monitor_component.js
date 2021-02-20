@@ -325,9 +325,10 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 							"dialogClass": "monitor_dialog",
 							"width": "80%",
 							"height": "800",
-							"top": "1cm",
+							"top": "1",
 							"position": "absolute",
-							"transform": "translateZ(1cm)"
+							"transform": "translateZ(1cm)",
+							"padding":"1cm"
 						});
 					break;
 				case 'c':

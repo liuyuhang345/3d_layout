@@ -8,17 +8,19 @@
 <br> 第五个参数，objectSets是鼠标双击的时候，可以切换过去的3D变换元素的选择器
 <br> 
 <br> <h3>快捷键</h3>
-<br> x,y,z切换变换的坐标轴；p切换到同时按照x、y轴进行变换
+<br> x,y,z切换变换的坐标轴；
+<br> p (party)：切换到同时按照x、y轴进行变换
 <br> t（transform）：进行平移变换
 <br> r（rotate）：进行旋转变换
 <br> s（scale）：进行缩放变换
 <br> k（keep）或者鼠标双击本元素 ： 保存当前变换，后续将在保存的变换的基础上进行变换。
-<br> a (axis) ：隐藏坐标轴
+<br> a (axis) ：隐藏/显示坐标轴
 <br> l (location) ：重新设置可（通过鼠标双击）选择的3D对象|元素
 <br> g (animation) ：播放一次旋转动画
+<br> n (none)：隐藏/显示当前选定的元素
 <br> h (help) ：显示此帮助
-<br> c ：查看当前3D变换指令
-<br> n ：隐藏当前选定的元素
+<br> c (command)：查看当前3D变换的transform的变换命令
+
 <br> 鼠标双击某元素，选中变换的元素
 <br> 
 <br> <h3>注意事项</h3>

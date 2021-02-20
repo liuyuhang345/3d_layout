@@ -158,10 +158,10 @@ function saveState() {
 
 // 隐藏坐标轴,传入jquery对象
 function switchAxis(jobj) {
-	if ($(".axis", jobj)) {
+	if (jobj.children().hasClass('axis')) {
 		$(".axis", jobj).remove();
 	} else {
-
+		$show_axis_Ex(selectedObject_JQuery);
 	}
 }
 
@@ -303,7 +303,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					saveState();
 					break;
 				case 'a':
-					switchAxis($(this));
+					switchAxis($(selectedObject_JQuery));
 					break;
 				case 'l': //重新设定可被选择的变换对象
 					input = prompt("请输入变换对象的选择器");
@@ -352,6 +352,11 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 							"position": "absolute",
 							"transform": "translateZ(1cm)"
 						});
+				
+					break;
+				case 'n':
+					selectedObject_JQuery.toggle();
+					break;
 				default:
 					break;
 			}

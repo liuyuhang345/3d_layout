@@ -1,0 +1,41 @@
+	table {
+		position: absolute;
+		width: 90%;
+		height: 60%;
+		top: 0%;
+		left: 5%;
+
+		margin-top: 1%;
+	}
+
+	td {
+		
+		font-size: 1vw;
+		/* color: rgba(0,255, 255, 0.7); */
+		text-align: center;
+		padding: 0px;
+	}
+
+
+	td,caption{
+		font-family: 隶书;
+		text-shadow: 1px 1px 0px #fff;
+	}
+
+	caption {
+		margin-bottom: 1%;
+		font-size: 2vw;
+	}
+
+	tr {
+		border: 1px #DAD55E solid;
+	}
+
+	tr:hover {
+		background-color: rgba(0, 255, 0, 0.4);
+
+	}
+
+	tr:nth-child(1) {
+		background-color: rgba(0, 0, 255, 0.2);
+	}

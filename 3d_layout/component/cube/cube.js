@@ -46,8 +46,7 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs) {
 			"background": e.css("background"),
 			"border": e.css("border"),
 			"background-size": "100% 100%",
-			"opacity": "1",
-			"border":"1px red solid"
+			"opacity": "1"
 		}).addClass("cubeface_" + id_part + i);
 	}
 

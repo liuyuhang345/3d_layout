@@ -362,6 +362,19 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'n':
 					selectedObject_JQuery.toggle();
 					break;
+					
+					// 编辑属性值
+				case "e":
+					var template = prompt("输入jquery选择器和css属性json集合，中间用逗号分开");
+					var params = template.split(/[,:]/);
+					var params_length = params.length;
+					if(params_length==2){
+						$(selectedObject_JQuery).css(params[0],params[1]);
+					}else if(params_length==3){
+						$(params[0]).css(params[1],params[2]);
+					}
+					break;
+				
 				default:
 					break;
 			}

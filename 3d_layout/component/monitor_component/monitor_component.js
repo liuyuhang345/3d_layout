@@ -172,6 +172,8 @@ function set_3d_transform_Object(objectSets) {
 
 	global_objectSets = objectSets; //设置新的可选对象
 
+
+	//选择当前变换对象
 	$(global_objectSets).on("dblclick", function() {
 		$(".axis", selectedObject_JQuery).remove(); //移走原来变换对象的坐标轴
 		selectedObject_JQuery.removeClass("animation" + flag); //移走原来对象的动画

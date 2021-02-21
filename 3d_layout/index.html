@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<base href="./">
 		<title>主页</title>
 		<link rel="stylesheet" type="text/css" href="./css/index.css" />
 
@@ -30,12 +31,10 @@
 				<div class = "icon"><a href="./simple/switch.html" target="frame">开关旋钮</a></div>
 				<div class = "icon"><a href="./simple/clock.html" target="frame">机械时钟</a></div>
 				<div class = "icon"><a href="./simple/map.html" target="frame">时空地图</a></div>
-				<div class = "icon"><a href="./simple/tianye.html" target="frame">3D农田</a></div>
-				
-				
+				<div class = "icon"><a href="./simple/tianye.html" target="frame">3D农田</a></div>			
 			</div>
 
-			<iframe src="simple/rotateworld.html" width="" height="" class="frame" name="frame"></iframe>
+			<iframe src="./mp4/20210208_172530.mp4" width="" height="" class="frame" name="frame"></iframe>
 		</div>
 	</body>
 </html>
@@ -45,7 +44,9 @@
 <script type="text/javascript">
 	$(function(e) {
 		
-		$watch(".world", ".face2", 'xy', "rotate", ".surface");
+		$watch(".world,body", ".face2", 'xy', "rotate", ".surface");
 		
+		// var l = "80vw";
+		// $cube(".world",l,l,"100vh",["./img/mucai/zhujian.JPG"]);
 	})
 </script>

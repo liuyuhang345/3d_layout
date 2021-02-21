@@ -16,7 +16,7 @@ function $cube(selectorMe, lenght, width, height, imgs) {
 function $cube__my67855688888(selectorMe, lenght, width, height, imgs) {
 	var e = $(selectorMe);
 	e.css("transform-style", "preserve-3d");
-	e.addClass("cube__" + (Math.random() + "").replace(/./g, "_"));
+	e.addClass("cube" + (Math.random() + "").replace(/\./g, "_"));
 	var to = e.attr("transform-origin"); //保留原来的3d变换中心
 	e.attr("transform-origin", "50% 50%");
 
@@ -36,7 +36,7 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs) {
 	$(selectorMe).html(''); //原div充当容器，不再需要内容
 	e.css("backgound-image", '');
 	// clone 6个面,追加到selectorMe元素中
-	var id_part = (Math.random() + "").replace(/0./g, "_");
+	var id_part = (Math.random() + "").replace(/0\./g, "_");
 	for (i = 0; i < 6; i++) {
 		faces[i] = face.clone();
 		e.append(faces[i]);
@@ -46,7 +46,8 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs) {
 			"background": e.css("background"),
 			"border": e.css("border"),
 			"background-size": "100% 100%",
-			"opacity": "1"
+			"opacity": "1",
+			"border":"1px red solid"
 		}).addClass("cubeface_" + id_part + i);
 	}
 

@@ -46,6 +46,9 @@ body {
 	margin: 1mm;
 	border: 0px;
 	box-shadow: 5px 5px 5px #FF7F50;
+	
+	overflow: hidden;
+	
 }
 
 
@@ -64,24 +67,23 @@ body {
 	
 	font-size: 1.5vw;
 	font-family: 隶书;
-	color:black;
-	text-shadow: 1px 1px 0px #888;
-	transform: rotateY(15deg) skewX(35deg);
-	
+	color:white;
+	text-shadow: 3px 3px 6px #333;
 	transform-style: preserve-3d;
 	
 }
-.icon:hover a:visited,a:link,a:active{
-	color:white;
-	
+a:hover,.icon:hover>a{
+	color: red;
+	text-shadow: 5px 5px 5px #000;
 }
 .icon:hover{
-	transform: rotateY(15deg) skewX(35deg) translateX(2vh);
+	transform: /* rotateY(15deg) *//* skewX(35deg) */ translateX(2vh);
+	color: red;
 	}
 
 
 a:link,a:active,a:visited{
-	color:black;
+	color:white;
 	text-decoration: none;
 }
 

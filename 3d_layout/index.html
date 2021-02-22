@@ -8,14 +8,7 @@
 		<base href="./">
 		<title>主页</title>
 		<link rel="stylesheet" type="text/css" href="./css/index.css" />
-
-		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="./component/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>
-		<script src="./component/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>
-		<script src="component/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>
-		<script src="component/cube/cube.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
+		<script src="component/import.js" type="text/javascript" charset="utf-8"></script>
 
 	</head>
 	<body>
@@ -39,12 +32,12 @@
 	</body>
 </html>
 
-<script src="component/tools.js" type="text/javascript" charset="utf-8"></script>
+
 
 <script type="text/javascript">
 	$(function(e) {
 		
-		$watch(".world,body", ".face2", 'xy', "rotate", ".surface");
+		$watch(".world,body", ".desktop", 'xy', "rotate", ".icon,.desktop");
 		
 		// var l = "80vw";
 		// $cube(".world",l,l,"100vh",["./img/mucai/zhujian.JPG"]);

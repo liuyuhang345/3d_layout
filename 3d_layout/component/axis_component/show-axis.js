@@ -4,13 +4,13 @@
 // date 1-28-2021
 // email:liuyuhang345@163.com
 
+var ipath = getImportRootPath("show-axis.js");
 $(function() {
-	// 引入css
 	$("<link>")
 		.attr({
 			rel: "stylesheet",
 			type: "text/css",
-			href: getRootPath() + 'show-axis.css'
+			href: ipath + 'show-axis.css'
 		})
 		.appendTo("head");
 })
@@ -31,10 +31,10 @@ function $show_axis_Ex(selector_JQuery) {
 	// 把坐标轴的外部样式改成行内样式，用于防止用户无意的设置干扰。
 	axis = 'position: absolute;	width: 20cm; height: 2cm;background-repeat: no-repeat;background-size: 100% 100%;'
 
-	x = $("<div class='axis x-axis' style='" + axis + "background-image: url(" + getRootPath() + "x-axis.PNG);'></div>");
-	y = $("<div class='axis y-axis' style='" + axis + "background-image: url(" + getRootPath() +
-		"y-axis.PNG);transform: rotateZ(90deg);'></div>");
-	z = $("<div class='axis z-axis' style='" + axis + "background-image: url(" + getRootPath() +
+	x = $("<div class='axis x-axis' style='" + axis + "background-image: url(" + ipath + "x-axis.PNG);'></div>");
+	y = $("<div class='axis y-axis' style='" + axis + "background-image: url(" + ipath +
+		"y-axis.PNG);transform: rotateZ(90deg);'></div>");                       
+	z = $("<div class='axis z-axis' style='" + axis + "background-image: url(" + ipath +
 		"z-axis.PNG);transform: rotateY(-90deg);'></div>");
 
 	m_left = "calc(" + x0 + " - 10cm)";
@@ -53,13 +53,13 @@ function $show_axis_Ex(selector_JQuery) {
 // 以下方法专用于做js插件。求得当前js（show-axis.js）所在路径
 // 来自https://www.cnblogs.com/blosaa/archive/2011/10/17/2215606.html
 // 感谢昵称为“云中雀”的博主
-function getRootPath() {
-	var js = document.scripts || document.getElementsByTagName("script");
-	var jsPath;
-	for (var i = js.length; i > 0; i--) {
-		if (js[i - 1].src.indexOf("show-axis.js") > -1) {
-			jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
-		}
-	}
-	return jsPath;
-}
+// function getRootPath() {
+// 	var js = document.scripts || document.getElementsByTagName("script");
+// 	var jsPath;
+// 	for (var i = js.length; i > 0; i--) {
+// 		if (js[i - 1].src.indexOf("show-axis.js") > -1) {
+// 			jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
+// 		}
+// 	}
+// 	return jsPath;
+// }

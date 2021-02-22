@@ -270,15 +270,15 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 			}
 			y_8756875687 = e.pageY;
 			x_87687686 = e.pageX;
-			return false;
+			// return false;
 		})
 		.on("mousedown", function() {
 			mouseIsDown = true;
-			return false;
+			// return false;
 		})
 		.on("mouseup", function() {
 			mouseIsDown = false;
-			return false;
+			// return false;
 		})
 		.on("keyup", function(e) {
 			switch (e.key) {
@@ -365,11 +365,18 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					
 					// 编辑属性值
 				case "e":
-					var template = prompt("输入jquery选择器和css属性json集合，中间用逗号分开");
-					var params = template.split(/[,:]/);
+					var template = prompt("输入jquery选择器和css属性json集合，中间用"|"分开");
+					var params = template.split(/\s*\|\s*/);
 					var params_length = params.length;
+					
+					var jsonreg = /\{[\w\,\:\"\s\%\+\-\*\/]+\}/ ;//json格式css属性集合
+					
 					if(params_length==2){
-						$(selectedObject_JQuery).css(params[0],params[1]);
+						if(jsonreg.test(params[1])){
+							$(params[0]).css(JSON.parse(params[1]));
+						}else{
+							$(selectedObject_JQuery).css(params[0],params[1]);
+						}
 					}else if(params_length==3){
 						$(params[0]).css(params[1],params[2]);
 					}

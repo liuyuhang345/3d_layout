@@ -7,58 +7,49 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<base href="../" />
 		<title>开关旋钮</title>
-		
-		
+
+
 		<script src="./component/import.js" type="text/javascript" charset="utf-8"></script>
-		
-		
+
+
 		<script type="text/javascript">
-			$(function(){
-				$watch(".world,body",".button","z","rotate",".qiang,.container-b,.button");
-				$cube(".qiang1","15cm","2cm","8cm");
-				var startAngle_sec=0;//秒
-				var startAngle_min=0;//分钟
-				var startAngle_hours=0;//小时
-				
+			$(function() {
+				$watch(".world,body", ".button1", "z", "rotate", ".qiang,.button1");
+				$cube(".qiang1", "15cm", "2cm", "8cm");
+				var startAngle_sec = 0; //秒
+				var startAngle_min = 0; //分钟
+				var startAngle_hours = 0; //小时
+
 				// touch点击转60度
-				$("*").on("touchstart",function(e){
-					startAngle_sec = (startAngle_sec + 60 ) % 360 ;
-						$(".button1").css({
-							"transform":"rotateZ("+startAngle_sec+"deg)"
-						})
+				$("*").on("touchstart", function(e) {
+					startAngle_sec = (startAngle_sec + 60) % 360;
+					$(".button1").css({
+						"transform": "rotateZ(" + startAngle_sec + "deg)"
+					})
 					return false;
 				})
 			})
 		</script>
-		
+
 	</head>
 	<body>
 
-		<div class = "world">
-			
-			<div class = "container-a">
+		<div class="world">
+
+			<div class="container-a">
 				<div class="qiang qiang1">
 					<p>
 						touch控制
 					</p>
-					
-					</div>
-				<!-- <div class="qiang qiang2"></div> -->
-				<!-- <div class="qiang qiang3"></div> -->
+				</div>
 			</div>
-			
-			
-			<div class = "container-b">
-				
-				
+
+
+			<div class="container-b">
 				<div class="socket"></div>
 				<div class="button1"></div>
-				<div class="button2"></div>
-				<div class="button3"></div>
 			</div>
-			
-			
-			
+
 		</div>
 
 	</body>
@@ -66,142 +57,100 @@
 
 
 <style>
-	body{
-		/* background-image: url(./img/xingkong1.jpeg); */
-	}
-	.world,body{
-		
-		width:100vw;
+	.world,
+	body {
+
+		width: 100vw;
 		height: 100vh;
-		
+
 		position: absolute;
-		left:0px;
-		top:0px;
-		
-		perspective:100vw;
+		left: 0px;
+		top: 0px;
+
+		perspective: 100vw;
 		transform-style: preserve-3d;
 		outline: 0px;
 		overflow: hidden;
-		
-	}
-	
-	
-	.container-a,.container-b{
-		width: 50%;
-		height: 50%;
-		
-		position: absolute;
-		top:25%;
-		left:25%;
-		
-		transform-style: preserve-3d;
+
 	}
 
-	.container-a{
-		/* left: 10%; */
+
+	.container-a,
+	.container-b {
+		width: 50%;
+		height: 50%;
+
+		position: absolute;
+		top: 25%;
+		left: 25%;
+
 	}
-	
-	.container-b{
+
+
+	.container-b {
 		width: 30%;
 		height: 30%;
 		left: 35%;
-		top:35%;
-		transform: translateZ(1mm);
+		top: 35%;
 	}
-	.qiang{
+
+
+	.qiang1 {
 		position: absolute;
-		width: 100%;
-		height: 100%;
-		left: 0px;
-		top:0px;
-		background-size: 100% 100%;
-	}
-	
-	.qiang1{
 		background-image: url(./img/mucai/m22.jpeg);
+		background-size: 100% 100%;
 		transform-origin: 3cm 2cm;
 		width: 80%;
 		height: 80%;
-		left:10%;
-		top:10%;
-		
+		left: 10%;
+		top: 10%;
+
 		font-size: 3em;
 		font-family: 隶书;
-		color:blue;
-		
+		color: blue;
 	}
-	
-	p{
+
+	p {
 		writing-mode: vertical-rl;
 		font-size: 2rem;
 		font-family: 隶书;
-		color:#FF7F50;
+		color: #FF7F50;
 		transform: translateZ(3cm);
 		position: absolute;
 		text-align: center;
 		width: 100%;
 	}
-	.container-a>div:nth-child(2){
-		background-image: url(./img/mucai/m1.jpeg);
-		
-	}
-	
-	
-	.socket,.button1,.button2,.button3{
+
+
+
+	.socket,
+	.button1 {
 		width: 300px;
 		height: 300px;
 		position: absolute;
 		left: calc(50% - 150px);
-		top:calc(50% - 150px);
-		border-radius: 50%;/* 去掉一个小白点，无实际意义 */
+		top: calc(50% - 150px);
+		border-radius: 50%;
+		/* 去掉一个小白点，无实际意义 */
 		background-size: 100% 100%;
-		
+
 	}
-	
-	
-	
-	.socket{
+
+
+
+	.socket {
 		/* background-image: url(./img/rotate_button/socket3.PNG); */
 		background-image: url(./img/rotate_button/socket2.PNG);
 		/* background-image: url(./img/rotate_button/clock_socket.PNG); */
-		
-		
 		/* animation: rt 1s infinite linear;*/
 	}
-	
-	.button1{
+
+	.button1 {
 		/* background-image: url(./img/rotate_button/button3.PNG); */
 		background-image: url(./img/rotate_button/button2_1.PNG);
 		/* background-image: url(./img/rotate_button/clock_point1.PNG); */
-		
-		
+
+
 		/* animation: rt 10s infinite linear; */
 	}
-	
-	.button2{
-		/* background-image: url(./img/rotate_button/button3.PNG); */
-		/* background-image: url(./img/rotate_button/button2_1.PNG); */
-		/* background-image: url(./img/rotate_button/clock_point2.PNG); */
-		
-		
-		/* animation: rt 10s infinite linear; */
-	}
-	
-	.button3{
-		/* background-image: url(./img/rotate_button/button3.PNG); */
-		/* background-image: url(./img/rotate_button/button2_1.PNG); */
-		/* background-image: url(./img/rotate_button/clock_point3.PNG); */
-		
-		
-		/* animation: rt 10s infinite linear; */
-	}
-	@keyframes rt{
-		from{
-			transform: translateZ(0mm) ;
-		}
-		to{
-			transform: translateZ(5mm);
-		}
-	}
-	
 </style>

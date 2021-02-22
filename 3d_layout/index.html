@@ -27,7 +27,7 @@
 				<div class = "icon"><a href="./simple/tianye.html" target="frame">3D农田</a></div>			
 			</div>
 
-			<iframe src="./mp4/20210208_172530.mp4" width="" height="" class="frame" name="frame"></iframe>
+			<iframe src="./simple/rotateworld.html" width="" height="" class="frame" name="frame"></iframe>
 			
 		</div>
 	</body>
@@ -38,12 +38,19 @@
 <script type="text/javascript">
 	$(function(e) {
 		
-		$watch("*", ".desktop", 'xy', "rotate", ".icon,.desktop");
+		$watch(".desktop,.world", ".desktop", 'xy', "rotate", ".icon,.desktop");
 		
-		 var l = "80vw";
-		 // $cube(".icon","16vh","16vh","5vh",["./img/mucai/zhujian.JPG","1","1","1","1","1"],'0.2');
-		 $cube(".icon","16vh","6vh","5vh",
-		 ["/3d_layout/img/mucai/m2.jpeg","/3d_layout/img/bk6.jpeg","/3d_layout/bk3.PNG"]
-		 ,'0.3',"0");
+		 
+		 
+		 $cube(".icon","10vh","6vh","6vh",
+		 ["/3d_layout/img/dahai.jpg","/3d_layout/img/bk6.jpeg","/3d_layout/img/dongtu/bk8_d.gif"]
+		 ,'0.1',"0");
+		 
+		 $(".icon>div").click(function(){
+			 $(this).parent().children("a").append($("<span id='sp123456'></span>")).children("span").click();
+			 // $("#sp123456").click();
+			 return false;
+		 })
+		 
 	})
 </script>

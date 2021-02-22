@@ -338,7 +338,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 						break;
 					}
 					cmd = "<h3>3D对象class属性值：" + selectedObject_JQuery.attr("class") + "<hr></h3><h3>上轮变换</h3><hr>" + bh_tr_state +
-						"<h3>本轮变换</h3><hr>" + bh_tr;
+						"<h3>本轮变换</h3><hr>" + bh_tr.replace(bh_tr_state,"");
 					cmd = StringTools.New(cmd).append("<h3>变换矩阵</h3><hr>").append($(selectedObject_JQuery).css("transform")).toString();
 					$("<div style='position:static;' title='变换语法'>" +
 							cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig, '') +

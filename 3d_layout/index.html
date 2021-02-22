@@ -16,8 +16,6 @@
 		
 		<div class="world">
 			
-			
-			
 			<div class="desktop">
 				<div class = "icon"><a href="./simple/surface.html" target="frame">平面变换</a></div>
 				<div class = "icon"><a href="./simple/cube.html" target="frame">立方体</a></div>
@@ -31,7 +29,10 @@
 			</div>
 
 			<iframe src="./simple/rotateworld.html" width="" height="" class="frame" name="frame"></iframe>
-			<input type="color" id="color"   value="red" onchange="$('body').css('background-color',$('#color').val());">
+			<div class = "color" onclick="document.querySelector('#color').dispatchEvent(getevt())">
+				<input type="color" id="color"   value="red" onchange="$('body').css('background-color',$('#color').val());">
+			</div>
+			
 		</div>
 		
 		
@@ -41,15 +42,29 @@
 
 
 <script type="text/javascript">
+	
+	
+	function getevt(){
+		var evt = new MouseEvent("click", {
+		        bubbles: false,
+		        cancelable: true,
+		        view: window
+		    });
+		return evt;
+	}
+	
+	
+
 	$(function(e) {
 		
 		// $watch(".desktop,.world", ".desktop", 'xy', "rotate", ".icon,.desktop");
-		
-		 
 		 
 		 $cube(".icon","10vh","6vh","6vh",
 		 ["/3d_layout/img/dahai.jpg","/3d_layout/img/bk6.jpeg","/3d_layout/img/dongtu/bk8_d.gif"]
-		 ,'0.1',"0");
+		 ,'0.3',"0");
+		 
+		 $cube("#color","6rem","6rem","6rem",[""],1,3);
+		 
 		 
 		 $(".icon>div").click(function(){
 			 $(this).parent().children("a").append($("<span id='sp123456'></span>")).children("span").click();

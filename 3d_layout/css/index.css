@@ -52,7 +52,7 @@ body {
 	border: 0px;
 	
 	overflow: hidden;
-	
+	border: 1px solid #283446;
 }
 
 
@@ -74,9 +74,13 @@ body {
 	color:white;
 	text-shadow: 3px 3px 6px #333;
 	transform-style: preserve-3d;
-	/* transform:rotateX(10deg) rotateY(-10deg); */
+	transform:rotateX(-16deg) rotateY(-32deg);
+	
+	
 }
-
+.icon>div{
+	box-shadow: 1px 1px 1px  #00ffff;
+}
 a{
 	position: absolute;
 	width: 100%;
@@ -87,12 +91,12 @@ a{
 
 .icon:hover{
 	color: red;
-	animation: icon 3s ;
+	animation: icon 6s infinite linear alternate;
 	}
 
 @keyframes icon{
 	from{
-		transform: rotateY(0deg) rotateX(0deg);
+		/* transform: rotateY(0deg) rotateX(0deg); */
 	}
 	to{
 		transform: rotateY(160deg) rotateX(160deg);
@@ -108,8 +112,9 @@ a:hover,.icon:hover>a{
 }
 
 a:link,a:active,a:visited{
-	color:white;
+	color:orangered;
 	text-decoration: none;
+	transform: scaleY(1.5);
 }
 
 .text {
@@ -122,11 +127,25 @@ a:link,a:active,a:visited{
 }
 
 
-input{
+.color{
 	position: absolute;
-	width: 10rem;
-	height: 2rem;
-	bottom: 2cm;
+	width: 5rem;
+	height: 5rem;
+	bottom: 5mm;
 	left: 1cm;
 	transform: translateZ(10vw);
+	background-image: url(../img/flowers/h16.PNG);
+	
+}
+
+
+input{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top:0px;
+	border: 0px;
+	background-color: transparent;
+	display: none;
 }

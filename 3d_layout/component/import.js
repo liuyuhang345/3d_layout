@@ -8,6 +8,7 @@ sc += '<script src="'+ipath+'/monitor_component/monitor_component.js" type="text
 sc += '<script src="'+ipath+'/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="'+ipath+'/cube/cube.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>';
+sc +='<link rel="stylesheet" type="text/css" href="'+ipath+'/d3d.css" />'
 document.write(sc);
 
 // 用于组件开发中，求得当前被应用得js或css的路径

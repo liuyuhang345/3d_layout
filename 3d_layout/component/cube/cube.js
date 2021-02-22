@@ -6,14 +6,14 @@
 
 
 
-function $cube(selectorMe, lenght, width, height, imgs) {
+function $cube(selectorMe, lenght, width, height, imgs, opacity, contextLocation) {
 	$(selectorMe).each(function() {
-		$cube__my67855688888($(this), lenght, width, height, imgs);
+		$cube__my67855688888($(this), lenght, width, height, imgs, opacity, contextLocation);
 	})
 }
 
 // 在selectorMe里面打造一个长方体，其长宽高度为参数lenght,width,height，六个面得图像列表为imgs数组，绝对路径（即"/"开头得路径） 。
-function $cube__my67855688888(selectorMe, lenght, width, height, imgs) {
+function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, contextLocation) {
 	var e = $(selectorMe);
 	e.css("transform-style", "preserve-3d");
 	e.addClass("cube" + (Math.random() + "").replace(/\./g, "_"));
@@ -30,11 +30,15 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs) {
 	var h = height;
 
 
-	// // 保存老内容
-	var lost_context = e.html();
 
-	$(selectorMe).html(''); //原div充当容器，不再需要内容
-	e.css("backgound-image", '');
+	var contextLocation_index = parseInt(contextLocation) || 0;
+	if (contextLocation_index != 0) {
+		// 保存老内容
+		var lost_context = e.html();
+		$(selectorMe).html(''); //原div充当容器，不再需要内容
+		e.css("backgound-image", '');
+	}
+
 	// clone 6个面,追加到selectorMe元素中
 	var id_part = (Math.random() + "").replace(/0\./g, "_");
 	for (i = 0; i < 6; i++) {
@@ -46,13 +50,16 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs) {
 			"background": e.css("background"),
 			"border": e.css("border"),
 			"background-size": "100% 100%",
-			"opacity": "1"
+			"opacity": opacity
 		}).addClass("cubeface_" + id_part + i);
 	}
 
 
-	// 老内容放入立方体的正前方面
-	$(faces[2]).html(lost_context).css('text-align', 'center').css("inli-height", w);
+	if (contextLocation_index != 0) {
+		// 老内容放入立方体的正前方面
+		$(faces[contextLocation_index-1]).html(lost_context).css('text-align', 'center').css("inli-height", w);
+	}
+
 
 	// 设置各个面的宽高
 	$(faces[0]).css("width", l).css("height", w);

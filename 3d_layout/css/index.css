@@ -76,6 +76,8 @@ body {
 	transform-style: preserve-3d;
 	
 }
+
+
 a:hover,.icon:hover>a{
 	color: red;
 	text-shadow: 5px 5px 5px #000;

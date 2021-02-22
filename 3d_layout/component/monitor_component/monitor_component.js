@@ -364,7 +364,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					
 					// 编辑属性值
 				case "e":
-					var template = prompt("输入jquery选择器和css属性json集合，中间用"|"分开");
+					var template = prompt('输入jquery选择器和css属性json集合，中间用"|"分开');
 					var params = template.split(/\s*\|\s*/);
 					var params_length = params.length;
 					

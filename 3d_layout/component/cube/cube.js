@@ -36,7 +36,6 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, 
 		// 保存老内容
 		var lost_context = e.html();
 		$(selectorMe).html(''); //原div充当容器，不再需要内容
-		e.css("backgound-image", '');
 	}
 
 	// clone 6个面,追加到selectorMe元素中
@@ -54,7 +53,9 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, 
 		}).addClass("cubeface_" + id_part + i);
 	}
 
-
+	// e对象无用了，使其不显示在界面上
+	e.css("background-image", 'none').css("background-color","transparent");
+	
 	if (contextLocation_index != 0) {
 		// 老内容放入立方体的正前方面
 		$(faces[contextLocation_index-1]).html(lost_context).css('text-align', 'center').css("inli-height", w);

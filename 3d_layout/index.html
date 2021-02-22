@@ -38,10 +38,12 @@
 <script type="text/javascript">
 	$(function(e) {
 		
-		$watch(".world,body", ".desktop", 'xy', "rotate", ".icon,.desktop");
+		$watch("*", ".desktop", 'xy', "rotate", ".icon,.desktop");
 		
 		 var l = "80vw";
 		 // $cube(".icon","16vh","16vh","5vh",["./img/mucai/zhujian.JPG","1","1","1","1","1"],'0.2');
-		 $cube(".icon","16vh","16vh","5vh",["","","1"],'0.2',"1");
+		 $cube(".icon","16vh","6vh","5vh",
+		 ["/3d_layout/img/mucai/m2.jpeg","/3d_layout/img/bk6.jpeg","/3d_layout/bk3.PNG"]
+		 ,'0.3',"0");
 	})
 </script>

@@ -40,8 +40,7 @@ $(function() {
 		.appendTo("head");
 
 	//启动监视，用户可以通过按下L热键，手动控制某些元素进行3D变换
-	$watch("body", "", "z", "rotate", "");
-
+	$watch("body", "", "xy", "translate", "");
 
 })
 

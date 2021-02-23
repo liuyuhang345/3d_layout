@@ -3,23 +3,29 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script src="../component/import.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<div></div>
-		<input type="number"   min="0" max="100" value="7">
+		<hr>
+		<input type="text" id ="reg">
+		
+		
+		<hr>
+		<input type="text" id ="data">
+		
+		<div id = "result"></div>
 	</body>
 </html>
 <style>
 	
-	body{
-		background-color: #000000;
-	}
+	
 	div{
-		background-image: url(../img/rotate_button/socket3.PNG);
 		width: 20cm;
-		height: 20cm;
+		height: 10cm;
 		background-size: 100% 100%;
 		border: 1px green solid;
+		background-color: blue;
+		color:red;
 	}
 </style>
 <script type="text/javascript">
@@ -30,6 +36,21 @@
 	// 	// des = source.replace(/[a]+[A-Z]?[c]+/i,"123");
 	// 	des =document.write("result:"+des);
 	// }
+	
+	var reg = /([0-9\w:\s]+)(?=\,)/g;
+	ts = "abdb12  :   sss , { sss:22,;asdsa:222}".match(reg);
+	
+	if(ts){
+		for(i=0;i<ts.length;i++){
+			document.writeln(ts[i]+"<br>");
+		}
+		$("#result").html(ts.$1);
+	}
+	
+	
+	var str="00000802";
+	var reg = new RegExp("([0]*)([1-9]+[0-9]+)", "g");
+	console.info(str.replace(reg, "$2"));
 </script>
 
 

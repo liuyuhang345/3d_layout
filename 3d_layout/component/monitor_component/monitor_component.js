@@ -244,12 +244,6 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				}
 
 
-				// bh_rotate = act + "Y(" + ydeg + unit + ") " + act + "X(" + xdeg + unit + ")" + act + "Z(" +
-				// 	zdeg + unit + ")";
-
-
-
-
 				bh_tr = bh_tr_state + " rotateX(" + xdeg + "deg) " +
 					"rotateY(" + ydeg + "deg) " +
 					"rotateZ(" + zdeg + "deg) " +
@@ -314,13 +308,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					}
 					break;
 				case 'g': //go的缩写，实现动画
-
 					restartAnimation();
-
 					break;
 				case 'h':
-					// window.open(get_monitor_component_RootPath()+"README.html");
-
 					$("<div style='position:static;' title='帮助'></div>").load(get_monitor_component_RootPath() + "README.txt")
 						.appendTo("body>div:first")
 						.dialog({
@@ -337,17 +327,36 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					if (e.ctrlKey) {
 						break;
 					}
-					cmd = "<h3>3D对象:[tagname:" +
-					 selectedObject_JQuery.get(0).tagName+"]"+
-					 "[id:"+selectedObject_JQuery.attr("id")+"]"+
-					 "[class:"+selectedObject_JQuery.attr("class") + "]<hr></h3><h3>上轮变换</h3><hr>" + bh_tr_state +
-						"<h3>本轮变换</h3><hr>" + bh_tr.replace(bh_tr_state,"");
-					cmd = StringTools.New(cmd).append("<h3>变换矩阵</h3><hr>").append($(selectedObject_JQuery).css("transform")).toString();
+					
+					cmd = 
+						StringTools.New("<h3>3D对象:[tagname:")
+						.append(selectedObject_JQuery.get(0).tagName)
+						.append("]")
+						.append("[id:")
+						.append(selectedObject_JQuery.attr("id")||"")
+						.append("]")
+						.append("[class:")
+						.append(selectedObject_JQuery.attr("class")||"")
+						.append("]<hr></h3><h3>上轮变换</h3><hr><span>")
+						.append(bh_tr_state)
+						.append("</span><h3>本轮变换</h3><hr><span>")
+						.append(bh_tr)
+						.append("</span>")
+						
+					cmd = cmd.append("<h3>变换矩阵</h3><hr>").append($(selectedObject_JQuery).css("transform")).toString();
+					
+					
 					$("<div style='position:static;' title='变换语法'>" +
 							cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig, '') +
 							"</div>")
 						.on("mousemove", function() {
-							selectText($(this));
+							if(bh_tr && bh_tr.length>4){
+								selectText($("span",this)[1]);
+							}else{
+								selectText($("span",this)[0]);
+							}
+							
+							
 							return false;
 						})
 						.appendTo("body>div:first")
@@ -416,7 +425,7 @@ function selectText(element) {
 		    selection.setBaseAndExtent(text, 0, text, 1);
 		}*/
 	} else {
-		alert("none");
+		// alert("none");
 	}
 }
 

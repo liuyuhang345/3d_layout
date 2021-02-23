@@ -17,12 +17,12 @@
 
 		<div class="world full3d ">
 			<div class="map">
-				<div></div>
+				<div class="mp"></div>
 				<!-- <img class="imga" src="../img/map/map2.jpeg" > -->
 			</div>
 
 			<div class="maplarge">
-				<div></div>
+				<div class="mpg"></div>
 				<!-- <img class="img2" src="../img/map/map2.jpeg" alt=""> -->
 			</div>
 		</div>
@@ -37,29 +37,34 @@
 	body{
 		width: 100vw;
 		height: 100vh;
-		/* background-color: black; */
 		overflow: hidden;
+		/* background-color: black; */
 	}
 	.world{
 		background-size: 100% 100%;
 		outline: 0px;
 		
+		
 	}
 	.map,.maplarge{
-		
 		background-image: url(../img/mucai/m14.jpeg);
 		background-size: 100% 100%;
 		padding: 1cm;
 		position: absolute;
 		width: 60%;
 		height: 60%;
-		overflow: hidden;
+		
 		left: 20%;
 		top:20%;
 		
 		border-radius: 10%;
 		
 		/* box-sizing: border-box; */
+	}
+	.maplarge{
+		overflow: hidden;
+		transform: translateX(-303px) translateY(-156px) translateX(10px) translateY(142px) rotateY(54deg) translateX(123px) translateY(-35px) scale3d(1.6000000000000005,1.3600000000000003,1) rotateY(16deg) translateX(95px) scale3d(1.3400000000000003,0.97,1) rotateY(9deg) translateX(68px) translateZ(-86px) scale3d(1.2100000000000002,1,1)
+;
 	}
 	.map>div,.maplarge>div{
 		position: absolute;
@@ -68,7 +73,7 @@
 	}
 	
 	.map{
-		
+		transform:translateX(473px) translateY(-283px)
 	}
 	
 	

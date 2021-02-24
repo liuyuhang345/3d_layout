@@ -6,7 +6,35 @@
 
 // 字符换追加工具，避免用加号连接变量带来的混乱，增加代码可读性
 
+// 实现{{}}绑定js的变量的作用，在html中可以使用{{}}显示变量或表达式
 
+$(function() {
+		try {
+
+			$("body>*").each(function() {
+				var html2 = $(this).html();
+				var myreg = /\{\{([\d\w\+\-\*\/\s\)\(\$]*)\}\}/g;
+				html2 = html2.replace(myreg, function(ed) {
+					try {
+						m = eval(ed);
+						return m;
+					} catch (e) {
+						return "<span style='color:red;font-size:8px;'>" + ed + "未定义</span>";
+					}
+
+				});
+				$(this).html(html2);
+
+			});
+
+		} catch (e) {
+			console.log(e);
+		}
+
+
+	});
+	
+// 字符串追加工具类
 var StringTools = {
 
 	New: function(str) {

@@ -11,9 +11,9 @@
 		
 		
 		<hr>
-		<input type="text" id ="data">
+		<input type="text" id ="data" value = {{x}}>
 		
-		<div id = "result"></div>
+		<div id = "result">{{y}}</div>
 	</body>
 </html>
 <style>
@@ -36,21 +36,9 @@
 	// 	// des = source.replace(/[a]+[A-Z]?[c]+/i,"123");
 	// 	des =document.write("result:"+des);
 	// }
+	var x=100;
+	var y=200;
 	
-	var reg = /([0-9\w:\s]+)(?=\,)/g;
-	ts = "abdb12  :   sss , { sss:22,;asdsa:222}".match(reg);
-	
-	if(ts){
-		for(i=0;i<ts.length;i++){
-			document.writeln(ts[i]+"<br>");
-		}
-		$("#result").html(ts.$1);
-	}
-	
-	
-	var str="00000802";
-	var reg = new RegExp("([0]*)([1-9]+[0-9]+)", "g");
-	console.info(str.replace(reg, "$2"));
 </script>
 
 

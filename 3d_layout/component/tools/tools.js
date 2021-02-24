@@ -6,7 +6,7 @@
 
 // 字符换追加工具，避免用加号连接变量带来的混乱，增加代码可读性
 
-// 实现{{}}绑定js的变量的作用，在html中可以使用{{}}显示变量或表达式
+// 实现{{}}绑定js的变量的作用，在html中可以使用{{}}显示变量或表达式,注意：只对body的孙子以下的元素起作用
 
 $(function() {
 		try {
@@ -14,6 +14,7 @@ $(function() {
 			$("body>*").each(function() {
 				var html2 = $(this).html();
 				var myreg = /\{\{([\d\w\+\-\*\/\s\)\(\$]*)\}\}/g;
+				
 				html2 = html2.replace(myreg, function(ed) {
 					try {
 						m = eval(ed);

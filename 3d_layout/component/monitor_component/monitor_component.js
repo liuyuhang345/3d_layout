@@ -263,7 +263,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 			}
 			y_8756875687 = e.pageY;
 			x_87687686 = e.pageX;
-			// return false;
+			return false;
 		})
 		.on("mousedown", function() {
 			mouseIsDown = true;
@@ -311,13 +311,13 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					restartAnimation();
 					break;
 				case 'h':
-					$("<div style='position:static;' title='帮助'></div>").load(get_monitor_component_RootPath() + "README.txt")
+					$("<div style='position:static;' title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
 						.appendTo("body>div:first")
 						.dialog({
 							"dialogClass": "monitor_dialog",
 							"width": "80%",
 							"height": "800",
-							"top": "1",
+							"top": "1px",
 							"position": "absolute",
 							"transform": "translateZ(1cm)",
 							"padding":"1cm"

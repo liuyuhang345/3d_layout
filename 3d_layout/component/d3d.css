@@ -13,6 +13,9 @@
 	transform-style: preserve-3d;
 	perspective: 100cm;
 	outline: 0px;
+	
+	margin: 0px;
+	padding: 0px;
 }
 
 /* 充满父容器3d元素 */

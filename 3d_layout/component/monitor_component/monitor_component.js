@@ -171,11 +171,11 @@ function set_3d_transform_Object(objectSets) {
 
 	global_objectSets = objectSets; //设置新的可选对象
 
-
+	
 	//选择当前变换对象
 	$(global_objectSets).on("dblclick", function() {
 		$(".axis", selectedObject_JQuery).remove(); //移走原来变换对象的坐标轴
-		selectedObject_JQuery.removeClass("animation" + flag); //移走原来对象的动画
+		selectedObject_JQuery.removeClass("animationx animationy animationz animationxy animationp"); //移走原来对象的动画
 		put_transform_data(selectedObject_JQuery); //保存现场
 
 		selectedObject_JQuery = $(this); //改变变换对象为鼠标双击的元素
@@ -185,7 +185,7 @@ function set_3d_transform_Object(objectSets) {
 		return false; //false终止事件处理,防止冒泡选择
 	});
 
-
+	
 
 }
 
@@ -305,6 +305,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					input = prompt("请输入变换对象的选择器");
 					if (input) {
 						set_3d_transform_Object(input);
+						$($(global_objectSets).get(0)).dblclick();
 					}
 					break;
 				case 'g': //go的缩写，实现动画

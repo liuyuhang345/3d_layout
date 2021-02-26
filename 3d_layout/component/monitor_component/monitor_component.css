@@ -30,14 +30,14 @@
 		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 	} */
 	to{
-		transform: rotteX(0deg) rotateY(360deg) rotateZ(0deg);
+		transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg);
 	}
 }
 @keyframes goxy{
 	/* from{
 		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 	} */
-	10%{
+	20%{
 		
 		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(0cm,0cm,0cm);
 	}

@@ -8,7 +8,7 @@
 <script src="<组件的路径>/component/import.js"></script>
 </xmp>
 <h3>快捷键</h3><hr>
-<br> l (location) ：设置可选择的3D对象，具体操作：输入CSS选择器
+<br> l (location) ：设置可选择的3D对象，当前被选中的3D变换元素会切换到新选择器指明的第一个元素。具体操作：输入CSS选择器
 <br> x,y,z切换变换的坐标轴
 <br> p (party)：切换到同时按照x、y轴进行变换
 <br> t（transform）：进行平移变换

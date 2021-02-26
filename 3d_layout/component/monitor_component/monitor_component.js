@@ -324,50 +324,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 						});
 					break;
 				case 'c':
-					if (e.ctrlKey) {
-						break;
-					}
-					
-					cmd = 
-						StringTools.New("<h3>3D对象:[tagname:")
-						.append(selectedObject_JQuery.get(0).tagName)
-						.append("]")
-						.append("[id:")
-						.append(selectedObject_JQuery.attr("id")||"")
-						.append("]")
-						.append("[class:")
-						.append(selectedObject_JQuery.attr("class")||"")
-						.append("]<hr></h3><h3>上轮变换</h3><hr><span>")
-						.append(bh_tr_state)
-						.append("</span><h3>本轮变换</h3><hr><span>")
-						.append(bh_tr)
-						.append("</span>")
-						
-					cmd = cmd.append("<h3>变换矩阵</h3><hr>").append($(selectedObject_JQuery).css("transform")).toString();
-					
-					
-					$("<div style='position:static;' title='变换语法'>" +
-							cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig, '') +
-							"</div>")
-						.on("mousemove", function() {
-							if(bh_tr && bh_tr.length>4){
-								selectText($("span",this)[1]);
-							}else{
-								selectText($("span",this)[0]);
-							}
-							
-							
-							return false;
-						})
-						.appendTo("body>div:first")
-						.dialog({
-							"dialogClass": "monitor_dialog",
-							"width": "80%",
-							"height": "auto",
-							"top": "1cm",
-							"position": "absolute",
-							"transform": "translateZ(1cm)"
-						});
+					cmdhHandle(e);
 				
 					break;
 				case 'n':
@@ -400,6 +357,8 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 		})
 }
 
+
+// 'g'快捷键处理函数，播放动画
 function restartAnimation() {
 	selectedObject_JQuery.removeClass("animation" + flag);
 	setTimeout(function() {
@@ -430,21 +389,53 @@ function selectText(element) {
 }
 
 
-var StringTools = {
 
-	New: function(str) {
-		strObject = {};
-		strObject.str = str || "";
-		strObject.toString = function() {
-			return strObject.str
-		};
-
-		strObject.append = function(str) {
-			strObject.str = strObject.str + str;
-			return strObject;
-		};
-
-		return strObject;
+// 'c'快捷键处理函数：显示当前3D变换的细节
+function cmdhHandle(e,cmd){
+	if (e.ctrlKey || !selectedObject_JQuery || !selectedObject_JQuery.get(0) ) {
+		return;
 	}
-
+	
+	cmd = 
+		StringTools.New("<h3>3D对象:[tagname:")
+		.append(selectedObject_JQuery.get(0).tagName)
+		.append("]")
+		.append("[id:")
+		.append(selectedObject_JQuery.attr("id")||"")
+		.append("]")
+		.append("[class:")
+		.append(selectedObject_JQuery.attr("class")||"")
+		.append("]<hr></h3><h3>上轮变换</h3><hr><span>")
+		.append(bh_tr_state)
+		.append("</span><h3>本轮变换</h3><hr><span>")
+		.append(bh_tr)
+		.append("</span>")
+		
+	cmd = cmd.append("<h3>变换矩阵</h3><hr>").append($(selectedObject_JQuery).css("transform")).toString();
+	
+	
+	$("<div style='position:static;' title='变换语法'>" +
+			cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig, '') +
+			"</div>")
+		.on("mousemove", function() {
+			if(bh_tr && bh_tr.length>4){
+				selectText($("span",this)[1]);
+			}else{
+				selectText($("span",this)[0]);
+			}
+			
+			
+			return false;
+		})
+		.appendTo("body>div:first")
+		.dialog({
+			"dialogClass": "monitor_dialog",
+			"width": "80%",
+			"height": "auto",
+			"top": "1cm",
+			"position": "absolute",
+			"transform": "translateZ(1cm)"
+		});
+		
+		return false;
 }

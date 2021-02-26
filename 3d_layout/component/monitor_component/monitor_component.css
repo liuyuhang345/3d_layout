@@ -1,18 +1,20 @@
-
+:root{
+	--time:6s;
+}
 .animationx{
-	animation:gox 3s linear;
+	animation:gox var(--time) linear;
 }
 
 .animationy{
-	animation:goy 3s linear;
+	animation:goy var(--time) linear;
 }
 
 .animationxy{
-	animation:goxy 3s linear;
+	animation:goxy var(--time) linear;
 }
 
 .animationz{
-	animation:goz 3s linear;
+	animation:goz var(--time) linear;
 }
 
 @keyframes gox{
@@ -47,14 +49,14 @@
 		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(10cm,10cm,0cm);
 	}
 	70%{
-		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(10cm,10cm,10cm);
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(10cm,10cm,-120cm);
 	}
 	80%{
 		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(0cm,0cm,0cm);
 	}
 	
 	to{
-		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(0cm,0cm,0cm) scale3d(1.5,1.5,1.5);
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(0cm,0cm,0cm) scale3d(5,5,5);
 	}
 }
 

@@ -263,7 +263,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 			}
 			y_8756875687 = e.pageY;
 			x_87687686 = e.pageX;
-			return false;
+			// return false;
 		})
 		.on("mousedown", function() {
 			mouseIsDown = true;

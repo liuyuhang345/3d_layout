@@ -14,7 +14,30 @@
 	
 	<div class="world">
 		<div class="cubeA">
-			<img src="../img/rabbit.PNG" >
+			<div>
+				<table>
+					<caption>一个小小的表格</caption>
+					<tr>
+						<td>Lorem.
+							<td><input type="text"></td>
+						</td>
+					</tr>
+					<tr>
+						<td>Cupiditate.
+							<td><input type="text"></td>
+						</td>
+					</tr>
+					<tr>
+						<td>Delectus!
+							<td><input type="text"></td>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="button" value="表演动画" onclick="restartAnimation()"></td>
+					</tr>
+				</table>
+				
+			</div>
 		</div>
 		
 		<div class="cubeB">
@@ -80,12 +103,19 @@
 		border: 0px;
 		overflow: hidden;
 	}
+	
+	
+	td{
+		color:yellow;
+		background-color: #000000;
+	}
 </style>
 
 <script type="text/javascript">
 	$(function(){
 		$cube(".cubeA","8cm","6cm","5cm",
-		["/3d_layout/img/window.PNG","/3d_layout/img/heiban.PNG","/3d_layout/img/mucai.jpeg"],
+		["/3d_layout/img/window.PNG","/3d_layout/img/bk2/bk11.jpeg","/3d_layout/img/bk2/bk12.jpg","",
+		,"/3d_layout/img/bk2/bk13.jpg"],
 		0.5,3);
 		
 		$cube(".cubeB","4cm","3cm","3cm",["/3d_layout/img/mucai/m4.jpeg"],0.5,0);
@@ -93,6 +123,8 @@
 		$cube(".cubeC","12cm","6cm","8cm",
 		["/3d_layout/img/dahai.jpg","/3d_layout/img/bk6.jpeg","/3d_layout/img/dongtu/bk8_d_2.GIF"],
 		0.7,3);
+		
+		
 		$monitor("body",".cubeC","xy","translate",".world>div");
 		$show_axis(".cubeC");
 	})

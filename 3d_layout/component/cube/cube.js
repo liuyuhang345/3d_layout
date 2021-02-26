@@ -107,7 +107,7 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, 
 	$(faces[0]).css("transform", "rotateX(90deg) translateZ(calc(" + h + "/2))");
 	$(faces[1]).css("transform", "rotateX(270deg) translateZ(calc(" + h + "/2))");
 	$(faces[2]).css("transform", "translateZ(calc(" + w + "/2))");
-	$(faces[3]).css("transform", "rotateX(180deg) translateZ(calc(" + w + "/2))");
+	$(faces[3]).css("transform", "rotateX(180deg) translateZ(calc(" + w + "/2)) rotateZ(180deg)");
 	$(faces[4]).css("transform", "rotateY(90deg) translateZ(calc(" + l + "/2))");
 	$(faces[5]).css("transform", "rotateY(270deg) translateZ(calc(" + l + "/2))");
 

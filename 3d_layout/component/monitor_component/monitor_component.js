@@ -360,7 +360,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 // 'g'快捷键处理函数，播放动画
 function restartAnimation() {
-	selectedObject_JQuery.removeClass("animation" + flag);
+	selectedObject_JQuery.removeClass("animationx animationy animationz animationxy animationp");
 	setTimeout(function() {
 		selectedObject_JQuery.addClass("animation" + flag);
 	}, 1);

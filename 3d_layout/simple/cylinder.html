@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<div class="world full3d">
+			
+			<div class="cylinder1 full_parent"></div>
+			<div class="cylinder2 full_parent"></div>
+			<div class="cylinder3 full_parent"></div>
+		</div>
+		
+	</body>
+</html>
+<style>
+	
+
+</style>
+<script type="text/javascript">
+		
+	$(function(){
+		$watch(".world",".cylinder3","xy","rotate",".world>div");
+		$show_axis(".cylinder");
+		
+		
+		$cylinder(".cylinder","10cm","10cm","blue","/3d_layout/img/bk2.jpg",30);
+		
+	})
+	
+</script>
+
+

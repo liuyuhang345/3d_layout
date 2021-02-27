@@ -1,3 +1,9 @@
+// 3d-object component . helper for learning .
+// @copy yuhang.liu 刘宇航
+// qq:578384498
+// date 2-14-2021
+// email:liuyuhang345@163.com
+
 function $cylinder(selectorMe, r, height, color, img, level) {
 
 	var div = $("<div></div>");
@@ -15,7 +21,8 @@ function $cylinder(selectorMe, r, height, color, img, level) {
 	}).addClass("div_" + (Math.random() + "").replace(".", "_"));
 
 
-	$(selectorMe).css("transform-style", "preseve-3d");
+	$(selectorMe).css("transform-style", "preserve-3d");
+	
 	for (i = 0; i < parseInt(level); i++) {
 		var d = div.clone();
 		d.css("transform", "rotateY(" + 360 / level * i + "deg) translateZ(" + r + ")");

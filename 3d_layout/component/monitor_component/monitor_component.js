@@ -314,6 +314,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'h':
 					$("<div style='position:static;' title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
 						.appendTo("body>div:first")
+						.on("mousemove",function(){return false;})
 						.dialog({
 							"dialogClass": "monitor_dialog",
 							"width": "80%",
@@ -418,14 +419,9 @@ function cmdhHandle(e,cmd){
 	$("<div style='position:static;' title='变换语法'>" +
 			cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig, '') +
 			"</div>")
-		.on("mousemove", function() {
-			if(bh_tr && bh_tr.length>4){
-				selectText($("span",this)[1]);
-			}else{
-				selectText($("span",this)[0]);
-			}
-			
-			
+		.on("mousemove", function(e) {
+			e.stopPropagation();//阻止事件继续传播
+			$(this).onmousemove();
 			return false;
 		})
 		.appendTo("body>div:first")

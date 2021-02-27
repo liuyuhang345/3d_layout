@@ -101,6 +101,7 @@
 
 
 /* 去掉用户选择的时候出现的蓝色背景 */
-div,img{
-	user-select: text;
+img{
+	user-select: none;
 }
+

@@ -3,10 +3,16 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<script src="../component/import.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
+		
+		<div class="full3d">
+			
+			<div class="full_parent cylinder"></div>
+		</div>
 		<hr>
+		
 		<div><input type="text" id ="data" value = "{{x}}"></div>
 		<input type="text" id ="reg">
 		
@@ -20,14 +26,7 @@
 <style>
 	
 	
-	div{
-		width: 20cm;
-		height: 10cm;
-		background-size: 100% 100%;
-		border: 1px green solid;
-		background-color: blue;
-		color:red;
-	}
+
 </style>
 <script type="text/javascript">
 	// replace();
@@ -39,6 +38,12 @@
 	// }
 	var x=100;
 	var y=200;
+	
+	$(function(){
+		
+		$cylinder(".cylinder","5cm","10cm","blue","/3d_layout/img/bk2.jpg",30);
+	})
+	// alert(2*5*Math.sin(Math.PI/10));
 </script>
 
 

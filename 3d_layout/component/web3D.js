@@ -7,6 +7,7 @@ sc += '<script src="'+ipath+'/axis_component/show-axis.js" type="text/javascript
 sc += '<script src="'+ipath+'/monitor_component/monitor_component.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="'+ipath+'/thikness_component/thickness.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="'+ipath+'/cube/cube.js" type="text/javascript" charset="utf-8"></script>';
+sc += '<script src="'+ipath+'/cylinder/cylinder.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>';
 sc +='<link rel="stylesheet" type="text/css" href="'+ipath+'/d3d.css" />'
 document.write(sc);

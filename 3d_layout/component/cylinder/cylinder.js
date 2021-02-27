@@ -18,13 +18,15 @@ function $cylinder(selectorMe, r, height, color, img, level) {
 		"background-size":"100% 100%",
 		"left": StringTools.New("calc(50% - ").append(r).append("*").append(jxs).append("/2").append(")").toString(),
 		"top": StringTools.New("calc(50% - ").append(height).append("/2").append(")").toString()
-	}).addClass("div_" + (Math.random() + "").replace(".", "_"));
+	});
 
 
 	$(selectorMe).css("transform-style", "preserve-3d");
 	
 	for (i = 0; i < parseInt(level); i++) {
 		var d = div.clone();
+		d.addClass("div_" + (Math.random() + "").replace(".", "_"));
+		
 		d.css("transform", "rotateY(" + 360 / level * i + "deg) translateZ(" + r + ")");
 		$(selectorMe).append(d);
 

@@ -9,25 +9,36 @@
 		
 		<div class="world full3d">
 			
-			<div class="cylinder1 full_parent"></div>
-			<div class="cylinder2 full_parent"></div>
-			<div class="cylinder3 full_parent"></div>
+			<div class="cylinder1 "></div>
+			<div class="cylinder2 "></div>
+			<div class="cylinder3 "></div>
 		</div>
 		
 	</body>
 </html>
 <style>
-	
+	body{
+		overflow: hidden;
+	}
+			.world>div{
+				position: absolute;
+				width:1cm;
+				height: 1cm;
+				left:calc(50% - 0.5cm);
+				top:calc(50% - 0.5cm);
+			}
 
 </style>
 <script type="text/javascript">
 		
 	$(function(){
-		$watch(".world",".cylinder3","xy","rotate",".world>div");
-		$show_axis(".cylinder");
+		$watch(".world,body",".cylinder3","xy","rotate",".world>div");
+		$show_axis(".cylinder3");
 		
 		
-		$cylinder(".cylinder","10cm","10cm","blue","/3d_layout/img/bk2.jpg",30);
+		$cylinder(".cylinder1","10cm","6cm","blue","/3d_layout/img/bk2.jpg",30);
+		$cylinder(".cylinder2","5cm","8cm","red","/3d_layout/img/mucai/m9.jpeg",30);
+		$cylinder(".cylinder3","1cm","10cm","green","/3d_layout/img/mucai/m5.jpeg",30);
 		
 	})
 	

@@ -18,11 +18,11 @@
 	padding: 0px;
 }
 
-/* 充满父容器 */
-.full_parent{
-	width: 100%;
-	height: 100%;
+/* 小容器 */
+.small-container{
+	width: 2%;
+	height: 2%;
 	position: absolute;
-	left: 0px;
-	top:0px;
+	left: 44%;
+	top:44%;
 }

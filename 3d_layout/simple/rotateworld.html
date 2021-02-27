@@ -19,6 +19,9 @@
 			<div class="flower1"></div>
 			<div class="flower2"></div>
 
+			<div class="cylinder1"></div>
+			<div class="cylinder2"></div>
+			<div class="cylinder3"></div>
 
 		</div>
 
@@ -27,6 +30,20 @@
 </html>
 
 <style type="text/css">
+	
+	.world>div{
+		position: absolute;
+		width:1cm;
+		height: 1cm;
+		left:calc(50% - 0.5cm);
+		top:calc(50% - 0.5cm);
+	}
+	
+
+	
+	.world>div{
+		position: absolute;
+	}
 	body{
 		width: 100vw;
 		height: 100vh;
@@ -57,6 +74,7 @@
 	.flower1{
 		height: 3cm;
 		width: 3cm;
+		
 		background-image: url(./img/flowers/one2.PNG);
 		animation: flower1rotate 10s infinite linear ;
 	}
@@ -84,6 +102,49 @@
 		}
 	}
 	
+	
+	.cylinder1{
+		position: absolute;
+		
+		animation: cy1 5s infinite linear alternate;
+	}
+	
+	@keyframes cy1{
+		from{
+			transform: rotateY(0deg) translateY(5cm) ;
+		}
+		to{
+			transform: rotateY(360deg) translateY(-5cm) ;
+		}
+	}
+	
+	.cylinder2{
+		animation: cy2 5s infinite linear alternate;
+	}
+	
+	@keyframes cy2{
+		from{
+			transform: rotateY(360deg) translateY(5cm) ;
+		}
+		to{
+			transform: rotateY(0deg) translateY(-5cm) ;
+		}
+	}
+	
+	.cylinder3{
+		animation: cy1 2s infinite linear alternate;
+	}
+	
+	@keyframes cy3{
+		from{
+			transform: rotateY(360deg) translateY(-5cm) ;
+		}
+		to{
+			transform: rotateY(0deg) translateY(5cm) ;
+		}
+	}
+	
+
 </style>
 
 <script type="text/javascript">
@@ -109,5 +170,12 @@
 		];
 		
 		$cube(".cube", "5cm", "5cm", "5cm",imgs2);
+		
+		
+		
+		$cylinder(".cylinder1","10cm","6cm","blue","/3d_layout/img/bk2.jpg",30);
+		$cylinder(".cylinder2","5cm","8cm","red","/3d_layout/img/mucai/m9.jpeg",30);
+		$cylinder(".cylinder3","1cm","10cm","green","/3d_layout/img/mucai/m5.jpeg",30);
+		
 	})
 </script>

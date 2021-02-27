@@ -1,5 +1,5 @@
 
-var ipath = getImportRootPath_89866("import.js");
+var ipath = getImportRootPath_89866("web3D.js");
 
 var sc = '<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>';
 sc += '<script src="'+ipath+'/tools/tools.js" type="text/javascript" charset="utf-8"></script>';

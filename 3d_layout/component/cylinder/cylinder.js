@@ -15,9 +15,10 @@ function $cylinder(selectorMe, r, height, color, img, level) {
 		"height": height,
 		"background-color": color || "red",
 		"background-image":"url("+img+")",
-		"background-size":"100% 100%",
+		"background-size":"auto "+height,
 		"left": StringTools.New("calc(50% - ").append(r).append("*").append(jxs).append("/2").append(")").toString(),
-		"top": StringTools.New("calc(50% - ").append(height).append("/2").append(")").toString()
+		"top": StringTools.New("calc(50% - ").append(height).append("/2").append(")").toString(),
+		"overflow":"hidden"
 	});
 
 
@@ -26,6 +27,14 @@ function $cylinder(selectorMe, r, height, color, img, level) {
 	for (i = 0; i < parseInt(level); i++) {
 		var d = div.clone();
 		d.addClass("div_" + (Math.random() + "").replace(".", "_"));
+		
+		var mv = StringTools.New("calc(0px - ")
+			.append(r).append("*").append(jxs)
+			.append("*").append(i).append(")")
+			.append(" 0px").toString();
+			
+		d.css("background-position",mv);
+		
 		
 		d.css("transform", "rotateY(" + 360 / level * i + "deg) translateZ(" + r + ")");
 		$(selectorMe).append(d);

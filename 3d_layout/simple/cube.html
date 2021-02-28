@@ -7,7 +7,69 @@
 	<title>立方体</title>
 	
 	<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+	<style>
 	
+		body{
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			background-image: url(../img/xingkong2.jpeg);
+		}
+		
+		.world>div{
+			position: absolute;
+			outline: 0px;
+			
+			
+		}
+		
+		.world>div *{
+			user-select: none;
+		}
+		.world{
+			width: 100vw;
+			height: 100vh;
+			left: 0px;
+			top:0px;
+			
+			transform-style: preserve-3d;
+			perspective: 100vw;
+			
+		}
+		
+		.cubeA,.cubeB,.cubeC{
+			width:2%;
+			height: 2%;
+			left: 44%;
+			top:44%;
+		}
+		
+		img{
+			position: absolute;
+			width: 3cm;
+			height: 3cm;
+			
+			left: calc(50% - 1.5cm);
+			top:calc(50% - 1.5cm);
+		}
+		
+		iframe{
+			width: 100%;
+			height: 100%;
+			border: 0px;
+			overflow: hidden;
+		}
+		
+		
+		td{
+			color:yellow;
+			background-color: #000000;
+		}
+		
+		table{
+			opacity: 0.3;
+		}
+	</style>
 	
 </head>
 <body>
@@ -53,73 +115,14 @@
 </body>
 </html>
 
-<style>
-	
-	body{
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-		background-image: url(../img/xingkong2.jpeg);
-	}
-	
-	.world>div{
-		position: absolute;
-		outline: 0px;
-		
-		
-	}
-	.world{
-		width: 100vw;
-		height: 100vh;
-		left: 0px;
-		top:0px;
-		
-		transform-style: preserve-3d;
-		perspective: 130cm;
-		
-	}
-	
-	.cubeA,.cubeB,.cubeC{
-		width:20%;
-		height: 20%;
-		/* background-image: url(../img/mucai.jpeg); */
-		left: 40%;
-		top:40%;
-		/* transform-origin: 20% 20%; */
-		
-	}
-	
-	img{
-		position: absolute;
-		width: 3cm;
-		height: 3cm;
-		
-		left: calc(50% - 1.5cm);
-		top:calc(50% - 1.5cm);
-	}
-	
-	iframe{
-		width: 100%;
-		height: 100%;
-		border: 0px;
-		overflow: hidden;
-	}
-	
-	
-	td{
-		color:yellow;
-		background-color: #000000;
-	}
-	
 
-</style>
 
 <script type="text/javascript">
 	$(function(){
 		$cube(".cubeA","10cm","10cm","10cm",
 		["/3d_layout/img/window.PNG","/3d_layout/img/bk2/bk11.jpeg","/3d_layout/img/bk2/bk12.jpg","",
 		,"/3d_layout/img/bk2/bk13.jpg"],
-		0.5,3);
+		0.999,3);
 		
 		$cube(".cubeB","8cm","8cm","8cm",["/3d_layout/img/dimian/dimian2.jpeg","",
 			"/3d_layout/img/zhalan/z4_2.PNG","","",
@@ -130,18 +133,12 @@
 		["/3d_layout/img/dahai.jpg","/3d_layout/img/bk6.jpeg","/3d_layout/img/dongtu/bk8_d_2.GIF"],
 		1,4);
 		
-		$monitor("body",".cubeC","xy","translate",".world>div");
+		$monitor("body",".cubeC","y","rotate",".world>div");
 		$show_axis(".cubeC");
 		
 		$(".cubeB").append('<img src="../img/rabbit.PNG" >');
 		
 	})
 	
-	// document.onreadystatechange = function () {
-	//             if (document.readyState == "complete") {
-	//                 document.body.style.display = "block";
-	//             } else {
-	//                 document.body.style.display = "none";
-	//             };
-	//         };
+
 </script>

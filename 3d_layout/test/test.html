@@ -8,19 +8,24 @@
 	<body>
 		
 		<div class="full3d">
-			
-			<div class="full_parent cylinder"></div>
+			<hr>
+			please input age : <input type="text" id="age" value="19">
+			<hr>
+			<!-- <div class="small-container cylinder"></div> -->
 		</div>
 		<hr>
 		
 		<div><input type="text" id ="data" value = "{{x}}"></div>
-		<input type="text" id ="reg">
+		<input type="text" id ="reg" value="18">
 		
 		
 		<hr>
 		
 		
 		<div id = "result">{{y}}</div>
+		
+		
+		
 	</body>
 </html>
 <style>
@@ -29,6 +34,8 @@
 
 </style>
 <script type="text/javascript">
+	
+	
 	// replace();
 	// function replace(){
 	// 	var source = 'rotateY( 0deg) rotateX(10deg) rotateZ(0deg)';
@@ -40,7 +47,7 @@
 	var y=200;
 	
 	$(function(){
-		
+		$("#age").on("focus",function(){alert($(this).val())});
 		$cylinder(".cylinder","1cm","10cm","blue","/3d_layout/img/bk2.jpg",30);
 	})
 	// alert(2*5*Math.sin(Math.PI/10));

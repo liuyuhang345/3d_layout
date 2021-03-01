@@ -38,7 +38,7 @@ function $cylinder_985665767(selectorMe, r, height, color, img, level, scaleMode
 		"position": "absolute",
 		"width": StringTools.New("calc(2px + ").append(r).append("*").append(jxs).append(")").toString(),
 		"height": height,
-		"background-color": color || "red",
+		"background-color": (img)?"transparent":color || "red",
 		"background-image": "url(" + img + ")",
 		"background-size": mode,
 		"left": StringTools.New("calc(50% - ").append(r).append("*").append(jxs).append("/2").append(")").toString(),

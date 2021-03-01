@@ -124,23 +124,23 @@
 	
 	@keyframes cy2{
 		from{
-			transform: rotateY(360deg) translateY(-10cm) ;
+			transform: rotateY(360deg) rotateX(45deg) translateY(-10cm)   ;
 		}
 		to{
-			transform: rotateY(0deg) translateY(10cm) ;
+			transform: rotateY(0deg)  rotateX(45deg) translateY(10cm)   ;
 		}
 	}
 	
 	.cylinder3{
-		animation: cy1 2s infinite linear alternate;
+		animation: cy3 2s infinite linear alternate;
 	}
 	
 	@keyframes cy3{
 		from{
-			transform: rotateY(360deg) translateY(-5cm) ;
+			transform: rotateY(360deg)  translateY(-5cm)  ;
 		}
 		to{
-			transform: rotateY(0deg) translateY(5cm) ;
+			transform: rotateY(0deg)  translateY(5cm) ;
 		}
 	}
 	
@@ -169,12 +169,12 @@
 			"./img/mucai/m7.jpeg"
 		];
 		
-		$cube(".cube", "5cm", "5cm", "5cm",imgs2);
+		// $cube(".cube", "5cm", "5cm", "5cm",imgs2);
 		
 		
 		
 		$cylinder(".cylinder1","10cm","6cm","blue","/3d_layout/img/bk2.jpg",30);
-		$cylinder(".cylinder2","5cm","8cm","red","/3d_layout/img/mucai/m9.jpeg",30);
+		$cylinder(".cylinder2","5cm","8cm","red","/3d_layout/img/mucai/m11.jpg",30);
 		$cylinder(".cylinder3","1cm","10cm","green","/3d_layout/img/mucai/m5.jpeg",30);
 		
 	})

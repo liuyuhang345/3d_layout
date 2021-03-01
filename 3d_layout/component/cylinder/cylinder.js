@@ -27,7 +27,7 @@ function $cylinder(selectorMe, r, height, color, img, level, scaleModeNum) {
 	var jxs = 2 * Math.sin(Math.PI / level); //每个柱面相对于半径r的的宽度系数
 	div.css({
 		"position": "absolute",
-		"width": StringTools.New("calc(").append(r).append("*").append(jxs).append(")").toString(),
+		"width": StringTools.New("calc(2px + ").append(r).append("*").append(jxs).append(")").toString(),
 		"height": height,
 		"background-color": color || "red",
 		"background-image": "url(" + img + ")",

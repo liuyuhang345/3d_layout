@@ -9,9 +9,10 @@
 		
 		<div class="full3d">
 			<hr>
-			please input age : <input type="text" id="age" value="19">
+			please input age : <input type="text" id="age" sex="女" value="19">
 			<hr>
-			<!-- <div class="small-container cylinder"></div> -->
+			<input type="button" id="bt">
+			<div class="small-container cylinder"></div>
 		</div>
 		<hr>
 		
@@ -30,8 +31,15 @@
 </html>
 <style>
 	
-	
+	body{
+		width:100vw;
+		height: 100vh;
+	}
 
+
+#reg{
+	transform:  translateZ(1cm);
+}
 </style>
 <script type="text/javascript">
 	
@@ -47,10 +55,26 @@
 	var y=200;
 	
 	$(function(){
-		$("#age").on("focus",function(){alert($(this).val())});
-		$cylinder(".cylinder","1cm","10cm","blue","/3d_layout/img/bk2.jpg",30);
+		$("#reg").focus();
+		$("#age").bind("propertychange",function(){
+				alert();
+				console.log($(this).val());
+				
+			});
+		// $cylinder(".cylinder","1cm","10cm","blue","/3d_layout/img/bk2.jpg",30);
+		
+		$("#bt").on("mousedown",function(){
+			v = $("#age").attr("sex");
+			
+		})
+		
+		Object.defineProperty(
+		document.getElementById("age"),
+		"sex",
+		{value:"男"}
+		)
+		
 	})
-	// alert(2*5*Math.sin(Math.PI/10));
 </script>
 
 

@@ -4,7 +4,16 @@
 // date 2-14-2021
 // email:liuyuhang345@163.com
 
-function $cylinder(selectorMe, r, height, color, img, level, scaleModeNum) {
+
+// 支持选择器集合，每个选中的元素都变成圆柱
+function $cylinder(selectorMe, r, height, color, img, level, scaleModeNum){
+	$(selectorMe).each(function(c){
+		$cylinder_985665767($(this), r, height, color, img, level, scaleModeNum)
+	})
+}
+
+// 单个选择器选中的元素变成圆柱
+function $cylinder_985665767(selectorMe, r, height, color, img, level, scaleModeNum) {
 
 	var div = $("<div></div>");
 
@@ -39,7 +48,8 @@ function $cylinder(selectorMe, r, height, color, img, level, scaleModeNum) {
 
 
 	$(selectorMe).css("transform-style", "preserve-3d");
-
+	$(selectorMe).addClass("cylinder_" + (Math.random() + "").replace(".", "_"));//增加一个用于选择的唯一class
+	
 	for (i = 0; i < parseInt(level); i++) {
 		var d = div.clone();
 		d.addClass("div_" + (Math.random() + "").replace(".", "_"));

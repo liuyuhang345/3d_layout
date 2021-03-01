@@ -39,3 +39,10 @@
 	tr:nth-child(1) {
 		background-color: rgba(0, 0, 255, 0.2);
 	}
+	
+	
+	.s{
+		pointer-events: ;
+		user-select: ;
+		visibility: ;
+	}

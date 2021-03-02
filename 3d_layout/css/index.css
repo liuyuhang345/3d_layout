@@ -72,12 +72,12 @@ body {
 	color:white;
 	text-shadow: 3px 3px 6px #333;
 	transform-style: preserve-3d;
-	transform:rotateX(-16deg) rotateY(-32deg);
+	/* transform:rotateX(-16deg) rotateY(-32deg); */
 	
 	
 }
 .icon>div{
-	box-shadow: 1px 1px 1px  #00ffff;
+	/* box-shadow: 1px 1px 1px  #00ffff; */
 }
 a{
 	position: absolute;
@@ -89,15 +89,15 @@ a{
 
 .icon:hover{
 	color: red;
-	animation: icon 6s infinite linear alternate;
+	animation: icon 3s infinite  alternate;
 	}
 
 @keyframes icon{
 	from{
-		/* transform: rotateY(0deg) rotateX(0deg); */
+		transform: rotateZ(0deg) rotateX(-15deg);
 	}
 	to{
-		transform: rotateY(160deg) rotateX(160deg);
+		transform: rotateZ(30deg) rotateX(15deg);
 	}
 }
 

@@ -17,7 +17,6 @@ function $cylinder_985665767(selectorMe, r, height, color, img, level, scaleMode
 
 	var div = $("<div></div>");
 
-
 	// 求图片在柱子上的展开模式
 	var modeNum = scaleModeNum || '3' ;
 	var mode = "";
@@ -69,8 +68,5 @@ function $cylinder_985665767(selectorMe, r, height, color, img, level, scaleMode
 		$(selectorMe).append(d);
 
 	}
-
-
-
 
 }

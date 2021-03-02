@@ -130,11 +130,12 @@
 		["/3d_layout/img/dahai.jpg","/3d_layout/img/bk6.jpeg","/3d_layout/img/dongtu/bk8_d_2.GIF"],
 		1,4);
 		
-		$monitor("body",".cubeC","y","rotate",".world>div");
-		$show_axis(".cubeC");
-		
+		$monitor("body",".cubeB","y","rotate",".world>div");
+		$show_axis(".cubeB");
+		$init3D(".cubeB","rotateY(-36deg)");
+		$init3D(".cubeC","rotateZ(-36deg)");
+		$init3D(".cubeA","rotateX(-36deg)");
 		// $(".cubeB").append('<img src="../img/rabbit.PNG" >');
-		e.stopPropagation
 	})
 	
 

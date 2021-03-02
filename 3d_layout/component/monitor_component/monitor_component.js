@@ -78,17 +78,41 @@ var unit = "deg"; //3d变换的单位
 var preTansform = ''; //上一次的3D变换属性值
 var flag = 'xy'; //默认依赖x和y两个轴变换
 var bh_tr = ''; //当前的3D变换暂存变量
-var bh_tr_state = '';
+var bh_tr_state = '';//上一次的3D变换属性值
 var bh_tr_add = false; //true标记需要累加新的3D变换
 var selectedObject_JQuery = null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
 var old_transform_data = {}; //存放历史变换数据的字典，key为选择器
 var global_objectSets = ''; //可选择的选择器集合,用于双击鼠标选择3D变换对象
 
-// 此控件的API，参数见README
+
+// API:用3D变换命令初始化selectorMe对象、覆盖上一次的设置
+function $init3D(selectorMe,transform){
+	switchAxis($(selectedObject_JQuery));
+	
+	// 持久化，此段代码违反一致性原则，修改的时候要小心
+	key = selectedObject_JQuery.attr("class");
+	old_transform_data[key] = {
+		// 上次的变换
+		"bh_tr_state": bh_tr_state
+	};
+	// put_transform_data(selectedObject_JQuery);
+	selectedObject_JQuery = $(selectorMe);
+	// restore_transform_data(selectedObject_JQuery);
+	switchAxis($(selectedObject_JQuery));
+	
+	bh_tr_state = transform ;
+	
+	selectedObject_JQuery.css("transform", bh_tr_state);
+	$(selectedObject_JQuery).css("-webkit-transform",bh_tr_state);
+	
+}
+// API:此控件的API，参数见README
 function $monitor(selectorMain, transformObject, axis, action, objectSets) {
 	return $watch(selectorMain, transformObject, axis, action, objectSets);
 }
 
+
+// 保存老的变换数据
 function put_transform_data(old_sel_JQuery) {
 	if (bh_tr && bh_tr.length > 1) { //说明进行过3D变换，bh_tr中包含bh_tr_state
 		saveState();
@@ -256,9 +280,6 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				selectedObject_JQuery.css("transform", bh_tr);
 				selectedObject_JQuery.css("-webkit-transform", bh_tr);
 
-
-				// console.log("x:" + xdeg + unit + ";" + "y:" + ydeg + unit + ";" + "z:" + ydeg + unit +"scale:"+ sx+","+sy+","+sz);
-				// console.log(selectedObject_JQuery.css("transform"));
 				console.log(bh_tr);
 			}
 			y_8756875687 = e.pageY;

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		
+		
+		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			.world {
+				perspective: 100cm;
+				transform-style: preserve-3d;
+
+				position: absolute;
+				width: 100vw;
+				height: 100vh;
+			}
+			
+			.bki{
+				width: 5cm;
+				height: 5cm;
+				position: absolute;
+				left: calc(50% - 2.5cm);
+				top:calc(50% - 2.5cm);
+				
+				background-image: url(../img/bk3.jpg);
+				background-size: 100% 100%;
+				
+				
+				/* animation: go 5s infinite linear; */
+			}
+			
+			.cvs{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: transparent;
+			}
+			@keyframes go{
+				from{
+					transform: rotateY(0deg) rotateZ(0deg);
+				}
+				to{
+					
+					transform: rotateY(360deg) rotateZ(360deg);
+				}
+			}
+		</style>
+		
+		<script type="text/javascript">
+			$(function(){
+				
+				
+				$watch(".world,body",".bki","xy","rotate",".bki");
+				
+				
+				var canvas = $(".cvs").get(0);
+				       canvas.width = 1000;
+				       canvas.height = 1000;
+				       var context = canvas.getContext('2d');
+				       context.strokeStyle = 'red';
+				       context.lineWidth = 135;
+				
+				       context.beginPath();
+				       context.moveTo(200, 200);
+				       context.lineTo(500, 200);
+				       context.closePath();
+				       context.stroke();
+			});
+		</script>
+		
+	</head>
+	<body>
+
+		<div class="world">
+			<div class="bki">
+				<canvas id="cvs" class="cvs" width="" height=""></canvas>
+			</div>
+			
+		</div>
+
+	</body>
+</html>

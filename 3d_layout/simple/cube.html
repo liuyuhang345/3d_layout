@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>立方体</title>
-	
-	<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
-	<style>
-	
-		body{
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>立方体</title>
+
+		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+
+			body{
 			width: 100vw;
 			height: 100vh;
 			overflow: hidden;
@@ -64,84 +64,85 @@
 		td{
 			color:yellow;
 			background-color: #000000;
+			width: 50%;
 		}
 		
 		table{
 			opacity: 0.5;
 		}
 		
-		table,tr,td,input{
+		table,tr,input{
 			width:100%;
 			height: 100%;
 		}
 	</style>
-	
-</head>
-<body>
-	
-	<div class="world">
-		<div class="cubeA">
-			<div>
-				<table>
-					<caption>一个小小的表格</caption>
-					<tr>
-						<td>Lorem.
+
+	</head>
+	<body>
+
+		<div class="world">
+			<div class="cubeA">
+				<div>
+					<table>
+						<caption>一个小小的表格</caption>
+						<tr>
+							<td>Lorem.
 							<td><input type="text"></td>
-						</td>
-					</tr>
-					<tr>
-						<td>Cupiditate.
+							</td>
+						</tr>
+						<tr>
+							<td>Cupiditate.
 							<td><input type="text"></td>
-						</td>
-					</tr>
-					<tr>
-						<td>Delectus!
+							</td>
+						</tr>
+						<tr>
+							<td>Delectus!
 							<td><input type="text"></td>
-						</td>
-					</tr>
-					<tr>
-						<td><input type="button" value="表演动画" onclick="restartAnimation()"></td>
-					</tr>
-				</table>
-				
+							</td>
+						</tr>
+						<tr>
+							<td><input type="button" value="表演动画" onclick="restartAnimation()"></td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
+
+			<div class="cubeB"></div>
+			<div class="cubeC">
+				<iframe src="https://v.qq.com/x/cover/mzc002003xbvnt7/q0035m5ylgz.html" width="" height=""></iframe>
 			</div>
 		</div>
-		
-		<div class="cubeB"></div>
-		<div class="cubeC">
-			<iframe src="https://v.qq.com/x/cover/mzc002003xbvnt7/q0035m5ylgz.html" width="" height=""></iframe>
-		</div>
-	</div>
-	
-	
-</body>
+
+
+	</body>
 </html>
 
 
 
 <script type="text/javascript">
-	$(function(){
-		$cube(".cubeA","5cm","5cm","5cm",
-		["/3d_layout/img/window.PNG","/3d_layout/img/bk2/bk11.jpeg","/3d_layout/img/bk2/bk12.jpg","",
-		,"/3d_layout/img/bk2/bk13.jpg"],
-		0.999,3);
-		
-		$cube(".cubeB","8cm","38cm","8cm",["/3d_layout/img/dimian/dimian2.jpeg","",
-			"/3d_layout/img/zhalan/z4_2.PNG","","",
+	$(function() {
+		$cube(".cubeA", "5cm", "5cm", "5cm",
+			["/3d_layout/img/window.PNG", "/3d_layout/img/bk2/bk11.jpeg", "/3d_layout/img/bk2/bk12.jpg", "", ,
+				"/3d_layout/img/bk2/bk13.jpg"
+			],
+			0.999, 3);
+
+		$cube(".cubeB", "8cm", "38cm", "8cm", ["/3d_layout/img/dimian/dimian2.jpeg", "",
+			"/3d_layout/img/zhalan/z4_2.PNG", "", "",
 			"/3d_layout/img/zhalan/z3.PNG",
-			],1,0);
-		
-		$cube(".cubeC","6cm","6cm","6cm",
-		["/3d_layout/img/dahai.jpg","/3d_layout/img/bk6.jpeg","/3d_layout/img/dongtu/bk8_d_2.GIF"],
-		1,4);
-		
-		$monitor("body",".cubeB","y","rotate",".world>div");
+		], 1, 0);
+
+		$cube(".cubeC", "6cm", "6cm", "6cm",
+			["/3d_layout/img/dahai.jpg", "/3d_layout/img/bk6.jpeg", "/3d_layout/img/dongtu/bk8_d_2.GIF"],
+			1, 4);
+
+		$monitor("body", ".cubeB", "y", "rotate", ".world>div");
 		$show_axis(".cubeB");
-		$init3D(".cubeB","perspective(45cm) rotateY(-36deg) rotateY(20deg)");
-		$init3D(".cubeA","rotateX(30deg) translate3d(15cm,0cm,0cm)");
-		$init3D(".cubeC","translateX(-10cm) rotateX(-36deg) rotateY(-117deg) rotateY(173deg) translateX(2102px) translateY(2306px)");
+		$init3D(".cubeB", "perspective(45cm) rotateY(-36deg) rotateY(20deg)");
+		$init3D(".cubeA", "rotateX(30deg) translate3d(15cm,0cm,0cm)");
+		$init3D(".cubeC",
+			"translateX(-10cm) rotateX(-36deg) rotateY(-117deg) rotateY(173deg) translateX(2102px) translateY(2306px)");
 		// $(".cubeB").append('<img src="../img/rabbit.PNG" >');
 	})
-	
-
 </script>

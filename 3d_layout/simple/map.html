@@ -63,19 +63,12 @@
 	}
 	.maplarge{
 		overflow: hidden;
-		transform: translateX(-303px) translateY(-156px) translateX(10px) translateY(142px) rotateY(54deg) translateX(123px) translateY(-35px) scale3d(1.6000000000000005,1.3600000000000003,1) rotateY(16deg) translateX(95px) scale3d(1.3400000000000003,0.97,1) rotateY(9deg) translateX(68px) translateZ(-86px) scale3d(1.2100000000000002,1,1)
-;
 	}
 	.map>div,.maplarge>div{
 		position: absolute;
 		background-size: 100% 100%;
 		background-image: url(../img/map/map.jfif);
 	}
-	
-	.map{
-		transform:translateX(473px) translateY(-283px)
-	}
-	
 	
 	:root{
 		--w:5208px;
@@ -113,6 +106,11 @@
 <script type="text/javascript">
 	$(function() {
 		$watch(".world", ".map", "xy", "translate", ".world>div");
+		$init3D(".map", "translateX(473px) translateY(-283px)");
+
+		var tsf =
+			'translateX(-303px) translateY(-156px) translateX(10px) translateY(142px) rotateY(54deg) translateX(123px) translateY(-35px) scale3d(1.6000000000000005,1.3600000000000003,1) rotateY(16deg) translateX(95px) scale3d(1.3400000000000003,0.97,1) rotateY(9deg) translateX(68px) translateZ(-86px) scale3d(1.2100000000000002,1,1)'
+		$init3D(".maplarge", tsf);
 		$(".map>div").on("mousemove", function(e) {
 			x = e.offsetX;
 			y = e.offsetY;

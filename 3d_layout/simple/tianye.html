@@ -5,7 +5,7 @@
 		<title>庄稼地</title>
 		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
 	</head>
-	
+
 	<body>
 		<img src="../img/flowers/h13.PNG" alt="">
 		<div class="full3d world">
@@ -15,10 +15,10 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 	</body>
-	
+
 </html>
 
 <style>
@@ -65,28 +65,23 @@
 		background-size: 100% 100%;
 		left:20%;
 		top:20%;
-		transform: rotateX(83deg);
 	}
 </style>
 
 <script type="text/javascript">
+	$(function() {
+		$watch("body", ".room", "x", "rotate", ".room,.miao");
+		$init3D(".room", "rotateX(80deg)");
 
-	$(function(){
-		$watch("body",".room","x","rotate",".room,.miao");
-		
-		
 		var e = $(".miao").clone();
-		$(".room").html('');//此条很重要，否则world里面每次页面刷新都会追加一批元素，瞬间就会使得浏览器崩溃。
-		for(i=0;i<6;i++){
-			for(j=0;j<13;j++){
+
+		for (i = 0; i < 6; i++) {
+			for (j = 0; j < 13; j++) {
 				e = e.clone();
 				e.css({
-					"transform":"translateX("+j*2+"cm) translateY("+i*2+"cm) rotateX(-90deg) translateY(-2.5cm) "
+					"transform": "translateX(" + j * 2 + "cm) translateY(" + i * 2 + "cm) rotateX(-90deg) translateY(-2.5cm) "
 				}).appendTo($(".room"));
 			}
 		}
 	})
-	
 </script>
-
-

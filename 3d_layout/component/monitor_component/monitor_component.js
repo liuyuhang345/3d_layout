@@ -87,11 +87,12 @@ var global_objectSets = ''; //可选择的选择器集合,用于双击鼠标选�
 
 // API:用3D变换命令初始化selectorMe对象、覆盖上一次的设置
 function $init3D(selectorMe, transform) {
-	
-	$(selectorMe).each(function(){
-		switchAxis($(selectedObject_JQuery));
-		
-		// 持久化，此段代码违反一致性原则，修改的时候要小心
+
+	$(selectorMe).each(function() {
+
+		$(".axis", selectedObject_JQuery).remove();
+
+		// 内存持久化，此段代码违反一致性原则，修改的时候要小心
 		key = selectedObject_JQuery.attr("class");
 		old_transform_data[key] = {
 			// 上次的变换
@@ -101,13 +102,13 @@ function $init3D(selectorMe, transform) {
 		selectedObject_JQuery = $(this);
 		// restore_transform_data(selectedObject_JQuery);
 		switchAxis($(selectedObject_JQuery));
-		
+
 		bh_tr_state = transform;
-		
+
 		selectedObject_JQuery.css("transform", bh_tr_state);
 		$(selectedObject_JQuery).css("-webkit-transform", bh_tr_state);
 	});
-	
+
 
 }
 // API:此控件的API，参数见README

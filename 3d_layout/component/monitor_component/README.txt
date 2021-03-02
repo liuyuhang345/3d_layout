@@ -25,7 +25,7 @@
 
 <h3>JavaScript API调用格式</h3>
 <hr>
- <br> $watch(selectorMain, transformObject, axis, action, objectSets)
+ <h4> $watch(selectorMain, transformObject, axis, action, objectSets)<h4>
  <br> selectorMain参数是用于捕获鼠标坐标的元素，CSS选择器；
  <br> transformObject是被控制变换的3D元素，CSS选择器;
  <br> axis参数，设定变换的坐标轴。可以取如下四个值：'x'、'y'、'z'、'xy',默认'xy'。
@@ -34,3 +34,7 @@
 <br> <h3>注意事项</h3>
 <br> 进行3D变换的时候，objectSets参数中，请尽量避免出现class属性值完全一致的情况，否则属性一致的元素会混淆“上一轮”的3D变换。
 <br> 被选择作为3D变换的对象的class值，必须是唯一的，不允许与其它元素的class值相等，但可以相交。 
+<hr>
+<h4>$init3D(selectorMe, transform)</h4>
+<br>selectorMe,被初始化对象的css选择器
+<br>transform,transform变换的值，3D命令集合

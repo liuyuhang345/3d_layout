@@ -25,7 +25,8 @@
 				<div class = "icon"><a href="./simple/switch.html" target="frame">开关旋钮</a></div>
 				<div class = "icon"><a href="./simple/clock.html" target="frame">机械时钟</a></div>
 				<div class = "icon"><a href="./simple/map.html" target="frame">时空地图</a></div>
-				<div class = "icon"><a href="./simple/tianye.html" target="frame">3D农田</a></div>		
+				<div class = "icon"><a href="./simple/tianye.html" target="frame">3D农田</a></div>	
+				<div class = "icon"><a href="javascript:help()" target="frame">HELP</a></div>
 				
 			</div>
 
@@ -62,8 +63,8 @@
 	$(function(e) {
 		
 		// $watch(".desktop,.world", ".desktop", 'xy', "rotate", ".icon,.desktop");
-		 
-		 $cube(".icon","10vh","16vh","6vh",
+		 $cube(".icon:last","10vh","16vh","5.5vh",[""],'1',3);
+		 $cube(".icon","10vh","16vh","5.5vh",
 		 ["/3d_layout/img/mucai/m9.jpeg",
 		 "/3d_layout/img/mucai/m9.jpeg",
 		 "1",

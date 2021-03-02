@@ -338,20 +338,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 					restartAnimation();
 					break;
 				case 'h':
-					$("<div style='position:static;' title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
-						.appendTo("body>div:first")
-						.on("mousemove", function() {
-							return false;
-						})
-						.dialog({
-							"dialogClass": "monitor_dialog",
-							"width": "80%",
-							"height": "800",
-							"top": "1px",
-							"position": "absolute",
-							"transform": "translateZ(1cm)",
-							"padding": "1cm"
-						});
+					help();
 					break;
 				case 'c':
 					cmdhHandle(e);
@@ -387,6 +374,23 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 		})
 }
 
+
+function help(){
+	$("<div style='position:static;' title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
+		.appendTo("body>div:first")
+		.on("mousemove", function() {
+			return false;
+		})
+		.dialog({
+			"dialogClass": "monitor_dialog",
+			"width": "80%",
+			"height": "800",
+			"top": "1px",
+			"position": "absolute",
+			"transform": "translateZ(1cm)",
+			"padding": "1cm"
+		});
+}
 
 // 'g'快捷键处理函数，播放动画
 function restartAnimation() {

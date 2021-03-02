@@ -67,7 +67,12 @@
 		}
 		
 		table{
-			opacity: 0.3;
+			opacity: 0.5;
+		}
+		
+		table,tr,td,input{
+			width:100%;
+			height: 100%;
 		}
 	</style>
 	
@@ -116,7 +121,7 @@
 
 <script type="text/javascript">
 	$(function(){
-		$cube(".cubeA","10cm","10cm","10cm",
+		$cube(".cubeA","5cm","5cm","5cm",
 		["/3d_layout/img/window.PNG","/3d_layout/img/bk2/bk11.jpeg","/3d_layout/img/bk2/bk12.jpg","",
 		,"/3d_layout/img/bk2/bk13.jpg"],
 		0.999,3);
@@ -132,9 +137,9 @@
 		
 		$monitor("body",".cubeB","y","rotate",".world>div");
 		$show_axis(".cubeB");
-		$init3D(".cubeB","rotateY(-36deg)");
-		$init3D(".cubeC","rotateZ(-36deg)");
-		$init3D(".cubeA","rotateX(-36deg)");
+		$init3D(".cubeB","perspective(45cm) rotateY(-36deg) rotateY(20deg)");
+		$init3D(".cubeA","rotateX(30deg) translate3d(15cm,0cm,0cm)");
+		$init3D(".cubeC","translateX(-10cm) rotateX(-36deg) rotateY(-117deg) rotateY(173deg) translateX(2102px) translateY(2306px)");
 		// $(".cubeB").append('<img src="../img/rabbit.PNG" >');
 	})
 	

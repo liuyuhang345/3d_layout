@@ -78,7 +78,7 @@ var unit = "deg"; //3d变换的单位
 var preTansform = ''; //上一次的3D变换属性值
 var flag = 'xy'; //默认依赖x和y两个轴变换
 var bh_tr = ''; //当前的3D变换暂存变量
-var bh_tr_state = '';//上一次的3D变换属性值
+var bh_tr_state = ''; //上一次的3D变换属性值
 var bh_tr_add = false; //true标记需要累加新的3D变换
 var selectedObject_JQuery = null; //被（鼠标双击）选中的当前进行3D变换的元素的jquery对象
 var old_transform_data = {}; //存放历史变换数据的字典，key为选择器
@@ -86,25 +86,29 @@ var global_objectSets = ''; //可选择的选择器集合,用于双击鼠标选�
 
 
 // API:用3D变换命令初始化selectorMe对象、覆盖上一次的设置
-function $init3D(selectorMe,transform){
-	switchAxis($(selectedObject_JQuery));
+function $init3D(selectorMe, transform) {
 	
-	// 持久化，此段代码违反一致性原则，修改的时候要小心
-	key = selectedObject_JQuery.attr("class");
-	old_transform_data[key] = {
-		// 上次的变换
-		"bh_tr_state": bh_tr_state
-	};
-	// put_transform_data(selectedObject_JQuery);
-	selectedObject_JQuery = $(selectorMe);
-	// restore_transform_data(selectedObject_JQuery);
-	switchAxis($(selectedObject_JQuery));
+	$(selectorMe).each(function(){
+		switchAxis($(selectedObject_JQuery));
+		
+		// 持久化，此段代码违反一致性原则，修改的时候要小心
+		key = selectedObject_JQuery.attr("class");
+		old_transform_data[key] = {
+			// 上次的变换
+			"bh_tr_state": bh_tr_state
+		};
+		// put_transform_data(selectedObject_JQuery);
+		selectedObject_JQuery = $(this);
+		// restore_transform_data(selectedObject_JQuery);
+		switchAxis($(selectedObject_JQuery));
+		
+		bh_tr_state = transform;
+		
+		selectedObject_JQuery.css("transform", bh_tr_state);
+		$(selectedObject_JQuery).css("-webkit-transform", bh_tr_state);
+	});
 	
-	bh_tr_state = transform ;
-	
-	selectedObject_JQuery.css("transform", bh_tr_state);
-	$(selectedObject_JQuery).css("-webkit-transform",bh_tr_state);
-	
+
 }
 // API:此控件的API，参数见README
 function $monitor(selectorMain, transformObject, axis, action, objectSets) {
@@ -195,7 +199,7 @@ function set_3d_transform_Object(objectSets) {
 
 	global_objectSets = objectSets; //设置新的可选对象
 
-	
+
 	//选择当前变换对象
 	$(global_objectSets).on("dblclick", function() {
 		$(".axis", selectedObject_JQuery).remove(); //移走原来变换对象的坐标轴
@@ -209,7 +213,7 @@ function set_3d_transform_Object(objectSets) {
 		return false; //false终止事件处理,防止冒泡选择
 	});
 
-	
+
 
 }
 
@@ -225,7 +229,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 
 	$(selectorMain).attr("tabindex", "0").focus().unbind()
-		.css("outline","0px")
+		.css("outline", "0px")
 		.on("mousemove", function(e) {
 			if (y_8756875687 > -1 && x_87687686 > -1 && mouseIsDown) {
 				dlt = (e.pageY - y_8756875687) + (e.pageX - x_87687686);
@@ -335,7 +339,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 				case 'h':
 					$("<div style='position:static;' title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
 						.appendTo("body>div:first")
-						.on("mousemove",function(){return false;})
+						.on("mousemove", function() {
+							return false;
+						})
 						.dialog({
 							"dialogClass": "monitor_dialog",
 							"width": "80%",
@@ -343,36 +349,36 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 							"top": "1px",
 							"position": "absolute",
 							"transform": "translateZ(1cm)",
-							"padding":"1cm"
+							"padding": "1cm"
 						});
 					break;
 				case 'c':
 					cmdhHandle(e);
-				
+
 					break;
 				case 'n':
 					selectedObject_JQuery.toggle();
 					break;
-					
+
 					// 编辑属性值
 				case "e":
 					var template = prompt('输入jquery选择器和css属性json集合，中间用"|"分开');
 					var params = template.split(/\s*\|\s*/);
 					var params_length = params.length;
-					
-					var jsonreg = /\{[\w\,\:\"\s\%\+\-\*\/]+\}/ ;//json格式css属性集合
-					
-					if(params_length==2){
-						if(jsonreg.test(params[1])){
+
+					var jsonreg = /\{[\w\,\:\"\s\%\+\-\*\/]+\}/; //json格式css属性集合
+
+					if (params_length == 2) {
+						if (jsonreg.test(params[1])) {
 							$(params[0]).css(JSON.parse(params[1]));
-						}else{
-							$(selectedObject_JQuery).css(params[0],params[1]);
+						} else {
+							$(selectedObject_JQuery).css(params[0], params[1]);
 						}
-					}else if(params_length==3){
-						$(params[0]).css(params[1],params[2]);
+					} else if (params_length == 3) {
+						$(params[0]).css(params[1], params[2]);
 					}
 					break;
-				
+
 				default:
 					break;
 			}
@@ -414,34 +420,34 @@ function selectText(element) {
 
 
 // 'c'快捷键处理函数：显示当前3D变换的细节
-function cmdhHandle(e,cmd){
-	if (e.ctrlKey || !selectedObject_JQuery || !selectedObject_JQuery.get(0) ) {
+function cmdhHandle(e, cmd) {
+	if (e.ctrlKey || !selectedObject_JQuery || !selectedObject_JQuery.get(0)) {
 		return;
 	}
-	
-	cmd = 
+
+	cmd =
 		StringTools.New("<h3>3D对象:[tagname:")
 		.append(selectedObject_JQuery.get(0).tagName)
 		.append("]")
 		.append("[id:")
-		.append(selectedObject_JQuery.attr("id")||"")
+		.append(selectedObject_JQuery.attr("id") || "")
 		.append("]")
 		.append("[class:")
-		.append(selectedObject_JQuery.attr("class")||"")
+		.append(selectedObject_JQuery.attr("class") || "")
 		.append("]<hr></h3><h3>上轮变换</h3><hr><span>")
 		.append(bh_tr_state)
 		.append("</span><h3>本轮变换</h3><hr><span>")
 		.append(bh_tr)
 		.append("</span>")
-		
+
 	cmd = cmd.append("<h3>变换矩阵</h3><hr>").append($(selectedObject_JQuery).css("transform")).toString();
-	
-	
+
+
 	$("<div style='position:static;' title='变换语法'>" +
 			cmd.replace(/[^\s]+[a-z]+\s*\(\s*0(deg|px)?\s*\)|scale3d\(1,1,1\)/ig, '') +
 			"</div>")
 		.on("mousemove", function(e) {
-			e.stopPropagation();//阻止事件继续传播
+			e.stopPropagation(); //阻止事件继续传播
 			$(this).onmousemove();
 			return false;
 		})
@@ -454,6 +460,6 @@ function cmdhHandle(e,cmd){
 			"position": "absolute",
 			"transform": "translateZ(1cm)"
 		});
-		
-		return false;
+
+	return false;
 }

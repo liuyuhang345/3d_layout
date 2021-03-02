@@ -31,13 +31,14 @@
 </style>
 <script type="text/javascript">
 	$(function() {
-		$watch(".world,body", ".cylinder3", "xy", "translate", ".world>div");
+		$watch(".world,body", ".cylinder3", "y", "rotate", ".world>div");
 		$show_axis(".cylinder3");
 
 
-		$cylinder(".cylinder1", "10cm", "6cm", "blue", "/3d_layout/img/bk3.jpg", 30,2);
-		$cylinder(".cylinder2", "5cm", "8cm", "blue", "/3d_layout/img/map/map2.jpeg", 30);
-		$cylinder(".cylinder3", "1cm", "10cm", "green", "/3d_layout/img/mucai/m5.jpeg", 30);
-
+		$cylinder(".cylinder1", "10cm", "6cm", "blue", "/3d_layout/img/bk3.jpg", 30,'3');
+		$cylinder(".cylinder2", "5cm", "12cm", "blue", "/3d_layout/img/map/map2.jpeg", 30,'3');
+		$cylinder(".cylinder3", "1cm", "16cm", "green", "/3d_layout/img/mucai/m5.jpeg", 30,'3');
+		
+		// $init3D(".world>div","rotateX(45deg)");
 	})
 </script>

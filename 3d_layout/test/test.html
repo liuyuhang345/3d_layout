@@ -54,9 +54,15 @@
 	var x=100;
 	var y=200;
 	
+	
+	function ts(unit){
+		var unit = unit || "px";
+		alert(Array.isArray(unit) );
+	}
 	$(function(){
 		
-		$cylinder("body>div","10cm","5cm","blue","",10,3);
+		// ts(['xxx']);
+		$cylinder("body>div","1px","10cm","blue","",1,3);
 		
 		$("#reg").focus();
 		$("#age").bind("propertychange",function(){
@@ -76,6 +82,7 @@
 		"sex",
 		{value:"男"}
 		)
+		
 		
 	})
 </script>

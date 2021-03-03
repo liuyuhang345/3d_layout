@@ -1,4 +1,4 @@
-// show 3d-axis component for jQuery . help learning .
+// show 3d-axis component ： axis . help learning .
 // @copy yuhang.liu (刘宇航)
 // qq:578384498
 // date 1-28-2021

@@ -8,95 +8,10 @@
 		<base href="../" />
 		<title>机械时钟</title>
 
-		<script src="./component/web3D.js" type="text/javascript" charset="utf-8"></script>
-
-		<script type="text/javascript">
-			var xishu = 10;
-			$(function() {
-				$watch(".world", ".button1", "z", "rotate", ".qiang,.container-b,.button1");
-
-				var startAngle_sec = 0; //秒
-				var startAngle_min = 0; //分钟
-				var startAngle_hours = 0; //小时
-
-
-				// 每秒自动转6度
-				window.setInterval(function() {
-					startAngle_sec += 6;
-					startAngle_sec %= 360;
-					$(".button1").css({
-						"transform": "rotateZ(" + startAngle_sec + "deg)"
-					});
-				}, 1000 / xishu);
-
-				window.setInterval(function() {
-					startAngle_min += 6;
-					startAngle_min %= 360;
-					$(".button2").css({
-						"transform": "rotateZ(" + startAngle_min + "deg)"
-					});
-				}, 60000 / xishu);
-
-				window.setInterval(function() {
-					startAngle_hours += 6;
-					startAngle_hours %= 360;
-					$(".button3").css({
-						"transform": "rotateZ(" + startAngle_hours + "deg)"
-					});
-				}, 3600000 / xishu);
-
-				// touch点击转60度
-				$("*").on("touchstart", function(e) {
-					startAngle_sec = (startAngle_sec + 60) % 360;
-					$(".button").css({
-						"transform": "rotateZ(" + startAngle_sec + "deg)"
-					})
-					return false;
-				})
-
-
-
-
-			})
-		</script>
-
-	</head>
-	<body>
-
-
-		<div class="world">
-			<div class="container-a">
-				<div class="qiang qiang1">
-
-					<p>
-						提示:{{xishu}}倍的时钟
-					</p>
-
-				</div>
-
-			</div>
-
-
-			<div class="container-b">
-
-
-				<div class="socket"></div>
-				<div class="button1"></div>
-				<div class="button2"></div>
-				<div class="button3"></div>
-			</div>
-
-
-		</div>
-
-	</body>
-</html>
-
-
-<style>
-	.world {
-		outline: 0px;
-	}
+		<style>
+			.world {
+			outline: 0px;
+			}
 
 	body {
 		width: 100vw;
@@ -118,18 +33,19 @@
 
 		perspective: 100vw;
 		transform-style: preserve-3d;
-
+		
+		/* background-color: rgba(200,200,50,1); */
+		
 	}
-
 
 	.container-a,
 	.container-b {
-		width: 80%;
-		height: 50%;
+		width: 2%;
+		height: 2%;
 
 		position: absolute;
-		top: 25%;
-		left: 10%;
+		top: 49%;
+		left: 49%;
 
 		transform-style: preserve-3d;
 	}
@@ -138,11 +54,11 @@
 	.qiang1 {
 		position: absolute;
 		background-size: 100% 100%;
-		background-image: url(./img/mucai/m13.jpeg);
+		
 		transform-origin: 3cm 2cm;
 		width: 100%;
-		height: 80%;
-		left: 0%;
+		height: 100%;
+		right: 0%;
 		top: 10%;
 
 		font-size: 3em;
@@ -152,7 +68,7 @@
 	}
 
 	p {
-		margin: 12rem;
+		margin: 1rem;
 		/* writing-mode: vertical-lr; */
 		font-size: 2rem;
 		font-family: 隶书;
@@ -162,6 +78,7 @@
 		position: absolute;
 		text-align: left;
 		width: 100%;
+		right: 0px;
 	}
 
 
@@ -169,11 +86,11 @@
 	.button1,
 	.button2,
 	.button3 {
-		width: 300px;
-		height: 300px;
+		width: 10cm;
+		height: 10cm;
 		position: absolute;
-		left: calc(50% - 150px);
-		top: calc(50% - 150px);
+		left: calc(50% - 5cm);
+		top: calc(50% - 5cm);
 		background-size: 100% 100%;
 
 	}
@@ -185,9 +102,6 @@
 		/* background-image: url(./img/rotate_button/socket3.PNG); */
 		/* background-image: url(./img/rotate_button/socket2.PNG); */
 		background-image: url(./img/rotate_button/clock_socket.PNG);
-
-
-		/* animation: rt 1s infinite linear;*/
 	}
 
 	/* 秒针 */
@@ -210,7 +124,112 @@
 		/* background-image: url(./img/rotate_button/button2_1.PNG); */
 		background-image: url(./img/rotate_button/clock_point3.PNG);
 	}
+	
+	.world>img{
+		position: absolute;
+		right: 2%;
+		bottom:2%;
+		width:10cm;
+	}
 </style>
 
 
 
+		<script src="./component/web3D.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			var xishu = 10;
+			$(function() {
+				
+				// 
+				var startAngle_sec = 0; //秒
+				var startAngle_min = 0; //分钟
+				var startAngle_hours = 0; //小时
+
+				var ms1 = 'perspective(5cm) translateZ(6mm)';
+				var ms2 = 'perspective(5cm) translateZ(2mm)';
+				var ms3 = 'perspective(5cm) translateZ(2mm)';
+				$init3D(".button1,.button2,.button3", "perspective(10cm) translateZ(2mm)");
+				switchAxis(selectedObject_JQuery);
+				// 每秒自动转6度
+				window.setInterval(function() {
+					startAngle_sec += 6;
+					startAngle_sec %= 360;
+					$(".button1").css({
+						"transform": ms1 + " rotateZ(" + startAngle_sec + "deg)"
+					});
+				}, 1000 / xishu);
+
+				window.setInterval(function() {
+					startAngle_min += 6;
+					startAngle_min %= 360;
+					$(".button2").css({
+						"transform": ms2 + "rotateZ(" + startAngle_min + "deg)"
+					});
+				}, 60000 / xishu);
+
+				window.setInterval(function() {
+					startAngle_hours += 6;
+					startAngle_hours %= 360;
+					$(".button3").css({
+						"transform": ms3 + "rotateZ(" + startAngle_hours + "deg)"
+					});
+				}, 3600000 / xishu);
+
+				// touch点击转60度
+				$("*").on("touchstart", function(e) {
+					startAngle_sec = (startAngle_sec + 60) % 360;
+					$(".button").css({
+						"transform": "rotateZ(" + startAngle_sec + "deg)"
+					})
+					return false;
+				})
+
+
+				// 创建多个时钟
+				var nd = $(".container-b");
+				for (var i = 0; i < 3; i++) {
+						nd
+						.clone()
+						.addClass("clk_"+Math.random().toString().replace(".", "-"))
+						.appendTo(".world");
+
+
+				}
+
+				$watch(".world,body", ".container-b:first", "z", "rotate", ".world>div");
+			})
+		</script>
+
+	</head>
+	<body>
+
+
+		<div class="world">
+			<img src="./img/flowers/h31.PNG" alt="">
+			<div class="container-a">
+				<div class="qiang qiang1">
+
+					<p>
+						{{xishu}}倍时钟
+					</p>
+
+				</div>
+
+			</div>
+
+
+			<div class="container-b">
+
+
+				<div class="socket"></div>
+				<div class="button1"></div>
+				<div class="button2"></div>
+				<div class="button3"></div>
+			</div>
+
+
+		</div>
+
+	</body>
+</html>

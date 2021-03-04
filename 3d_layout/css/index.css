@@ -8,8 +8,6 @@ body {
 	padding: 0px;
 	overflow: hidden;
 	
-	
-	
 }
 
 /* 全屏 vw vh 视口宽高分别为100vw\100vh*/
@@ -72,12 +70,18 @@ body {
 	color:white;
 	text-shadow: 3px 3px 6px #333;
 	transform-style: preserve-3d;
-	/* transform:rotateX(-16deg) rotateY(-32deg); */
-	
+		
+	/* animation: icon 5s infinite alternate; */
 	
 }
-.icon>div{
-	/* box-shadow: 1px 1px 1px  #00ffff; */
+
+@keyframes icon{
+	from{
+		transform: rotateZ(-10deg)  rotateX(5deg);
+	}                             
+	to{                           
+		transform: rotateZ(10deg) rotateX(-5deg);
+	}
 }
 a{
 	position: absolute;
@@ -89,30 +93,22 @@ a{
 
 .icon:hover{
 	color: red;
-	animation: icon 3s infinite  alternate;
+	/* animation: icon 3s infinite  alternate; */
 	}
 
-@keyframes icon{
-	from{
-		transform: rotateZ(0deg) rotateX(-15deg);
-	}
-	to{
-		transform: rotateZ(30deg) rotateX(15deg);
-	}
-}
+
 
 
 a:hover,.icon:hover>a{
 	color: red;
 	text-shadow: 5px 5px 5px #000;
-	/* transform: translateZ(4vh); */
 	
 }
 
 a:link,a:active,a:visited{
 	color:orangered;
 	text-decoration: none;
-	transform: scaleY(1.5);
+	/* transform: scaleY(1.5); */
 }
 
 .text {

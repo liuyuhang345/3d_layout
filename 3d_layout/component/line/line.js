@@ -26,8 +26,8 @@ function $line(selectorMe, point1, point2, color, width, unit) {
 		"transform-origin": "0% 0% 0%",
 		"position": "absolute", //左端作为原点
 		"left": "calc(" + $(selectorMe).css("width") + "/2 + " + point1[0] + unit + ")",
-		"top": "calc(" + $(selectorMe).css("height") + "/2 + " + point1[1] + unit + ")"
-		"width":L + unit
+		"top": "calc(" + $(selectorMe).css("height") + "/2 + " + point1[1] + unit + ")",
+		"width":L + unit+""
 	});
 
 	var RQ = e.clone() ; //变换用的容器

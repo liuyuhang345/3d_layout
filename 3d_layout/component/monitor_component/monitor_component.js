@@ -375,8 +375,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 }
 
 
-function help(){
-	$("<div style='position:static;' title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
+function help(e){
+	$(".help_me_dialog_732").remove();//防止同时出现多个help对话框
+	$("<div style='position:static;'  title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
 		.appendTo("body>div:first")
 		.on("mousemove", function() {
 			return false;
@@ -389,7 +390,10 @@ function help(){
 			"position": "absolute",
 			"transform": "translateZ(1cm)",
 			"padding": "1cm"
-		});
+		}).addClass("help_me_dialog_732");
+		
+		
+		return false;
 }
 
 // 'g'快捷键处理函数，播放动画

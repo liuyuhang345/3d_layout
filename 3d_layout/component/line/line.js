@@ -14,56 +14,41 @@ function $line(selectorMe, point1, point2, color, width, unit) {
 	var color = color || "black";
 
 	var L = 0;
-	try {
-		// 求直线长度
-		L = Math.pow(point1[0] - point2[0], 2) +
-			Math.pow(point1[1] - point2[1], 2) +
-			Math.pow(point1[2] - point2[2], 2);
-		L = Math.sqrt(L);
+	L = Math.pow(point1[0] - point2[0], 2) +
+		Math.pow(point1[1] - point2[1], 2) +
+		Math.pow(point1[2] - point2[2], 2);
+	L = Math.sqrt(L);
 
-	} catch (e) {
-		console.log(e);
-		return;
-	}
-
-	// 创建div，表示为线条
-
+	// 创建div，表示线条
 	var el = $("<div></div>");
+
+	el.css({
+		"transform-origin": "0% 0% 0%",
+		"position": "absolute", //左端作为原点
+		"left": "calc(" + $(selectorMe).css("width") + "/2 + " + point1[0] + unit + ")",
+		"top": "calc(" + $(selectorMe).css("height") + "/2 + " + point1[1] + unit + ")"
+		"width":L + unit
+	});
+
+	var RQ = e.clone() ; //变换用的容器
+	
 	el.css("border-top", StringTools.New(color)
 		.append(" solid ")
 		.append(width)
 		.toString()
 	)
-	el.css("width", L + unit);
-
-	// 平移到第一个点，设置第一个点的位置为div的旋转中心
-
-	// 暂时不采用齐次坐标变换，实现画直线
-
 
 	var Az = Math.atan2((point2[1] - point1[1]), (point2[0] - point1[0])); //按照Z轴旋转的角度
-
-	var Ay = Math.atan2((point2[0] - point1[0]), (point2[2] - point1[2])); //按照Y轴旋转的角度
-
-	var Ax = Math.atan2((point2[2] - point1[2]), (point2[1] - point1[1])); //按照Y轴旋转的角度
-
-
-
-	el
-		.css("transform-origin", "0% 0%")
-		.css("position", "absolute") //左端作为原点
-		.css("left", "calc(" + $(selectorMe).css("width") + "/2 + " + point1[0] + unit + ")")
-		.css("top", "calc(" + $(selectorMe).css("height") + "/2 + " + point1[1] + unit + ")");
-
+	var Ay = Math.atan2((point2[2] - point1[2]), (point2[0] - point1[0]));
 
 	el.css("transform",
 		StringTools.New("")
 		.append("rotateZ(" + Az + "rad) ")
 		.append("rotateY(" + Ay + "rad) ")
-		.append("rotateX(" + Ax + "rad)")
+		.toString()
 	);
 
-	console.log("L=" + L + ";Az=" + Az / Math.PI * 180 + ";Ay=" + Ay / Math.PI * 180);
+	console.log("L=" + L + ";Az=" + Az / Math.PI * 180);
 	el.appendTo(selectorMe);
 
 }

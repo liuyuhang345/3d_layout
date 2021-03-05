@@ -50,7 +50,7 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 		// 设置模板线段的可设置属性
 		xianduan.css({
 			"height": height / Math.cos(Math.asin(moveY / r)) + util,
-			"width": width +2+ util,
+			"width": width + util,
 			"left": "calc(50% - " + width / 2 + util + ")", //居中
 			"background-size": 2 * Math.PI * lr + util + " " + 2 * r + util
 		});
@@ -58,24 +58,29 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 		// $(selectorMe).append(xianduan.clone());// for test
 		// 列循环
 		for (L = 0; L < lie; L++) {
-			for (i = 0; i < 2; i++) { //循环两次，实现上下两个半圆:i=0为下半个圆
+			for (i = 1; i < 2; i++) { //循环两次，实现上下两个半圆:i=0为下半个圆
 				var areaSmall = xianduan.clone();
 				var UP_DOWN = i == 0 ? " + " : " - ";
 				areaSmall.css({
 					"top": "calc(50% - " + height / 2 + util + UP_DOWN + moveY + util + ")",
 				});
 
+// console.log("calc(50% - " + height / 2 + util + UP_DOWN + moveY + util + ")")
 
 				// 每次沿着Y轴旋转的小度数
 				var rotateY = 360 / lie * L;
 				var bk_top = (i == 0 ? (0 - r - moveY) : (0 - r + moveY));
-
+				var rotateX = (i==0?0-Math.asin(moveY / r):Math.asin(moveY / r));
 				areaSmall.css({
 					"transform": "rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" 
-								+ "rotateX(" + (i==0?"-":" ")+ Math.asin(moveY / r) + "rad)",
+					 			+ "rotateX(" + rotateX + "rad)",
 					"background-position": 0 - width * L + util + " " + bk_top + util
 				});
 
+// console.log("rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" 
+// 								+ "rotateX(" + (i==0?"-":" ")+ Math.asin(moveY / r) + "rad)")
+								
+								
 				$(selectorMe).append(areaSmall);
 			}
 

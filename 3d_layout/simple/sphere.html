@@ -10,9 +10,9 @@
 <body>
 	<div class="full3d" style="overflow: hidden;">
 		
-		<div id="" class="qiu small-container">
-			
-		</div>
+		<div class="qiu small-container qiu1"></div>
+		
+		<div class ="qiu small-container qiu2"></div>
 		
 	</div>
 </body>
@@ -20,7 +20,10 @@
 
 <script type="text/javascript">
 	$(function(){
-		$sphere(".qiu","200","red","/3d_layout/img/bk3.jpg",30,15,"px");
-		$monitor("body,.full3d",".qiu","xy","rotate",".qiu");
+		$sphere(".qiu1","200","red","/3d_layout/img/map/map2.jpeg",10,10,"px");
+		$sphere(".qiu2","200","red","/3d_layout/img/bk3.jpg",10,10,"px");
+		$init3D(".qiu1","translateX(400px)");
+		
+		$monitor("body,.full3d",".qiu1","xy","rotate",".qiu");
 	})
 </script>

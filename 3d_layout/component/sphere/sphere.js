@@ -58,7 +58,7 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 		// $(selectorMe).append(xianduan.clone());// for test
 		// 列循环
 		for (L = 0; L < lie; L++) {
-			for (i = 1; i < 2; i++) { //循环两次，实现上下两个半圆:i=0为下半个圆
+			for (i = 0; i < 2; i++) { //循环两次，实现上下两个半圆:i=0为下半个圆
 				var areaSmall = xianduan.clone();
 				var UP_DOWN = i == 0 ? " + " : " - ";
 				areaSmall.css({

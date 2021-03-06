@@ -149,8 +149,10 @@
 				var ms1 = 'perspective(5cm) translateZ(6mm)';
 				var ms2 = 'perspective(5cm) translateZ(2mm)';
 				var ms3 = 'perspective(5cm) translateZ(2mm)';
-				$init3D(".button1,.button2,.button3", "perspective(10cm) translateZ(2mm)");
-				switchAxis(selectedObject_JQuery);
+				$init3D(".button1,.button2,.button3", "perspective(20cm) translateZ(2mm)");
+				
+				// switchAxis(selectedObject_JQuery);
+				
 				// 每秒自动转6度
 				window.setInterval(function() {
 					startAngle_sec += 6;
@@ -193,8 +195,11 @@
 						.clone()
 						.addClass("clk_"+Math.random().toString().replace(".", "-"))
 						.appendTo(".world");
-
-
+						
+						$init3D(nd,
+						"rotateY({0}deg) translateX({1}cm)"
+						.format()
+						);
 				}
 
 				$watch(".world,body", ".container-b:first", "z", "rotate", ".world>div");

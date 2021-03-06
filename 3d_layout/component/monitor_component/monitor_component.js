@@ -90,7 +90,7 @@ function $init3D(selectorMe, transform) {
 
 	$(selectorMe).each(function() {
 
-		$(".axis", selectedObject_JQuery).remove();
+		
 
 		// 内存持久化，此段代码违反一致性原则，修改的时候要小心
 		key = selectedObject_JQuery.attr("class");
@@ -107,6 +107,8 @@ function $init3D(selectorMe, transform) {
 
 		selectedObject_JQuery.css("transform", bh_tr_state);
 		$(selectedObject_JQuery).css("-webkit-transform", bh_tr_state);
+		
+		$(".axis", selectedObject_JQuery).remove();//不显示坐标轴
 	});
 
 

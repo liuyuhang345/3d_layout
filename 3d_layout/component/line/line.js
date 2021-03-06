@@ -24,33 +24,33 @@ function $line(selectorMe, point1, point2, color, width, unit) {
 	// 创建div，表示线条
 	var el = $("<div><div><div></div></div></div>");
 	el.appendTo(selectorMe);
-		
+
 	var mcss = {
 		"transform-origin": "0% 0% 0%",
 		"position": "absolute", //左端作为原点
-		"border":"1px green solid",
-		"width":"100%",
-		"height":"100%"
+		"border": "1px green solid",
+		"width": "100%",
+		"height": "100%"
 	};
 	// $("#lyh_rq_a,#lyh_rq_b,#lyh_line_1").css(mcss); 
 	el.css(mcss);
 	var el_z = el.children("div").css(mcss);
 	var el_y = el_z.children("div").css(mcss);
-	$cylinder(el_y,width/2+unit,L+unit,color,"",10,"3");
+	$cylinder(el_y, width / 2 + unit, L + unit, color, "", 10, "3");
 
 	var Az = Math.atan2((point2[1] - point1[1]), (point2[0] - point1[0])); //按照Z轴旋转的角度
 	var Ay = Math.atan2((point2[2] - point1[2]), (point2[0] - point1[0])); //按照Y轴旋转的角度
 
 	el_z.css("transform",
-	"rotateZ({0}rad)".format(Az)
+		"rotateZ({0}rad)".format(Az)
 	);
-	
+
 	el_y.css(
-	"transform",
-	"rotateY({0}rad)".format(Ay)
+		"transform",
+		"rotateY({0}rad)".format(Ay)
 	)
-	
-	
+
+
 	// console.log("L=" + L + ";Az=" + Az / Math.PI * 180);
-	
+
 }

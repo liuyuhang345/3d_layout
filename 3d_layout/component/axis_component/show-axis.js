@@ -33,7 +33,7 @@ function $show_axis_Ex(selector_JQuery) {
 
 	x = $("<div class='axis x-axis' style='" + axis + "background-image: url(" + ipath + "x-axis.PNG);'></div>");
 	y = $("<div class='axis y-axis' style='" + axis + "background-image: url(" + ipath +
-		"y-axis.PNG);transform: rotateZ(90deg);'></div>");                       
+		"y-axis.PNG);transform: rotateZ(90deg);'></div>");
 	z = $("<div class='axis z-axis' style='" + axis + "background-image: url(" + ipath +
 		"z-axis.PNG);transform: rotateY(-90deg);'></div>");
 

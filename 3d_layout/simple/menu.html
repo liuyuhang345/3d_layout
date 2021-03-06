@@ -6,35 +6,46 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>菜单</title>
 		<base href="../" />
-		
+
 		<script src="./component/web3D.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="world">
 
-			
+
 			<div class="ocean"></div>
-			
+
 			<div class="surface">
 				<div class="caidai"></div>
-				
-				<div class="menubar menu1"><p>冯婉容</p></div>
-				<div class="menubar menu2"><p>李兰兰</p></div>
-				<div class="menubar menu3"><p>雅菲</p></div>
-				<div class="menubar menu4"><p>张妃</p></div>
-				<div class="menubar menu5"><p>叶赫娜拉</p></div>
-				
-				
-				
+
+				<div class="menubar menu1">
+					<p>冯婉容</p>
+				</div>
+				<div class="menubar menu2">
+					<p>李兰兰</p>
+				</div>
+				<div class="menubar menu3">
+					<p>雅菲</p>
+				</div>
+				<div class="menubar menu4">
+					<p>张妃</p>
+				</div>
+				<div class="menubar menu5">
+					<p>叶赫娜拉</p>
+				</div>
+
+
+
 			</div>
 		</div>
 	</body>
 </html>
 
 <style type="text/css">
-	body{
+	body {
 		/* background-color: #000; */
 	}
+
 	.world {
 		position: absolute;
 		width: 100vw;
@@ -45,14 +56,15 @@
 		top: 0px;
 		overflow: hidden;
 	}
-	
-	.ocean{
+
+	.ocean {
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		background-size: 100% 100%;
 		background-image: url(./img/dongtu/bk8_d_2.GIF);
 	}
+
 	.surface {
 		position: absolute;
 		width: 60%;
@@ -64,70 +76,73 @@
 		/* transform: scale3d(1,1,1) translateX(-229px) translateY(-22px) scale3d(1,1,1) rotateY(31deg) translateX(-480px) translateY(-42px) scale3d(1,1,1); */
 		transform-style: preserve-3d;
 	}
-	
-	.menubar{
+
+	.menubar {
 		transform-origin: 50% 0px;
 		width: 2cm;
 		height: 5cm;
 		/* background-image: url(./img/label2.PNG); */
 		background-size: 100% 100%;
 		float: left;
-		
+
 		/* animation: go 3s infinite alternate linear; */
-		
-		 writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/
-		 writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
-		 text-align: center;
-		 font-size: 1.5rem;
-		 padding-right: 3.5rem;
-		 padding-top:2rem;
-		 font-family: 隶书;
-		 color:coral;
-		 text-shadow: 2px 2px 2px #000000;
+
+		writing-mode: vertical-lr;
+		/*从左向右 从右向左是 writing-mode: vertical-rl;*/
+		writing-mode: tb-lr;
+		/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+		text-align: center;
+		font-size: 1.5rem;
+		padding-right: 3.5rem;
+		padding-top: 2rem;
+		font-family: 隶书;
+		color: coral;
+		text-shadow: 2px 2px 2px #000000;
 	}
-	
-	@keyframes go{
-		from{
-			transform:    rotateX(30deg) rotateY(0deg);
+
+	@keyframes go {
+		from {
+			transform: rotateX(30deg) rotateY(0deg);
 		}
-		to{
-			transform:   rotateX(-30deg) rotateY(360deg);
+
+		to {
+			transform: rotateX(-30deg) rotateY(360deg);
 		}
 	}
-	
-	
-	.caidai{
-		top:-3cm;
+
+
+	.caidai {
+		top: -3cm;
 		position: absolute;
 		width: 50%;
 		left: 2%;
 		height: 3cm;
 		background-image: url(./img/caidai.PNG);
 		background-size: 100% 100%;
-		
+
 	}
-	
-	
 </style>
 
 <script type="text/javascript">
 	$(function() {
 		$monitor("body", ".surface", "y", "rotate", ".surface,.ocean");
-		
-		$cube(".menu1","2cm","10mm","5cm",
-		["./img/mucai/m13.jpeg","./img/mucai/m4.jpeg","./img/mucai/m3.jpeg","./img/meinv.PNG","./img/mucai/m22.jpeg","./img/mucai/m7.jpeg"],
-		0.9,3);
-		
-		$cube(".menu2","2cm","10mm","5cm",["./img/mucai/m5.jpeg","./img/mucai/m7.jpeg","./img/mucai/m14.jpeg"],0.5,3);
-		
-		$cube(".menu3","2cm","10mm","5cm",["./img/bk4.jpeg","./img/mucai/m11.jpg","./img/mucai/m23.jpeg"],0.5,3);
-		
-		$cube(".menu4","2cm","10mm","5cm",[""],0.5,3);
-		
-		$cube(".menu5","2cm","10mm","5cm",
-		["./img/mucai/m4.jpeg","./img/mucai/m3.jpeg","./img/window.PNG","./img/mucai/m11.jpg","./img/mucai/m22.jpeg","./img/mucai/m7.jpeg"]
-		,0.5,3);
-	})
-	
 
+		$cube(".menu1", "2cm", "10mm", "5cm",
+			["./img/mucai/m13.jpeg", "./img/mucai/m4.jpeg", "./img/mucai/m3.jpeg", "./img/meinv.PNG", "./img/mucai/m22.jpeg",
+				"./img/mucai/m7.jpeg"
+			],
+			0.9, 3);
+
+		$cube(".menu2", "2cm", "10mm", "5cm", ["./img/mucai/m5.jpeg", "./img/mucai/m7.jpeg", "./img/mucai/m14.jpeg"], 0.5,
+			3);
+
+		$cube(".menu3", "2cm", "10mm", "5cm", ["./img/bk4.jpeg", "./img/mucai/m11.jpg", "./img/mucai/m23.jpeg"], 0.5, 3);
+
+		$cube(".menu4", "2cm", "10mm", "5cm", [""], 0.5, 3);
+
+		$cube(".menu5", "2cm", "10mm", "5cm",
+			["./img/mucai/m4.jpeg", "./img/mucai/m3.jpeg", "./img/window.PNG", "./img/mucai/m11.jpg", "./img/mucai/m22.jpeg",
+				"./img/mucai/m7.jpeg"
+			], 0.5, 3);
+	})
 </script>

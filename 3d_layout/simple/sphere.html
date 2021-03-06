@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
-	<title>球</title>
-</head>
-<body>
-	<div class="full3d" style="overflow: hidden;">
-		
-		<div class="qiu small-container qiu1"></div>
-		
-		<div class ="qiu small-container qiu2"></div>
-		
-	</div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+		<title>球</title>
+	</head>
+	<body>
+		<div class="full3d" style="overflow: hidden;">
+
+			<div class="qiu small-container qiu1"></div>
+
+			<div class="qiu small-container qiu2"></div>
+
+		</div>
+	</body>
 </html>
 
 <script type="text/javascript">
-	$(function(){
-		$sphere(".qiu1","200","red","/3d_layout/img/map/map2.jpeg",10,10,"px");
-		$sphere(".qiu2","200","red","/3d_layout/img/bk3.jpg",10,10,"px");
-		$init3D(".qiu1","translateX(400px)");
-		
-		$monitor("body,.full3d",".qiu1","xy","rotate",".qiu");
+	$(function() {
+		$sphere(".qiu1", "200", "red", "/3d_layout/img/map/map2.jpeg", 10, 10, "px");
+		$sphere(".qiu2", "200", "red", "/3d_layout/img/bk3.jpg", 10, 10, "px");
+		$init3D(".qiu1", "translateX(400px)");
+
+		$monitor("body,.full3d", ".qiu1", "xy", "rotate", ".qiu");
 	})
 </script>

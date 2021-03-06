@@ -6,8 +6,8 @@
 
 
 // 支持选择器集合，每个选中的元素都变成圆柱
-function $cylinder(selectorMe, r, height, color, img, level, scaleModeNum){
-	$(selectorMe).each(function(c){
+function $cylinder(selectorMe, r, height, color, img, level, scaleModeNum) {
+	$(selectorMe).each(function(c) {
 		$cylinder_985665767($(this), r, height, color, img, level, scaleModeNum)
 	})
 }
@@ -18,7 +18,7 @@ function $cylinder_985665767(selectorMe, r, height, color, img, level, scaleMode
 	var div = $("<div></div>");
 
 	// 求图片在柱子上的展开模式
-	var modeNum = scaleModeNum || '3' ;
+	var modeNum = scaleModeNum || '3';
 	var mode = "";
 	switch (modeNum) {
 		case '1':
@@ -37,7 +37,7 @@ function $cylinder_985665767(selectorMe, r, height, color, img, level, scaleMode
 		"position": "absolute",
 		"width": StringTools.New("calc(2px + ").append(r).append("*").append(jxs).append(")").toString(),
 		"height": height,
-		"background-color": (img)?"transparent":color || "red",
+		"background-color": (img) ? "transparent" : color || "red",
 		"background-image": "url(" + img + ")",
 		"background-size": mode,
 		"left": StringTools.New("calc(50% - ").append(r).append("*").append(jxs).append("/2").append(")").toString(),
@@ -47,22 +47,22 @@ function $cylinder_985665767(selectorMe, r, height, color, img, level, scaleMode
 
 
 	$(selectorMe).css("transform-style", "preserve-3d");
-	$(selectorMe).addClass("cylinder_" + (Math.random() + "").replace(".", "_"));//增加一个用于选择的唯一class
-	
+	$(selectorMe).addClass("cylinder_" + (Math.random() + "").replace(".", "_")); //增加一个用于选择的唯一class
+
 	for (i = 0; i < parseInt(level); i++) {
 		var d = div.clone();
 		d.addClass("div_" + (Math.random() + "").replace(".", "_"));
 
-		
-		if((modeNum=='3') || (modeNum=='2')){
+
+		if ((modeNum == '3') || (modeNum == '2')) {
 			var mv = StringTools.New("calc(0px - ")
 				.append(r).append("*").append(jxs)
 				.append("*").append(i).append(")")
 				.append(" 0px").toString();
-			
+
 			d.css("background-position", mv);
 		}
-		
+
 
 		d.css("transform", "rotateY(" + 360 / level * i + "deg) translateZ(" + r + ")");
 		$(selectorMe).append(d);

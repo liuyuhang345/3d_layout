@@ -65,22 +65,22 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 					"top": "calc(50% - " + height / 2 + util + UP_DOWN + moveY + util + ")",
 				});
 
-// console.log("calc(50% - " + height / 2 + util + UP_DOWN + moveY + util + ")")
+				// console.log("calc(50% - " + height / 2 + util + UP_DOWN + moveY + util + ")")
 
 				// 每次沿着Y轴旋转的小度数
 				var rotateY = 360 / lie * L;
 				var bk_top = (i == 0 ? (0 - r - moveY) : (0 - r + moveY));
-				var rotateX = (i==0?0-Math.asin(moveY / r):Math.asin(moveY / r));
+				var rotateX = (i == 0 ? 0 - Math.asin(moveY / r) : Math.asin(moveY / r));
 				areaSmall.css({
-					"transform": "rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" 
-					 			+ "rotateX(" + rotateX + "rad)",
+					"transform": "rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" +
+						"rotateX(" + rotateX + "rad)",
 					"background-position": 0 - width * L + util + " " + bk_top + util
 				});
 
-// console.log("rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" 
-// 								+ "rotateX(" + (i==0?"-":" ")+ Math.asin(moveY / r) + "rad)")
-								
-								
+				// console.log("rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" 
+				// 								+ "rotateX(" + (i==0?"-":" ")+ Math.asin(moveY / r) + "rad)")
+
+
 				$(selectorMe).append(areaSmall);
 			}
 

@@ -30,152 +30,159 @@
 </html>
 
 <style type="text/css">
-	
-	.world>div{
+	.world>div {
 		position: absolute;
-		width:1cm;
+		width: 1cm;
 		height: 1cm;
-		left:calc(50% - 0.5cm);
-		top:calc(50% - 0.5cm);
+		left: calc(50% - 0.5cm);
+		top: calc(50% - 0.5cm);
 	}
-	
 
-	
-	.world>div{
+
+
+	.world>div {
 		position: absolute;
 	}
-	body{
+
+	body {
 		width: 100vw;
 		height: 100vh;
 		/* background-color: #000000; */
 		overflow: hidden;
 		/* background-image: url(./img/mucai/m19.jpeg); */
 	}
-	.cube,.flower1,.flower2 {
+
+	.cube,
+	.flower1,
+	.flower2 {
 		position: absolute;
 		width: 5cm;
 		height: 5cm;
 		left: calc(50% - 2.5cm);
 		top: calc(50% - 2.5cm);
 		background-size: 100% 100%;
-		
-		animation: cuberotate 20s infinite  linear;
+
+		animation: cuberotate 20s infinite linear;
 	}
-	
-	@keyframes cuberotate{
-		from{
+
+	@keyframes cuberotate {
+		from {
 			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 		}
-		to{
+
+		to {
 			transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
 		}
 	}
-	
-	.flower1{
+
+	.flower1 {
 		height: 3cm;
 		width: 3cm;
-		
+
 		background-image: url(./img/flowers/one2.PNG);
-		animation: flower1rotate 10s infinite linear ;
+		animation: flower1rotate 10s infinite linear;
 	}
-	
-	@keyframes flower1rotate{
-		from{
-			transform: rotateX(0deg) translateZ(10cm) ;
+
+	@keyframes flower1rotate {
+		from {
+			transform: rotateX(0deg) translateZ(10cm);
 		}
-		to{
-			transform: rotateX(-360deg) translateZ(10cm) ;
+
+		to {
+			transform: rotateX(-360deg) translateZ(10cm);
 		}
 	}
-	
-	.flower2{
+
+	.flower2 {
 		background-image: url(./img/flowers/one3.PNG);
-		animation: flower2rotate 10s infinite linear ;
+		animation: flower2rotate 10s infinite linear;
 	}
-	
-	@keyframes flower2rotate{
-		from{
-			transform: rotateY(0deg) translateZ(10cm) ;
+
+	@keyframes flower2rotate {
+		from {
+			transform: rotateY(0deg) translateZ(10cm);
 		}
-		to{
-			transform: rotateY(360deg) translateZ(10cm) ;
+
+		to {
+			transform: rotateY(360deg) translateZ(10cm);
 		}
 	}
-	
-	
-	.cylinder1{
+
+
+	.cylinder1 {
 		position: absolute;
-		
+
 		animation: cy1 5s infinite linear alternate;
 	}
-	
-	@keyframes cy1{
-		from{
-			transform: rotateY(0deg) translateY(10cm) ;
+
+	@keyframes cy1 {
+		from {
+			transform: rotateY(0deg) translateY(10cm);
 		}
-		to{
-			transform: rotateY(360deg) translateY(-10cm) ;
+
+		to {
+			transform: rotateY(360deg) translateY(-10cm);
 		}
 	}
-	
-	.cylinder2{
+
+	.cylinder2 {
 		animation: cy2 5s infinite linear alternate;
 	}
-	
-	@keyframes cy2{
-		from{
-			transform: rotateY(360deg) rotateX(45deg) translateY(-10cm)   ;
+
+	@keyframes cy2 {
+		from {
+			transform: rotateY(360deg) rotateX(45deg) translateY(-10cm);
 		}
-		to{
-			transform: rotateY(0deg)  rotateX(45deg) translateY(10cm)   ;
+
+		to {
+			transform: rotateY(0deg) rotateX(45deg) translateY(10cm);
 		}
 	}
-	
-	.cylinder3{
+
+	.cylinder3 {
 		animation: cy3 2s infinite linear alternate;
 	}
-	
-	@keyframes cy3{
-		from{
-			transform: rotateY(360deg)  translateY(-5cm)  ;
+
+	@keyframes cy3 {
+		from {
+			transform: rotateY(360deg) translateY(-5cm);
 		}
-		to{
-			transform: rotateY(0deg)  translateY(5cm) ;
+
+		to {
+			transform: rotateY(0deg) translateY(5cm);
 		}
 	}
-	
-
 </style>
 
 <script type="text/javascript">
 	$(function() {
-		$watch(".world",".cube","z","rotate",".world>div");
-		
+		$watch(".world", ".cube", "z", "rotate", ".world>div");
+
 		var imgs1 = [
-			"./img/flowers/h25.PNG", 
-			"./img/flowers/h18.PNG", 
+			"./img/flowers/h25.PNG",
+			"./img/flowers/h18.PNG",
 			"./img/flowers/h3.PNG",
 			"./img/flowers/h6.PNG",
-			"./img/flowers/h4.PNG", 
+			"./img/flowers/h4.PNG",
 			"./img/flowers/h17.PNG"
 		];
-		
+
 		var imgs2 = [
 			"./img/mucai/m13.jpeg",
-			"./img/mucai/m4.jpeg", 
+			"./img/mucai/m4.jpeg",
 			"./img/mucai/m3.jpeg",
 			"./img/meinv.PNG",
-			"./img/mucai/m22.jpeg", 
+			"./img/mucai/m22.jpeg",
 			"./img/mucai/m7.jpeg"
 		];
-		
-		$cube(".cube", "5cm", "5cm", "5cm",imgs1);
-		
-		
-		
-		$cylinder(".cylinder1","10cm","6cm","blue","/3d_layout/img/bk2.jpg",30);
-		$cylinder(".cylinder2","5cm","8cm","red","/3d_layout/img/mucai/m11.jpg",30);
-		$cylinder(".cylinder3","1cm","10cm","green","/3d_layout/img/mucai/m5.jpeg",30);
-		
+
+		$cube(".cube", "5cm", "5cm", "5cm", imgs1);
+
+
+
+		$cylinder(".cylinder1", "10cm", "6cm", "blue", "/3d_layout/img/bk2.jpg", 30);
+		$cylinder(".cylinder2", "5cm", "8cm", "red", "/3d_layout/img/mucai/m11.jpg", 30);
+		$cylinder(".cylinder3", "1cm", "10cm", "green", "/3d_layout/img/mucai/m5.jpeg", 30);
+
 	})
 </script>

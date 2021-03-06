@@ -8,54 +8,49 @@
 
 // 画3D空间中的直线：例如$line([2,3,10],[3,1,5],"#ff0000",2,"px")
 function $line(selectorMe, point1, point2, color, width, unit) {
-
-	var selectorMe = selectorMe || "body>div:first";
-
 	var unit = unit || "px";
 	var width = parseInt(width) || 1;
 	var color = color || "black";
 
-	var L = 0;
-	L = Math.pow(point1[0] - point2[0], 2) +
-		Math.pow(point1[1] - point2[1], 2) +
-		Math.pow(point1[2] - point2[2], 2);
-	L = Math.sqrt(L);
+	$(selectorMe).css("transform-style", "preserve-3d");
 
-	// 创建div，表示线条
-	var el = $("<div><div><div></div></div></div>");
-	el.appendTo(selectorMe);
+	// (x-x1)/(x-x2)＝(y-y1)/(y-y2)＝(z-z1)/(z-z2)
+
+
+	// (x－x1)/(x2－x1)＝(y－y1)/(y2－y1)＝(z－z1)/(z2－z1)
+	// 创建div，表示点
+	var point = $("<div></div>");
+
+
 
 	var mcss = {
-		// "transform-origin": "0% 0% 0%",
-		"transform-style": "perserve-3d",
 		"position": "absolute", //左端作为原点
-		"border": "1px green solid",
-		"width": "100%",
-		"height": "100%"
+		"background-color": color,
+		"width": width + unit,
+		"height": 3 + unit,
+		"left": "calc(50% - {0}{1}/2)".format(width, unit),
+		"top": "calc(50% - 0.5{0})".format(unit)
 	};
-	// $("#lyh_rq_a,#lyh_rq_b,#lyh_line_1").css(mcss); 
-	el.css(mcss);
-	var el_z = el.children("div").css(mcss);
-	var el_y = el_z.children("div").css(mcss);
-	$cylinder(el_y, width / 2 + unit, L + unit, color, "", 10, "3");
 
-	// var Az = - Math.atan2((point2[1] - point1[1]), (point2[0] - point1[0])); //按照Z轴旋转的角度
-	// var Ay = Math.atan2((point2[2] - point1[2]), (point2[0] - point1[0])); //按照Y轴旋转的角度
-	//   // alert(Az*180/Math.PI)
-	// el_z.css("transform",
-	// 	"rotateZ({0}rad)".format(Az)
-	// );
+	point.css(mcss);
 
-	// el_y.css(
-	// 	"transform",
-	// 	"rotateY({0}rad)".format(Ay)
-	// )
-	// el.css(
-	// 	"transform",
-	// 	"".add(
-	// 		"translate3d({0}{3},{1}{3},{2}{3})".format(point1[0], point1[1], point1[2], unit)
-	// 	)
-	// );
+	
+	for (x = point1[0]; x <= point2[0]; x++) {
+		var y = 0;
+		var z = 0;
+		if (point2[0] != point1[0]) {
+			a = (x - point1[0]) / (point2[0] - point1[0]);
+			y = a * (point2[1] - point1[1]) + point1[1];
+			z = a * (point2[2] - point1[2]) + point1[2];
 
+		} else {
+			y = point1[1];
+			z = point1[2];
+		}
+
+
+		point.clone().css("transform", "translate3d({0}{3},{1}{3},{2}{3})".format(x, y, z, unit)).appendTo(selectorMe);
+
+	}
 
 }

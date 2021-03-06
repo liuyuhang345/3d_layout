@@ -5,9 +5,9 @@
 		<title>画直线（注意：cylinder可以画有粗细的直线、画点，本例画平面直线）</title>
 		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
 	</head>
-	<body>
+	<body class="full3d">
 
-		<div class="full3d">
+		<div class="full3d world">
 
 			<div class="ctr small-container">
 
@@ -25,19 +25,24 @@
 		background-color: transparent;
 	}
 
-	.org {
+	/* .org {
 		position: absolute;
 		background-color: #121823;
 		width: 2cm;
 		height: 2cm;
 		left: calc(50% - 1cm);
 		top: calc(50% - 1cm);
-	}
+	} */
 </style>
 <script type="text/javascript">
-	(function() {
-		$line(".ctr", [20, 20, 0], [20, -500, 0], "red", "10", "px");
-		// $line(".ctr2", [0, 0, 0], [350, 350, 100], "blue", "1", "px");
+	$(function() {
+		$line(".ctr2", [0, 0, 0], [100, 0, 0], "red", "2", "px");
+		$line(".ctr2", [100, 0, 0], [100, 100, 100], "blue", "1", "px");
+		$line(".ctr2", [100, 100, 100], [0, 100, 0], "blue", "1", "px");
+		$line(".ctr2", [0, 100, 0], [0, 0, 0], "blue", "1", "px");
 		
-	})();
+		$watch(".world",".ctr2","xy","rotate",".ctr2");
+		$init3D(".ctr2","");
+		$show_axis(".ctr2");
+	});
 </script>

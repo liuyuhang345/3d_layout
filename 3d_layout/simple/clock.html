@@ -78,7 +78,7 @@
 		position: absolute;
 		text-align: left;
 		width: 100%;
-		right: 0px;
+		left: -30vw;
 	}
 
 
@@ -190,15 +190,15 @@
 
 				// 创建多个时钟
 				var nd = $(".container-b");
-				for (var i = 0; i < 3; i++) {
-						nd
-						.clone()
+				for (var i = 0; i < 10; i++) {
+						var tmp = 
+						nd.clone()
 						.addClass("clk_"+Math.random().toString().replace(".", "-"))
 						.appendTo(".world");
 						
-						$init3D(nd,
-						"rotateY({0}deg) translateX({1}cm)"
-						.format()
+						$init3D(tmp,
+						"rotateY({0}deg) translateZ({1}cm) rotateY(-{0}deg)"
+						.format(45,-(i+1)*20)
 						);
 				}
 

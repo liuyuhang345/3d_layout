@@ -56,6 +56,12 @@ var StringTools = {
 
 };
 
+/*
+此方法用于替代StringTools
+*/
+String.prototype.add=function(str){
+	return this+str;
+}
 
 
 // 用于组件开发中，求得当前被应用得js或css的路径
@@ -72,14 +78,7 @@ function getImportRootPath(js_css_filename) {
 }
 
 
-/*****************************************************************************************/
-// String.prototype.format方法，来自网友sky，在此表示感谢
-/**
- * 定义原生使用占位符的方法，格式化数据
- * @author sky
- * @date 2018-07-09
- * @returns {*}
- */
+// 实现占位符
 String.prototype.format = function () {
     // 数据长度为空，则直接返回
     if (arguments.length == 0){
@@ -89,10 +88,6 @@ String.prototype.format = function () {
     // 使用正则表达式，循环替换占位符数据
     for (var result = this, i = 0; i < arguments.length; i++){
         result = result.replace(new RegExp("\\{" + i + "\\}", "g"), arguments[i]);
-        return result;
     }
+	return result;
 };
-// String.prototype.format方法的版权声明
-// 版权声明：本文为CSDN博主「myzksky」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-// 原文链接：https://blog.csdn.net/myzksky/article/details/80967935
-/**************************************************************************************************/

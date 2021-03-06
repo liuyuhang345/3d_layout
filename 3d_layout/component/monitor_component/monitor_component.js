@@ -90,14 +90,17 @@ function $init3D(selectorMe, transform) {
 
 	$(selectorMe).each(function() {
 
+		if(selectedObject_JQuery && selectedObject_JQuery.get(0)){
+			$(".axis", selectedObject_JQuery).remove();//不显示坐标轴
+			
+			// 内存持久化，此段代码违反一致性原则，修改的时候要小心
+			key = selectedObject_JQuery.attr("class");
+			old_transform_data[key] = {
+				// 上次的变换
+				"bh_tr_state": bh_tr_state
+			};
+		}
 		
-
-		// 内存持久化，此段代码违反一致性原则，修改的时候要小心
-		key = selectedObject_JQuery.attr("class");
-		old_transform_data[key] = {
-			// 上次的变换
-			"bh_tr_state": bh_tr_state
-		};
 		// put_transform_data(selectedObject_JQuery);
 		selectedObject_JQuery = $(this);
 		// restore_transform_data(selectedObject_JQuery);
@@ -459,8 +462,8 @@ function cmdhHandle(e, cmd) {
 			"</div>")
 		.on("mousemove", function(e) {
 			e.stopPropagation(); //阻止事件继续传播
-			$(this).onmousemove();
-			return false;
+			// if (this && $(this) && $(this).onmousemove()) $(this).onmousemove();
+			// return false;
 		})
 		.appendTo("body>div:first")
 		.dialog({

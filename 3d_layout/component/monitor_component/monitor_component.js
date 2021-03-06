@@ -3,7 +3,6 @@
 // qq:578384498
 // date 1-28-2021
 // email:liuyuhang345@163.com
-
 // js组件，用于提供手动旋转元素的方法。使用格式如下：
 // $monitor(selectorMain,selectorObject,axis,isRotate) ，
 // 第一个参数是用于捕获鼠标坐标的元素；
@@ -92,22 +91,26 @@ function $init3D(selectorMe, transform) {
 
 		if(selectedObject_JQuery && selectedObject_JQuery.get(0)){
 			$(".axis", selectedObject_JQuery).remove();//不显示坐标轴
+			put_transform_data(selectedObject_JQuery);
 			
-			// 内存持久化，此段代码违反一致性原则，修改的时候要小心
-			key = selectedObject_JQuery.attr("class");
-			old_transform_data[key] = {
-				// 上次的变换
-				"bh_tr_state": bh_tr_state
-			};
 		}
 		
 		// put_transform_data(selectedObject_JQuery);
 		selectedObject_JQuery = $(this);
+		
+		// 内存持久化，此段代码违反一致性原则，修改的时候要小心
+		key = selectedObject_JQuery.attr("class");
+		old_transform_data[key] = {
+			// 上次的变换
+			"bh_tr_state": bh_tr_state
+		};
+		
 		// restore_transform_data(selectedObject_JQuery);
 		switchAxis($(selectedObject_JQuery));
 
 		bh_tr_state = transform;
-
+		bh_tr = transform;
+		
 		selectedObject_JQuery.css("transform", bh_tr_state);
 		$(selectedObject_JQuery).css("-webkit-transform", bh_tr_state);
 		

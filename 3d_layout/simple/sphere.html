@@ -20,10 +20,11 @@
 
 <script type="text/javascript">
 	$(function() {
+		$monitor("body,.full3d", ".qiu1", "xy", "rotate", ".qiu1,.qiu2");
 		$sphere(".qiu1", "200", "red", "/3d_layout/img/map/map2.jpeg", 10, 10, "px");
 		$sphere(".qiu2", "200", "red", "/3d_layout/img/bk3.jpg", 10, 10, "px");
 		$init3D(".qiu1", "translateX(400px)");
+		$init3D(".qiu2", "translateX(-274px)");
 
-		$monitor("body,.full3d", ".qiu1", "xy", "rotate", ".qiu");
 	})
 </script>

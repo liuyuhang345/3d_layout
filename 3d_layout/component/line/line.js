@@ -34,21 +34,38 @@ function $line(selectorMe, point1, point2, color, width, unit) {
 
 	point.css(mcss);
 
+
+	var dx = Math.abs(point2[0] - point1[0]);
+	var dy = Math.abs(point2[1] - point1[1]);
+	var dz = Math.abs(point2[2] - point1[2]);
+
+	var x = 0;
+	var y = 0;
+	var z = 0;
+
+	var maxindex = 0;
+	if (dx > dy && dx > dz) {
+		maxindex = 0;
+	} else if (dy > dx && dy > dz) {
+		maxindex = 1;
+	} else if (dz > dx && dz > dy) {
+		maxindex = 2;
+	} else { //全相等
+		x = point1[0];
+		y = point1[1];
+		z = point1[2];
+		point.clone().css("transform", "translate3d({0}{3},{1}{3},{2}{3})".format(x, y, z, unit)).appendTo(selectorMe);
+		return;
+	}
+
+	var start=Math.min(point1[maxindex],point2[maxindex]);
+	var end = Math.max(point1[maxindex],point2[maxindex]);
 	
-	for (x = point1[0]; x <= point2[0]; x++) {
-		var y = 0;
-		var z = 0;
-		if (point2[0] != point1[0]) {
-			a = (x - point1[0]) / (point2[0] - point1[0]);
+	for (i = start; i <= end ; i++) {
+		var a = (i - point1[maxindex]) / (point2[maxindex] - point1[maxindex]);
+			x = a * (point2[0] - point1[0]) + point1[0];
 			y = a * (point2[1] - point1[1]) + point1[1];
 			z = a * (point2[2] - point1[2]) + point1[2];
-
-		} else {
-			y = point1[1];
-			z = point1[2];
-		}
-
-
 		point.clone().css("transform", "translate3d({0}{3},{1}{3},{2}{3})".format(x, y, z, unit)).appendTo(selectorMe);
 
 	}

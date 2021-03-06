@@ -26,7 +26,8 @@ function $line(selectorMe, point1, point2, color, width, unit) {
 	el.appendTo(selectorMe);
 
 	var mcss = {
-		"transform-origin": "0% 0% 0%",
+		// "transform-origin": "0% 0% 0%",
+		"transform-style": "perserve-3d",
 		"position": "absolute", //左端作为原点
 		"border": "1px green solid",
 		"width": "100%",
@@ -38,19 +39,23 @@ function $line(selectorMe, point1, point2, color, width, unit) {
 	var el_y = el_z.children("div").css(mcss);
 	$cylinder(el_y, width / 2 + unit, L + unit, color, "", 10, "3");
 
-	var Az = Math.atan2((point2[1] - point1[1]), (point2[0] - point1[0])); //按照Z轴旋转的角度
-	var Ay = Math.atan2((point2[2] - point1[2]), (point2[0] - point1[0])); //按照Y轴旋转的角度
+	// var Az = - Math.atan2((point2[1] - point1[1]), (point2[0] - point1[0])); //按照Z轴旋转的角度
+	// var Ay = Math.atan2((point2[2] - point1[2]), (point2[0] - point1[0])); //按照Y轴旋转的角度
+	//   // alert(Az*180/Math.PI)
+	// el_z.css("transform",
+	// 	"rotateZ({0}rad)".format(Az)
+	// );
 
-	el_z.css("transform",
-		"rotateZ({0}rad)".format(Az)
-	);
+	// el_y.css(
+	// 	"transform",
+	// 	"rotateY({0}rad)".format(Ay)
+	// )
+	// el.css(
+	// 	"transform",
+	// 	"".add(
+	// 		"translate3d({0}{3},{1}{3},{2}{3})".format(point1[0], point1[1], point1[2], unit)
+	// 	)
+	// );
 
-	el_y.css(
-		"transform",
-		"rotateY({0}rad)".format(Ay)
-	)
-
-
-	// console.log("L=" + L + ";Az=" + Az / Math.PI * 180);
 
 }

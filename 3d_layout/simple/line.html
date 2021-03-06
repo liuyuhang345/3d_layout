@@ -28,15 +28,16 @@
 	.org {
 		position: absolute;
 		background-color: #121823;
-		width: 3mm;
-		height: 3mm;
-		left: calc(50% - 1.5mm);
-		top: calc(50% - 1.5mm);
+		width: 2cm;
+		height: 2cm;
+		left: calc(50% - 1cm);
+		top: calc(50% - 1cm);
 	}
 </style>
 <script type="text/javascript">
 	(function() {
-		$line(".ctr", [0, 0, 0], [15, 15, 15], "red", "1", "mm");
-		$line(".ctr2", [0, 0, 0], [35, 15, 25], "green", "1", "mm");
+		$line(".ctr", [20, 20, 0], [80, 180, 0], "red", "1", "px");
+		$line(".ctr2", [-100, 0, 0], [20, 20, 0], "blue", "1", "px");
+		
 	})();
 </script>

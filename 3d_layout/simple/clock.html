@@ -140,7 +140,7 @@
 		<script type="text/javascript">
 			var xishu = 10;
 			$(function() {
-				
+				$watch(".world,body", ".container-b:first", "z", "rotate", ".world>div");
 				// 
 				var startAngle_sec = 0; //秒
 				var startAngle_min = 0; //分钟
@@ -191,9 +191,9 @@
 				// 创建多个时钟
 				var nd = $(".container-b");
 				for (var i = 0; i < 10; i++) {
-						var tmp = 
-						nd.clone()
-						.addClass("clk_"+Math.random().toString().replace(".", "-"))
+						var tmp = nd.clone() ;
+						
+						tmp.addClass("clk_"+Math.random().toString().replace(".", "-"))
 						.appendTo(".world");
 						
 						$init3D(tmp,
@@ -201,8 +201,10 @@
 						.format(45,-(i+1)*20)
 						);
 				}
-
-				$watch(".world,body", ".container-b:first", "z", "rotate", ".world>div");
+				
+				
+				$watch(".world,body", "", "z", "rotate", ".world>div");
+				
 			})
 		</script>
 

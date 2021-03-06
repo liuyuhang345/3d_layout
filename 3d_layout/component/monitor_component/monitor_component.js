@@ -198,11 +198,19 @@ function switchAxis(jobj) {
 	}
 }
 
+// 重新设置3D变换的可选中对象
+function $set_3d_transform_Object(){
+	set_3d_transform_Object(input);
+	$($(global_objectSets).get(0)).dblclick();
+}
+
 // 给可被选择的3D对象，加上双击事件
 function set_3d_transform_Object(objectSets) {
 
-	$(global_objectSets).off("dblclick"); //取消原来的绑定事件,此条语句必须放在on语句之前，若放在之后：有可能解绑新的可选择对象：修复此bug
-
+	if($(global_objectSets)){
+		$(global_objectSets).off("dblclick"); //取消原来的绑定事件,此条语句必须放在on语句之前，若放在之后：有可能解绑新的可选择对象：修复此bug
+	}
+	
 	global_objectSets = objectSets; //设置新的可选对象
 
 

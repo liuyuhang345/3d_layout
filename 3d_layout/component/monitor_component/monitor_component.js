@@ -89,32 +89,32 @@ function $init3D(selectorMe, transform) {
 
 	$(selectorMe).each(function() {
 
-		if(selectedObject_JQuery && selectedObject_JQuery.get(0)){
-			$(".axis", selectedObject_JQuery).remove();//不显示坐标轴
+		if (selectedObject_JQuery && selectedObject_JQuery.get(0)) {
+			$(".axis", selectedObject_JQuery).remove(); //不显示坐标轴
 			put_transform_data(selectedObject_JQuery);
-			
+
 		}
-		
+
 		// put_transform_data(selectedObject_JQuery);
 		selectedObject_JQuery = $(this);
-		
+
 		// 内存持久化，此段代码违反一致性原则，修改的时候要小心
 		key = selectedObject_JQuery.attr("class");
 		old_transform_data[key] = {
 			// 上次的变换
 			"bh_tr_state": bh_tr_state
 		};
-		
+
 		// restore_transform_data(selectedObject_JQuery);
 		switchAxis($(selectedObject_JQuery));
 
 		bh_tr_state = transform;
 		bh_tr = transform;
-		
+
 		selectedObject_JQuery.css("transform", bh_tr_state);
 		$(selectedObject_JQuery).css("-webkit-transform", bh_tr_state);
-		
-		$(".axis", selectedObject_JQuery).remove();//不显示坐标轴
+
+		$(".axis", selectedObject_JQuery).remove(); //不显示坐标轴
 	});
 
 
@@ -202,7 +202,7 @@ function switchAxis(jobj) {
 }
 
 // 重新设置3D变换的可选中对象
-function $set_3d_transform_Object(){
+function $set_3d_transform_Object() {
 	set_3d_transform_Object(input);
 	$($(global_objectSets).get(0)).dblclick();
 }
@@ -210,10 +210,10 @@ function $set_3d_transform_Object(){
 // 给可被选择的3D对象，加上双击事件
 function set_3d_transform_Object(objectSets) {
 
-	if($(global_objectSets)){
+	if ($(global_objectSets)) {
 		$(global_objectSets).off("dblclick"); //取消原来的绑定事件,此条语句必须放在on语句之前，若放在之后：有可能解绑新的可选择对象：修复此bug
 	}
-	
+
 	global_objectSets = objectSets; //设置新的可选对象
 
 
@@ -238,62 +238,60 @@ function set_3d_transform_Object(objectSets) {
 function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 	selectedObject_JQuery = $(transformObject);
-	set_3d_transform_Object(objectSets);
-
 	setAction(action, transformObject);
 	setAxis(axis);
 
-
-
 	$(selectorMain).attr("tabindex", "0").focus().unbind()
-		.css("outline", "0px").on("touchmove",function(e){})
+		.css("outline", "0px").on("touchmove", function(e) {})
 		.on("mousemove touchmove", function(e) {
 			var touch = e.originalEvent.targetTouches;
 			var e = e;
-			if (touch){e = touch[0];}
-			if (y_8756875687 > -1 && x_87687686 > -1 && (mouseIsDown || touch) ) {
-				
-				if(mouseIsDown || touch){
-					
-				
-				dlt = (e.pageY - y_8756875687) + (e.pageX - x_87687686);
-				if (flag == 'x') { //旋转
-					if (act == 'rotate') {
-						xdeg = xdeg + dlt;
-					} else if (act == 'translate') { //平移
-						xpx_62882242 = xpx_62882242 + dlt;
-					} else {
-						sx = sx - dlt / 100;
-					}
+			if (touch) {
+				e = touch[0];
+			}
+			if (y_8756875687 > -1 && x_87687686 > -1 && (mouseIsDown || touch)) {
 
-				} else if (flag == 'y') {
-					if (act == 'rotate') {
-						ydeg = ydeg + dlt;
-					} else if (act == 'translate') {
-						ypx = ypx + dlt;
-					} else {
-						sy = sy - dlt / 100;
-					}
+				if (mouseIsDown || touch) {
 
-				} else if (flag == 'z') {
-					if (act == 'rotate') {
-						zdeg = zdeg + dlt;
-					} else if (act == 'translate') {
-						zpx_87687 = zpx_87687 + dlt;
-					} else {
-						sz = sz - dlt / 100;
-					}
 
-				} else {
-					if (act == 'rotate') {
-						xdeg = xdeg + (e.pageY - y_8756875687);
-						ydeg = ydeg + (e.pageX - x_87687686);
-					} else {
-						xpx_62882242 = xpx_62882242 + (e.pageX - x_87687686);
-						ypx = ypx + (e.pageY - y_8756875687);
-					}
+					dlt = (e.pageY - y_8756875687) + (e.pageX - x_87687686);
+					if (flag == 'x') { //旋转
+						if (act == 'rotate') {
+							xdeg = xdeg + dlt;
+						} else if (act == 'translate') { //平移
+							xpx_62882242 = xpx_62882242 + dlt;
+						} else {
+							sx = sx - dlt / 100;
+						}
 
-				}
+					} else if (flag == 'y') {
+						if (act == 'rotate') {
+							ydeg = ydeg + dlt;
+						} else if (act == 'translate') {
+							ypx = ypx + dlt;
+						} else {
+							sy = sy - dlt / 100;
+						}
+
+					} else if (flag == 'z') {
+						if (act == 'rotate') {
+							zdeg = zdeg + dlt;
+						} else if (act == 'translate') {
+							zpx_87687 = zpx_87687 + dlt;
+						} else {
+							sz = sz - dlt / 100;
+						}
+
+					} else {
+						if (act == 'rotate') {
+							xdeg = xdeg + (e.pageY - y_8756875687);
+							ydeg = ydeg + (e.pageX - x_87687686);
+						} else {
+							xpx_62882242 = xpx_62882242 + (e.pageX - x_87687686);
+							ypx = ypx + (e.pageY - y_8756875687);
+						}
+
+					}
 
 				}
 				bh_tr = bh_tr_state + " rotateX(" + xdeg + "deg) " +
@@ -395,13 +393,15 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 			}
 			return false; //终止事件冒泡，快捷键处理一次即可。如果冒泡，则可能处理多次。
 		})
+	set_3d_transform_Object(objectSets);//此语句必须放在最后执行，否则会被selectorMain给把事件处理程序删除
 }
 
 
-function help(e){
-	
-	$(".help_me_dialog_732").remove();//防止同时出现多个help对话框
-	$("<div style='position:static;'  title=''><iframe style='width:100%;height:100%;' src = '"+get_monitor_component_RootPath() + "README.html"+"'></iframe></div>")
+function help(e) {
+
+	$(".help_me_dialog_732").remove(); //防止同时出现多个help对话框
+	$("<div style='position:static;'  title=''><iframe style='width:100%;height:100%;' src = '" +
+			get_monitor_component_RootPath() + "README.html" + "'></iframe></div>")
 		.appendTo("body>div:first")
 		.on("mousemove", function() {
 			return false;
@@ -415,8 +415,8 @@ function help(e){
 			"transform": "translateZ(1cm)",
 			"padding": "1cm"
 		}).addClass("help_me_dialog_732");
-		
-		return false;
+
+	return false;
 }
 
 // 'g'快捷键处理函数，播放动画

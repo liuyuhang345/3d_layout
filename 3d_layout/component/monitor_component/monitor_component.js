@@ -246,9 +246,16 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 
 	$(selectorMain).attr("tabindex", "0").focus().unbind()
-		.css("outline", "0px")
-		.on("mousemove", function(e) {
-			if (y_8756875687 > -1 && x_87687686 > -1 && mouseIsDown) {
+		.css("outline", "0px").on("touchmove",function(e){})
+		.on("mousemove touchmove", function(e) {
+			var touch = e.originalEvent.targetTouches;
+			var e = e;
+			if (touch){e = touch[0];}
+			if (y_8756875687 > -1 && x_87687686 > -1 && (mouseIsDown || touch) ) {
+				
+				if(mouseIsDown || touch){
+					
+				
 				dlt = (e.pageY - y_8756875687) + (e.pageX - x_87687686);
 				if (flag == 'x') { //旋转
 					if (act == 'rotate') {
@@ -288,7 +295,7 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 				}
 
-
+				}
 				bh_tr = bh_tr_state + " rotateX(" + xdeg + "deg) " +
 					"rotateY(" + ydeg + "deg) " +
 					"rotateZ(" + zdeg + "deg) " +

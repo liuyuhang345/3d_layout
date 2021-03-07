@@ -66,22 +66,21 @@
 
 		// $watch(".desktop,.world", ".desktop", 'xy', "rotate", ".icon,.desktop");
 		var imgs1 = [
-			"./img/flowers/h25.PNG",
-			"./img/flowers/h18.PNG",
+			"1./img/flowers/h25.PNG",
+			"1./img/flowers/h18.PNG",
 			"1",
-			"./img/flowers/h6.PNG",
-			"./img/flowers/h4.PNG",
-			"./img/flowers/h17.PNG"
+			"./img/flowers/meinv.PNG",
+			"1./img/flowers/h4.PNG",
+			"1./img/flowers/h17.PNG"
 		];
 
 		// $cube(".icon:last","10vh","16vh","5.5vh",[""],'1',3);
-		// $cube(".icon","10vh","16vh","5.5vh",""imgs1"" ,'1',"0");
+		// $cube(".icon","10vh","16vh","5.5vh",imgs1 ,'1',"0");
 
 
 
 		$(".icon>div").click(function () {
 			$(this).parent().children("a").append($("<span id='sp123456'></span>")).children("span").click();
-			// $("#sp123456").click();
 			return false;
 		})
 

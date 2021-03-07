@@ -1,7 +1,7 @@
 body {
 	width: 100vw;
 	height: 100vh;
-	/* background-image: url(../img/heiban.PNG); */
+	background-image: url(../img/heiban.PNG);
 	background-color: black;
 	background-size: 100% 100%;
 	margin: 0px;
@@ -9,26 +9,22 @@ body {
 	overflow: hidden;
 }
 
-body ::before{
-	filter: blur(80px);
-}
+
 /* 全屏 vw vh 视口宽高分别为100vw\100vh*/
 .world {
 	perspective: 200cm;
 	transform-style: preserve-3d;
 	width: 100vw;
 	height: 100vh;
-
 	position: absolute;
 	left: 0px;
 	top: 0px;
-
 	outline: 0px;
 }
 
-* {
+/* * {
 	background-size: 100% 100%;
-}
+} */
 
 .desktop {
 	position: absolute;
@@ -58,7 +54,7 @@ body ::before{
 	margin-top: 5%;
 }
 .icon{
-	background-image: url(../img/mucai/zhujian.JPG);
+	/* background-image: url(../img/mucai/zhujian.JPG); */
 	background-size: 100% 100%;
 	width: 16vh;
 	height: 5vh;
@@ -67,10 +63,10 @@ body ::before{
 	line-height: 5vh;
 	text-align: center;
 	
-	font-size: 1.5rem;
+	font-size: 2rem;
 	font-family: 隶书;
-	color:white;
-	text-shadow: 3px 3px 6px #333;
+	/* color:white;
+	text-shadow: 1px 1px 1px #fff; */
 	transform-style: preserve-3d;
 		
 	/* animation: icon 5s infinite alternate; */
@@ -98,19 +94,17 @@ a{
 	/* animation: icon 3s infinite  alternate; */
 	}
 
-
-
-
 a:hover,.icon:hover>a{
 	color: limegreen;
 	text-shadow: 5px 5px 5px #000;
 	
 }
 
-a:link,a:active,a:visited{
-	color:black;
+a,a:link,a:active,a:visited{
+	color: #AAAAAA;
+	text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;
 	text-decoration: none;
-	/* transform: scaleY(1.5); */
+	/* transform: translateZ(2cm); */
 }
 
 .text {

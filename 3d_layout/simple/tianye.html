@@ -61,10 +61,12 @@
 		transform-style: preserve-3d;
 		width: 60%;
 		height: 60%;
-		background-image: url(../img/dimian/dimian4.jpeg);
+		/* background-image: url(../img/dimian/dimian4.jpeg); */
+		background-image: url(../img/bk2/bk9.jpeg);
 		background-size: 100% 100%;
 		left:20%;
 		top:20%;
+		
 	}
 </style>
 
@@ -72,7 +74,8 @@
 	$(function() {
 		$watch("body", ".room", "x", "rotate", ".room,.miao");
 		$init3D(".room", "rotateX(80deg)");
-
+// matrix3d(1.88, 0, 0, 0, 0, 0.288792, 4.12992, 0, 0, -1.30681, 0.091381, 0, 24, 346.896, -472.349, 1)
+//matrix3d(1.80945, -0.0310279, -0.0321353, 0, 0.0411814, -0.0419001, 2.35927, 0, -0.0178015, -1.01969, -0.0177987, 0, 6.84134, 391.881, 6.8403, 1)
 		var e = $(".miao").clone();
 
 		for (i = 0; i < 6; i++) {

@@ -392,8 +392,9 @@ function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 
 function help(e){
+	
 	$(".help_me_dialog_732").remove();//防止同时出现多个help对话框
-	$("<div style='position:static;'  title=''></div>").load(get_monitor_component_RootPath() + "README.txt")
+	$("<div style='position:static;'  title=''><iframe style='width:100%;height:100%;' src = '"+get_monitor_component_RootPath() + "README.html"+"'></iframe></div>")
 		.appendTo("body>div:first")
 		.on("mousemove", function() {
 			return false;
@@ -407,7 +408,6 @@ function help(e){
 			"transform": "translateZ(1cm)",
 			"padding": "1cm"
 		}).addClass("help_me_dialog_732");
-		
 		
 		return false;
 }

@@ -14,17 +14,19 @@
 
 			<div class="qiu small-container qiu2"></div>
 
+			<div class="qiu small-container qiu3"></div>
 		</div>
 	</body>
 </html>
 
 <script type="text/javascript">
 	$(function() {
-		$monitor("body,.full3d", ".qiu1", "xy", "rotate", ".qiu1,.qiu2");
-		$sphere(".qiu1", "200", "red", "../img/map/map2.jpeg", 10, 10, "px");
+		$monitor("body,.full3d", ".qiu1", "xy", "rotate", ".qiu1,.qiu2,.qiu3");
+		$sphere(".qiu1", "200", "red", "../img/map/map4.JPG", 10, 10, "px");
 		$sphere(".qiu2", "200", "red", "../img/bk3.jpg", 10, 10, "px");
-		$init3D(".qiu1", "translateX(400px)");
-		$init3D(".qiu2", "translateX(-274px)");
+		$sphere(".qiu3", "200", "red", "../img/map/map4.PNG", 10, 10, "px");
+		$init3D(".qiu1", "translateX(500px)");
+		$init3D(".qiu2", "translateX(-474px)");
 
 	})
 </script>

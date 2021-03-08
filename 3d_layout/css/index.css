@@ -1,7 +1,6 @@
 body {
 	width: 100vw;
 	height: 100vh;
-	background-image: url(../img/heiban.PNG);
 	background-color: black;
 	background-size: 100% 100%;
 	margin: 0px;
@@ -9,7 +8,9 @@ body {
 	overflow: hidden;
 }
 
-
+.bodybgi{
+	background-image: url(../img/heiban.PNG);
+}
 /* 全屏 vw vh 视口宽高分别为100vw\100vh*/
 .world {
 	perspective: 200cm;
@@ -118,13 +119,17 @@ a,a:link,a:active,a:visited{
 
 
 .color{
+	
 	position: absolute;
 	width: 5rem;
 	height: 5rem;
 	bottom: 5mm;
 	left: 1cm;
-	transform: translateZ(10vw);
-	background-image: url(../img/flowers/h16.PNG);
+	transform: translateZ(10cm);
+	border-radius: 50%;
+	background-color: red;
+	background-image: url(../img/flowers/h11.PNG);
+	background-size: 100% 100%;
 	
 }
 

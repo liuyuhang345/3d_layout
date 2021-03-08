@@ -39,7 +39,7 @@
 		</div>
 		<!-- 调整背景颜色的临时代码 -->
 		<div class="color" style="background-image: url(img/flowers/h19.PNG)"  onclick="document.querySelector('#color').dispatchEvent(getevt())">
-			<input type="color" id="color" value="red" >
+			<input type="color" id="color" value="#fff" >
 		</div>
 		<audio src="sound/6630.wav" id="ding"></audio>
 	</body>
@@ -93,7 +93,7 @@
 		$("#color").change(function(){
 			$("body").removeClass("bodybgi");
 			$('body').css('background-color',$('#color').val());
-		})
+		}).click(function(){$("body").removeClass("bodybgi");})
 	})
 	
 </script>

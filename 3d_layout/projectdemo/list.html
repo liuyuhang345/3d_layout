@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>商品售卖列表</title>
+	<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		body{
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			background-color: black;
+		}
+		.list{
+		}
+	</style>
+</head>
+<body>
+	<div class="full3d ctr">
+		<div class="list full_parent"></div>
+	</div>
+	
+</body>
+</html>
+
+<script type="text/javascript">
+	$(function(){
+		$cylinder(".list","30vw","30vh","transparent","",10,"3");
+		$init3D(".list","rotateY(3deg) translateZ(2017px) rotateY(-1842deg)");
+		$monitor("body",".list","y","rotate",".list");
+		var i = 0;
+		
+		$(".list>div").each(function(){
+			i++;
+			$("<div><div>").clone().css({
+				"background-image":"url({0})".format("../img/jiu/hj{0}.PNG".format(i)),
+				"background-size":"auto 100%",
+				"background-repeat":"no-repeat",
+				"width":"100%",
+				"height":"100%"
+			}).appendTo($(this));
+		})
+	})
+</script>

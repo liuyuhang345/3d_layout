@@ -76,7 +76,7 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, 
 
 
 
-	//设置背景图片
+	//设置背景图片 
 	if(!faces_api){//调用者没有提供6个面，即faces参数
 		if (imgs && imgs.join("-").replace(/-/g, '').length > 4) {
 			// if(imgs && imgs[0] && imgs[0].length>0){

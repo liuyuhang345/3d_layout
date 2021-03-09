@@ -35,6 +35,20 @@ $(function() {
 
 	});
 	
+// 用于组件开发中，求得当前被应用得js或css的路径
+function getImportRootPath(js_css_filename) {
+	var js = document.scripts || document.getElementsByTagName("script");
+	var jsPath;
+	for (var i = js.length; i > 0; i--) {
+		// if (js[i - 1].src.indexOf("import.js") > -1) {
+		if (js[i - 1].src.indexOf(js_css_filename) > -1) {
+			jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
+		}
+	}
+	return jsPath;
+}
+
+
 // 字符换追加工具，避免用加号连接变量带来的混乱，增加代码可读性
 var StringTools = {
 
@@ -64,20 +78,6 @@ String.prototype.add=function(str){
 }
 
 
-// 用于组件开发中，求得当前被应用得js或css的路径
-function getImportRootPath(js_css_filename) {
-	var js = document.scripts || document.getElementsByTagName("script");
-	var jsPath;
-	for (var i = js.length; i > 0; i--) {
-		// if (js[i - 1].src.indexOf("import.js") > -1) {
-		if (js[i - 1].src.indexOf(js_css_filename) > -1) {
-			jsPath = js[i - 1].src.substring(0, js[i - 1].src.lastIndexOf("/") + 1);
-		}
-	}
-	return jsPath;
-}
-
-
 // 实现占位符
 String.prototype.format = function () {
     // 数据长度为空，则直接返回
@@ -91,3 +91,29 @@ String.prototype.format = function () {
     }
 	return result;
 };
+
+
+// 进入全屏
+  function $launchFullscreen(element) {
+    if(element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if(element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullscreen) {
+		alert()
+      element.webkitRequestFullscreen();
+    } else if(element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+	
+  }
+  // 退出全屏
+  function $exitFullscreen() {
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if(document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if(document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }

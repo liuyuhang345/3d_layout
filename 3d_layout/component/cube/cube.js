@@ -13,7 +13,7 @@ function $cube(selectorMe, lenght, width, height, imgs, opacity, contextLocation
 }
 
 // 在selectorMe里面打造一个长方体，其长宽高度为参数lenght,width,height，六个面得图像列表为imgs数组，绝对路径（即"/"开头得路径） 。
-function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, contextLocation, faces) {
+function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, contextLocation, faces_api) {
 	var e = $(selectorMe);
 	e.css("transform-style", "preserve-3d");
 	e.addClass("cube" + (Math.random() + "").replace(/\./g, "_"));
@@ -22,7 +22,7 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, 
 
 	// 创建新的面模板
 	var face = $("<div></div>");
-	var faces = faces || [];
+	var faces = faces_api || [];
 
 	// 立方体的长宽高
 	var l = lenght;
@@ -77,7 +77,7 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, 
 
 
 	//设置背景图片
-	if(!faces){//调用者没有提供6个面，即faces参数
+	if(!faces_api){//调用者没有提供6个面，即faces参数
 		if (imgs && imgs.join("-").replace(/-/g, '').length > 4) {
 			// if(imgs && imgs[0] && imgs[0].length>0){
 			$(faces[0]).css("background-image", "url(" + (imgs[0] || '') + ")");

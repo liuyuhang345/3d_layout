@@ -50,6 +50,12 @@ body {
 	border: 1px solid #283446;
 }
 
+@media screen and (max-width:200px) {
+	.frame{
+		width: 100%;
+		
+	}
+}
 
 .icon:nth-child(1){
 	margin-top: 5%;

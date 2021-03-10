@@ -29,7 +29,7 @@ function $show_axis_Ex(selector_JQuery) {
 	y0 = to[1];
 
 	// 把坐标轴的外部样式改成行内样式，用于防止用户无意的设置干扰。
-	axis = 'position: absolute;	width: 20cm; height: 2cm;background-repeat: no-repeat;background-size: 100% 100%;'
+	axis = 'position: absolute;	width: 20cm; height: 2cm;background-color:transparent;background-repeat: no-repeat;background-size: 100% 100%;'
 
 	x = $("<div class='axis x-axis' style='" + axis + "background-image: url(" + ipath + "x-axis.PNG);'></div>");
 	y = $("<div class='axis y-axis' style='" + axis + "background-image: url(" + ipath +

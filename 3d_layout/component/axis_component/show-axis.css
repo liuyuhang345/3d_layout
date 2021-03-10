@@ -1,32 +1,43 @@
-.axis{
+.axis {
 	position: absolute;
-	
+
 	width: 20cm;
 	height: 1cm;
-	left:calc(50% - 10cm);
-	top:calc(50% - 0.5cm);
-	
+	left: calc(50% - 10cm);
+	top: calc(50% - 0.5cm);
+
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
 
-.x-axis{
-	
-	
+.x-axis {
 	background-image: url(x-axis.PNG);
-	
 }
 
-.y-axis{
-	
-	
+.x-axis::before{
+	content: 'x';
+	color:red;
+	position: absolute;
+	right: 1cm;
+}
+.y-axis {
 	background-image: url(y-axis.PNG);
 	transform: rotateZ(90deg);
 }
-
-.z-axis{
-	
+.y-axis::before{
+	content: 'y';
+	color:red;
+	position: absolute;
+	right: 1cm;
+}
+.z-axis {
 	background-image: url(z-axis.PNG);
 	transform: rotateY(-90deg);
-	
+
+}
+.z-axis::before{
+	content: 'z';
+	color:red;
+	position: absolute;
+	right: 1cm;
 }

@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>login</title>
-	<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>login</title>
+		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
 
-<style type="text/css">
-	.room>div{
-		position: absolute;
-		background-color: #0000FF;
-	}
-	
-</style>
-</head>
-<body>
-	<div class="world full3d">
-		<div class="room small-container">
-			<div class="face1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quo tempore commodi aspernatur molestias quas quisquam ipsam earum reprehenderit deserunt facilis corporis culpa quos provident ea id nihil rerum quaerat.<input type="text"></div>
-			<div class="face2">Consectetur eveniet assumenda animi alias necessitatibus error tempore quas exercitationem facere provident accusamus laborum sint odio cupiditate reprehenderit aspernatur dicta eaque in beatae repellat earum libero nam autem ipsum ut?<input type="text"></div>
-			<div class="face3">Temporibus dolor inventore labore reiciendis officiis nulla optio vero saepe praesentium possimus vel laborum? Consequatur odio quasi iure numquam ab tempora dolore laborum expedita delectus fugiat voluptates hic voluptatum veritatis?<input type="text"></div>
-			<div class="face4">Facere molestias ab ut nulla eveniet quas a voluptatem dolores maiores quasi voluptates officia praesentium sit. Dicta temporibus illum nemo nisi cupiditate sapiente quis repellat accusamus tenetur unde rem esse.<input type="text"></div>
-			<div class="face5">Fugit ad voluptates id ullam explicabo corporis aliquid possimus sint assumenda harum obcaecati provident rem dolores molestiae repellendus vitae recusandae nostrum minus iusto magni! Labore mollitia eveniet rerum pariatur ad.<input type="text"></div>
-			<div class="face6">Aperiam rem similique ex voluptatibus inventore doloremque velit alias totam consequatur amet facilis laborum cum quisquam quibusdam suscipit consequuntur libero nobis reiciendis fuga repudiandae iure nam saepe mollitia commodi voluptatem.<input type="text"></div>
+		<style type="text/css">
+			.room>div {
+				position: absolute;
+				background-color: #0000FF;
+			}
+			.room{
+				background-color: #FF0000;
+				border:1px red solid;
+			}
 			
+			.face6::after{
+				content: '123';
+				color:green;
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="world full3d">
+			<div class="room small-container">
+				<div class="face1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quo tempore commodi
+					aspernatur molestias quas quisquam ipsam earum reprehenderit deserunt facilis corporis culpa quos provident ea id
+					nihil rerum quaerat.<input type="text"></div>
+				<div class="face2">Consectetur eveniet assumenda animi alias necessitatibus error tempore quas exercitationem
+					facere provident accusamus laborum sint odio cupiditate reprehenderit aspernatur dicta eaque in beatae repellat
+					earum libero nam autem ipsum ut?<input type="text"></div>
+				<div class="face3">Temporibus dolor inventore labore reiciendis officiis nulla optio vero saepe praesentium
+					possimus vel laborum? Consequatur odio quasi iure numquam ab tempora dolore laborum expedita delectus fugiat
+					voluptates hic voluptatum veritatis?<input type="text"></div>
+				<div class="face4">Facere molestias ab ut nulla eveniet quas a voluptatem dolores maiores quasi voluptates officia
+					praesentium sit. Dicta temporibus illum nemo nisi cupiditate sapiente quis repellat accusamus tenetur unde rem
+					esse.<input type="text"></div>
+				<div class="face5">Fugit ad voluptates id ullam explicabo corporis aliquid possimus sint assumenda harum obcaecati
+					provident rem dolores molestiae repellendus vitae recusandae nostrum minus iusto magni! Labore mollitia eveniet
+					rerum pariatur ad.<input type="text"></div>
+				<p class="face6">apach.<input type="text"></p>
+
+			</div>
 		</div>
-	</div>
-</body>
+	</body>
 </html>
 
 <script type="text/javascript">
-	$cube(".room","30cm","10cm","10cm","",1,"0",[$(".face1"),$(".face2"),$(".face3"),$(".face4"),$(".face5"),$(".face6")])
+	
+	$(function(){
+		$monitor(".world",".room","y","rotate",".world>*");
+		$show_axis(".room");
+		$cube(".room", "30cm", "10cm", "10cm", "", 1, "0", [$(".face1"), $(".face2"), $(".face3"), $(".face4"), $(".face5"), $(
+			".face6")]);
+	})
+	
+	
 </script>

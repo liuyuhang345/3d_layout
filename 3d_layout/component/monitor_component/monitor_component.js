@@ -9,7 +9,7 @@
 // 第二个是被控制旋转的元素。两个参数都是jquery选择器;
 // 第三个参数，可以取如下四个值：'x'、'y'、'z'、其它值或省略此参数，分别代表允许的旋转或平移的方向：x、y、z和xy轴旋转。
 // 第四个参数，rotate表示旋转，translate表示平移	，其它值表示rotate	
-// 第四个参数，objectSets是鼠标双击的时候，可以切换过去的3D变换元素的选择器
+// 第五个参数，objectSets是鼠标双击的时候，可以切换过去的3D变换元素的选择器
 
 // 快捷键：
 // x,y,z切换变换的坐标轴；p切换到同时按照x、y轴进行变换
@@ -85,6 +85,12 @@ var global_objectSets = ''; //可选择的选择器集合,用于双击鼠标选�
 
 
 // API:用3D变换命令初始化selectorMe对象、覆盖上一次的设置
+/**
+ * @description 设置初始的3D变换矩阵或命令
+ * @param {Object} selectorMe CSS选择器或JQ对象
+ * @param {Object} transform 初始的变换值
+ * @example $init3D(".div003", "rotateY(30deg)")
+ */
 function $init3D(selectorMe, transform) {
 
 	$(selectorMe).each(function() {
@@ -120,6 +126,15 @@ function $init3D(selectorMe, transform) {
 
 }
 // API:此控件的API，参数见README
+
+/**
+ * @description 对3D对象进行可视化控制，此函数完全可以不去调用它：引入web3d.js之后，此函数已经被自动调用，可按下h或l快捷键查看帮助和定位需要控制的3D对象。
+ * @param {Object} selectorMain 捕获鼠标的元素，CSS选择器或JQ对象
+ * @param {Object} transformObject 设置当前的3D变换对象，CSS选择器或JQ对象，请保证唯一性
+ * @param {String} axis 变换围绕的坐标轴：x,y,z 或"xy"
+ * @param {Object} action 初始变换的动作（可通过快捷键改变它）："transform","rotate","scale"
+ * @param {Object} objectSets 允许通过鼠标双击选择的3D对象
+ */
 function $monitor(selectorMain, transformObject, axis, action, objectSets) {
 	return $watch(selectorMain, transformObject, axis, action, objectSets);
 }
@@ -235,6 +250,14 @@ function set_3d_transform_Object(objectSets) {
 }
 
 // 开启3d变换的鼠标联动
+/**
+ * @description 对3D对象进行可视化控制，此函数完全可以不去调用它：引入web3d.js之后，此函数已经被自动调用，可按下h或l快捷键查看帮助和定位需要控制的3D对象。
+ * @param {Object} selectorMain 捕获鼠标的元素，CSS选择器或JQ对象
+ * @param {Object} transformObject 设置当前的3D变换对象，CSS选择器或JQ对象，请保证唯一性
+ * @param {String} axis 变换围绕的坐标轴：x,y,z 或"xy"
+ * @param {Object} action 初始变换的动作（可通过快捷键改变它）："transform","rotate","scale"
+ * @param {Object} objectSets 允许通过鼠标双击选择的3D对象
+ */
 function $watch(selectorMain, transformObject, axis, action, objectSets) {
 
 	selectedObject_JQuery = $(transformObject);

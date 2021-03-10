@@ -79,6 +79,11 @@ String.prototype.add=function(str){
 
 
 // 实现占位符
+/**
+ * @description 在字符串中使用占位符{0}{1}......{n}
+ * @param {String,String，...，String} 可变数量的参数对应替换占位符{0}{1}......{n} 
+ * @example "rotateX({0}deg) rotateY({1}{2})".format(30,"25","rad") ,结果返回字符串"rotateX(30deg) rotateY(25rad)"
+ */
 String.prototype.format = function () {
     // 数据长度为空，则直接返回
     if (arguments.length == 0){

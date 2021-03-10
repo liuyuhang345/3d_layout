@@ -5,7 +5,17 @@
 // email:liuyuhang345@163.com
 
 
-
+/**
+ * @description 构建立方体
+ * @param {Object} selectorMe 立方体容器CSS或JQ选择器
+ * @param {String} lenght 长方体的长
+ * @param {String} width 长方体的宽
+ * @param {String} height 长方体的高度
+ * @param {Array}  imgs 6个面的图像路径组成的数组，可为""
+ * @param {number} opacity 透明度0~1
+ * @param {number} contextLocation 容器原有元素体显示的位置,0代表原位置,1~6代表立方体的六个面
+ * @param {Array}  faces 直接提供六个面的数组,数组的元素是CSS或JQ选择器指定的HTML元素.可省略.
+ */
 function $cube(selectorMe, lenght, width, height, imgs, opacity, contextLocation, faces) {
 	$(selectorMe).each(function() {
 		$cube__my67855688888($(this), lenght, width, height, imgs, opacity, contextLocation, faces);
@@ -22,8 +32,15 @@ function $cube__my67855688888(selectorMe, lenght, width, height, imgs, opacity, 
 
 	// 创建新的面模板
 	var face = $("<div></div>");
+	
 	var faces = faces_api || [];
-
+	if(faces_api && Array.isArray(faces_api)){
+		for(i =0 ; i<faces_api.length;i++ ){
+			faces[i] = $(faces_api[i]);
+		}
+	}
+	
+	
 	// 立方体的长宽高
 	var l = lenght;
 	var w = width;

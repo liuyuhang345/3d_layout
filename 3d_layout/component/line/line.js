@@ -6,7 +6,17 @@
 
 // 中间版本，开发中，未完
 
-// 画3D空间中的直线：例如$line([2,3,10],[3,1,5],"#ff0000",2,"px")
+
+/**
+ * @description  画3D空间中的线段.
+ * @param {Object} selectorMe 线段所在的容器，CSS选择器或JQ对象
+ * @param {Object} point1 起始点
+ * @param {Object} point2 结束点
+ * @param {Object} color 线段的颜色
+ * @param {Object} width 线段的宽度
+ * @param {Object} unit 坐标的刻度单位，省略此参数，默认为"px"
+ * @example 例如$line(".div002",[2,3,10],[3,1,5],"#ff0000",2,"px")
+ */
 function $line(selectorMe, point1, point2, color, width, unit) {
 	var unit = unit || "px";
 	var width = parseInt(width) || 1;

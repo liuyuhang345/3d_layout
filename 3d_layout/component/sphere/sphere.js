@@ -5,7 +5,19 @@
 // email:liuyuhang345@163.com
 // 也可以当圆柱组件使用，即当levelH=1 ,则为圆柱;圆柱那个单独的组件，可以删除了。
 
-// 支持选择器集合，每个选中的元素都变成圆柱
+// 支持选择器集合，每个选中的元素都变成圆球
+
+
+/**
+ * @description 建立球体
+ * @param {Object} selectorMe 用于建立球体的容器，CSS选择器或JQ对象
+ * @param {Object} r 半径
+ * @param {Object} color 颜色
+ * @param {Object} img 表面贴图
+ * @param {Object} levelW 球瓣的横向密度，正整数，建议设置在1~30以内
+ * @param {Object} levelH 球瓣的竖向密度，正整数，建议设置在1~30以内
+ * @param {Object} util 度量单位，默认"px"
+ */
 function $sphere(selectorMe, r, color, img, levelW, levelH, util) {
 	$(selectorMe).each(function(c) {
 		$sphere_985665767($(this), r, color, img, levelW, levelH, util);

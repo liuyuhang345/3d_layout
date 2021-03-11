@@ -39,7 +39,7 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 
 	xianduan.css({
 		"position": "absolute",
-		"background-color": "#" + parseInt(Math.random() * 1000),
+		// "background-color": "#" + parseInt(Math.random() * 1000),
 		"background-image": "url(" + img + ")",
 		"background-repeat": "no-repeat",
 		"background-size":"100% 100%",
@@ -49,7 +49,8 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 	// $(".full3d").append(xianduan.clone());// for test
 	// // return;
 	// 行循环，自赤道开始向上+向下，做半圆,2个
-	for (H = hang; H >= 0; H--) {
+	var count = 0;
+	for (H = hang; H > 0; H--) {
 
 		// 本行所占的Y轴高度
 		var height = r / hang;
@@ -87,16 +88,21 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 				var bk_top = (i == 0 ? (0 - r - moveY) : (0 - r + moveY));
 				var rotateX = (i == 0 ? 0 - Math.asin(moveY / r) : Math.asin(moveY / r));
 				areaSmall.css({
-					"transform": "rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" +
+					"transform": "rotateY(" + rotateY + "deg) translateZ(" + (lr) + util + ")" +
 						"rotateX(" + rotateX + "rad)",
 					"background-position": 0 - width * L + util + " " + bk_top + util
 				});
 
 				$(selectorMe).append(areaSmall);
+				
 				console.log(H+"-"+L+"-"+i+":"+rotateY+","+rotateX);
+				
 			}
+			count++;
 
 		}
+		
+		console.log("count:"+count);
 
 
 	}

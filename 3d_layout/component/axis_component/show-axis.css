@@ -15,30 +15,34 @@
 	background-image: url(x-axis.PNG);
 }
 
-.x-axis::before{
+.x-axis::before {
 	content: 'x';
-	color:red;
+	color: red;
 	position: absolute;
 	right: 1cm;
 }
+
 .y-axis {
 	background-image: url(y-axis.PNG);
 	transform: rotateZ(90deg);
 }
-.y-axis::before{
+
+.y-axis::before {
 	content: 'y';
-	color:red;
+	color: greenyellow;
 	position: absolute;
 	right: 1cm;
 }
+
 .z-axis {
 	background-image: url(z-axis.PNG);
 	transform: rotateY(-90deg);
 
 }
-.z-axis::before{
+
+.z-axis::before {
 	content: 'z';
-	color:red;
+	color: magenta;
 	position: absolute;
 	right: 1cm;
 }

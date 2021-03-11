@@ -25,7 +25,7 @@ function $show_axis(selector) {
 
 //为元素追加3D坐标轴，传入jquery对象
 function $show_axis_Ex(selector_JQuery, bk) {
-	var bk = bk || "-bk";
+	var bk = bk || "-2";
 	var to = selector_JQuery
 		.css("transform-style", "preserve-3d")
 		.css("transform-origin").split(" ");

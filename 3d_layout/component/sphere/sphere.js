@@ -39,11 +39,15 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 
 	xianduan.css({
 		"position": "absolute",
-		// "background-color": "#" + parseInt(Math.random() * 1000),
+		"background-color": "#" + parseInt(Math.random() * 1000),
 		"background-image": "url(" + img + ")",
 		"background-repeat": "no-repeat",
-		"overflow": "hidden"
+		"background-size":"100% 100%",
+		// "overflow": "hidden"
 	});
+	
+	// $(".full3d").append(xianduan.clone());// for test
+	// // return;
 	// 行循环，自赤道开始向上+向下，做半圆,2个
 	for (H = hang; H >= 0; H--) {
 
@@ -67,19 +71,18 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 			"background-size": 2 * Math.PI * lr + util + " " + 2 * r + util
 		});
 
-		// $(selectorMe).append(xianduan.clone());// for test
+		
 		// 列循环
 		for (L = 0; L < lie; L++) {
 			for (i = 0; i < 2; i++) { //循环两次，实现上下两个半圆:i=0为下半个圆
 				var areaSmall = xianduan.clone();
 				var UP_DOWN = i == 0 ? " + " : " - ";
+				
 				areaSmall.css({
 					"top": "calc(50% - " + height / 2 + util + UP_DOWN + moveY + util + ")",
 				});
 
-				// console.log("calc(50% - " + height / 2 + util + UP_DOWN + moveY + util + ")")
-
-				// 每次沿着Y轴旋转的小度数
+				// 列区块沿着Y轴旋转的小度数
 				var rotateY = 360 / lie * L;
 				var bk_top = (i == 0 ? (0 - r - moveY) : (0 - r + moveY));
 				var rotateX = (i == 0 ? 0 - Math.asin(moveY / r) : Math.asin(moveY / r));
@@ -89,11 +92,8 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 					"background-position": 0 - width * L + util + " " + bk_top + util
 				});
 
-				// console.log("rotateY(" + rotateY + "deg) translateZ(" + lr + util + ")" 
-				// 								+ "rotateX(" + (i==0?"-":" ")+ Math.asin(moveY / r) + "rad)")
-
-
 				$(selectorMe).append(areaSmall);
+				console.log(H+"-"+L+"-"+i+":"+rotateY+","+rotateX);
 			}
 
 		}

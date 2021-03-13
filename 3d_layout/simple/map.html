@@ -8,33 +8,9 @@
 
 
 		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+		<style>
 
-	</head>
-	<body onload="document.all.show.innerHTML=''">
-		<div id="show">
-			<p style="color:#0000FF;font-size:1cm;">加载中......</p>
-		</div>
-
-		<div class="world full3d ">
-			<div class="map">
-				<div class="mp"></div>
-				<!-- <img class="imga" src="../img/map/map2.jpeg" > -->
-			</div>
-
-			<div class="maplarge">
-				<div class="mpg"></div>
-				<!-- <img class="img2" src="../img/map/map2.jpeg" alt=""> -->
-			</div>
-		</div>
-
-	</body>
-
-
-</html>
-
-<style>
-
-	body{
+			body{
 		width: 100vw;
 		height: 100vh;
 		overflow: hidden;
@@ -49,7 +25,8 @@
 	.map,.maplarge{
 		background-image: url(../img/mucai/m14.jpeg);
 		background-size: 100% 100%;
-		padding: 1cm;
+		
+		padding: 5mm;
 		position: absolute;
 		width: 60%;
 		height: 60%;
@@ -59,7 +36,6 @@
 		
 		border-radius: 10%;
 		
-		/* box-sizing: border-box; */
 	}
 	.maplarge{
 		overflow: hidden;
@@ -101,25 +77,62 @@
 		
 		
 	}
+	
+	
 </style>
+<script type="text/javascript">
+		$("*").hide();
+		$("#show").css("display","block");
+</script>
+	</head>
+	<body onload="document.all.show.innerHTML=''">
+		<div id="show">
+			<p style="color:#0000FF;font-size:1cm;">加载中......</p>
+		</div>
+
+		<div class="world full3d ">
+			<div class="map small-container">
+				<div class="mp"></div>
+				<!-- <img class="imga" src="../img/map/map2.jpeg" > -->
+			</div>
+
+			<div class="maplarge">
+				<div class="mpg"></div>
+				<!-- <img class="img2" src="../img/map/map2.jpeg" alt=""> -->
+			</div>
+		</div>
+
+	</body>
+
+
+</html>
+
 
 <script type="text/javascript">
 	$(function() {
+
+
 		$watch(".world", ".map", "xy", "translate", ".world>div");
 		$init3D(".map", "translateX(473px) translateY(-283px)");
-
+		
 		var tsf =
 			'translateX(-303px) translateY(-156px) translateX(10px) translateY(142px) rotateY(54deg) translateX(123px) translateY(-35px) scale3d(1.6000000000000005,1.3600000000000003,1) rotateY(16deg) translateX(95px) scale3d(1.3400000000000003,0.97,1) rotateY(9deg) translateX(68px) translateZ(-86px) scale3d(1.2100000000000002,1,1)'
 		$init3D(".maplarge", tsf);
-		$(".map>div").on("mousemove", function(e) {
-			x = e.offsetX;
-			y = e.offsetY;
-			xlate = "calc(50% - " + x * 10 + "px)";
-			ylate = "calc(50% - " + y * 10 + "px)";
-			console.log(xlate + "," + ylate);
-			$(".maplarge>div").css({
-				"transform": "translateX(" + xlate + ") translateY(" + ylate + ")"
-			})
-		})
+		$(".map>div")
+			.on("mousemove", function(e) {
+				x = e.offsetX;
+				y = e.offsetY;
+				xlate = "calc(50% - " + x * 10 + "px)";
+				ylate = "calc(50% - " + y * 10 + "px)";
+				console.log(xlate + "," + ylate);
+				$(".maplarge>div").css({
+					"transform": "translateX(" + xlate + ") translateY(" + ylate + ")"
+				})
+			});
+			
+		
+			$("*").show();
+		
+		
 	})
 </script>

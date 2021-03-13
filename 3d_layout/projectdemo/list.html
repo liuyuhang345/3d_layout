@@ -15,6 +15,7 @@
 		}
 		.list{
 			animation: listr  35s infinite linear;
+			
 		}
 		
 		@keyframes listr{
@@ -25,12 +26,18 @@
 				transform:rotateY(3deg) translateZ(2017px) rotateY(-1842deg) rotateY(360deg);
 			}
 		}
+		
+		@media screen and (max-width:800px) {
+			#list div{
+				background-color: red;
+			}
+		}
 	</style>
 </head>
 <body>
 	<img src="" alt="">
 	<div class="full3d ctr">
-		<div class="list full_parent"></div>
+		<div id="list" class="list full_parent"></div>
 	</div>
 	
 </body>
@@ -44,15 +51,26 @@
 		$monitor("body",".list","y","rotate",".list");
 		var i = 0;
 		
+		// 把酒的图片append到圆柱体的各个面上
 		$(".list>div").each(function(){
 			i++;
-			$("<div><div>").clone().css({
+			$("<div><div>").clone()
+			.on("mouseover touchstart",function(){
+				console.log("mouseover");
+				$("#list").removeClass("list");
+			})
+			.on("mouseleave touchend",function(){
+				console.log("mouseleave");
+				$("#list").addClass("list");
+			})
+			.css({
 				"background-image":"url({0})".format("../img/jiu/hj{0}.PNG".format(i)),
 				"background-size":"auto 100%",
 				"background-repeat":"no-repeat",
 				"width":"100%",
 				"height":"100%"
 			}).appendTo($(this));
-		})
+		});
+		
 	})
 </script>

@@ -50,10 +50,12 @@ body {
 	border: 1px solid #283446;
 }
 
-@media screen and (max-width:200px) {
+@media screen and (max-width:800px) {
 	.frame{
 		width: 100%;
-		
+		left: 0px;
+		margin: 0px;
+		padding: 0px;
 	}
 }
 
@@ -64,19 +66,16 @@ body {
 	/* background-image: url(../img/mucai/zhujian.JPG); */
 	background-size: 100% 100%;
 	width: 16vh;
-	height: 5vh;
+	height: 4vh;
 	margin: 4vh;
 	margin-left: 5vh;
-	line-height: 5vh;
+	line-height: 4vh;
 	text-align: center;
 	
 	font-size: 2rem;
 	font-family: 隶书;
-	/* color:white;
-	text-shadow: 1px 1px 1px #fff; */
 	transform-style: preserve-3d;
 		
-	/* animation: icon 5s infinite alternate; */
 	
 }
 

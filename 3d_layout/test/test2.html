@@ -10,21 +10,32 @@
    
 </head>
 <body>
-    <div class="full3d">
-        <a href="www.baidu.com">111</a>
-		<a>222</a>
+    <div class="world full3d">
+       <div class="tmp">template</div>
     </div>
 </body>
 </html>
 <style>
 	
-	a{
-		content: attr(href);
-		background-color: 'red';
-		
+	.tmp{
+		position: absolute;
+		width: 5cm;
+		height: 5cm;
+		background-color: #0000FF;
 	}
 	
 </style>
+<script type="text/javascript">
+	$(function(){
+		for(i=0;i<10;i++){
+			
+			$(".world").append($(".tmp").clone());
+		}
+		alert();
+	})
+	
+</script>
+
 <script>
 	
 

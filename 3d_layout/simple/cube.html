@@ -7,6 +7,9 @@
 		<title>立方体</title>
 
 		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("*").hide();
+		</script>
 		<style>
 
 			body{
@@ -75,6 +78,7 @@
 			width:100%;
 			height: 100%;
 		}
+		
 	</style>
 
 	</head>
@@ -152,8 +156,9 @@
 		$init3D(".cubeA", "rotateX(30deg) translate3d(15cm,0cm,0cm)");
 		$init3D(".cubeC",
 			"translateX(-10cm) rotateX(-36deg) rotateY(-117deg) rotateY(173deg) translateX(2102px) translateY(2306px)");
-		// $(".cubeB").append('<img src="../img/rabbit.PNG" >');
 
+		$("*").show();
+		
 
 	})
 </script>

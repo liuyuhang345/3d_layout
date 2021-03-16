@@ -1,0 +1,97 @@
+.world,
+body {
+
+	width: 100vw;
+	height: 100vh;
+
+	position: absolute;
+	left: 0px;
+	top: 0px;
+
+	perspective: 100vw;
+	transform-style: preserve-3d;
+	outline: 0px;
+	overflow: hidden;
+
+}
+
+
+.container-a,
+.container-b {
+	width: 50%;
+	height: 50%;
+
+	position: absolute;
+	top: 25%;
+	left: 25%;
+
+}
+
+
+.container-b {
+	width: 30%;
+	height: 30%;
+	left: 35%;
+	top: 35%;
+	transform: translateZ(1px);
+}
+
+
+.qiang1 {
+	position: absolute;
+	background-image: url(../img/mucai/m22.jpeg);
+	background-size: 100% 100%;
+	transform-origin: 3cm 2cm;
+	width: 80%;
+	height: 80%;
+	left: 10%;
+	top: 10%;
+
+	font-size: 3em;
+	font-family: 隶书;
+	color: blue;
+}
+
+p {
+	writing-mode: vertical-rl;
+	font-size: 2rem;
+	font-family: 隶书;
+	color: #FF7F50;
+	transform: translateZ(3cm);
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+
+
+.socket,
+.button1 {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	left: calc(50% - 150px);
+	top: calc(50% - 150px);
+	border-radius: 50%;
+	/* 去掉一个小白点，无实际意义 */
+	background-size: 100% 100%;
+
+}
+
+
+
+.socket {
+	/* background-image: url(../img/rotate_button/socket3.PNG); */
+	background-image: url(../img/rotate_button/socket2.PNG);
+	/* background-image: url(../img/rotate_button/clock_socket.PNG); */
+	/* animation: rt 1s infinite linear;*/
+}
+
+.button1 {
+	/* background-image: url(../img/rotate_button/button3.PNG); */
+	background-image: url(../img/rotate_button/button2_1.PNG);
+	/* background-image: url(../img/rotate_button/clock_point1.PNG); */
+
+
+	/* animation: rt 10s infinite linear; */
+}

@@ -1,0 +1,11 @@
+body {
+	overflow: hidden;
+}
+
+.world>div {
+	position: absolute;
+	width: 1cm;
+	height: 1cm;
+	left: calc(50% - 0.5cm);
+	top: calc(50% - 0.5cm);
+}

@@ -1,5 +1,5 @@
 API:
-function $cylinder(selectorMe, r, height, color, img, level,scaleModeNum)
+$cylinder(selectorMe, r, height, color, img, level,scaleModeNum)
 
 selectorMe ,css选择器，在此元素上构建圆柱
 r 圆柱的半径

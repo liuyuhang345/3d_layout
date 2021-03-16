@@ -1,0 +1,27 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: black;
+}
+
+.list {
+	animation: listr 35s infinite linear forwards;
+
+}
+
+@keyframes listr {
+	from {
+		transform: rotateY(3deg) translateZ(2017px) rotateY(-1842deg) rotateY(0deg);
+	}
+
+	to {
+		transform: rotateY(3deg) translateZ(2017px) rotateY(-1842deg) rotateY(360deg);
+	}
+}
+
+@media screen and (max-width:800px) {
+	#list div {
+		background-color: red;
+	}
+}

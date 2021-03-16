@@ -7,6 +7,7 @@
 		<base href="../" target="" />
 
 		<title>旋转世界</title>
+		<link rel="stylesheet" href="./css/rotateworld.css">
 		<script src="./component/web3D.js" type="text/javascript" charset="utf-8"></script>
 
 	</head>
@@ -29,130 +30,6 @@
 	</body>
 </html>
 
-<style type="text/css">
-	.world>div {
-		position: absolute;
-		width: 1cm;
-		height: 1cm;
-		left: calc(50% - 0.5cm);
-		top: calc(50% - 0.5cm);
-	}
-
-
-
-	.world>div {
-		position: absolute;
-	}
-
-	body {
-		width: 100vw;
-		height: 100vh;
-		/* background-color: #000000; */
-		overflow: hidden;
-		/* background-image: url(./img/mucai/m19.jpeg); */
-	}
-
-	.cube,
-	.flower1,
-	.flower2 {
-		position: absolute;
-		width: 5cm;
-		height: 5cm;
-		left: calc(50% - 2.5cm);
-		top: calc(50% - 2.5cm);
-		background-size: 100% 100%;
-
-		animation: cuberotate 20s infinite linear;
-	}
-
-	@keyframes cuberotate {
-		from {
-			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-		}
-
-		to {
-			transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-		}
-	}
-
-	.flower1 {
-		height: 3cm;
-		width: 3cm;
-
-		background-image: url(./img/flowers/one2.PNG);
-		animation: flower1rotate 10s infinite linear;
-	}
-
-	@keyframes flower1rotate {
-		from {
-			transform: rotateX(0deg) translateZ(10cm);
-		}
-
-		to {
-			transform: rotateX(-360deg) translateZ(10cm);
-		}
-	}
-
-	.flower2 {
-		background-image: url(./img/flowers/one3.PNG);
-		animation: flower2rotate 10s infinite linear;
-	}
-
-	@keyframes flower2rotate {
-		from {
-			transform: rotateY(0deg) translateZ(10cm);
-		}
-
-		to {
-			transform: rotateY(360deg) translateZ(10cm);
-		}
-	}
-
-
-	.cylinder1 {
-		position: absolute;
-
-		animation: cy1 5s infinite linear alternate;
-	}
-
-	@keyframes cy1 {
-		from {
-			transform: rotateY(0deg) translateY(10cm);
-		}
-
-		to {
-			transform: rotateY(360deg) translateY(-10cm);
-		}
-	}
-
-	.cylinder2 {
-		animation: cy2 5s infinite linear alternate;
-	}
-
-	@keyframes cy2 {
-		from {
-			transform: rotateY(360deg) rotateX(45deg) translateY(-10cm);
-		}
-
-		to {
-			transform: rotateY(0deg) rotateX(45deg) translateY(10cm);
-		}
-	}
-
-	.cylinder3 {
-		animation: cy3 2s infinite linear alternate;
-	}
-
-	@keyframes cy3 {
-		from {
-			transform: rotateY(360deg) translateY(-5cm);
-		}
-
-		to {
-			transform: rotateY(0deg) translateY(5cm);
-		}
-	}
-</style>
 
 <script type="text/javascript">
 	$(function() {

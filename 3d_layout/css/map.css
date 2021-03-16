@@ -1,0 +1,72 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	/* background-color: black; */
+}
+
+.world {
+	background-size: 100% 100%;
+	outline: 0px;
+}
+
+.map,
+.maplarge {
+	background-image: url(../img/mucai/m14.jpeg);
+	background-size: 100% 100%;
+
+	padding: 5mm;
+	position: absolute;
+	width: 60%;
+	height: 60%;
+
+	left: 20%;
+	top: 20%;
+
+	border-radius: 10%;
+
+}
+
+.maplarge {
+	overflow: hidden;
+}
+
+.map>div,
+.maplarge>div {
+	position: absolute;
+	background-size: 100% 100%;
+	background-image: url(../img/map/map.jfif);
+}
+
+:root {
+	--w: 5208px;
+	--h: 3593px;
+
+	/* 缩小的倍数 */
+	--s: 10;
+}
+
+/* 小图 */
+.map,
+.map>div {
+
+	width: calc(var(--w)/var(--s));
+	height: calc(var(--h)/var(--s));
+	left: calc(50% - var(--w)/var(--s)/2);
+	top: calc(50% - var(--h)/var(--s)/2);
+
+}
+
+/* 大图 */
+.maplarge>div {
+	/* 设置宽高 */
+	width: var(--w);
+	height: var(--h);
+
+	/* 居中 */
+	left: calc(50% - var(--w)/2);
+	top: calc(50% - var(--h)/2);
+
+
+
+}

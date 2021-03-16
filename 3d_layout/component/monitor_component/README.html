@@ -3,9 +3,9 @@
 <h3>在网页中的使用方法</h3><hr>
 添加如下引用，即可。
 <xmp>
-<script src="<组件的路径>/component/import.js" type="text/javascript" charset="utf-8"></script>
+<script src="<组件的路径>/component/web3D.js" type="text/javascript" charset="utf-8"></script>
 或简写为：
-<script src="<组件的路径>/component/import.js"></script>
+<script src="<组件的路径>/component/web3D.js"></script>
 </xmp>
 <h3>快捷键</h3><hr>
 <br> l (location) ：设置可选择的3D对象，当前被选中的3D变换元素会切换到新选择器指明的第一个元素。具体操作：输入CSS选择器
@@ -22,10 +22,10 @@
 <br> c (command)：查看当前3D变换的transform的变换命令
 <br> e (edit)：<span>设置任意一个CSS属性值，请输入用竖线（|）作为分隔的2个参数（”css属性名 css属性值“或"选择器，json格式的CSS属性集合"）或三个参数（选择器，css属性名，css属性值）
 <br> 鼠标双击某元素，切换新的3D元素</span>
-
+<hr color="red">
 <h3>JavaScript API调用格式</h3>
 <hr>
- <h4> $watch(selectorMain, transformObject, axis, action, objectSets)<h4>
+ <h4> $watch(selectorMain, transformObject, axis, action, objectSets)  监视某3D对象，被监视的对象可以用鼠标对其进行可视化3D变换<h4>
  <br> selectorMain参数是用于捕获鼠标坐标的元素，CSS选择器；
  <br> transformObject是被控制变换的3D元素，CSS选择器;
  <br> axis参数，设定变换的坐标轴。可以取如下四个值：'x'、'y'、'z'、'xy',默认'xy'。
@@ -34,7 +34,70 @@
 <br> <h3>注意事项</h3>
 <br> 进行3D变换的时候，objectSets参数中，请尽量避免出现class属性值完全一致的情况，否则属性一致的元素会混淆“上一轮”的3D变换。
 <br> 被选择作为3D变换的对象的class值，必须是唯一的，不允许与其它元素的class值相等，但可以相交。 
+
+
 <hr>
-<h4>$init3D(selectorMe, transform)</h4>
+<h4>$init3D(selectorMe, transform) 3D对象初始化</h4>
 <br>selectorMe,被初始化对象的css选择器
 <br>transform,transform变换的值，3D命令集合
+
+<hr>
+<h4>$cube(selectorMe,lenght,width,height,imgs,opacity, contextLocation，faces)</h4>
+<br>
+<br>参数selectorMe是一个选择器，长方体将在此元素内部构建
+<br>参数lenght是立方体得长度
+<br>参数width是立方体得宽度
+<br>参数height是立方体的高度
+<br>参数imgs是一个数组，里面放着0~6个图像（顺序为 上、下、前、后、右、左）文件的路径，路径是以”/”开头的绝对路径或者以<base>设定的路径开头 ，填写空字符串或错误文件名，将缺失对应的面。
+<br>参数opacity是各个面的透明度
+<br>参数contextLocation是内容展现的那个面，取值0（放在原本的位置）或1~6（上、下、前、后、右、左）
+<br>参数faces是一个数组，里面包含1~6个css选择器或jquery对象.若提供此参数，则cube的6个面，由此参数决定。
+
+<hr>
+<h4>$cylinder(selectorMe, r, height, color, img, level,scaleModeNum) 创建空心的圆柱</h4>
+<br>selectorMe ,css选择器，在此元素上构建圆柱
+<br>r 圆柱的半径
+<br>height 圆柱的高度
+<br>color 圆柱的颜色
+<br>img 圆柱的表面贴图
+<br>lever 圆柱的扇面数（3~N）
+<br>scaleModeNum 贴图的伸展模式（1---level个贴图组成，2--- 少量的数个贴图，3---唯一一个贴图伸展铺满柱面），默认3 。
+
+
+<hr>
+<h4>$line(selectorMe, point1, point2, color, width, unit) 画空间直线</h4>
+
+<br>
+<br> 画3D空间中的线段.
+<br> selectorMe 线段所在的容器，CSS选择器或JQ对象
+<br> point1 起始点
+<br> point2 结束点
+<br> color 线段的颜色
+<br> width 线段的宽度
+<br> unit 坐标的刻度单位，省略此参数，默认为"px"
+<br> 例如 $line(".div002",[2,3,10],[3,1,5],"#ff0000",2,"px")
+
+<hr>
+<h4>$sphere(selectorMe, r, color, img, levelW, levelH, util) 创建空心球体</h4>
+
+<br> selectorMe 用于建立球体的容器，CSS选择器或JQ对象
+<br> r 半径
+<br> color 颜色
+<br> img 表面贴图
+<br> levelW 球瓣的横向密度，正整数，建议设置在1~30以内
+<br> levelH 球瓣的竖向密度，正整数，建议设置在1~30以内
+<br> util 度量单位，默认"px"
+
+<hr>
+<h4>$thickness(selector, px) 给容器元素（典型是div元素）增加厚度</h4>
+<br>selector是选择器
+<br>px是厚度（单位px）
+
+
+<hr>
+<h4>format(...) 扩展js字符串的新方法，实现占位符替换</h4>
+<br>例如：
+<br>"rotateX({0}deg) rotateY({1}{2})".format(30,"25","rad") ,结果返回字符串"rotateX(30deg) rotateY(25rad)"
+
+
+

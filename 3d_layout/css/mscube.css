@@ -1,0 +1,44 @@
+.world {
+	width: 100vw;
+	height: 100vh;
+
+	perspective: 100cm;
+	transform-style: preserve-3d;
+}
+
+.box,
+.test {
+	position: absolute;
+	transform-style: preserve-3d;
+	left: calc(50% - 5cm);
+	top: calc(50% - 5cm);
+	/* transform: rotate3d(1,1,0,60deg) translate3d(10cm,10cm,0cm); */
+}
+
+.box>div {
+	position: absolute;
+	width: 10cm;
+	height: 10cm;
+	opacity: 0.5;
+}
+
+
+.face1 {
+	transform: rotateY(0deg) translateZ(calc(5cm));
+	background-color: #0000FF;
+}
+
+.face2 {
+	transform: rotateY(90deg) translateZ(5cm);
+	background-color: #008000;
+}
+
+.face3 {
+	transform: rotateY(180deg) translateZ(5cm);
+	background-color: #121823;
+}
+
+.face4 {
+	transform: rotateY(270deg) translateZ(5cm);
+	background-color: red;
+}

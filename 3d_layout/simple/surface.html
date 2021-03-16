@@ -12,6 +12,7 @@
 
 		<link rel="stylesheet" href="css/switchbutton.css">
 		<link rel="stylesheet" type="text/css" href="./css/table.css" />
+		<link rel="stylesheet" href="./css/surface.css">
 		<script type="text/javascript">
 			$(function() {
 				$watch(".world,body", ".f3", "xy", "translate", ".world>div,.world");
@@ -21,100 +22,6 @@
 				
 			});
 		</script>
-
-		<style>
-			body {
-				margin: 0px;
-				padding: 0px;
-				width: 100vw;
-				height: 100vh;
-				/* background-image: url(img/xingkong2.jpeg); */
-				background-repeat: no-repeat;
-				background-size: 100% 100%;
-				overflow: hidden;
-				transform-style: preserve-3d;
-				/* perspective: 100px; */
-			}
-		
-			.world {
-				width: 100vw;
-				height: 100vh;
-				position: absolute;
-				left: 0px;
-				top: 0px;
-		
-				perspective: 100cm;
-				transform-style: preserve-3d;
-				outline: 0px;
-			}
-		
-		
-			.two,
-			.bk,
-			.f3 {
-				width: 40%;
-				height: 40%;
-		
-				position: absolute;
-				left: 30%;
-				top: 30%;
-		
-				background-size: 100% 100%;
-				
-			}
-			
-		
-			.bk {
-				background-image: url(./img/bk2/bk13.PNG);
-				/* transform-origin: 1cm 2cm; */
-			}
-		
-			.f3 {
-		
-				background-image: url(./img/dongtu/bk8_d.gif);
-			}
-		
-			.two {
-				background-image: url(./img/mucai/m16.jpeg);
-				
-			}
-		
-			img {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				left: 0px;
-				top: 0px;
-		
-			}
-		
-		
-		
-		
-		
-			video {
-				width: 100%;
-				height: 100%;
-				object-fit: fill;
-				position: absolute;
-				left: 0px;
-			}
-		
-		
-		
-			p {
-				color: white;
-				color: white;
-				font-family: 隶书;
-				font-size: 3rem;
-				text-shadow: 1px 1px 0vw rgba(255, 255, 255, 0.5);
-		
-			}
-			
-			table{
-				backface-visibility: hidden;
-			}
-		</style>
 
 
 	</head>

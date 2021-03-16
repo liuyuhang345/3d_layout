@@ -6,84 +6,13 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>立体地图</title>
 
-
+		<link rel="stylesheet" href="../css/map.css">
 		<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
-		<style>
-
-			body{
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-		/* background-color: black; */
-	}
-	.world{
-		background-size: 100% 100%;
-		outline: 0px;
-		
-		
-	}
-	.map,.maplarge{
-		background-image: url(../img/mucai/m14.jpeg);
-		background-size: 100% 100%;
-		
-		padding: 5mm;
-		position: absolute;
-		width: 60%;
-		height: 60%;
-		
-		left: 20%;
-		top:20%;
-		
-		border-radius: 10%;
-		
-	}
-	.maplarge{
-		overflow: hidden;
-	}
-	.map>div,.maplarge>div{
-		position: absolute;
-		background-size: 100% 100%;
-		background-image: url(../img/map/map.jfif);
-	}
 	
-	:root{
-		--w:5208px;
-		--h:3593px;
-		
-		/* 缩小的倍数 */
-		--s:10;
-	}
-	
-	/* 小图 */
-	.map,.map>div{
-		
-		width: calc(var(--w)/var(--s));
-		height: calc(var(--h)/var(--s));
-		left: calc(50% - var(--w)/var(--s)/2);
-		top:calc(50% - var(--h)/var(--s)/2);
-		
-	}
-	
-	/* 大图 */
-	.maplarge>div{
-		/* 设置宽高 */
-		width: var(--w);
-		height: var(--h);
-		
-		/* 居中 */
-		left: calc(50% - var(--w)/2);
-		top:calc(50% - var(--h)/2);
-		
-		
-		
-	}
-	
-	
-</style>
-<script type="text/javascript">
-		$("*").hide();
-		$("#show").css("display","block");
-</script>
+		<script type="text/javascript">
+			$("*").hide();
+			$("#show").css("display", "block");
+		</script>
 	</head>
 	<body onload="document.all.show.innerHTML=''">
 		<div id="show">
@@ -114,7 +43,7 @@
 
 		$watch(".world", ".map", "xy", "translate", ".world>div");
 		$init3D(".map", "translateX(473px) translateY(-283px)");
-		
+
 		var tsf =
 			'translateX(-303px) translateY(-156px) translateX(10px) translateY(142px) rotateY(54deg) translateX(123px) translateY(-35px) scale3d(1.6000000000000005,1.3600000000000003,1) rotateY(16deg) translateX(95px) scale3d(1.3400000000000003,0.97,1) rotateY(9deg) translateX(68px) translateZ(-86px) scale3d(1.2100000000000002,1,1)'
 		$init3D(".maplarge", tsf);
@@ -129,10 +58,10 @@
 					"transform": "translateX(" + xlate + ") translateY(" + ylate + ")"
 				})
 			});
-			
-		
-			$("*").show();
-		
-		
+
+
+		$("*").show();
+
+
 	})
 </script>

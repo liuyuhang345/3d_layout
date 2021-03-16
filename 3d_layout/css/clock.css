@@ -1,0 +1,123 @@
+.world {
+	outline: 0px;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background-image: url(../img/xingkong1.jpeg);
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+
+.world,
+body {
+
+	width: 100vw;
+	height: 100vh;
+
+	position: absolute;
+	left: 0px;
+	top: 0px;
+
+	perspective: 100vw;
+	transform-style: preserve-3d;
+
+	/* background-color: rgba(200,200,50,1); */
+
+}
+
+.container-a,
+.container-b {
+	width: 2%;
+	height: 2%;
+
+	position: absolute;
+	top: 49%;
+	left: 49%;
+
+	transform-style: preserve-3d;
+}
+
+
+.qiang1 {
+	position: absolute;
+	background-size: 100% 100%;
+
+	transform-origin: 3cm 2cm;
+	width: 100%;
+	height: 100%;
+	right: 0%;
+	top: 10%;
+
+	font-size: 3em;
+	font-family: 隶书;
+	color: blue;
+
+}
+
+p {
+	margin: 1rem;
+	/* writing-mode: vertical-lr; */
+	font-size: 2rem;
+	font-family: 隶书;
+	color: #666;
+	text-shadow: 5px 5px 5px black;
+	transform: translateZ(3cm);
+	position: absolute;
+	text-align: left;
+	width: 100%;
+	left: -30vw;
+	top: -30vh;
+}
+
+
+.socket,
+.button1,
+.button2,
+.button3 {
+	width: 10cm;
+	height: 10cm;
+	position: absolute;
+	left: calc(50% - 5cm);
+	top: calc(50% - 5cm);
+	background-size: 100% 100%;
+
+}
+
+
+
+/* 钟表盘 */
+.socket {
+	/* background-image: url(../img/rotate_button/socket3.PNG); */
+	/* background-image: url(../img/rotate_button/socket2.PNG); */
+	background-image: url(../img/rotate_button/clock_socket.PNG);
+}
+
+/* 秒针 */
+.button1 {
+	/* background-image: url(../img/rotate_button/button3.PNG); */
+	/* background-image: url(../img/rotate_button/button2_1.PNG); */
+	background-image: url(../img/rotate_button/clock_point1.PNG);
+}
+
+/* 分钟指针 */
+.button2 {
+	/* background-image: url(../img/rotate_button/button3.PNG); */
+	/* background-image: url(../img/rotate_button/button2_1.PNG); */
+	background-image: url(../img/rotate_button/clock_point2.PNG);
+}
+
+/* 时针 */
+.button3 {
+	/* background-image: url(../img/rotate_button/button3.PNG); */
+	/* background-image: url(../img/rotate_button/button2_1.PNG); */
+	background-image: url(../img/rotate_button/clock_point3.PNG);
+}
+
+.world>img {
+	position: absolute;
+	right: 2%;
+	bottom: 2%;
+	width: 10cm;
+}

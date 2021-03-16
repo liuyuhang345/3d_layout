@@ -4,35 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>商品售卖列表</title>
+	<title>紅酒列表</title>
+	<link rel="stylesheet" href="list.css">
 	<script src="../component/web3D.js" type="text/javascript" charset="utf-8"></script>
-	<style>
-		body{
-			width: 100vw;
-			height: 100vh;
-			overflow: hidden;
-			background-color: black;
-		}
-		.list{
-			animation: listr  35s infinite linear;
-			
-		}
-		
-		@keyframes listr{
-			from{
-				transform:rotateY(3deg) translateZ(2017px) rotateY(-1842deg) rotateY(0deg);
-			}
-			to{
-				transform:rotateY(3deg) translateZ(2017px) rotateY(-1842deg) rotateY(360deg);
-			}
-		}
-		
-		@media screen and (max-width:800px) {
-			#list div{
-				background-color: red;
-			}
-		}
-	</style>
+
 </head>
 <body>
 	<img src="" alt="">
@@ -57,11 +32,13 @@
 			$("<div><div>").clone()
 			.on("mouseover touchstart",function(){
 				console.log("mouseover");
-				$("#list").removeClass("list");
+				// $("#list").removeClass("list");
+				$("#list").css("animation-play-state","paused");
 			})
 			.on("mouseleave touchend",function(){
 				console.log("mouseleave");
-				$("#list").addClass("list");
+				// $("#list").addClass("list");
+				$("#list").css("animation-play-state","running");
 			})
 			.css({
 				"background-image":"url({0})".format("../img/jiu/hj{0}.PNG".format(i)),

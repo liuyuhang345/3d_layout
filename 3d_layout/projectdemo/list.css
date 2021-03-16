@@ -21,7 +21,13 @@ body {
 }
 
 @media screen and (max-width:800px) {
-	#list div {
-		background-color: red;
+	@keyframes listr {
+		from {
+			transform: rotateY(3deg)  rotateY(0deg);
+		}
+	
+		to {
+			transform: rotateY(3deg)  rotateY(360deg);
+		}
 	}
 }

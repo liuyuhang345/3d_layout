@@ -50,14 +50,7 @@ body {
 	border: 1px solid #283446;
 }
 
-@media screen and (max-width:800px) {
-	.frame{
-		width: 60%;
-		left: 40%;
-		margin: 0px;
-		padding: 0px;
-	}
-}
+
 
 .icon:nth-child(1){
 	margin-top: 5%;
@@ -148,4 +141,24 @@ input{
 	border: 0px;
 	background-color: transparent;
 	display: none;
+}
+
+@media screen and (max-width:800px) {
+	.frame{
+		width: 80%;
+		left: 16 %;
+		margin: 0px;
+		padding: 0px;
+	}
+	.icon a{
+		
+		font-size: 0.8rem;
+		
+	}
+	.icon{
+		height: 2vh;
+		width: 16vw;
+		margin: 0vh;
+		margin-bottom: 2vh;
+		}
 }

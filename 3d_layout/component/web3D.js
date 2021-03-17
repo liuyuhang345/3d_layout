@@ -1,6 +1,7 @@
 var ipath = getImportRootPath_89866("web3D.js");
 
 var sc = '<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>';
+sc += '<script src="' + ipath + 'prefixfree.js"></script>';
 sc += '<script src="' + ipath + '/tools/tools.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="' + ipath + '/axis_component/show-axis.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="' + ipath +
@@ -11,11 +12,10 @@ sc += '<script src="' + ipath + '/cylinder/cylinder.js" type="text/javascript" c
 sc += '<script src="' + ipath + '/line/line.js" type="text/javascript" charset="utf-8"></script>';
 sc += '<script src="' + ipath + '/sphere/sphere.js" type="text/javascript" charset="utf-8"></script>';
 
-sc += '<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>';
 sc += '<link rel="stylesheet" type="text/css" href="' + ipath + '/d3d.css" />'
 document.write(sc);
 
-// 用于组件开发中，求得当前被应用得js或css的路径
+// 用于组件开发中，求得当前引用的js或css所在的真实路径
 function getImportRootPath_89866(js_css_filename) {
 	var js = document.scripts || document.getElementsByTagName("script");
 	var jsPath;

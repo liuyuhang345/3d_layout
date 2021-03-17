@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ceshi</title>
-    <script src="../component/web3D.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>ceshi</title>
+		<!-- <script src="../component/web3D.js"></script>
     <script src="../component/monitor_component/monitor_component.js"></script>
-   
-</head>
-<body>
-    <div class="world full3d">
-       <div class="tmp">template</div>
-    </div>
-</body>
+	 -->
+		<script>
+			for (var i = 0; i < 10; i++) {
+				document.write(i);
+				document.write("<br>");
+			}
+
+			var x = 8;
+			while(x>5){
+				x--;
+				document.write("x=" + x + "<br>");
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<div class="world full3d">
+			<div class="tmp">template</div>
+		</div>
+	</body>
 </html>
 <style>
-	
-	.tmp{
+
+	/* .tmp{
 		position: absolute;
 		width: 5cm;
 		height: 5cm;
 		background-color: #0000FF;
-	}
+	} */
 	
 </style>
 <script type="text/javascript">
-	$(function(){
-		for(i=0;i<10;i++){
-			
+	$(function() {
+
+		var x = 10;
+		var y = "abc123";
+		var names = ["张三", "李四", "王五"];
+		var person = {
+			"name": "张三",
+			"age": "18",
+			"address": "北京海淀"
+		};
+
+		for (i = 0; i < 10; i++) {
+
 			$(".world").append($(".tmp").clone());
 		}
-		alert();
 	})
-	
 </script>
 
 <script>
-	
+	$(function() {
 
-$(function(){
-    
-})
-
-
+	})
 </script>

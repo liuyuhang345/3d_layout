@@ -24,7 +24,7 @@ function $sphere(selectorMe, r, color, img, levelW, levelH, util) {
 	})
 }
 
-// 单个选择器选中的元素变成圆柱
+// 单个选择器选中的元素变成圆球
 function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 
 	var hang = levelH || 10;
@@ -55,7 +55,7 @@ function $sphere_985665767(selectorMe, r, color, img, levelW, levelH, util) {
 		// 本行所占的Y轴高度
 		var height = r / hang;
 
-		// 求本行位移，自赤道开始向上
+		// 求本行位移，自赤道开始
 		var moveY = (hang - H) * height;
 		// 求本行的半径
 		var lr = r * Math.cos(Math.asin(moveY / r));

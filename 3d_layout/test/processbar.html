@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<style>
+			.p-bar,.p-bk {
+				height: 1mm;
+				width:80%;
+				position: absolute;
+				left: 10%;
+				top: calc(50% - 0.5mm);
+				background-color: red;
+				
+			}
+			.p-bk{
+				background-color: #0000FF;
+			}
+			
+			.p-bar{
+				animation: 5s pb linear forwards;
+			}
+
+			@keyframes pb {
+				from {
+					width: 0mm;
+				}
+
+				to {
+					width: 80%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="p-bk"></div>
+		<div class="p-bar"></div>
+	</body>
+</html>

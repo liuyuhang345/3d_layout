@@ -6,7 +6,6 @@
 
 // 中间版本，开发中，未完
 
-
 /**
  * @description  画3D空间中的线段.
  * @param {Object} selectorMe 线段所在的容器，CSS选择器或JQ对象
@@ -23,15 +22,8 @@ function $line(selectorMe, point1, point2, color, width, unit) {
 	var color = color || "black";
 
 	$(selectorMe).css("transform-style", "preserve-3d");
-
-	// (x-x1)/(x-x2)＝(y-y1)/(y-y2)＝(z-z1)/(z-z2)
-
-
-	// (x－x1)/(x2－x1)＝(y－y1)/(y2－y1)＝(z－z1)/(z2－z1)
 	// 创建div，表示点
 	var point = $("<div></div>");
-
-
 
 	var mcss = {
 		"position": "absolute", //左端作为原点
